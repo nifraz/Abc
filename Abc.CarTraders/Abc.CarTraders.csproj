@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6B21CB1-F699-4622-9E48-066E18609833}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ABC.CarTraders</RootNamespace>
+    <AssemblyName>ABC</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.3.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ABC.CarTraders.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net40\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MRG.Controls.UI">
+      <HintPath>..\dlls\MRG.Controls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.EntityFramework, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.EntityFramework.1.0.1\lib\net45\PagedList.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Domain\Institute.cs" />
+    <Compile Include="Core\Domain\Log.cs" />
+    <Compile Include="Core\Domain\User.cs" />
+    <Compile Include="Core\Repositories\IInstituteRepository.cs" />
+    <Compile Include="Core\Repositories\ILogRepository.cs" />
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Core\Domain\CalvingRecord.cs" />
+    <Compile Include="Core\Domain\CalvingSheet.cs" />
+    <Compile Include="Core\Domain\District.cs" />
+    <Compile Include="Core\Domain\Province.cs" />
+    <Compile Include="Core\Domain\Technician.cs" />
+    <Compile Include="Core\Domain\VsRange.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\ICalvingRecordRepository.cs" />
+    <Compile Include="Core\Repositories\ICalvingSheetRepository.cs" />
+    <Compile Include="Core\Repositories\IDistrictRepository.cs" />
+    <Compile Include="Core\Repositories\IProvinceRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\ITechnicianRepository.cs" />
+    <Compile Include="Core\Repositories\IVsRangeRepository.cs" />
+    <Compile Include="GUI\Forms\InstituteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\InstituteForm.Designer.cs">
+      <DependentUpon>InstituteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\LogSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\LogSection.Designer.cs">
+      <DependentUpon>LogSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\VsRangeSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\VsRangeSection.Designer.cs">
+      <DependentUpon>VsRangeSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\DatabaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\DatabaseForm.Designer.cs">
+      <DependentUpon>DatabaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\TechnicianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\TechnicianForm.Designer.cs">
+      <DependentUpon>TechnicianForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\VsRangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\VsRangeForm.Designer.cs">
+      <DependentUpon>VsRangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\UserSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\UserSection.Designer.cs">
+      <DependentUpon>UserSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111130754511_Initial.cs" />
+    <Compile Include="Migrations\202111130754511_Initial.designer.cs">
+      <DependentUpon>202111130754511_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\EntityConfigurations\CalvingRecordConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CalvingSheetConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\InstituteConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\LogConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\TechnicianConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\AbcCarTradersContext.cs" />
+    <Compile Include="Persistence\EntityConfigurations\DistrictConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ProvinceConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\VsRangeConfiguration.cs" />
+    <Compile Include="Persistence\Repositories\CalvingRecordRepository.cs" />
+    <Compile Include="Persistence\Repositories\CalvingSheetRepository.cs" />
+    <Compile Include="Persistence\Repositories\DistrictRepository.cs" />
+    <Compile Include="Persistence\Repositories\InstituteRepository.cs" />
+    <Compile Include="Persistence\Repositories\LogRepository.cs" />
+    <Compile Include="Persistence\Repositories\ProvinceRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\TechnicianRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\Repositories\VsRangeRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\CalvingSheetSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\CalvingSheetSection.Designer.cs">
+      <DependentUpon>CalvingSheetSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\StatisticsSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\StatisticsSection.Designer.cs">
+      <DependentUpon>StatisticsSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\LoginSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\LoginSection.Designer.cs">
+      <DependentUpon>LoginSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\Sections\InstituteSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\InstituteSection.Designer.cs">
+      <DependentUpon>InstituteSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\CalvingSheetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\CalvingSheetForm.Designer.cs">
+      <DependentUpon>CalvingSheetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\SemenSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\SemenSection.Designer.cs">
+      <DependentUpon>SemenSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\TechnicianSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\TechnicianSection.Designer.cs">
+      <DependentUpon>TechnicianSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Sections\CalvingRecordSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\CalvingRecordSection.Designer.cs">
+      <DependentUpon>CalvingRecordSection.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\Forms\InstituteForm.resx">
+      <DependentUpon>InstituteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\LogSection.resx">
+      <DependentUpon>LogSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\VsRangeSection.resx">
+      <DependentUpon>VsRangeSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\CalvingSheetSection.resx">
+      <DependentUpon>CalvingSheetSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\DatabaseForm.resx">
+      <DependentUpon>DatabaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\StatisticsSection.resx">
+      <DependentUpon>StatisticsSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\LoginSection.resx">
+      <DependentUpon>LoginSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\TechnicianForm.resx">
+      <DependentUpon>TechnicianForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\VsRangeForm.resx">
+      <DependentUpon>VsRangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\UserSection.resx">
+      <DependentUpon>UserSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111130754511_Initial.resx">
+      <DependentUpon>202111130754511_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\InstituteSection.resx">
+      <DependentUpon>InstituteSection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\CalvingSheetForm.resx">
+      <DependentUpon>CalvingSheetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\SemenSection.resx">
+      <DependentUpon>SemenSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\TechnicianSection.resx">
+      <DependentUpon>TechnicianSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\CalvingRecordSection.resx">
+      <DependentUpon>CalvingRecordSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cow-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manage-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manage-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mysql-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sheet-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sheet-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cow-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullscreen-dark.png" />
+    <None Include="Resources\fullscreen-big-dark.png" />
+    <None Include="Resources\stats-dar.png" />
+    <None Include="Resources\key-dark.png" />
+    <None Include="Resources\unlock-light.png" />
+    <None Include="Resources\unlock-dark.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\clock-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collapse-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collapse-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expand-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\icons8_available_updates_20px_1.png" />
+    <None Include="Resources\icons8_available_updates_20px.png" />
+    <None Include="Resources\icons8_verified_account_15px_1.png" />
+    <None Include="Resources\icons8_verified_account_15px.png" />
+    <None Include="Resources\icons8_preview_pane_15px_1.png" />
+    <None Include="Resources\icons8_preview_pane_15px.png" />
+    <None Include="Resources\icons8_company_15px_3.png" />
+    <None Include="Resources\icons8_company_15px_2.png" />
+    <None Include="Resources\icons8_list_view_15px_1.png" />
+    <None Include="Resources\icons8_list_view_15px.png" />
+    <None Include="Resources\icons8_graph_15px_1.png" />
+    <None Include="Resources\icons8_graph_15px.png" />
+    <None Include="Resources\icons8_print_15px_1.png" />
+    <None Include="Resources\icons8_print_15px.png" />
+    <None Include="Resources\icons8_logout_rounded_left_25px_1.png" />
+    <None Include="Resources\icons8_logout_rounded_left_25px.png" />
+    <None Include="Resources\icons8_bull_25px_1.png" />
+    <None Include="Resources\icons8_bull_25px.png" />
+    <None Include="Resources\icons8_list_view_25px_1.png" />
+    <None Include="Resources\icons8_list_view_25px.png" />
+    <None Include="Resources\icons8_spreadsheet_file_25px_1.png" />
+    <None Include="Resources\icons8_spreadsheet_file_25px.png" />
+    <None Include="Resources\icons8_worker_15px_1.png" />
+    <None Include="Resources\icons8_worker_15px.png" />
+    <None Include="Resources\icons8_worker_25px_1.png" />
+    <None Include="Resources\icons8_worker_25px.png" />
+    <None Include="Resources\icons8_company_25px_1.png" />
+    <None Include="Resources\icons8_company_25px.png" />
+    <None Include="Resources\icons8_map_marker_25px_1.png" />
+    <None Include="Resources\icons8_map_marker_25px.png" />
+    <None Include="Resources\icons8_user_25px_1.png" />
+    <None Include="Resources\icons8_user_25px.png" />
+    <None Include="Resources\icons8_plot_25px_1.png" />
+    <None Include="Resources\icons8_plot_25px.png" />
+    <None Include="Resources\icons8_statistics_20px_1.png" />
+    <None Include="Resources\icons8_statistics_20px.png" />
+    <None Include="Resources\icons8_company_15px_1.png" />
+    <None Include="Resources\icons8_company_15px.png" />
+    <None Include="Resources\icons8_veterinarian_30px_1.png" />
+    <None Include="Resources\icons8_veterinarian_30px.png" />
+    <None Include="Resources\icons8_spreadsheet_file_15px_1.png" />
+    <None Include="Resources\icons8_spreadsheet_file_15px.png" />
+    <None Include="Resources\icons8_transaction_list_15px_2.png" />
+    <None Include="Resources\icons8_transaction_list_15px_1.png" />
+    <None Include="Resources\icons8_transaction_list_30px_1.png" />
+    <None Include="Resources\icons8_transaction_list_30px.png" />
+    <None Include="Resources\icons8_spreadsheet_file_30px_1.png" />
+    <None Include="Resources\icons8_spreadsheet_file_30px.png" />
+    <None Include="Resources\icons8_cow_breed_15px_1.png" />
+    <None Include="Resources\icons8_cow_breed_15px.png" />
+    <None Include="Resources\icons8_cow_breed_30px_1.png" />
+    <None Include="Resources\icons8_cow_breed_30px.png" />
+    <None Include="Resources\icons8_department_15px_1.png" />
+    <None Include="Resources\icons8_department_15px.png" />
+    <None Include="Resources\icons8_department_30px_1.png" />
+    <None Include="Resources\icons8_department_30px.png" />
+    <None Include="Resources\icons8_folder_20px_1.png" />
+    <None Include="Resources\icons8_folder_20px.png" />
+    <None Include="Resources\icons8_wired_network_connection_15px_1.png" />
+    <None Include="Resources\icons8_wired_network_connection_15px.png" />
+    <None Include="Resources\icons8_map_marker_20px_1.png" />
+    <None Include="Resources\icons8_map_marker_20px.png" />
+    <None Include="Resources\icons8_doctors_bag_20px_1.png" />
+    <None Include="Resources\icons8_doctors_bag_20px.png" />
+    <None Include="Resources\icons8_medical_doctor_20px_1.png" />
+    <None Include="Resources\icons8_medical_doctor_20px.png" />
+    <None Include="Resources\icons8_bull_20px_1.png" />
+    <None Include="Resources\icons8_bull_20px.png" />
+    <None Include="Resources\icons8_table_and_graph_20px_1.png" />
+    <None Include="Resources\icons8_table_and_graph_20px.png" />
+    <None Include="Resources\icons8_minus_1_year_15px_1.png" />
+    <None Include="Resources\icons8_plus_1_year_15px_1.png" />
+    <None Include="Resources\icons8_minus_1_year_15px.png" />
+    <None Include="Resources\icons8_plus_1_year_15px.png" />
+    <None Include="Resources\icons8_cancel_15px_1.png" />
+    <None Include="Resources\icons8_cancel_15px.png" />
+    <None Include="Resources\icons8_search_database_15px_4.png" />
+    <None Include="Resources\icons8_search_database_15px_3.png" />
+    <None Include="Resources\icons8_search_database_15px_2.png" />
+    <None Include="Resources\icons8_search_database_15px_1.png" />
+    <None Include="Resources\icons8_database_export_15px_1.png" />
+    <None Include="Resources\icons8_database_export_15px.png" />
+    <None Include="Resources\icons8_today_15px_1.png" />
+    <None Include="Resources\icons8_today_15px.png" />
+    <None Include="Resources\icons8_clear_filters_15px_1.png" />
+    <None Include="Resources\icons8_clear_filters_15px.png" />
+    <None Include="Resources\icons8_todo_list_15px_1.png" />
+    <None Include="Resources\icons8_todo_list_15px.png" />
+    <None Include="Resources\icons8_index_15px_2.png" />
+    <None Include="Resources\icons8_index_15px.png" />
+    <None Include="Resources\icons8_box_important_15px_1.png" />
+    <None Include="Resources\icons8_box_important_15px.png" />
+    <None Include="Resources\icons8_user_20px_1.png" />
+    <None Include="Resources\icons8_user_20px.png" />
+    <None Include="Resources\icons8_database_restore_20px_2.png" />
+    <None Include="Resources\icons8_database_restore_15px_1.png" />
+    <None Include="Resources\icons8_database_restore_15px.png" />
+    <None Include="Resources\icons8_database_restore_20px_1.png" />
+    <None Include="Resources\icons8_database_restore_20px.png" />
+    <None Include="Resources\icons8_database_import_20px.png" />
+    <None Include="Resources\icons8_database_import_15px_1.png" />
+    <None Include="Resources\icons8_database_import_15px.png" />
+    <None Include="Resources\icons8_checkmark_15px_1.png" />
+    <None Include="Resources\icons8_checkmark_15px.png" />
+    <None Include="Resources\icons8_save_20px_1.png" />
+    <None Include="Resources\icons8_save_20px.png" />
+    <None Include="Resources\calving_banner_450x200.png" />
+    <None Include="Resources\calving_banner_500x200.png" />
+    <None Include="Resources\icons8_todo_list_20px_1.png" />
+    <None Include="Resources\icons8_todo_list_20px.png" />
+    <None Include="Resources\icons8_right_15px_3.png" />
+    <None Include="Resources\icons8_right_15px_2.png" />
+    <None Include="Resources\icons8_down_15px_3.png" />
+    <None Include="Resources\icons8_down_15px_2.png" />
+    <None Include="Resources\icons8_add_15px_1.png" />
+    <None Include="Resources\icons8_add_15px.png" />
+    <None Include="Resources\icons8_down_15px_1.png" />
+    <None Include="Resources\icons8_down_15px.png" />
+    <None Include="Resources\icons8_right_15px_1.png" />
+    <None Include="Resources\icons8_right_15px.png" />
+    <None Include="Resources\icons8_rearrange_15px_1.png" />
+    <None Include="Resources\icons8_rearrange_15px.png" />
+    <None Include="Resources\icons8_clear_symbol_15px_1.png" />
+    <None Include="Resources\icons8_clear_symbol_15px.png" />
+    <None Include="Resources\icons8_replicate_rows_15px.png" />
+    <None Include="Resources\pull_down_dark_15px.png" />
+    <None Include="Resources\pull_up_light_15px.png" />
+    <None Include="Resources\pull_up_dark_15px.png" />
+    <None Include="Resources\pull_down_light_15px.png" />
+    <None Include="Resources\icons8_pull_down_15px.png" />
+    <None Include="Resources\icons8_calendar_25px_1.png" />
+    <None Include="Resources\icons8_calendar_25px.png" />
+    <None Include="Resources\calving_banner_400x200.png" />
+    <None Include="Resources\icons8_paint_palette_20px_1.png" />
+    <None Include="Resources\icons8_paint_palette_20px.png" />
+    <None Include="Resources\icons8_call_15px_1.png" />
+    <None Include="Resources\icons8_call_15px.png" />
+    <None Include="Resources\icons8_minus_sign_15px_1.png" />
+    <None Include="Resources\icons8_minus_sign_15px.png" />
+    <None Include="Resources\icons8_search_database_15px.png" />
+    <None Include="Resources\icons8_map_marker_15px_1.png" />
+    <None Include="Resources\icons8_map_marker_15px.png" />
+    <None Include="Resources\icons8_replicate_rows_15px_1.png" />
+    <None Include="Resources\icons8_delete_row_15px_1.png" />
+    <None Include="Resources\icons8_delete_row_15px.png" />
+    <None Include="Resources\icons8_insert_row_above_15px_1.png" />
+    <None Include="Resources\icons8_insert_row_15px_1.png" />
+    <None Include="Resources\icons8_insert_row_above_15px.png" />
+    <None Include="Resources\icons8_insert_row_15px.png" />
+    <None Include="Resources\icons8_grid_view_15px_1.png" />
+    <None Include="Resources\icons8_grid_view_15px.png" />
+    <None Include="Resources\icons8_xls_export_15px_1.png" />
+    <None Include="Resources\icons8_xls_export_15px.png" />
+    <None Include="Resources\icons8_home_page_30px_1.png" />
+    <None Include="Resources\icons8_home_page_30px.png" />
+    <None Include="Resources\icons8_facebook_logo_50px_1.png" />
+    <None Include="Resources\icons8_facebook_logo_50px.png" />
+    <None Include="Resources\icons8_facebook_messenger_50px_1.png" />
+    <None Include="Resources\icons8_facebook_messenger_50px.png" />
+    <None Include="Resources\icons8_whatsapp_50px_1.png" />
+    <None Include="Resources\icons8_whatsapp_50px.png" />
+    <None Include="Resources\icons8_phone_50px_1.png" />
+    <None Include="Resources\icons8_phone_50px.png" />
+    <None Include="Resources\calving_banner_500x240.png" />
+    <None Include="Resources\icons8_home_page_60px_1.png" />
+    <None Include="Resources\icons8_home_page_60px.png" />
+    <None Include="Resources\icons8_available_updates_50px_2.png" />
+    <None Include="Resources\icons8_available_updates_50px_1.png" />
+    <None Include="Resources\icons8_home_page_100px_1.png" />
+    <None Include="Resources\icons8_home_page_100px.png" />
+    <None Include="Resources\icons8_home_page_127px_1.png" />
+    <None Include="Resources\icons8_home_page_127px.png" />
+    <None Include="Resources\icons8_mail_50px_2.png" />
+    <None Include="Resources\icons8_mail_50px_1.png" />
+    <None Include="Resources\icons8_mail_50px.png" />
+    <None Include="Resources\icons8_mail_127px_1.png" />
+    <None Include="Resources\icons8_mail_127px.png" />
+    <None Include="Resources\Dept Logo BW_cr.png" />
+    <None Include="Resources\icons8_sync_127px_1.png" />
+    <None Include="Resources\icons8_sync_127px.png" />
+    <None Include="Resources\icons8_collapse_arrow_127px_1.png" />
+    <None Include="Resources\icons8_expand_arrow_127px_1.png" />
+    <None Include="Resources\icons8_expand_arrow_127px.png" />
+    <None Include="Resources\icons8_collapse_arrow_127px.png" />
+    <None Include="Resources\icons8_building_with_rooftop_terrace_127px_2.png" />
+    <None Include="Resources\icons8_building_with_rooftop_terrace_127px_1.png" />
+    <None Include="Resources\icons8_building_with_rooftop_terrace_127px.png" />
+    <None Include="Resources\icons8_warehouse_15px_1.png" />
+    <None Include="Resources\icons8_warehouse_15px.png" />
+    <None Include="Resources\icons8_restart_15px_1.png" />
+    <None Include="Resources\icons8_restart_15px.png" />
+    <None Include="Resources\icons8_table_and_graph_15px_1.png" />
+    <None Include="Resources\icons8_table_and_graph_15px.png" />
+    <None Include="Resources\icons8_data_15px.png" />
+    <None Include="Resources\icons8_sort_15px_1.png" />
+    <None Include="Resources\icons8_sort_15px.png" />
+    <None Include="Resources\icons8_loading_sign_15px_1.png" />
+    <None Include="Resources\icons8_loading_sign_15px.png" />
+    <None Include="Resources\icons8_ok_15px_1.png" />
+    <None Include="Resources\icons8_ok_15px.png" />
+    <None Include="Resources\icons8_code_15px_1.png" />
+    <None Include="Resources\icons8_code_15px.png" />
+    <None Include="Resources\icons8_medical_doctor_15px_1.png" />
+    <None Include="Resources\icons8_medical_doctor_15px.png" />
+    <None Include="Resources\calving_banner_600x200.jpg" />
+    <None Include="Resources\icons8_hide_15px_2.png" />
+    <None Include="Resources\icons8_hide_15px_1.png" />
+    <None Include="Resources\icons8_hide_15px.png" />
+    <None Include="Resources\icons8_eye_15px_1.png" />
+    <None Include="Resources\icons8_eye_15px.png" />
+    <None Include="Resources\icons8_w_15px_1.png" />
+    <None Include="Resources\icons8_w_15px.png" />
+    <None Include="Resources\icons8_plus_1_week_15px_1.png" />
+    <None Include="Resources\icons8_plus_1_week_15px.png" />
+    <None Include="Resources\icons8_up_down_arrow_15px_1.png" />
+    <None Include="Resources\icons8_up_down_arrow_15px.png" />
+    <None Include="Resources\icons8_clear_search_15px_1.png" />
+    <None Include="Resources\icons8_clear_search_15px.png" />
+    <None Include="Resources\icons8_search_in_list_15px_1.png" />
+    <None Include="Resources\icons8_search_15px_1.png" />
+    <None Include="Resources\icons8_search_15px.png" />
+    <None Include="Resources\icons8_search_in_list_15px.png" />
+    <None Include="Resources\calving_banner_800x200.jpg" />
+    <None Include="Resources\icons8_last_15px_1.png" />
+    <None Include="Resources\icons8_last_15px.png" />
+    <None Include="Resources\icons8_first_15px_1.png" />
+    <None Include="Resources\icons8_first_15px.png" />
+    <None Include="Resources\icons8_transaction_list_15px.png" />
+    <None Include="Resources\calving_banner.jpg" />
+    <None Include="Resources\icons8_save_15px_1.png" />
+    <None Include="Resources\icons8_save_15px.png" />
+    <None Include="Resources\icons8_add_new_15px_1.png" />
+    <None Include="Resources\icons8_add_new_15px.png" />
+    <None Include="Resources\icons8_previous_15px_1.png" />
+    <None Include="Resources\icons8_next_15px_3.png" />
+    <None Include="Resources\icons8_next_15px_2.png" />
+    <None Include="Resources\icons8_previous_15px.png" />
+    <None Include="Resources\icons8_next_15px_1.png" />
+    <None Include="Resources\icons8_next_15px.png" />
+    <None Include="Resources\doctors_bag_dark_15px.png" />
+    <None Include="Resources\warehouse_light_15px.png" />
+    <None Include="Resources\warehouse_dark_15px.png" />
+    <None Include="Resources\medical_doctor_light_15px.png" />
+    <None Include="Resources\medical_doctor_dark_15px.png" />
+    <None Include="Resources\doctors_bag_light_15px.png" />
+    <None Include="Resources\map_marker_dark_30px.png" />
+    <None Include="Resources\map_marker_light_30px.png" />
+    <None Include="Resources\geography_dark_20px.png" />
+    <None Include="Resources\geography_light_20px.png" />
+    <None Include="Resources\user-dark.png" />
+    <None Include="Resources\user-light.png" />
+    <None Include="Resources\calendar-dark.png" />
+    <None Include="Resources\calendar-light.png" />
+    <None Include="Resources\lock_light_15px.png" />
+    <None Include="Resources\lock_dark_15px.png" />
+    <None Include="Resources\key-dark-15px.png" />
+    <None Include="Resources\arrow_dark_15px.png" />
+    <None Include="Resources\arrow_dark_15px_1.png" />
+    <None Include="Resources\arrow_light_15px.png" />
+    <None Include="Resources\pie_chart_light_15px.png" />
+    <None Include="Resources\pie_chart_dark_15px.png" />
+    <None Include="Resources\line_chart_light_15px.png" />
+    <None Include="Resources\line_chart_dark_15px.png" />
+    <None Include="Resources\calendar_dark_15px.png" />
+    <None Include="Resources\calendar_light_15px.png" />
+    <None Include="Resources\reset-dark.png" />
+    <None Include="Resources\reset-light.png" />
+    <None Include="Resources\region-light.png" />
+    <None Include="Resources\region-dark.png" />
+    <None Include="Resources\location-light.png" />
+    <None Include="Resources\location-dark.png" />
+    <None Include="Resources\map-light.png" />
+    <None Include="Resources\map-dark.png" />
+    <None Include="Resources\key-light.png" />
+    <None Include="Resources\date-to-light.png" />
+    <None Include="Resources\date-to-dark.png" />
+    <None Include="Resources\date-from-light.png" />
+    <None Include="Resources\date-from-dark.png" />
+    <None Include="Resources\database-light.png" />
+    <None Include="Resources\database-dark.png" />
+    <None Include="Resources\timesheet-light.png" />
+    <None Include="Resources\timesheet-dark.png" />
+    <None Include="Resources\year-light.png" />
+    <None Include="Resources\lock-light.png" />
+    <None Include="Resources\add-light.png" />
+    <None Include="Resources\edit-light.png" />
+    <None Include="Resources\delete-light.png" />
+    <None Include="Resources\logout-dark.png" />
+    <None Include="Resources\logout-light.png" />
+    <None Include="Resources\login-dark.png" />
+    <None Include="Resources\login-light.png" />
+    <None Include="Resources\refresh-light.png" />
+    <None Include="Resources\filter-light.png" />
+    <None Include="Resources\daph-light.png" />
+    <None Include="Resources\daph-dark.png" />
+    <None Include="Resources\close-light.png" />
+    <None Include="Resources\close-dark.png" />
+    <None Include="Resources\refresh-dark.png" />
+    <None Include="Resources\warehouse-large-light.png" />
+    <None Include="Resources\syringe-large-light.png" />
+    <None Include="Resources\medic-large-light.png" />
+    <None Include="Resources\doctor-large-light.png" />
+    <None Include="Resources\warehouse-dark.png" />
+    <None Include="Resources\warehouse-light.png" />
+    <None Include="Resources\loading-dark.png" />
+    <None Include="Resources\loading-light.png" />
+    <None Include="Resources\progress-light.png" />
+    <None Include="Resources\progress-dark.png" />
+    <None Include="Resources\filter-dark.png" />
+    <None Include="Resources\cloud-sync-dark.png" />
+    <None Include="Resources\cloud-sync-light.png" />
+    <None Include="Resources\bull-light.png" />
+    <None Include="Resources\bull-dark.png" />
+    <None Include="Resources\syringe-light.png" />
+    <None Include="Resources\syringe-dark.png" />
+    <None Include="Resources\stats-light.png" />
+    <None Include="Resources\stats-dark.png" />
+    <None Include="Resources\medic-light.png" />
+    <None Include="Resources\medic-dark.png" />
+    <None Include="Resources\doctor-light.png" />
+    <None Include="Resources\doctor-dark.png" />
+    <None Include="Resources\save-dark.png" />
+    <None Include="Resources\edit-dark.png" />
+    <None Include="Resources\delete-dark.png" />
+    <None Include="Resources\add-dark.png" />
+    <None Include="Resources\exit-dark.png" />
+    <None Include="Resources\exit-light.png" />
+    <None Include="Resources\mail-normal-dark.png" />
+    <None Include="Resources\mail-urgent-dark.png" />
+    <None Include="Resources\info-big-dark.png" />
+    <None Include="Resources\error-dark.png" />
+    <None Include="Resources\ok-dark.png" />
+    <None Include="Resources\warning-dark.png" />
+    <None Include="Resources\settings-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ABC.Material\Abc.Material.csproj">
+      <Project>{3c9d88a4-f5db-4ba5-8c2e-79a14d41cd8d}</Project>
+      <Name>Abc.Material</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

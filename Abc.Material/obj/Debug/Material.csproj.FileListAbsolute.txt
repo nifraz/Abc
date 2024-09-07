@@ -1,0 +1,17 @@
+C:\Users\DBA\Desktop\Daph\Styles\bin\Debug\Material.dll
+C:\Users\DBA\Desktop\Daph\Styles\bin\Debug\Material.pdb
+C:\Users\DBA\Desktop\Daph\Styles\obj\Debug\Material.csprojResolveAssemblyReference.cache
+C:\Users\DBA\Desktop\Daph\Styles\obj\Debug\Material.dll
+C:\Users\DBA\Desktop\Daph\Styles\obj\Debug\Material.pdb
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Debug\Material.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Debug\Material.pdb
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Material.csproj.AssemblyReference.cache
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Material.csproj.CoreCompileInputs.cache
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Material.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\bin\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\bin\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.csproj.AssemblyReference.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.csproj.CoreCompileInputs.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.pdb

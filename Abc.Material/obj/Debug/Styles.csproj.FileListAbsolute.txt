@@ -1,0 +1,4 @@
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Debug\Styles.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Debug\Styles.pdb
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Styles.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Debug\Styles.pdb

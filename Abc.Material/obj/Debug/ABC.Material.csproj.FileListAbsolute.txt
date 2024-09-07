@@ -1,0 +1,12 @@
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\bin\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\bin\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\ABC.Material.csproj.AssemblyReference.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\ABC.Material.csproj.CoreCompileInputs.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\Styles\obj\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\bin\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\bin\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\ABC.Material.csproj.AssemblyReference.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\ABC.Material.csproj.CoreCompileInputs.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\Material.pdb

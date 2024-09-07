@@ -1,0 +1,10 @@
+C:\Users\DBA\Documents\Visual Studio 2015\Projects\Daph\Styles\bin\Release\Material.dll
+C:\Users\DBA\Documents\Visual Studio 2015\Projects\Daph\Styles\bin\Release\Material.pdb
+C:\Users\DBA\Documents\Visual Studio 2015\Projects\Daph\Styles\obj\Release\Material.csprojResolveAssemblyReference.cache
+C:\Users\DBA\Documents\Visual Studio 2015\Projects\Daph\Styles\obj\Release\Material.dll
+C:\Users\DBA\Documents\Visual Studio 2015\Projects\Daph\Styles\obj\Release\Material.pdb
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Release\Material.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\bin\Release\Material.pdb
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Release\Material.csprojResolveAssemblyReference.cache
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Release\Material.dll
+C:\Users\NifraZ\OneDrive\Projects\Daph\Styles\obj\Release\Material.pdb
