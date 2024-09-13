@@ -1,26 +1,25 @@
-﻿using System;
+﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.GUI.Forms;
+using LiveCharts;
+using LiveCharts.Wpf;
+using Material.Styles;
+using MRG.Controls.UI;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Material.Styles;
-using ABC.CarTraders.GUI.Forms;
-using ABC.CarTraders.Core.Domain;
-using LiveCharts;
-using LiveCharts.Wpf;
-using System.Diagnostics;
-using MRG.Controls.UI;
-using ABC.CarTraders.Core;
-using System.Drawing.Printing;
 
 namespace ABC.CarTraders.GUI.Sections
 {
     public partial class StatisticsSection : UserControl, IColoredControl
     {
         #region Common
-        private IUnitOfWork UnitOfWork { get { return DashboardForm.UnitOfWork; } }
+        private AppDbContext DbContext { get { return DashboardForm.DbContext; } }
         private User User { get { return DashboardForm.User; } }
         #endregion
 
@@ -141,31 +140,31 @@ namespace ABC.CarTraders.GUI.Sections
 
         public void LoadInitialData()
         {
-            cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-            cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
-            cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
-            cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
+            //cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
+            //cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
+            //cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
+            //cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
 
-            var provinces = new List<string>() { "All" };
-            provinces.AddRange(UnitOfWork.Provinces.GetAllCached().OrderBy(p => p.Name).Select(p => p.Name));
-            cboProvince.DataSource = provinces;
+            //var provinces = new List<string>() { "All" };
+            //provinces.AddRange(DbContext.Provinces.GetAllCached().OrderBy(p => p.Name).Select(p => p.Name));
+            //cboProvince.DataSource = provinces;
 
-            var districts = new List<string>() { "All" };
-            districts.AddRange(UnitOfWork.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
-            cboDistrict.DataSource = districts;
+            //var districts = new List<string>() { "All" };
+            //districts.AddRange(DbContext.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
+            //cboDistrict.DataSource = districts;
 
-            var vsRanges = new List<string>() { "All" };
-            vsRanges.AddRange(UnitOfWork.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            cboVsRange.DataSource = vsRanges;
+            //var vsRanges = new List<string>() { "All" };
+            //vsRanges.AddRange(DbContext.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
+            //cboVsRange.DataSource = vsRanges;
 
-            var institutes = new List<string>() { "All" };
-            institutes.AddRange(UnitOfWork.Institutes.GetAllCached().OrderBy(i => i.Name).Select(i => i.Name));
-            cboInstitute.DataSource = institutes;
+            //var institutes = new List<string>() { "All" };
+            //institutes.AddRange(DbContext.Institutes.GetAllCached().OrderBy(i => i.Name).Select(i => i.Name));
+            //cboInstitute.DataSource = institutes;
 
-            cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
-            cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
-            cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
-            cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
+            //cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
+            //cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
+            //cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
+            //cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
         }
         #endregion
 
@@ -477,77 +476,77 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Filter
-        private Province CalvingRecordProvince
-        {
-            get
-            {
-                if (cboProvince.Text != "All")
-                {
-                    return UnitOfWork.Provinces.GetAllCached().SingleOrDefault(p => p.Name == cboProvince.Text);
-                }
-                return null;
-            }
-            set
-            {
-                cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-                cboProvince.SelectedItem = value == null ? "All" : value.ToString();
-                cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
-            }
-        }
+        //private Province CalvingRecordProvince
+        //{
+        //    get
+        //    {
+        //        if (cboProvince.Text != "All")
+        //        {
+        //            return DbContext.Provinces.GetAllCached().SingleOrDefault(p => p.Name == cboProvince.Text);
+        //        }
+        //        return null;
+        //    }
+        //    set
+        //    {
+        //        cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
+        //        cboProvince.SelectedItem = value == null ? "All" : value.ToString();
+        //        cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
+        //    }
+        //}
 
-        private District CalvingRecordDistrict
-        {
-            get
-            {
-                if (cboDistrict.Text != "All")
-                {
-                    return UnitOfWork.Districts.GetAllCached().SingleOrDefault(d => d.Name == cboDistrict.Text);
-                }
-                return null;
-            }
-            set
-            {
-                cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
-                cboDistrict.SelectedItem = value == null ? "All" : value.ToString();
-                cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
-            }
-        }
+        //private District CalvingRecordDistrict
+        //{
+        //    get
+        //    {
+        //        if (cboDistrict.Text != "All")
+        //        {
+        //            return DbContext.Districts.GetAllCached().SingleOrDefault(d => d.Name == cboDistrict.Text);
+        //        }
+        //        return null;
+        //    }
+        //    set
+        //    {
+        //        cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
+        //        cboDistrict.SelectedItem = value == null ? "All" : value.ToString();
+        //        cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
+        //    }
+        //}
 
-        private VsRange CalvingRecordVsRange
-        {
-            get
-            {
-                if (cboVsRange.Text != "All")
-                {
-                    return UnitOfWork.VsRanges.GetAllCached().SingleOrDefault(d => d.Name == cboVsRange.Text);
-                }
-                return null;
-            }
-            set
-            {
-                cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
-                cboVsRange.SelectedItem = value == null ? "All" : value.ToString();
-                cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
-            }
-        }
+        //private VsRange CalvingRecordVsRange
+        //{
+        //    get
+        //    {
+        //        if (cboVsRange.Text != "All")
+        //        {
+        //            return DbContext.VsRanges.GetAllCached().SingleOrDefault(d => d.Name == cboVsRange.Text);
+        //        }
+        //        return null;
+        //    }
+        //    set
+        //    {
+        //        cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
+        //        cboVsRange.SelectedItem = value == null ? "All" : value.ToString();
+        //        cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
+        //    }
+        //}
 
-        private Institute CalvingRecordInstitute
-        {
-            get
-            {
-                if (cboInstitute.Text != "All")
-                {
-                    return UnitOfWork.Institutes.GetAllCached().SingleOrDefault(d => d.Name == cboInstitute.Text);
-                }
-                return null;
-            }
-            set
-            {
-                cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
-                cboInstitute.SelectedItem = value == null ? "All" : value.ToString();
-                cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
-            }
-        }
+        //private Institute CalvingRecordInstitute
+        //{
+        //    get
+        //    {
+        //        if (cboInstitute.Text != "All")
+        //        {
+        //            return DbContext.Institutes.GetAllCached().SingleOrDefault(d => d.Name == cboInstitute.Text);
+        //        }
+        //        return null;
+        //    }
+        //    set
+        //    {
+        //        cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
+        //        cboInstitute.SelectedItem = value == null ? "All" : value.ToString();
+        //        cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
+        //    }
+        //}
 
         private int? CalvingRecordTechnicianCode
         {
@@ -595,12 +594,12 @@ namespace ABC.CarTraders.GUI.Sections
 
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (CalvingRecordProvince == null && CalvingRecordDistrict == null && CalvingRecordVsRange == null && CalvingRecordInstitute == null && CalvingRecordTechnicianCode == null && CalvingRecordSemenCode == null) return;
+            if (CalvingRecordTechnicianCode == null && CalvingRecordSemenCode == null) return;
 
-            CalvingRecordProvince = null;
-            CalvingRecordDistrict = null;
-            CalvingRecordVsRange = null;
-            CalvingRecordInstitute = null;
+            //CalvingRecordProvince = null;
+            //CalvingRecordDistrict = null;
+            //CalvingRecordVsRange = null;
+            //CalvingRecordInstitute = null;
             CalvingRecordTechnicianCode = null;
             CalvingRecordSemenCode = null;
 
@@ -610,41 +609,41 @@ namespace ABC.CarTraders.GUI.Sections
 
         private void cboProvince_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (UnitOfWork == null) return;
-            var districts = new List<string>() { "All" };
-            if (cboProvince.Text.Equals("All"))
-            {
-                districts.AddRange(UnitOfWork.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
-            }
-            else
-            {
-                districts.AddRange(UnitOfWork.Districts.GetAllCached().Where(d => d.Province.Name.Equals(cboProvince.Text)).OrderBy(d => d.Name).Select(d => d.Name));
-            }
+            //if (DbContext == null) return;
+            //var districts = new List<string>() { "All" };
+            //if (cboProvince.Text.Equals("All"))
+            //{
+            //    districts.AddRange(DbContext.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
+            //}
+            //else
+            //{
+            //    districts.AddRange(DbContext.Districts.GetAllCached().Where(d => d.Province.Name.Equals(cboProvince.Text)).OrderBy(d => d.Name).Select(d => d.Name));
+            //}
 
-            cboDistrict.DataSource = districts;
+            //cboDistrict.DataSource = districts;
         }
 
         private void cboDistrict_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (UnitOfWork == null) return;
-            var vsRanges = new List<string>() { "All" };
-            if (cboDistrict.Text.Equals("All"))
-            {
-                if (cboProvince.Text.Equals("All"))
-                {
-                    vsRanges.AddRange(UnitOfWork.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-                }
-                else
-                {
-                    vsRanges.AddRange(UnitOfWork.VsRanges.GetAllCached().Where(vsr => vsr.Province.Name.Equals(cboProvince.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-                }
-            }
-            else
-            {
-                vsRanges.AddRange(UnitOfWork.VsRanges.GetAllCached().Where(vsr => vsr.District.Name.Equals(cboDistrict.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            }
+            //if (DbContext == null) return;
+            //var vsRanges = new List<string>() { "All" };
+            //if (cboDistrict.Text.Equals("All"))
+            //{
+            //    if (cboProvince.Text.Equals("All"))
+            //    {
+            //        vsRanges.AddRange(DbContext.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
+            //    }
+            //    else
+            //    {
+            //        vsRanges.AddRange(DbContext.VsRanges.GetAllCached().Where(vsr => vsr.Province.Name.Equals(cboProvince.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
+            //    }
+            //}
+            //else
+            //{
+            //    vsRanges.AddRange(DbContext.VsRanges.GetAllCached().Where(vsr => vsr.District.Name.Equals(cboDistrict.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
+            //}
 
-            cboVsRange.DataSource = vsRanges;
+            //cboVsRange.DataSource = vsRanges;
         }
 
         private async void cboVsRange_SelectedValueChanged(object sender, EventArgs e)
@@ -723,44 +722,44 @@ namespace ABC.CarTraders.GUI.Sections
 
         public async Task ExportToExcelAsync()
         {
-            if (UnitOfWork == null) return;
-            var result = DialogResult.Retry;
-            while (result == DialogResult.Retry)
-            {
-                try
-                {
-                    StartProgress("Exporting to Excel...");
-                    var path = await UnitOfWork.CalvingRecords.ExportToExcelAsync("Calving Date", RangeStart, RangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode, null, "Ascending");
-                    StopProgress();
-                    StatusText = "Data Exported";
-                    var option = MessageBox.Show($"Calving record data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (option == DialogResult.Yes)
-                    {
-                        MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Process.Start(path);
-                    }
-                    else
-                    {
-                        Process.Start(AppSettings.ABCFolderPath);
-                    }
-                    StatusText = "Ready";
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    StopProgress();
-                    StatusText = "Error Occurred";
-                    result = MessageBox.Show($"An error occurred while exporting data from the Database to the Excel file.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-            }
-            StatusText = "Ready";
+            //if (DbContext == null) return;
+            //var result = DialogResult.Retry;
+            //while (result == DialogResult.Retry)
+            //{
+            //    try
+            //    {
+            //        StartProgress("Exporting to Excel...");
+            //        var path = await DbContext.CalvingRecords.ExportToExcelAsync("Calving Date", RangeStart, RangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode, null, "Ascending");
+            //        StopProgress();
+            //        StatusText = "Data Exported";
+            //        var option = MessageBox.Show($"Calving record data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //        if (option == DialogResult.Yes)
+            //        {
+            //            MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            Process.Start(path);
+            //        }
+            //        else
+            //        {
+            //            Process.Start(AppSettings.ABCFolderPath);
+            //        }
+            //        StatusText = "Ready";
+            //        break;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        StopProgress();
+            //        StatusText = "Error Occurred";
+            //        result = MessageBox.Show($"An error occurred while exporting data from the Database to the Excel file.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            //    }
+            //}
+            //StatusText = "Ready";
         }
         #endregion
 
         #region Actions
         public async Task RefreshAsync()
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
 
             await RefreshPerformanceAsync();
             await RefreshTotalsAsync();
@@ -770,7 +769,7 @@ namespace ABC.CarTraders.GUI.Sections
 
         private async Task RefreshPerformanceAsync()
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
 
             var result = DialogResult.Retry;
             while (result == DialogResult.Retry)
@@ -784,16 +783,16 @@ namespace ABC.CarTraders.GUI.Sections
                     var rangeStart = RangeStart != null ? RangeStart : new DateTime(2015, 1, 1);
                     var rangeEnd = RangeEnd != null ? RangeEnd : DateTime.Today;
 
-                    if (rdoYearly.Checked)
-                    {
-                        valuesList = await UnitOfWork.CalvingRecords.GetYearlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
-                        cartesianChart1.AxisX.ElementAt(0).Title = "Year";
-                    }
-                    else
-                    {
-                        valuesList = await UnitOfWork.CalvingRecords.GetMonthlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
-                        cartesianChart1.AxisX.ElementAt(0).Title = "Year/Month";
-                    }
+                    //if (rdoYearly.Checked)
+                    //{
+                    //    valuesList = await DbContext.CalvingRecords.GetYearlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
+                    //    cartesianChart1.AxisX.ElementAt(0).Title = "Year";
+                    //}
+                    //else
+                    //{
+                    //    valuesList = await DbContext.CalvingRecords.GetMonthlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
+                    //    cartesianChart1.AxisX.ElementAt(0).Title = "Year/Month";
+                    //}
 
                     var labels = new ChartValues<string>();
                     var maleValues = new ChartValues<int>();
@@ -829,7 +828,7 @@ namespace ABC.CarTraders.GUI.Sections
 
         private async Task RefreshTotalsAsync()
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
 
             var result = DialogResult.Retry;
             while (result == DialogResult.Retry)
@@ -838,11 +837,11 @@ namespace ABC.CarTraders.GUI.Sections
                 {
                     StartProgress("Refreshing Totals...");
 
-                    var values = await UnitOfWork.CalvingRecords.GetTotalsAsync(CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode, RangeStart, RangeEnd);
+                    //var values = await DbContext.CalvingRecords.GetTotalsAsync(CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode, RangeStart, RangeEnd);
 
-                    pieChart1.Series[0].Values = new ChartValues<int> { values.Item1 };
-                    pieChart1.Series[1].Values = new ChartValues<int> { values.Item2 };
-                    label7.Text = $"      Total [{values.Item3}]";
+                    //pieChart1.Series[0].Values = new ChartValues<int> { values.Item1 };
+                    //pieChart1.Series[1].Values = new ChartValues<int> { values.Item2 };
+                    //label7.Text = $"      Total [{values.Item3}]";
 
                     StopProgress();
                     //StatusText = "Ready";

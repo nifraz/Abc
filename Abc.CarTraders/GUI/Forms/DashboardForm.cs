@@ -1,23 +1,21 @@
-﻿using System;
+﻿using ABC.CarTraders.Entities;
+using Material.Styles;
+using MRG.Controls.UI;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Material.Styles;
-using ABC.CarTraders.Core.Domain;
-using System.Diagnostics;
-using MRG.Controls.UI;
-using ABC.CarTraders.Core;
-using System.Data.Entity.Validation;
-using System.Data.Entity.Infrastructure;
-using System.Text;
-using System.Linq;
-using System.Data.Entity;
 
 namespace ABC.CarTraders.GUI.Forms
 {
     public partial class DashboardForm : Form, IColoredControl
     {
-        public static IUnitOfWork UnitOfWork { get; set; }
+        public static AppDbContext DbContext { get; set; }
         public static User User { get; set; }
 
         public static IEnumerable<ColorScheme> ColorSchemes { get; set; } = new List<ColorScheme>()
@@ -111,12 +109,7 @@ namespace ABC.CarTraders.GUI.Forms
 
             statisticsSection1.ColorScheme = scheme;
             userSection1.ColorScheme = scheme;
-            vsRangeSection1.ColorScheme = scheme;
-            instituteSection1.ColorScheme = scheme;
-            calvingSheetSection1.ColorScheme = scheme;
-            technicianSection1.ColorScheme = scheme;
-            calvingRecordSection1.ColorScheme = scheme;
-            semenSection1.ColorScheme = scheme;
+            carSection1.ColorScheme = scheme;
             loginSection1.ColorScheme = scheme;
             logSection1.ColorScheme = scheme;
 
@@ -149,11 +142,7 @@ namespace ABC.CarTraders.GUI.Forms
         {
             statisticsSection1.LoadInitialData();
             userSection1.LoadInitialData();
-            vsRangeSection1.LoadInitialData();
-            instituteSection1.LoadInitialData();
-            technicianSection1.LoadInitialData();
-            calvingSheetSection1.LoadInitialData();
-            calvingRecordSection1.LoadInitialData();
+            carSection1.LoadInitialData();
             logSection1.LoadInitialData();
         }
 
@@ -224,15 +213,15 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 if (l == null) return;
                 rtbOutput.AppendText("\n");
-                rtbOutput.AppendText($"[{l.Time.ToLongTimeString()}]");
-                rtbOutput.AppendText($"{l.User?.Username}");
+                rtbOutput.AppendText($"[{l.CreatedDate.ToLongTimeString()}]");
+                rtbOutput.AppendText($"{l.CreatedUser?.Email}");
                 //rtbOutput.Select(rtbOutput.TextLength, 0);
                 //rtbOutput.SelectionColor = System.Drawing.Color.White;
                 //rtbOutput.SelectionFont = new Font(rtbOutput.Font, FontStyle.Regular);
                 rtbOutput.AppendText($">{l.Text}");
 
-                if (UnitOfWork == null) return;
-                UnitOfWork.Logs.Add(l);
+                if (DbContext == null) return;
+                DbContext.Logs.Add(l);
             };
             SaveToDatabaseDelegate = async () =>
             {
@@ -246,8 +235,8 @@ namespace ABC.CarTraders.GUI.Forms
                 btnToDatabase.Enabled = true;
                 WriteLog(new Log()
                 {
-                    Time = DateTime.Now,
-                    User = User,
+                    CreatedDate = DateTime.Now,
+                    CreatedUser = User,
                     Title = "Login",
                     Action = LogAction.Auth,
                     Text = $"Logged in"
@@ -261,8 +250,8 @@ namespace ABC.CarTraders.GUI.Forms
                 btnToDatabase.Enabled = false;
                 WriteLog(new Log()
                 {
-                    Time = DateTime.Now,
-                    User = User,
+                    CreatedDate = DateTime.Now,
+                    CreatedUser = User,
                     Title = "Login",
                     Action = LogAction.Auth,
                     Text = $"Logged out"
@@ -275,11 +264,7 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 await statisticsSection1.RefreshAsync();
                 await userSection1.RefreshAsync();
-                await vsRangeSection1.RefreshAsync();
-                await instituteSection1.RefreshAsync();
-                await technicianSection1.RefreshAsync();
-                await calvingSheetSection1.RefreshAsync();
-                await calvingRecordSection1.RefreshAsync();
+                await carSection1.RefreshAsync();
                 await logSection1.RefreshAsync();
             };
         }
@@ -302,54 +287,38 @@ namespace ABC.CarTraders.GUI.Forms
                 Description = "Manage User Data",
                 RegionControl = userSection1,
             };
-            btnVsRange.Tag = new ButtonTag()
-            {
-                ButtonImageDark = Properties.Resources.map_marker_dark_25px,
-                ButtonImageLight = Properties.Resources.map_marker_light_25px,
-                Title = "VS Range",
-                Description = "Manage VS Ranges",
-                RegionControl = vsRangeSection1,
-            };
-            btnCalvingRecord.Tag = new ButtonTag()
-            {
-                ButtonImageDark = Properties.Resources.list_view_dark_25px,
-                ButtonImageLight = Properties.Resources.list_view_light_25px,
-                Title = "Calving Record",
-                Description = "Manage Calving Record Data",
-                RegionControl = calvingRecordSection1
-            };
+            //btnVsRange.Tag = new ButtonTag()
+            //{
+            //    ButtonImageDark = Properties.Resources.map_marker_dark_25px,
+            //    ButtonImageLight = Properties.Resources.map_marker_light_25px,
+            //    Title = "VS Range",
+            //    Description = "Manage VS Ranges",
+            //    RegionControl = orderSection1,
+            //};
+            //btnCalvingRecord.Tag = new ButtonTag()
+            //{
+            //    ButtonImageDark = Properties.Resources.list_view_dark_25px,
+            //    ButtonImageLight = Properties.Resources.list_view_light_25px,
+            //    Title = "Calving Record",
+            //    Description = "Manage Calving Record Data",
+            //    RegionControl = calvingRecordSection1
+            //};
             btnCalvingSheet.Tag = new ButtonTag()
             {
                 ButtonImageDark = Properties.Resources.spreadsheet_file_dark_25px,
                 ButtonImageLight = Properties.Resources.spreadsheet_file_light_25px,
                 Title = "Calving Sheet",
                 Description = "Manage Calving Sheet Data",
-                RegionControl = calvingSheetSection1
+                RegionControl = carSection1
             };
-            btnTechnician.Tag = new ButtonTag()
-            {
-                ButtonImageDark = Properties.Resources.worker_dark_25px,
-                ButtonImageLight = Properties.Resources.worker_light_25px,
-                Title = "Technician",
-                Description = "Manage Technician Data",
-                RegionControl = technicianSection1
-            };
-            btnInstitute.Tag = new ButtonTag()
-            {
-                ButtonImageDark = Properties.Resources.company_dark_25px,
-                ButtonImageLight = Properties.Resources.company_light_25px,
-                Title = "Institute",
-                Description = "Manage Institute Data",
-                RegionControl = instituteSection1
-            };
-            btnSemen.Tag = new ButtonTag()
-            {
-                ButtonImageDark = Properties.Resources.bull_dark_25px,
-                ButtonImageLight = Properties.Resources.bull_light_25px,
-                Title = "Semen",
-                Description = "Manage Semen Data",
-                RegionControl = semenSection1
-            };
+            //btnTechnician.Tag = new ButtonTag()
+            //{
+            //    ButtonImageDark = Properties.Resources.worker_dark_25px,
+            //    ButtonImageLight = Properties.Resources.worker_light_25px,
+            //    Title = "Technician",
+            //    Description = "Manage Technician Data",
+            //    RegionControl = technicianSection1
+            //};
             btnLogout.Tag = new ButtonTag()
             {
                 ButtonImageDark = Properties.Resources.logout_rounded_left_dark_25px,
@@ -401,12 +370,7 @@ namespace ABC.CarTraders.GUI.Forms
         {
             statisticsSection1.Visible = false;
             userSection1.Visible = false;
-            vsRangeSection1.Visible = false;
-            instituteSection1.Visible = false;
-            calvingSheetSection1.Visible = false;
-            technicianSection1.Visible = false;
-            calvingRecordSection1.Visible = false;
-            semenSection1.Visible = false;
+            carSection1.Visible = false;
             loginSection1.Visible = false;
             logSection1.Visible = false;
         }
@@ -481,14 +445,14 @@ namespace ABC.CarTraders.GUI.Forms
 
         private async void DashboardForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
 
             if (MessageBox.Show("Do you want to upload your work to the database?\nClicking \'No\' will discard any changes since last upload.", "EXIT", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 await SaveToDatabaseAsync();
             }
 
-            UnitOfWork.Dispose();
+            DbContext.Dispose();
         }
 
         private void btnColorScheme_Click(object sender, EventArgs e)
@@ -499,7 +463,7 @@ namespace ABC.CarTraders.GUI.Forms
 
         private async void btnUploadToDatabase_Click(object sender, EventArgs e)
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
             await CompleteAsync();
             btnToDatabase.Focus();
         }
@@ -512,18 +476,18 @@ namespace ABC.CarTraders.GUI.Forms
                 try
                 {
                     StartProgress("Uploading...");
-                    var n = await UnitOfWork.CompleteAsync();
+                    var n = await DbContext.SaveChangesAsync();
                     if (n > 0)
                     {
                         WriteLog(new Log()
                         {
-                            Time = DateTime.Now,
-                            User = User,
+                            CreatedDate = DateTime.Now,
+                            CreatedUser = User,
                             Title = "Database",
                             Action = LogAction.Save,
                             Text = $"Saved changes to database ({n} record(s) affected)"
                         });
-                        await UnitOfWork.CompleteAsync();
+                        await DbContext.SaveChangesAsync();
                     }
                     StopProgress();
                     MessageBox.Show("Changes successfully uploaded to the Database.", "UPLOAD", MessageBoxButtons.OK, MessageBoxIcon.Information);

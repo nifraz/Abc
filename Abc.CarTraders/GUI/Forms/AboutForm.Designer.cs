@@ -38,7 +38,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.linkDotNet = new System.Windows.Forms.LinkLabel();
             this.linkPagedList = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
             this.linkEMail = new System.Windows.Forms.LinkLabel();
             this.linkEntityFramework = new System.Windows.Forms.LinkLabel();
             this.linkLiveCharts = new System.Windows.Forms.LinkLabel();
@@ -62,7 +61,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(39, 6);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(168, 30);
+            this.lblTitle.Size = new System.Drawing.Size(173, 30);
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "ABC (Car Traders)";
             // 
@@ -101,9 +100,9 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Location = new System.Drawing.Point(7, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 15);
+            this.label2.Size = new System.Drawing.Size(227, 15);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Developed by : Muhammad Nifraz Navahz";
+            this.label2.Text = "Developed by: Muhammad Nifraz Navahz";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -116,9 +115,9 @@
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label4.Location = new System.Drawing.Point(7, 61);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 15);
+            this.label4.Size = new System.Drawing.Size(113, 15);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Programmer (C#, Java, PHP)";
+            this.label4.Text = "Full Stack Developer";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
@@ -162,26 +161,11 @@
             this.toolTip1.SetToolTip(this.linkPagedList, "Go to site");
             this.linkPagedList.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPagedList_LinkClicked);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(7, 76);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 15);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "DBA (SQL Server, MySQL)";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // linkEMail
             // 
             this.linkEMail.AutoSize = true;
             this.linkEMail.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkEMail.Location = new System.Drawing.Point(7, 91);
+            this.linkEMail.Location = new System.Drawing.Point(7, 86);
             this.linkEMail.Name = "linkEMail";
             this.linkEMail.Size = new System.Drawing.Size(88, 13);
             this.linkEMail.TabIndex = 1;
@@ -220,7 +204,7 @@
             // 
             this.linkFB.AutoSize = true;
             this.linkFB.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkFB.Location = new System.Drawing.Point(7, 104);
+            this.linkFB.Location = new System.Drawing.Point(7, 99);
             this.linkFB.Name = "linkFB";
             this.linkFB.Size = new System.Drawing.Size(87, 13);
             this.linkFB.TabIndex = 2;
@@ -298,7 +282,7 @@
             // 
             this.linkPhone.AutoSize = true;
             this.linkPhone.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkPhone.Location = new System.Drawing.Point(7, 117);
+            this.linkPhone.Location = new System.Drawing.Point(7, 112);
             this.linkPhone.Name = "linkPhone";
             this.linkPhone.Size = new System.Drawing.Size(90, 13);
             this.linkPhone.TabIndex = 3;
@@ -330,7 +314,6 @@
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -354,7 +337,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.LinkLabel linkDotNet;
         private System.Windows.Forms.LinkLabel linkPagedList;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkEMail;
         private System.Windows.Forms.LinkLabel linkEntityFramework;
         private System.Windows.Forms.LinkLabel linkLiveCharts;

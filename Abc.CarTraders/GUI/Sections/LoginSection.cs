@@ -1,26 +1,25 @@
-﻿using System;
+﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.GUI.Forms;
+using Material.Styles;
+using MRG.Controls.UI;
+using System;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Material.Styles;
-using System.Drawing;
-using System.Data.SqlClient;
-using ABC.CarTraders.Persistence;
-using ABC.CarTraders.GUI.Forms;
-using System.Diagnostics;
-using MRG.Controls.UI;
-using ABC.CarTraders.Core.Domain;
-using System.Net.NetworkInformation;
-using ABC.CarTraders.Core;
 
 namespace ABC.CarTraders.GUI.Sections
 {
     public partial class LoginSection : UserControl, IColoredControl
     {//DbConcurrencyException
         #region Common
-        public IUnitOfWork UnitOfWork
+        public AppDbContext DbContext
         {
-            get { return DashboardForm.UnitOfWork; }
-            set { DashboardForm.UnitOfWork = value;}
+            get { return DashboardForm.DbContext; }
+            set { DashboardForm.DbContext = value;}
         }
         
         //private Func<Log, Task> WriteLogAsync { get { return DashboardForm.WriteLogAsync; } }
@@ -108,7 +107,7 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Fields
-        private string Username
+        private string Email
         {
             get
             {
@@ -148,7 +147,7 @@ namespace ABC.CarTraders.GUI.Sections
 
         public void ResetFields()
         {
-            Username = LastUsername;
+            Email = LastUsername;
             Password = string.Empty;
             LoginAttempts = 0;
             txtPassword.Focus();
@@ -178,14 +177,14 @@ namespace ABC.CarTraders.GUI.Sections
 
             if (!await InitializeAsync()) return;
 
-            if (!await AuthenticateAsync(Username, Password)) return;
+            if (!await AuthenticateAsync(Email, Password)) return;
 
             await CacheLocalAsync();
             await RefreshDataAsync();
 
             StopProgress();
 
-            LastUsername = Username;
+            LastUsername = Email;
             Login?.Invoke();
             ResetFields();
         }
@@ -247,12 +246,12 @@ namespace ABC.CarTraders.GUI.Sections
                     Password = DbPassword,
                     ConnectTimeout = ConnectionTimeout
                 }.ToString();
-                UnitOfWork = new UnitOfWork(new AbcCarTradersContext(connectionString));
+                DbContext = new AppDbContext(connectionString);
 
                 try
                 {
                     StartProgress("Initializing Connection...");
-                    await Task.Run(() => UnitOfWork.Provinces.FindAsync(p => p.No == 1));
+                    await Task.Run(() => DbContext.Users.FirstOrDefaultAsync(x => x.Id == 1));
                     return true;
                 }
                 catch (Exception ex)
@@ -271,7 +270,7 @@ namespace ABC.CarTraders.GUI.Sections
             return false;
         }
 
-        private async Task<bool> AuthenticateAsync(string username, string password)
+        private async Task<bool> AuthenticateAsync(string email, string password)
         {
             var result = DialogResult.Retry;
             while (result == DialogResult.Retry)
@@ -280,7 +279,7 @@ namespace ABC.CarTraders.GUI.Sections
                 {
                     StartProgress("Authenticating...");
                     var hashedPassword = User.GetHashSha1(Password);
-                    User = await UnitOfWork.Users.FindAsync(u => u.Username.Equals(Username) && u.Password.Equals(hashedPassword));
+                    User = await DbContext.Users.FirstOrDefaultAsync(x => x.Email.Equals(Email) && x.Password.Equals(hashedPassword));
 
                     if (User != null) return true;
 
@@ -313,7 +312,7 @@ namespace ABC.CarTraders.GUI.Sections
                 try
                 {
                     StartProgress("Caching Local Data...");
-                    await UnitOfWork.CacheLocalAsync();
+                    //await DbContext.CacheLocalAsync();
                     //StopProgress();
                     return true;
                 }

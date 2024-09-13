@@ -1,4 +1,4 @@
-﻿using ABC.CarTraders.Core.Domain;
+﻿using ABC.CarTraders.Entities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -71,8 +71,8 @@ namespace ABC.CarTraders.GUI.Forms
             //toolTip1.SetToolTip(btnSave, "Update");
 
             LogId = OldLog.Id.ToString();
-            LogUser = OldLog.Username;
-            LogTime = OldLog.Time;
+            LogUser = OldLog.CreatedUser.Email;
+            LogTime = OldLog.CreatedDate;
             LogTitle = OldLog.Title;
             LogAction = OldLog.Action;
             LogText = OldLog.Text;

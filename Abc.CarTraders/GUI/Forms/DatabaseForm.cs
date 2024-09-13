@@ -1,4 +1,4 @@
-﻿using ABC.CarTraders.Core.Domain;
+﻿using ABC.CarTraders.Entities;
 using ABC.CarTraders.GUI.Sections;
 using MRG.Controls.UI;
 using System;

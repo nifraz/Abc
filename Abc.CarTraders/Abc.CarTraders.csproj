@@ -126,33 +126,19 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Domain\Institute.cs" />
-    <Compile Include="Core\Domain\Log.cs" />
-    <Compile Include="Core\Domain\User.cs" />
-    <Compile Include="Core\Repositories\IInstituteRepository.cs" />
-    <Compile Include="Core\Repositories\ILogRepository.cs" />
-    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Entities\Car.cs" />
+    <Compile Include="Entities\CarPart.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Log.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Payment.cs" />
+    <Compile Include="Entities\Record.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Core\Domain\CalvingRecord.cs" />
-    <Compile Include="Core\Domain\CalvingSheet.cs" />
-    <Compile Include="Core\Domain\District.cs" />
-    <Compile Include="Core\Domain\Province.cs" />
-    <Compile Include="Core\Domain\Technician.cs" />
-    <Compile Include="Core\Domain\VsRange.cs" />
-    <Compile Include="Core\IUnitOfWork.cs" />
-    <Compile Include="Core\Repositories\ICalvingRecordRepository.cs" />
-    <Compile Include="Core\Repositories\ICalvingSheetRepository.cs" />
-    <Compile Include="Core\Repositories\IDistrictRepository.cs" />
-    <Compile Include="Core\Repositories\IProvinceRepository.cs" />
-    <Compile Include="Core\Repositories\IRepository.cs" />
-    <Compile Include="Core\Repositories\ITechnicianRepository.cs" />
-    <Compile Include="Core\Repositories\IVsRangeRepository.cs" />
-    <Compile Include="GUI\Forms\InstituteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\InstituteForm.Designer.cs">
-      <DependentUpon>InstituteForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Enums\CarType.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+    <Compile Include="Enums\Sex.cs" />
+    <Compile Include="Enums\UserRole.cs" />
     <Compile Include="GUI\Forms\LogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,12 +163,6 @@
     <Compile Include="GUI\Sections\LogSection.Designer.cs">
       <DependentUpon>LogSection.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Sections\VsRangeSection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Sections\VsRangeSection.Designer.cs">
-      <DependentUpon>VsRangeSection.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,17 +175,11 @@
     <Compile Include="GUI\Forms\DatabaseForm.Designer.cs">
       <DependentUpon>DatabaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\TechnicianForm.cs">
+    <Compile Include="GUI\Forms\CarForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Forms\TechnicianForm.Designer.cs">
-      <DependentUpon>TechnicianForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\VsRangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\VsRangeForm.Designer.cs">
-      <DependentUpon>VsRangeForm.cs</DependentUpon>
+    <Compile Include="GUI\Forms\CarForm.Designer.cs">
+      <DependentUpon>CarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Sections\UserSection.cs">
       <SubType>UserControl</SubType>
@@ -217,28 +191,8 @@
     <Compile Include="Migrations\202111130754511_Initial.designer.cs">
       <DependentUpon>202111130754511_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Persistence\EntityConfigurations\CalvingRecordConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\CalvingSheetConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\InstituteConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\LogConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\TechnicianConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Persistence\AbcCarTradersContext.cs" />
-    <Compile Include="Persistence\EntityConfigurations\DistrictConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\ProvinceConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\VsRangeConfiguration.cs" />
-    <Compile Include="Persistence\Repositories\CalvingRecordRepository.cs" />
-    <Compile Include="Persistence\Repositories\CalvingSheetRepository.cs" />
-    <Compile Include="Persistence\Repositories\DistrictRepository.cs" />
-    <Compile Include="Persistence\Repositories\InstituteRepository.cs" />
-    <Compile Include="Persistence\Repositories\LogRepository.cs" />
-    <Compile Include="Persistence\Repositories\ProvinceRepository.cs" />
-    <Compile Include="Persistence\Repositories\Repository.cs" />
-    <Compile Include="Persistence\Repositories\TechnicianRepository.cs" />
-    <Compile Include="Persistence\Repositories\UserRepository.cs" />
-    <Compile Include="Persistence\Repositories\VsRangeRepository.cs" />
-    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="AppDbContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -250,11 +204,11 @@
     <Compile Include="GUI\Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Sections\CalvingSheetSection.cs">
+    <Compile Include="GUI\Sections\CarSection.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\Sections\CalvingSheetSection.Designer.cs">
-      <DependentUpon>CalvingSheetSection.cs</DependentUpon>
+    <Compile Include="GUI\Sections\CarSection.Designer.cs">
+      <DependentUpon>CarSection.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Sections\StatisticsSection.cs">
       <SubType>UserControl</SubType>
@@ -270,39 +224,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GUI\Sections\InstituteSection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Sections\InstituteSection.Designer.cs">
-      <DependentUpon>InstituteSection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Forms\CalvingSheetForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\CalvingSheetForm.Designer.cs">
-      <DependentUpon>CalvingSheetForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Sections\SemenSection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Sections\SemenSection.Designer.cs">
-      <DependentUpon>SemenSection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Sections\TechnicianSection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Sections\TechnicianSection.Designer.cs">
-      <DependentUpon>TechnicianSection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Sections\CalvingRecordSection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Sections\CalvingRecordSection.Designer.cs">
-      <DependentUpon>CalvingRecordSection.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="GUI\Forms\InstituteForm.resx">
-      <DependentUpon>InstituteForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\LogForm.resx">
       <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,17 +236,14 @@
     <EmbeddedResource Include="GUI\Sections\LogSection.resx">
       <DependentUpon>LogSection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\VsRangeSection.resx">
-      <DependentUpon>VsRangeSection.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\CalvingSheetSection.resx">
-      <DependentUpon>CalvingSheetSection.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Sections\CarSection.resx">
+      <DependentUpon>CarSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\DatabaseForm.resx">
       <DependentUpon>DatabaseForm.cs</DependentUpon>
@@ -336,11 +254,8 @@
     <EmbeddedResource Include="GUI\Sections\LoginSection.resx">
       <DependentUpon>LoginSection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\TechnicianForm.resx">
-      <DependentUpon>TechnicianForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\VsRangeForm.resx">
-      <DependentUpon>VsRangeForm.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Forms\CarForm.resx">
+      <DependentUpon>CarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Sections\UserSection.resx">
       <DependentUpon>UserSection.cs</DependentUpon>
@@ -352,22 +267,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\InstituteSection.resx">
-      <DependentUpon>InstituteSection.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\CalvingSheetForm.resx">
-      <DependentUpon>CalvingSheetForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\SemenSection.resx">
-      <DependentUpon>SemenSection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\TechnicianSection.resx">
-      <DependentUpon>TechnicianSection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Sections\CalvingRecordSection.resx">
-      <DependentUpon>CalvingRecordSection.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

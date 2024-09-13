@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Material.Styles;
-using ABC.CarTraders.Core.Domain;
+﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.Enums;
 using ABC.CarTraders.GUI.Forms;
-using System.Diagnostics;
+using Material.Styles;
 using MRG.Controls.UI;
 using PagedList;
-using ABC.CarTraders.Core;
+using PagedList.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ABC.CarTraders.GUI.Sections
 {
     public partial class UserSection : UserControl, IColoredControl
     {
         #region Common
-        private IUnitOfWork UnitOfWork { get { return DashboardForm.UnitOfWork; } }
+        private AppDbContext DbContext { get { return DashboardForm.DbContext; } }
         private Action<Log> WriteLog { get { return DashboardForm.WriteLog; } }
         private User User { get { return DashboardForm.User; } }
         #endregion
@@ -122,6 +124,13 @@ namespace ABC.CarTraders.GUI.Sections
         {
 
         }
+
+        private Expression<Func<User, bool>> GetExpression()
+        {
+            Expression<Func<User, bool>> expression = x => false;
+
+            return expression;
+        }
         #endregion
 
         #region Data & Actions
@@ -138,36 +147,36 @@ namespace ABC.CarTraders.GUI.Sections
 
         public async Task ExportToExcelAsync()
         {
-            if (UnitOfWork == null) return;
-            var result = DialogResult.Retry;
-            while (result == DialogResult.Retry)
-            {
-                try
-                {
-                    StartProgress("Exporting to Excel...");
-                    var path = await UnitOfWork.Users.ExportToExcelAsync(RangeField, RangeStart, RangeEnd, UserRole, UserSex, FindField, FindText, SortField, SortDirection);
-                    StopProgress();
-                    StatusText = "Data Exported";
-                    var option = MessageBox.Show($"User data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (option == DialogResult.Yes)
-                    {
-                        MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Process.Start(path);
-                    }
-                    else
-                    {
-                        Process.Start(AppSettings.ABCFolderPath);
-                    }
-                    dataGridView1_SelectionChanged(null, null);
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    StopProgress();
-                    StatusText = "Error Occurred";
-                    result = MessageBox.Show($"An error occurred while exporting data from the Database to the Excel file.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-            }
+            //if (DbContext == null) return;
+            //var result = DialogResult.Retry;
+            //while (result == DialogResult.Retry)
+            //{
+            //    try
+            //    {
+            //        StartProgress("Exporting to Excel...");
+            //        var path = await DbContext.Users.ExportToExcelAsync(RangeField, RangeStart, RangeEnd, UserRole, Sex, FindField, FindText, SortField, SortDirection);
+            //        StopProgress();
+            //        StatusText = "Data Exported";
+            //        var option = MessageBox.Show($"User data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //        if (option == DialogResult.Yes)
+            //        {
+            //            MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //            Process.Start(path);
+            //        }
+            //        else
+            //        {
+            //            Process.Start(AppSettings.ABCFolderPath);
+            //        }
+            //        dataGridView1_SelectionChanged(null, null);
+            //        break;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        StopProgress();
+            //        StatusText = "Error Occurred";
+            //        result = MessageBox.Show($"An error occurred while exporting data from the Database to the Excel file.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            //    }
+            //}
             dataGridView1_SelectionChanged(null, null);
         }
 
@@ -247,17 +256,17 @@ namespace ABC.CarTraders.GUI.Sections
         }
         private bool ValidateDeletePermission()
         {
-            return (User.Role <= Core.Domain.UserRole.Admin) && false;
+            return (User.Role == Enums.UserRole.Admin) && false;
         }
 
         private void DeleteRecords()
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
 
-            var users = SelectedRecords.OrderBy(u => u.Username);
+            var users = SelectedRecords.OrderBy(u => u.Email);
             var userCount = users.Count();
-            var userNames = string.Join(",", users.Select(u => u.Username));
-            UnitOfWork.Users.RemoveRange(users);
+            var userNames = string.Join(",", users.Select(u => u.Email));
+            DbContext.Users.RemoveRange(users);
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -266,8 +275,8 @@ namespace ABC.CarTraders.GUI.Sections
 
             WriteLog.Invoke(new Log()
             {
-                Time = DateTime.Now,
-                User = User,
+                CreatedDate = DateTime.Now,
+                CreatedUser = User,
                 Title = "User",
                 Action = LogAction.Delete,
                 Text = $"Deleted {userCount} user(s) (#{userNames})"
@@ -328,14 +337,16 @@ namespace ABC.CarTraders.GUI.Sections
 
         public async Task RefreshAsync()
         {
-            if (UnitOfWork == null) return;
+            if (DbContext == null) return;
             var result = DialogResult.Retry;
             while (result == DialogResult.Retry)
             {
                 try
                 {
                     StartProgress("Refreshing...");
-                    PagedList = await UnitOfWork.Users.GetPagedListAsync(RangeField, RangeStart, RangeEnd, UserRole, UserSex, FindField, FindText, SortField, SortDirection, PageNumber, PageSize);
+                    PagedList = await DbContext.Users
+                        .Where(GetExpression())
+                        .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 
                     dataGridView1.DataSource = new BindingList<User>(PagedList.ToList());
@@ -509,17 +520,13 @@ namespace ABC.CarTraders.GUI.Sections
             }
         }
 
-        private UserSex? UserSex
+        private Sex? Sex
         {
             get
             {
-                if (cboSex.Text != "Both")
+                if (cboSex.Text != "Both" && Enum.TryParse(cboSex.Text, out Sex v))
                 {
-                    UserSex v;
-                    if (Enum.TryParse(cboSex.Text, out v))
-                    {
-                        return v;
-                    }
+                    return v;
                 }
                 return null;
             }
@@ -533,10 +540,10 @@ namespace ABC.CarTraders.GUI.Sections
 
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (UserRole == null && UserSex == null) return;
+            if (UserRole == null && Sex == null) return;
 
             UserRole = null;
-            UserSex = null;
+            Sex = null;
 
             await RefreshAsync();
             btnFilterClear.Focus();

@@ -1,6 +1,6 @@
 ﻿namespace ABC.CarTraders.GUI.Sections
 {
-    partial class UserSection
+    partial class CarSection
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,10 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkRangeEnd = new System.Windows.Forms.CheckBox();
+            this.chkRangeStart = new System.Windows.Forms.CheckBox();
+            this.btnLastYear = new System.Windows.Forms.Button();
+            this.btnThisYear = new System.Windows.Forms.Button();
+            this.btnRangeClear = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -42,16 +50,10 @@
             this.btnLastPage = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.chkRangeEnd = new System.Windows.Forms.CheckBox();
-            this.chkRangeStart = new System.Windows.Forms.CheckBox();
-            this.btnLastYear = new System.Windows.Forms.Button();
-            this.btnThisYear = new System.Windows.Forms.Button();
-            this.btnRangeClear = new System.Windows.Forms.Button();
-            this.txtFindText = new System.Windows.Forms.TextBox();
-            this.btnFindClear = new System.Windows.Forms.Button();
-            this.btnFilterClear = new System.Windows.Forms.Button();
             this.nudPageNumber = new System.Windows.Forms.NumericUpDown();
             this.lblPages = new System.Windows.Forms.Label();
+            this.nudTechnicianCode = new System.Windows.Forms.NumericUpDown();
+            this.btnFilterClear = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
             this.lblMainTitle = new System.Windows.Forms.Label();
@@ -59,9 +61,21 @@
             this.pnlPageIndicator = new System.Windows.Forms.Panel();
             this.pnlPageIndicatorHolder = new System.Windows.Forms.Panel();
             this.pnlNudHolder = new System.Windows.Forms.Panel();
-            this.pnlDgv = new System.Windows.Forms.Panel();
             this.pnlLoadingCircle = new System.Windows.Forms.Panel();
+            this.pnlDgv = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEngineDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifiedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblProgress = new System.Windows.Forms.Label();
             this.pnlSort = new System.Windows.Forms.Panel();
             this.pnlSortHolder = new System.Windows.Forms.Panel();
@@ -94,42 +108,30 @@
             this.cboRangeField = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pnlFind = new System.Windows.Forms.Panel();
-            this.pnlFindHolder = new System.Windows.Forms.Panel();
-            this.pnlFindText = new System.Windows.Forms.Panel();
-            this.pnlFindTextHolder = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pnlFindField = new System.Windows.Forms.Panel();
-            this.pnlFindFieldHolder = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.cboFindField = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.pnlFilter = new System.Windows.Forms.Panel();
             this.pnlFilterHolder = new System.Windows.Forms.Panel();
-            this.pnlFilter2 = new System.Windows.Forms.Panel();
-            this.pnlFilter2Holder = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.cboSex = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pnlFilter5 = new System.Windows.Forms.Panel();
+            this.pnlFilter5Holder = new System.Windows.Forms.Panel();
+            this.pnlNudTechnicianCodeHolder = new System.Windows.Forms.Panel();
+            this.rdoTechnicianAll = new System.Windows.Forms.RadioButton();
+            this.rdoTechnicianCode = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
             this.pnlFilter1 = new System.Windows.Forms.Panel();
             this.pnlFilter1Holder = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cboRole = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cboType = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.pnlSide = new System.Windows.Forms.Panel();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifiedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudPageNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTechnicianCode)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.pnlMainHolder.SuspendLayout();
             this.pnlPageIndicator.SuspendLayout();
@@ -156,23 +158,115 @@
             this.pnlRangeField.SuspendLayout();
             this.pnlRangeFieldHolder.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.pnlFind.SuspendLayout();
-            this.pnlFindHolder.SuspendLayout();
-            this.pnlFindText.SuspendLayout();
-            this.pnlFindTextHolder.SuspendLayout();
-            this.pnlFindField.SuspendLayout();
-            this.pnlFindFieldHolder.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             this.pnlFilterHolder.SuspendLayout();
-            this.pnlFilter2.SuspendLayout();
-            this.pnlFilter2Holder.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnlFilter5.SuspendLayout();
+            this.pnlFilter5Holder.SuspendLayout();
+            this.pnlNudTechnicianCodeHolder.SuspendLayout();
             this.pnlFilter1.SuspendLayout();
             this.pnlFilter1Holder.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnlSide.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // chkRangeEnd
+            // 
+            this.chkRangeEnd.AutoSize = true;
+            this.chkRangeEnd.Checked = true;
+            this.chkRangeEnd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRangeEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkRangeEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkRangeEnd.Location = new System.Drawing.Point(6, 7);
+            this.chkRangeEnd.Name = "chkRangeEnd";
+            this.chkRangeEnd.Size = new System.Drawing.Size(12, 11);
+            this.chkRangeEnd.TabIndex = 1;
+            this.chkRangeEnd.TabStop = false;
+            this.toolTip1.SetToolTip(this.chkRangeEnd, "Enable / disable field");
+            this.chkRangeEnd.UseVisualStyleBackColor = true;
+            this.chkRangeEnd.CheckedChanged += new System.EventHandler(this.chkRangeEnd_CheckedChanged);
+            // 
+            // chkRangeStart
+            // 
+            this.chkRangeStart.AutoSize = true;
+            this.chkRangeStart.Checked = true;
+            this.chkRangeStart.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRangeStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkRangeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkRangeStart.Location = new System.Drawing.Point(6, 7);
+            this.chkRangeStart.Name = "chkRangeStart";
+            this.chkRangeStart.Size = new System.Drawing.Size(12, 11);
+            this.chkRangeStart.TabIndex = 1;
+            this.chkRangeStart.TabStop = false;
+            this.toolTip1.SetToolTip(this.chkRangeStart, "Enable / disable field");
+            this.chkRangeStart.UseVisualStyleBackColor = true;
+            this.chkRangeStart.CheckedChanged += new System.EventHandler(this.chkRangeStart_CheckedChanged);
+            // 
+            // btnLastYear
+            // 
+            this.btnLastYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLastYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLastYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLastYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLastYear.FlatAppearance.BorderSize = 0;
+            this.btnLastYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLastYear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLastYear.ForeColor = System.Drawing.Color.Black;
+            this.btnLastYear.Image = global::ABC.CarTraders.Properties.Resources.minus_1_year_light_15px;
+            this.btnLastYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLastYear.Location = new System.Drawing.Point(145, 0);
+            this.btnLastYear.Name = "btnLastYear";
+            this.btnLastYear.Size = new System.Drawing.Size(25, 25);
+            this.btnLastYear.TabIndex = 1;
+            this.btnLastYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnLastYear, "Last year");
+            this.btnLastYear.UseVisualStyleBackColor = false;
+            this.btnLastYear.Click += new System.EventHandler(this.btnLastYear_Click);
+            // 
+            // btnThisYear
+            // 
+            this.btnThisYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThisYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnThisYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThisYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnThisYear.FlatAppearance.BorderSize = 0;
+            this.btnThisYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThisYear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThisYear.ForeColor = System.Drawing.Color.Black;
+            this.btnThisYear.Image = global::ABC.CarTraders.Properties.Resources.plus_1_year_light_15px;
+            this.btnThisYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThisYear.Location = new System.Drawing.Point(170, 0);
+            this.btnThisYear.Name = "btnThisYear";
+            this.btnThisYear.Size = new System.Drawing.Size(25, 25);
+            this.btnThisYear.TabIndex = 2;
+            this.btnThisYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnThisYear, "This year");
+            this.btnThisYear.UseVisualStyleBackColor = false;
+            this.btnThisYear.Click += new System.EventHandler(this.btnThisYear_Click);
+            // 
+            // btnRangeClear
+            // 
+            this.btnRangeClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRangeClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRangeClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRangeClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRangeClear.FlatAppearance.BorderSize = 0;
+            this.btnRangeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRangeClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRangeClear.ForeColor = System.Drawing.Color.Black;
+            this.btnRangeClear.Image = global::ABC.CarTraders.Properties.Resources.cancel_light_15px;
+            this.btnRangeClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRangeClear.Location = new System.Drawing.Point(195, 0);
+            this.btnRangeClear.Name = "btnRangeClear";
+            this.btnRangeClear.Size = new System.Drawing.Size(25, 25);
+            this.btnRangeClear.TabIndex = 3;
+            this.btnRangeClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnRangeClear, "Clear range");
+            this.btnRangeClear.UseVisualStyleBackColor = false;
+            this.btnRangeClear.Click += new System.EventHandler(this.btnRangeClear_Click);
             // 
             // btnAdd
             // 
@@ -369,160 +463,6 @@
             this.btnExport.UseVisualStyleBackColor = false;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // chkRangeEnd
-            // 
-            this.chkRangeEnd.AutoSize = true;
-            this.chkRangeEnd.Checked = true;
-            this.chkRangeEnd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRangeEnd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkRangeEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkRangeEnd.Location = new System.Drawing.Point(6, 7);
-            this.chkRangeEnd.Name = "chkRangeEnd";
-            this.chkRangeEnd.Size = new System.Drawing.Size(12, 11);
-            this.chkRangeEnd.TabIndex = 1;
-            this.chkRangeEnd.TabStop = false;
-            this.toolTip1.SetToolTip(this.chkRangeEnd, "Enable / disable field");
-            this.chkRangeEnd.UseVisualStyleBackColor = true;
-            this.chkRangeEnd.CheckedChanged += new System.EventHandler(this.chkRangeEnd_CheckedChanged);
-            // 
-            // chkRangeStart
-            // 
-            this.chkRangeStart.AutoSize = true;
-            this.chkRangeStart.Checked = true;
-            this.chkRangeStart.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRangeStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkRangeStart.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkRangeStart.Location = new System.Drawing.Point(6, 7);
-            this.chkRangeStart.Name = "chkRangeStart";
-            this.chkRangeStart.Size = new System.Drawing.Size(12, 11);
-            this.chkRangeStart.TabIndex = 1;
-            this.chkRangeStart.TabStop = false;
-            this.toolTip1.SetToolTip(this.chkRangeStart, "Enable / disable field");
-            this.chkRangeStart.UseVisualStyleBackColor = true;
-            this.chkRangeStart.CheckedChanged += new System.EventHandler(this.chkRangeStart_CheckedChanged);
-            // 
-            // btnLastYear
-            // 
-            this.btnLastYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLastYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnLastYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLastYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnLastYear.FlatAppearance.BorderSize = 0;
-            this.btnLastYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLastYear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLastYear.ForeColor = System.Drawing.Color.Black;
-            this.btnLastYear.Image = global::ABC.CarTraders.Properties.Resources.minus_1_year_light_15px;
-            this.btnLastYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLastYear.Location = new System.Drawing.Point(145, 0);
-            this.btnLastYear.Name = "btnLastYear";
-            this.btnLastYear.Size = new System.Drawing.Size(25, 25);
-            this.btnLastYear.TabIndex = 1;
-            this.btnLastYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnLastYear, "Last year");
-            this.btnLastYear.UseVisualStyleBackColor = false;
-            this.btnLastYear.Click += new System.EventHandler(this.btnLastYear_Click);
-            // 
-            // btnThisYear
-            // 
-            this.btnThisYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThisYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnThisYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThisYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnThisYear.FlatAppearance.BorderSize = 0;
-            this.btnThisYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThisYear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnThisYear.ForeColor = System.Drawing.Color.Black;
-            this.btnThisYear.Image = global::ABC.CarTraders.Properties.Resources.plus_1_year_light_15px;
-            this.btnThisYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThisYear.Location = new System.Drawing.Point(170, 0);
-            this.btnThisYear.Name = "btnThisYear";
-            this.btnThisYear.Size = new System.Drawing.Size(25, 25);
-            this.btnThisYear.TabIndex = 2;
-            this.btnThisYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnThisYear, "This year");
-            this.btnThisYear.UseVisualStyleBackColor = false;
-            this.btnThisYear.Click += new System.EventHandler(this.btnThisYear_Click);
-            // 
-            // btnRangeClear
-            // 
-            this.btnRangeClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRangeClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRangeClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRangeClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRangeClear.FlatAppearance.BorderSize = 0;
-            this.btnRangeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRangeClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRangeClear.ForeColor = System.Drawing.Color.Black;
-            this.btnRangeClear.Image = global::ABC.CarTraders.Properties.Resources.cancel_light_15px;
-            this.btnRangeClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRangeClear.Location = new System.Drawing.Point(195, 0);
-            this.btnRangeClear.Name = "btnRangeClear";
-            this.btnRangeClear.Size = new System.Drawing.Size(25, 25);
-            this.btnRangeClear.TabIndex = 3;
-            this.btnRangeClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnRangeClear, "Clear range");
-            this.btnRangeClear.UseVisualStyleBackColor = false;
-            this.btnRangeClear.Click += new System.EventHandler(this.btnRangeClear_Click);
-            // 
-            // txtFindText
-            // 
-            this.txtFindText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFindText.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtFindText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtFindText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFindText.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtFindText.ForeColor = System.Drawing.Color.Black;
-            this.txtFindText.Location = new System.Drawing.Point(6, 5);
-            this.txtFindText.Name = "txtFindText";
-            this.txtFindText.Size = new System.Drawing.Size(139, 16);
-            this.txtFindText.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.txtFindText, "(Press Enter)");
-            this.txtFindText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindText_KeyDown);
-            // 
-            // btnFindClear
-            // 
-            this.btnFindClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFindClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFindClear.FlatAppearance.BorderSize = 0;
-            this.btnFindClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFindClear.ForeColor = System.Drawing.Color.Black;
-            this.btnFindClear.Image = global::ABC.CarTraders.Properties.Resources.clear_search_light_15px;
-            this.btnFindClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFindClear.Location = new System.Drawing.Point(195, 0);
-            this.btnFindClear.Name = "btnFindClear";
-            this.btnFindClear.Size = new System.Drawing.Size(25, 25);
-            this.btnFindClear.TabIndex = 1;
-            this.btnFindClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnFindClear, "Clear find");
-            this.btnFindClear.UseVisualStyleBackColor = false;
-            this.btnFindClear.Click += new System.EventHandler(this.btnFindClear_Click);
-            // 
-            // btnFilterClear
-            // 
-            this.btnFilterClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilterClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFilterClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFilterClear.FlatAppearance.BorderSize = 0;
-            this.btnFilterClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilterClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFilterClear.ForeColor = System.Drawing.Color.Black;
-            this.btnFilterClear.Image = global::ABC.CarTraders.Properties.Resources.clear_filters_light_15px;
-            this.btnFilterClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilterClear.Location = new System.Drawing.Point(195, 0);
-            this.btnFilterClear.Name = "btnFilterClear";
-            this.btnFilterClear.Size = new System.Drawing.Size(25, 25);
-            this.btnFilterClear.TabIndex = 1;
-            this.btnFilterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnFilterClear, "Clear filter");
-            this.btnFilterClear.UseVisualStyleBackColor = false;
-            this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
-            // 
             // nudPageNumber
             // 
             this.nudPageNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -568,6 +508,51 @@
             this.lblPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.lblPages, "Total pages");
             // 
+            // nudTechnicianCode
+            // 
+            this.nudTechnicianCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudTechnicianCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudTechnicianCode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nudTechnicianCode.Location = new System.Drawing.Point(0, 0);
+            this.nudTechnicianCode.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudTechnicianCode.Name = "nudTechnicianCode";
+            this.nudTechnicianCode.Size = new System.Drawing.Size(77, 19);
+            this.nudTechnicianCode.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.nudTechnicianCode, "(Press Enter)");
+            this.nudTechnicianCode.Value = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudTechnicianCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nudTechnicianCode_KeyDown);
+            // 
+            // btnFilterClear
+            // 
+            this.btnFilterClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFilterClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFilterClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilterClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFilterClear.FlatAppearance.BorderSize = 0;
+            this.btnFilterClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFilterClear.ForeColor = System.Drawing.Color.Black;
+            this.btnFilterClear.Image = global::ABC.CarTraders.Properties.Resources.clear_filters_light_15px;
+            this.btnFilterClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFilterClear.Location = new System.Drawing.Point(195, 0);
+            this.btnFilterClear.Name = "btnFilterClear";
+            this.btnFilterClear.Size = new System.Drawing.Size(25, 25);
+            this.btnFilterClear.TabIndex = 1;
+            this.btnFilterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnFilterClear, "Clear filter");
+            this.btnFilterClear.UseVisualStyleBackColor = false;
+            this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -591,13 +576,13 @@
             this.lblMainTitle.AutoSize = true;
             this.lblMainTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblMainTitle.ForeColor = System.Drawing.Color.White;
-            this.lblMainTitle.Image = global::ABC.CarTraders.Properties.Resources.user_light_15px;
+            this.lblMainTitle.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_15px;
             this.lblMainTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMainTitle.Location = new System.Drawing.Point(3, 5);
             this.lblMainTitle.Name = "lblMainTitle";
-            this.lblMainTitle.Size = new System.Drawing.Size(53, 15);
+            this.lblMainTitle.Size = new System.Drawing.Size(48, 15);
             this.lblMainTitle.TabIndex = 1;
-            this.lblMainTitle.Text = "      Users";
+            this.lblMainTitle.Text = "      Cars";
             this.lblMainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMainTitle.DoubleClick += new System.EventHandler(this.lblMainTitle_DoubleClick);
             // 
@@ -608,6 +593,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainHolder.BackColor = System.Drawing.SystemColors.Control;
             this.pnlMainHolder.Controls.Add(this.pnlPageIndicator);
+            this.pnlMainHolder.Controls.Add(this.pnlLoadingCircle);
             this.pnlMainHolder.Controls.Add(this.pnlDgv);
             this.pnlMainHolder.Controls.Add(this.lblProgress);
             this.pnlMainHolder.Controls.Add(this.btnAdd);
@@ -631,7 +617,7 @@
             this.pnlPageIndicator.Location = new System.Drawing.Point(430, 385);
             this.pnlPageIndicator.Name = "pnlPageIndicator";
             this.pnlPageIndicator.Size = new System.Drawing.Size(80, 25);
-            this.pnlPageIndicator.TabIndex = 20;
+            this.pnlPageIndicator.TabIndex = 7;
             // 
             // pnlPageIndicatorHolder
             // 
@@ -656,27 +642,26 @@
             this.pnlNudHolder.Size = new System.Drawing.Size(25, 21);
             this.pnlNudHolder.TabIndex = 1;
             // 
-            // pnlDgv
-            // 
-            this.pnlDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDgv.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnlDgv.Controls.Add(this.pnlLoadingCircle);
-            this.pnlDgv.Controls.Add(this.dataGridView1);
-            this.pnlDgv.Location = new System.Drawing.Point(5, 5);
-            this.pnlDgv.Name = "pnlDgv";
-            this.pnlDgv.Size = new System.Drawing.Size(585, 375);
-            this.pnlDgv.TabIndex = 1;
-            // 
             // pnlLoadingCircle
             // 
             this.pnlLoadingCircle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLoadingCircle.Location = new System.Drawing.Point(7, 388);
             this.pnlLoadingCircle.Name = "pnlLoadingCircle";
             this.pnlLoadingCircle.Size = new System.Drawing.Size(20, 20);
-            this.pnlLoadingCircle.TabIndex = 21;
+            this.pnlLoadingCircle.TabIndex = 20;
             this.pnlLoadingCircle.Visible = false;
+            // 
+            // pnlDgv
+            // 
+            this.pnlDgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlDgv.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pnlDgv.Controls.Add(this.dataGridView1);
+            this.pnlDgv.Location = new System.Drawing.Point(5, 5);
+            this.pnlDgv.Name = "pnlDgv";
+            this.pnlDgv.Size = new System.Drawing.Size(585, 375);
+            this.pnlDgv.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -690,21 +675,23 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeight = 25;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
-            this.colEMail,
-            this.colFullName,
-            this.colPhoneNo,
-            this.colRole,
+            this.colModelName,
+            this.colPrice,
+            this.colYear,
+            this.colType,
+            this.colEngineDetails,
+            this.colColor,
             this.colCreatedOn,
             this.colCreatedBy,
             this.colModifiedOn,
@@ -725,6 +712,123 @@
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colId.DefaultCellStyle = dataGridViewCellStyle14;
+            this.colId.DividerWidth = 1;
+            this.colId.Frozen = true;
+            this.colId.HeaderText = "ID";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Width = 50;
+            // 
+            // colModelName
+            // 
+            this.colModelName.DataPropertyName = "ModelName";
+            this.colModelName.DividerWidth = 1;
+            this.colModelName.HeaderText = "Model Name";
+            this.colModelName.Name = "colModelName";
+            this.colModelName.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle15;
+            this.colPrice.DividerWidth = 1;
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 50;
+            // 
+            // colYear
+            // 
+            this.colYear.DataPropertyName = "Year";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colYear.DefaultCellStyle = dataGridViewCellStyle16;
+            this.colYear.DividerWidth = 1;
+            this.colYear.HeaderText = "Year";
+            this.colYear.Name = "colYear";
+            this.colYear.ReadOnly = true;
+            this.colYear.Width = 50;
+            // 
+            // colType
+            // 
+            this.colType.DataPropertyName = "Type";
+            this.colType.DividerWidth = 1;
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            // 
+            // colEngineDetails
+            // 
+            this.colEngineDetails.DataPropertyName = "EngineDetails";
+            this.colEngineDetails.DividerWidth = 1;
+            this.colEngineDetails.HeaderText = "Engine Details";
+            this.colEngineDetails.Name = "colEngineDetails";
+            this.colEngineDetails.ReadOnly = true;
+            this.colEngineDetails.Width = 150;
+            // 
+            // colColor
+            // 
+            this.colColor.DataPropertyName = "Color";
+            this.colColor.DividerWidth = 1;
+            this.colColor.HeaderText = "Color";
+            this.colColor.Name = "colColor";
+            this.colColor.ReadOnly = true;
+            this.colColor.Width = 150;
+            // 
+            // colCreatedOn
+            // 
+            this.colCreatedOn.DataPropertyName = "CreatedOn";
+            dataGridViewCellStyle17.Format = "yyyy/MM/dd - hh:mm tt";
+            this.colCreatedOn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.colCreatedOn.DividerWidth = 1;
+            this.colCreatedOn.HeaderText = "Created On";
+            this.colCreatedOn.Name = "colCreatedOn";
+            this.colCreatedOn.ReadOnly = true;
+            this.colCreatedOn.Width = 130;
+            // 
+            // colCreatedBy
+            // 
+            this.colCreatedBy.DataPropertyName = "CreatedBy";
+            this.colCreatedBy.DividerWidth = 1;
+            this.colCreatedBy.HeaderText = "Created By";
+            this.colCreatedBy.Name = "colCreatedBy";
+            this.colCreatedBy.ReadOnly = true;
+            this.colCreatedBy.Width = 120;
+            // 
+            // colModifiedOn
+            // 
+            this.colModifiedOn.DataPropertyName = "ModifiedOn";
+            dataGridViewCellStyle18.Format = "yyyy/MM/dd - hh:mm tt";
+            this.colModifiedOn.DefaultCellStyle = dataGridViewCellStyle18;
+            this.colModifiedOn.DividerWidth = 1;
+            this.colModifiedOn.HeaderText = "Modified On";
+            this.colModifiedOn.Name = "colModifiedOn";
+            this.colModifiedOn.ReadOnly = true;
+            this.colModifiedOn.Width = 130;
+            // 
+            // colModifiedBy
+            // 
+            this.colModifiedBy.DataPropertyName = "ModifiedBy";
+            this.colModifiedBy.DividerWidth = 1;
+            this.colModifiedBy.HeaderText = "Modified By";
+            this.colModifiedBy.Name = "colModifiedBy";
+            this.colModifiedBy.ReadOnly = true;
+            this.colModifiedBy.Width = 120;
+            // 
+            // colNotes
+            // 
+            this.colNotes.DataPropertyName = "Notes";
+            this.colNotes.DividerWidth = 1;
+            this.colNotes.HeaderText = "Notes";
+            this.colNotes.Name = "colNotes";
+            this.colNotes.ReadOnly = true;
+            this.colNotes.Width = 500;
             // 
             // lblProgress
             // 
@@ -1176,158 +1280,6 @@
             this.label7.Text = "      Range";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlFind
-            // 
-            this.pnlFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFind.BackColor = System.Drawing.Color.DimGray;
-            this.pnlFind.Controls.Add(this.pnlFindHolder);
-            this.pnlFind.Controls.Add(this.label8);
-            this.pnlFind.Controls.Add(this.btnFindClear);
-            this.pnlFind.Location = new System.Drawing.Point(0, 315);
-            this.pnlFind.Name = "pnlFind";
-            this.pnlFind.Size = new System.Drawing.Size(220, 90);
-            this.pnlFind.TabIndex = 4;
-            // 
-            // pnlFindHolder
-            // 
-            this.pnlFindHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFindHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFindHolder.Controls.Add(this.pnlFindText);
-            this.pnlFindHolder.Controls.Add(this.pnlFindField);
-            this.pnlFindHolder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFindHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlFindHolder.Location = new System.Drawing.Point(0, 25);
-            this.pnlFindHolder.Name = "pnlFindHolder";
-            this.pnlFindHolder.Size = new System.Drawing.Size(220, 65);
-            this.pnlFindHolder.TabIndex = 0;
-            // 
-            // pnlFindText
-            // 
-            this.pnlFindText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFindText.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFindText.Controls.Add(this.pnlFindTextHolder);
-            this.pnlFindText.Controls.Add(this.label5);
-            this.pnlFindText.Location = new System.Drawing.Point(5, 35);
-            this.pnlFindText.Name = "pnlFindText";
-            this.pnlFindText.Size = new System.Drawing.Size(210, 25);
-            this.pnlFindText.TabIndex = 2;
-            // 
-            // pnlFindTextHolder
-            // 
-            this.pnlFindTextHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFindTextHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFindTextHolder.Controls.Add(this.txtFindText);
-            this.pnlFindTextHolder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFindTextHolder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFindTextHolder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFindTextHolder.Name = "pnlFindTextHolder";
-            this.pnlFindTextHolder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFindTextHolder.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(3, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Text";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFindField
-            // 
-            this.pnlFindField.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFindField.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFindField.Controls.Add(this.pnlFindFieldHolder);
-            this.pnlFindField.Controls.Add(this.label6);
-            this.pnlFindField.Location = new System.Drawing.Point(5, 5);
-            this.pnlFindField.Name = "pnlFindField";
-            this.pnlFindField.Size = new System.Drawing.Size(210, 25);
-            this.pnlFindField.TabIndex = 1;
-            // 
-            // pnlFindFieldHolder
-            // 
-            this.pnlFindFieldHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFindFieldHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFindFieldHolder.Controls.Add(this.panel11);
-            this.pnlFindFieldHolder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFindFieldHolder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFindFieldHolder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFindFieldHolder.Name = "pnlFindFieldHolder";
-            this.pnlFindFieldHolder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFindFieldHolder.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.Controls.Add(this.cboFindField);
-            this.panel11.Location = new System.Drawing.Point(3, 2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(140, 21);
-            this.panel11.TabIndex = 0;
-            // 
-            // cboFindField
-            // 
-            this.cboFindField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboFindField.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboFindField.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboFindField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFindField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboFindField.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboFindField.FormattingEnabled = true;
-            this.cboFindField.Location = new System.Drawing.Point(-1, -1);
-            this.cboFindField.Name = "cboFindField";
-            this.cboFindField.Size = new System.Drawing.Size(142, 23);
-            this.cboFindField.TabIndex = 0;
-            this.cboFindField.SelectedValueChanged += new System.EventHandler(this.cboFindField_SelectedValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(3, 5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Field";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Image = global::ABC.CarTraders.Properties.Resources.search_light_15px;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(3, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "      Find";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pnlFilter
             // 
             this.pnlFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1338,7 +1290,7 @@
             this.pnlFilter.Controls.Add(this.btnFilterClear);
             this.pnlFilter.Location = new System.Drawing.Point(0, 220);
             this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(220, 90);
+            this.pnlFilter.Size = new System.Drawing.Size(220, 180);
             this.pnlFilter.TabIndex = 3;
             // 
             // pnlFilterHolder
@@ -1347,83 +1299,98 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFilterHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter2);
+            this.pnlFilterHolder.Controls.Add(this.panel1);
+            this.pnlFilterHolder.Controls.Add(this.pnlFilter5);
             this.pnlFilterHolder.Controls.Add(this.pnlFilter1);
             this.pnlFilterHolder.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlFilterHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlFilterHolder.Location = new System.Drawing.Point(0, 25);
             this.pnlFilterHolder.Name = "pnlFilterHolder";
-            this.pnlFilterHolder.Size = new System.Drawing.Size(220, 65);
+            this.pnlFilterHolder.Size = new System.Drawing.Size(220, 155);
             this.pnlFilterHolder.TabIndex = 0;
             // 
-            // pnlFilter2
+            // pnlFilter5
             // 
-            this.pnlFilter2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlFilter5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter2.Controls.Add(this.pnlFilter2Holder);
-            this.pnlFilter2.Controls.Add(this.label4);
-            this.pnlFilter2.Location = new System.Drawing.Point(5, 35);
-            this.pnlFilter2.Name = "pnlFilter2";
-            this.pnlFilter2.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter2.TabIndex = 2;
+            this.pnlFilter5.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlFilter5.Controls.Add(this.pnlFilter5Holder);
+            this.pnlFilter5.Controls.Add(this.label8);
+            this.pnlFilter5.Location = new System.Drawing.Point(5, 125);
+            this.pnlFilter5.Name = "pnlFilter5";
+            this.pnlFilter5.Size = new System.Drawing.Size(210, 25);
+            this.pnlFilter5.TabIndex = 5;
             // 
-            // pnlFilter2Holder
+            // pnlFilter5Holder
             // 
-            this.pnlFilter2Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFilter5Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter2Holder.Controls.Add(this.panel7);
-            this.pnlFilter2Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter2Holder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFilter2Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter2Holder.Name = "pnlFilter2Holder";
-            this.pnlFilter2Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter2Holder.TabIndex = 0;
+            this.pnlFilter5Holder.BackColor = System.Drawing.Color.White;
+            this.pnlFilter5Holder.Controls.Add(this.pnlNudTechnicianCodeHolder);
+            this.pnlFilter5Holder.Controls.Add(this.rdoTechnicianAll);
+            this.pnlFilter5Holder.Controls.Add(this.rdoTechnicianCode);
+            this.pnlFilter5Holder.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlFilter5Holder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlFilter5Holder.Location = new System.Drawing.Point(65, 0);
+            this.pnlFilter5Holder.Name = "pnlFilter5Holder";
+            this.pnlFilter5Holder.Size = new System.Drawing.Size(145, 24);
+            this.pnlFilter5Holder.TabIndex = 0;
             // 
-            // panel7
+            // pnlNudTechnicianCodeHolder
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlNudTechnicianCodeHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.cboSex);
-            this.panel7.Location = new System.Drawing.Point(3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(140, 21);
-            this.panel7.TabIndex = 0;
+            this.pnlNudTechnicianCodeHolder.Controls.Add(this.nudTechnicianCode);
+            this.pnlNudTechnicianCodeHolder.Location = new System.Drawing.Point(68, 5);
+            this.pnlNudTechnicianCodeHolder.Name = "pnlNudTechnicianCodeHolder";
+            this.pnlNudTechnicianCodeHolder.Size = new System.Drawing.Size(75, 19);
+            this.pnlNudTechnicianCodeHolder.TabIndex = 3;
             // 
-            // cboSex
+            // rdoTechnicianAll
             // 
-            this.cboSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboSex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboSex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboSex.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboSex.FormattingEnabled = true;
-            this.cboSex.Location = new System.Drawing.Point(-1, -1);
-            this.cboSex.Name = "cboSex";
-            this.cboSex.Size = new System.Drawing.Size(142, 23);
-            this.cboSex.TabIndex = 0;
-            this.cboSex.SelectedValueChanged += new System.EventHandler(this.cboSex_SelectedValueChanged);
+            this.rdoTechnicianAll.AutoSize = true;
+            this.rdoTechnicianAll.Checked = true;
+            this.rdoTechnicianAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdoTechnicianAll.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoTechnicianAll.Location = new System.Drawing.Point(5, 3);
+            this.rdoTechnicianAll.Name = "rdoTechnicianAll";
+            this.rdoTechnicianAll.Size = new System.Drawing.Size(38, 19);
+            this.rdoTechnicianAll.TabIndex = 1;
+            this.rdoTechnicianAll.TabStop = true;
+            this.rdoTechnicianAll.Tag = "";
+            this.rdoTechnicianAll.Text = "All";
+            this.rdoTechnicianAll.UseVisualStyleBackColor = true;
+            this.rdoTechnicianAll.CheckedChanged += new System.EventHandler(this.rdoTechnicianAll_CheckedChanged);
             // 
-            // label4
+            // rdoTechnicianCode
             // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Sex";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rdoTechnicianCode.AutoSize = true;
+            this.rdoTechnicianCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdoTechnicianCode.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoTechnicianCode.Location = new System.Drawing.Point(49, 6);
+            this.rdoTechnicianCode.Name = "rdoTechnicianCode";
+            this.rdoTechnicianCode.Size = new System.Drawing.Size(13, 12);
+            this.rdoTechnicianCode.TabIndex = 2;
+            this.rdoTechnicianCode.Tag = "";
+            this.rdoTechnicianCode.UseVisualStyleBackColor = true;
+            this.rdoTechnicianCode.CheckedChanged += new System.EventHandler(this.rdoTechnicianCode_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(3, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 15);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Tech.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlFilter1
             // 
@@ -1431,7 +1398,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFilter1.BackColor = System.Drawing.Color.DarkGray;
             this.pnlFilter1.Controls.Add(this.pnlFilter1Holder);
-            this.pnlFilter1.Controls.Add(this.label3);
+            this.pnlFilter1.Controls.Add(this.label6);
             this.pnlFilter1.Location = new System.Drawing.Point(5, 5);
             this.pnlFilter1.Name = "pnlFilter1";
             this.pnlFilter1.Size = new System.Drawing.Size(210, 25);
@@ -1456,43 +1423,43 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.cboRole);
+            this.panel4.Controls.Add(this.cboType);
             this.panel4.Location = new System.Drawing.Point(3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(140, 21);
             this.panel4.TabIndex = 0;
             // 
-            // cboRole
+            // cboProvince
             // 
-            this.cboRole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboRole.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboRole.FormattingEnabled = true;
-            this.cboRole.Location = new System.Drawing.Point(-1, -1);
-            this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(142, 23);
-            this.cboRole.TabIndex = 0;
-            this.cboRole.SelectedValueChanged += new System.EventHandler(this.cboRole_SelectedValueChanged);
+            this.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboType.FormattingEnabled = true;
+            this.cboType.Location = new System.Drawing.Point(-1, -1);
+            this.cboType.Name = "cboProvince";
+            this.cboType.Size = new System.Drawing.Size(142, 23);
+            this.cboType.TabIndex = 0;
+            this.cboType.SelectedValueChanged += new System.EventHandler(this.cboProvince_SelectedValueChanged);
             // 
-            // label3
+            // label6
             // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Role";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(3, 5);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 15);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Type";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTime
             // 
@@ -1517,116 +1484,129 @@
             this.pnlSide.Controls.Add(this.pnlSort);
             this.pnlSide.Controls.Add(this.pnlFilter);
             this.pnlSide.Controls.Add(this.pnlRange);
-            this.pnlSide.Controls.Add(this.pnlFind);
             this.pnlSide.Location = new System.Drawing.Point(600, 0);
             this.pnlSide.Name = "pnlSide";
             this.pnlSide.Size = new System.Drawing.Size(220, 440);
             this.pnlSide.TabIndex = 2;
             // 
-            // colId
+            // panel1
             // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.DividerWidth = 1;
-            this.colId.Frozen = true;
-            this.colId.HeaderText = "ID";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(5, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(210, 25);
+            this.panel1.TabIndex = 5;
             // 
-            // colEMail
+            // panel2
             // 
-            this.colEMail.DataPropertyName = "EMail";
-            this.colEMail.DividerWidth = 1;
-            this.colEMail.HeaderText = "E-Mail";
-            this.colEMail.Name = "colEMail";
-            this.colEMail.ReadOnly = true;
-            this.colEMail.Width = 120;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Controls.Add(this.radioButton2);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(65, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(145, 24);
+            this.panel2.TabIndex = 0;
             // 
-            // colFullName
+            // panel6
             // 
-            this.colFullName.DataPropertyName = "FullName";
-            this.colFullName.DividerWidth = 1;
-            this.colFullName.HeaderText = "Full Name";
-            this.colFullName.Name = "colFullName";
-            this.colFullName.ReadOnly = true;
-            this.colFullName.Width = 150;
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.Controls.Add(this.numericUpDown1);
+            this.panel6.Location = new System.Drawing.Point(68, 5);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(75, 19);
+            this.panel6.TabIndex = 3;
             // 
-            // colPhoneNo
+            // numericUpDown1
             // 
-            this.colPhoneNo.DataPropertyName = "PhoneNo";
-            this.colPhoneNo.DividerWidth = 1;
-            this.colPhoneNo.HeaderText = "Phone No";
-            this.colPhoneNo.Name = "colPhoneNo";
-            this.colPhoneNo.ReadOnly = true;
-            this.colPhoneNo.Width = 85;
+            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.numericUpDown1.Location = new System.Drawing.Point(0, 0);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(77, 19);
+            this.numericUpDown1.TabIndex = 0;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nudTechnicianCode_KeyDown);
             // 
-            // colRole
+            // radioButton1
             // 
-            this.colRole.DataPropertyName = "Role";
-            this.colRole.DividerWidth = 1;
-            this.colRole.HeaderText = "Role";
-            this.colRole.Name = "colRole";
-            this.colRole.ReadOnly = true;
-            this.colRole.Width = 60;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.radioButton1.Location = new System.Drawing.Point(5, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(38, 19);
+            this.radioButton1.TabIndex = 1;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "";
+            this.radioButton1.Text = "All";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.rdoTechnicianAll_CheckedChanged);
             // 
-            // colCreatedOn
+            // radioButton2
             // 
-            this.colCreatedOn.DataPropertyName = "CreatedOn";
-            dataGridViewCellStyle2.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colCreatedOn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCreatedOn.DividerWidth = 1;
-            this.colCreatedOn.HeaderText = "Created On";
-            this.colCreatedOn.Name = "colCreatedOn";
-            this.colCreatedOn.ReadOnly = true;
-            this.colCreatedOn.Width = 130;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.radioButton2.Location = new System.Drawing.Point(49, 6);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(13, 12);
+            this.radioButton2.TabIndex = 2;
+            this.radioButton2.Tag = "";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.rdoTechnicianCode_CheckedChanged);
             // 
-            // colCreatedBy
+            // label3
             // 
-            this.colCreatedBy.DataPropertyName = "CreatedBy";
-            this.colCreatedBy.DividerWidth = 1;
-            this.colCreatedBy.HeaderText = "Created By";
-            this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.ReadOnly = true;
-            this.colCreatedBy.Width = 120;
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Tech.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // colModifiedOn
-            // 
-            this.colModifiedOn.DataPropertyName = "ModifiedOn";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colModifiedOn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colModifiedOn.DividerWidth = 1;
-            this.colModifiedOn.HeaderText = "Modified On";
-            this.colModifiedOn.Name = "colModifiedOn";
-            this.colModifiedOn.ReadOnly = true;
-            this.colModifiedOn.Width = 130;
-            // 
-            // colModifiedBy
-            // 
-            this.colModifiedBy.DataPropertyName = "ModifiedBy";
-            this.colModifiedBy.DividerWidth = 1;
-            this.colModifiedBy.HeaderText = "Modified By";
-            this.colModifiedBy.Name = "colModifiedBy";
-            this.colModifiedBy.ReadOnly = true;
-            this.colModifiedBy.Width = 120;
-            // 
-            // colNotes
-            // 
-            this.colNotes.DataPropertyName = "Notes";
-            this.colNotes.DividerWidth = 1;
-            this.colNotes.HeaderText = "Notes";
-            this.colNotes.Name = "colNotes";
-            this.colNotes.ReadOnly = true;
-            this.colNotes.Width = 500;
-            // 
-            // UserSection
+            // CarSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlSide);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UserSection";
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "CarSection";
             this.Size = new System.Drawing.Size(820, 440);
             ((System.ComponentModel.ISupportInitialize)(this.nudPageNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudTechnicianCode)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.pnlMainHolder.ResumeLayout(false);
@@ -1664,29 +1644,25 @@
             this.pnlRangeField.PerformLayout();
             this.pnlRangeFieldHolder.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.pnlFind.ResumeLayout(false);
-            this.pnlFind.PerformLayout();
-            this.pnlFindHolder.ResumeLayout(false);
-            this.pnlFindText.ResumeLayout(false);
-            this.pnlFindText.PerformLayout();
-            this.pnlFindTextHolder.ResumeLayout(false);
-            this.pnlFindTextHolder.PerformLayout();
-            this.pnlFindField.ResumeLayout(false);
-            this.pnlFindField.PerformLayout();
-            this.pnlFindFieldHolder.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
             this.pnlFilterHolder.ResumeLayout(false);
-            this.pnlFilter2.ResumeLayout(false);
-            this.pnlFilter2.PerformLayout();
-            this.pnlFilter2Holder.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.pnlFilter5.ResumeLayout(false);
+            this.pnlFilter5.PerformLayout();
+            this.pnlFilter5Holder.ResumeLayout(false);
+            this.pnlFilter5Holder.PerformLayout();
+            this.pnlNudTechnicianCodeHolder.ResumeLayout(false);
             this.pnlFilter1.ResumeLayout(false);
             this.pnlFilter1.PerformLayout();
             this.pnlFilter1Holder.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.pnlSide.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1699,7 +1675,6 @@
         private System.Windows.Forms.Label lblMainTitle;
         private System.Windows.Forms.Panel pnlMainHolder;
         private System.Windows.Forms.Panel pnlDgv;
-        private System.Windows.Forms.Panel pnlLoadingCircle;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblProgress;
         private System.Windows.Forms.Button btnAdd;
@@ -1711,6 +1686,7 @@
         private System.Windows.Forms.Button btnLastPage;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Panel pnlLoadingCircle;
         private System.Windows.Forms.Panel pnlSort;
         private System.Windows.Forms.Panel pnlSortHolder;
         private System.Windows.Forms.Panel pnlSortDirection;
@@ -1747,48 +1723,46 @@
         private System.Windows.Forms.Button btnLastYear;
         private System.Windows.Forms.Button btnThisYear;
         private System.Windows.Forms.Button btnRangeClear;
-        private System.Windows.Forms.Panel pnlFind;
-        private System.Windows.Forms.Panel pnlFindHolder;
-        private System.Windows.Forms.Panel pnlFindText;
-        private System.Windows.Forms.Panel pnlFindTextHolder;
-        private System.Windows.Forms.TextBox txtFindText;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel pnlFindField;
-        private System.Windows.Forms.Panel pnlFindFieldHolder;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.ComboBox cboFindField;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnFindClear;
-        private System.Windows.Forms.Panel pnlFilter;
-        private System.Windows.Forms.Panel pnlFilterHolder;
-        private System.Windows.Forms.Panel pnlFilter2;
-        private System.Windows.Forms.Panel pnlFilter2Holder;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox cboSex;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel pnlFilter1;
-        private System.Windows.Forms.Panel pnlFilter1Holder;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cboRole;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.Panel pnlPageIndicator;
         private System.Windows.Forms.Panel pnlPageIndicatorHolder;
         private System.Windows.Forms.Panel pnlNudHolder;
         private System.Windows.Forms.NumericUpDown nudPageNumber;
         private System.Windows.Forms.Label lblPages;
+        private System.Windows.Forms.Panel pnlFilter;
+        private System.Windows.Forms.Panel pnlFilterHolder;
+        private System.Windows.Forms.Panel pnlFilter5;
+        private System.Windows.Forms.Panel pnlFilter5Holder;
+        private System.Windows.Forms.Panel pnlNudTechnicianCodeHolder;
+        private System.Windows.Forms.NumericUpDown nudTechnicianCode;
+        private System.Windows.Forms.RadioButton rdoTechnicianAll;
+        private System.Windows.Forms.RadioButton rdoTechnicianCode;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel pnlFilter1;
+        private System.Windows.Forms.Panel pnlFilter1Holder;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.Panel pnlSide;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colModelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colYear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEngineDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedOn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedOn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label3;
     }
 }

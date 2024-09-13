@@ -1,8 +1,9 @@
-﻿using ABC.CarTraders.Core;
-using ABC.CarTraders.Core.Domain;
+﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.Enums;
 using MRG.Controls.UI;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace ABC.CarTraders.GUI.Forms
     public partial class UserForm : Form
     {
         #region Common
-        public IUnitOfWork UnitOfWork { get { return DashboardForm.UnitOfWork; } }
+        public AppDbContext DbContext { get { return DashboardForm.DbContext; } }
         public Action<Log> WriteLog { get { return DashboardForm.WriteLog; } }
         public Func<Task> SaveToDatabase { get { return DashboardForm.SaveToDatabaseAsync; } }
         public User User { get { return DashboardForm.User; } }
@@ -24,19 +25,16 @@ namespace ABC.CarTraders.GUI.Forms
         public UserForm()
         {
             InitializeComponent();
-            rdoMale.Tag = UserSex.Male;
-            rdoFemale.Tag = UserSex.Female;
+            rdoMale.Tag = Sex.Male;
+            rdoFemale.Tag = Sex.Female;
 
             cboRole.DataSource = new List<UserRole>()
             {
                 UserRole.Admin,
-                UserRole.Director,
-                UserRole.Doctor,
-                UserRole.Staff,
-                UserRole.Trainee
+                UserRole.Customer,
             };
 
-            UserUsername = null;
+            Email = null;
             UserPassword = null;
             UserName = null;
             UserEmail = null;
@@ -57,7 +55,7 @@ namespace ABC.CarTraders.GUI.Forms
             Text = "New User";
             StatusText = "Ready";
 
-            UserUsername = null;
+            Email = null;
             UserPassword = null;
             UserName = null;
             UserEmail = null;
@@ -76,14 +74,14 @@ namespace ABC.CarTraders.GUI.Forms
             Overwrite = true;
 
             OldUser = user;
-            Text = $"View User #{OldUser.Username}";
+            Text = $"View User #{OldUser.Email}";
             StatusText = "Ready";
 
-            UserUsername = OldUser.Username;
-            UserPassword = OldUser.Password;
-            UserName = OldUser.Name;
-            UserSex = OldUser.Sex;
-            UserEmail = OldUser.EMail;
+            //UserUsername = OldUser.Username;
+            //UserPassword = OldUser.Password;
+            //UserName = OldUser.Name;
+            //UserSex = OldUser.Sex;
+            UserEmail = OldUser.Email;
             UserPhoneNo = OldUser.PhoneNo;
             UserRole = OldUser.Role;
             UserNotes = OldUser.Notes;
@@ -101,7 +99,7 @@ namespace ABC.CarTraders.GUI.Forms
         #endregion
 
         #region Fields
-        public string UserUsername
+        public string Email
         {
             get
             {
@@ -137,16 +135,16 @@ namespace ABC.CarTraders.GUI.Forms
             set { txtName.Text = value; }
         }
 
-        public UserSex UserSex
+        public Sex UserSex
         {
             get
             {
                 var rdo = pnlSexHolder.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked);
-                return (UserSex)rdo.Tag;
+                return (Sex)rdo.Tag;
             }
             set
             {
-                var rdo = pnlSexHolder.Controls.OfType<RadioButton>().FirstOrDefault(x => (UserSex)x.Tag == value);
+                var rdo = pnlSexHolder.Controls.OfType<RadioButton>().FirstOrDefault(x => (Sex)x.Tag == value);
                 rdo.Checked = true;
             }
         }
@@ -211,16 +209,16 @@ namespace ABC.CarTraders.GUI.Forms
 
             var newUser = new User()
             {
-                Username = UserUsername,
-                Password = UserPassword,
-                Name = UserName,
-                Sex = UserSex,
-                EMail = UserEmail,
-                PhoneNo = UserPhoneNo,
-                Role = UserRole,
-                Notes = UserNotes,
-                CreatedOn = DateTime.Now,
-                CreatedBy = User
+                //Username = UserUsername,
+                //Password = UserPassword,
+                //Name = UserName,
+                //Sex = UserSex,
+                //EMail = UserEmail,
+                //PhoneNo = UserPhoneNo,
+                //Role = UserRole,
+                //Notes = UserNotes,
+                //CreatedOn = DateTime.Now,
+                //CreatedBy = User
             };
 
             if (Overwrite)
@@ -252,7 +250,7 @@ namespace ABC.CarTraders.GUI.Forms
 
         private bool ValidateInput()
         {
-            if (UserUsername == null)
+            if (Email == null)
             {
                 txtUsername.Focus();
                 return false;
@@ -280,12 +278,12 @@ namespace ABC.CarTraders.GUI.Forms
                 try
                 {
                     StartProgress("Checking Key...");
-                    var tmp = await UnitOfWork.Users.GetAsync(UserUsername);
+                    var tmp = await DbContext.Users.FirstOrDefaultAsync(x => x.Email == Email);
                     StopProgress();
                     if (tmp != null)
                     {
                         StatusText = "Key Exists";
-                        var option = MessageBox.Show($"Username {UserUsername} already exists. Do you want to view that record?", "DUPLICATE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        var option = MessageBox.Show($"Email {Email} already exists. Do you want to view that record?", "DUPLICATE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (option == DialogResult.Yes)
                         {
                             ViewRecord(tmp);
@@ -313,14 +311,14 @@ namespace ABC.CarTraders.GUI.Forms
         public bool Overwrite { get; set; }
         private void AddRecord(User newUser)
         {
-            UnitOfWork.Users.Add(newUser);
+            DbContext.Users.Add(newUser);
             WriteLog.Invoke(new Log()
             {
-                Time = DateTime.Now,
-                User = User,
+                CreatedDate = DateTime.Now,
+                CreatedUser = User,
                 Title = "User",
                 Action = LogAction.Insert,
-                Text = $"Added a user (#{newUser.Username})"
+                Text = $"Added a user (#{newUser.Email})"
             });
             StatusText = "Record Saved";
 
@@ -332,22 +330,22 @@ namespace ABC.CarTraders.GUI.Forms
         private void UpdateRecord(User user, User newUser)
         {
             user.Password = newUser.Password;
-            user.Name = newUser.Name;
-            user.Sex = newUser.Sex;
-            user.EMail = newUser.EMail;
+            //user.Name = newUser.Name;
+            //user.Sex = newUser.Sex;
+            user.Email = newUser.Email;
             user.PhoneNo = newUser.PhoneNo;
             user.Role = newUser.Role;
             user.Notes = newUser.Notes;
-            user.ModifiedOn = DateTime.Now;
-            user.ModifiedBy = User;
+            user.LastModifiedDate = DateTime.Now;
+            user.LastModifiedUser = User;
 
             WriteLog.Invoke(new Log()
             {
-                Time = DateTime.Now,
-                User = User,
+                CreatedDate = DateTime.Now,
+                CreatedUser = User,
                 Title = "User",
                 Action = LogAction.Update,
-                Text = $"Updated a user (#{newUser.Username})"
+                Text = $"Updated a user (#{newUser.Email})"
             });
             StatusText = "Record Updated";
 

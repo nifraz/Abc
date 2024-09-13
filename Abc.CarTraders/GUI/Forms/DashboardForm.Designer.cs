@@ -54,12 +54,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.loginSection1 = new ABC.CarTraders.GUI.Sections.LoginSection();
             this.statisticsSection1 = new ABC.CarTraders.GUI.Sections.StatisticsSection();
             this.userSection1 = new ABC.CarTraders.GUI.Sections.UserSection();
-            this.vsRangeSection1 = new ABC.CarTraders.GUI.Sections.VsRangeSection();
-            this.instituteSection1 = new ABC.CarTraders.GUI.Sections.InstituteSection();
-            this.calvingSheetSection1 = new ABC.CarTraders.GUI.Sections.CalvingSheetSection();
-            this.technicianSection1 = new ABC.CarTraders.GUI.Sections.TechnicianSection();
-            this.calvingRecordSection1 = new ABC.CarTraders.GUI.Sections.CalvingRecordSection();
-            this.semenSection1 = new ABC.CarTraders.GUI.Sections.SemenSection();
+            this.carSection1 = new ABC.CarTraders.GUI.Sections.CarSection();
             this.logSection1 = new ABC.CarTraders.GUI.Sections.LogSection();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnFullscreen = new System.Windows.Forms.Button();
@@ -266,12 +261,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.pnlControlsHolder.Controls.Add(this.loginSection1);
             this.pnlControlsHolder.Controls.Add(this.statisticsSection1);
             this.pnlControlsHolder.Controls.Add(this.userSection1);
-            this.pnlControlsHolder.Controls.Add(this.vsRangeSection1);
-            this.pnlControlsHolder.Controls.Add(this.instituteSection1);
-            this.pnlControlsHolder.Controls.Add(this.calvingSheetSection1);
-            this.pnlControlsHolder.Controls.Add(this.technicianSection1);
-            this.pnlControlsHolder.Controls.Add(this.calvingRecordSection1);
-            this.pnlControlsHolder.Controls.Add(this.semenSection1);
+            this.pnlControlsHolder.Controls.Add(this.carSection1);
             this.pnlControlsHolder.Controls.Add(this.logSection1);
             this.pnlControlsHolder.Location = new System.Drawing.Point(45, 45);
             this.pnlControlsHolder.Name = "pnlControlsHolder";
@@ -294,7 +284,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.loginSection1.Size = new System.Drawing.Size(834, 485);
             this.loginSection1.Stopwatch = stopwatch1;
             this.loginSection1.TabIndex = 1;
-            this.loginSection1.UnitOfWork = null;
+            this.loginSection1.DbContext = null;
             this.loginSection1.User = null;
             // 
             // statisticsSection1
@@ -323,83 +313,19 @@ namespace ABC.CarTraders.GUI.Forms
             this.userSection1.TabIndex = 1;
             this.userSection1.Visible = false;
             // 
-            // vsRangeSection1
-            // 
-            this.vsRangeSection1.ColorScheme = null;
-            this.vsRangeSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vsRangeSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.vsRangeSection1.Location = new System.Drawing.Point(0, 0);
-            this.vsRangeSection1.Name = "vsRangeSection1";
-            this.vsRangeSection1.ProgressText = null;
-            this.vsRangeSection1.Size = new System.Drawing.Size(834, 485);
-            this.vsRangeSection1.Stopwatch = stopwatch4;
-            this.vsRangeSection1.TabIndex = 1;
-            this.vsRangeSection1.Visible = false;
-            // 
-            // instituteSection1
-            // 
-            this.instituteSection1.ColorScheme = null;
-            this.instituteSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.instituteSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instituteSection1.Location = new System.Drawing.Point(0, 0);
-            this.instituteSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.instituteSection1.Name = "instituteSection1";
-            this.instituteSection1.ProgressText = null;
-            this.instituteSection1.Size = new System.Drawing.Size(834, 485);
-            this.instituteSection1.Stopwatch = stopwatch5;
-            this.instituteSection1.TabIndex = 1;
-            this.instituteSection1.Visible = false;
-            // 
             // calvingSheetSection1
             // 
-            this.calvingSheetSection1.ColorScheme = null;
-            this.calvingSheetSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calvingSheetSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calvingSheetSection1.Location = new System.Drawing.Point(0, 0);
-            this.calvingSheetSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.calvingSheetSection1.Name = "calvingSheetSection1";
-            this.calvingSheetSection1.ProgressText = null;
-            this.calvingSheetSection1.Size = new System.Drawing.Size(834, 485);
-            this.calvingSheetSection1.Stopwatch = stopwatch6;
-            this.calvingSheetSection1.TabIndex = 1;
-            this.calvingSheetSection1.Visible = false;
-            // 
-            // technicianSection1
-            // 
-            this.technicianSection1.ColorScheme = null;
-            this.technicianSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.technicianSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.technicianSection1.Location = new System.Drawing.Point(0, 0);
-            this.technicianSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.technicianSection1.Name = "technicianSection1";
-            this.technicianSection1.Size = new System.Drawing.Size(834, 485);
-            this.technicianSection1.TabIndex = 1;
-            this.technicianSection1.Visible = false;
-            // 
-            // calvingRecordSection1
-            // 
-            this.calvingRecordSection1.ColorScheme = null;
-            this.calvingRecordSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.calvingRecordSection1.Location = new System.Drawing.Point(0, 0);
-            this.calvingRecordSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.calvingRecordSection1.Name = "calvingRecordSection1";
-            this.calvingRecordSection1.ProgressText = null;
-            this.calvingRecordSection1.Size = new System.Drawing.Size(834, 485);
-            this.calvingRecordSection1.Stopwatch = stopwatch7;
-            this.calvingRecordSection1.TabIndex = 1;
-            this.calvingRecordSection1.Visible = false;
-            // 
-            // semenSection1
-            // 
-            this.semenSection1.AutoScroll = true;
-            this.semenSection1.ColorScheme = null;
-            this.semenSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.semenSection1.Location = new System.Drawing.Point(0, 0);
-            this.semenSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.semenSection1.Name = "semenSection1";
-            this.semenSection1.Size = new System.Drawing.Size(834, 485);
-            this.semenSection1.TabIndex = 1;
-            this.semenSection1.Visible = false;
+            this.carSection1.ColorScheme = null;
+            this.carSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.carSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carSection1.Location = new System.Drawing.Point(0, 0);
+            this.carSection1.Margin = new System.Windows.Forms.Padding(0);
+            this.carSection1.Name = "calvingSheetSection1";
+            this.carSection1.ProgressText = null;
+            this.carSection1.Size = new System.Drawing.Size(834, 485);
+            this.carSection1.Stopwatch = stopwatch6;
+            this.carSection1.TabIndex = 1;
+            this.carSection1.Visible = false;
             // 
             // logSection1
             // 
@@ -675,17 +601,12 @@ namespace ABC.CarTraders.GUI.Forms
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Panel pnlFooter;
         private System.Windows.Forms.RichTextBox rtbOutput;
-        private InstituteSection instituteSection1;
-        private CalvingSheetSection calvingSheetSection1;
-        private TechnicianSection technicianSection1;
+        private CarSection carSection1;
         private System.Windows.Forms.Button btnSemen;
         private System.Windows.Forms.Button btnInstitute;
-        private CalvingRecordSection calvingRecordSection1;
-        private SemenSection semenSection1;
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblIcon;
         private StatisticsSection statisticsSection1;
-        private VsRangeSection vsRangeSection1;
         private System.Windows.Forms.Button btnColorScheme;
         private System.Windows.Forms.Button btnLog;
         private System.Windows.Forms.Button btnToDatabase;
