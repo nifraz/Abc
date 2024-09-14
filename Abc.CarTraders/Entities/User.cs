@@ -1,5 +1,6 @@
 ﻿using ABC.CarTraders.Enums;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.IO;
 using System.Security.Cryptography;
@@ -23,7 +24,8 @@ namespace ABC.CarTraders.Entities
         public byte[] Image { get; set; }
         //public bool IsActive { get; set; }
         //public List<Order> Orders { get; set; } = new List<Order>();  // Relationship: One Customer can place multiple Orders
-
+        
+        [NotMapped]
         public Image Thumbnail
         {
             get

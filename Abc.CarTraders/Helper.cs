@@ -106,6 +106,12 @@ namespace ABC.CarTraders
             return Properties.Resources.car_100px;  // Replace with the actual default image resource
         }
 
+        public static Image GetDefaultCarPartImage()
+        {
+            // Assuming you have a default image in the project resources
+            return Properties.Resources.carpart_100px;  // Replace with the actual default image resource
+        }
+
         public static Image ResizeImageToFitBox(Image image, int boxWidth, int boxHeight)
         {
             if (image == null)

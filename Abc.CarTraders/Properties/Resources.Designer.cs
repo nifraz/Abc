@@ -323,6 +323,16 @@ namespace ABC.CarTraders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carpart_100px {
+            get {
+                object obj = ResourceManager.GetObject("carpart_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checkmark_dark_15px {
             get {
                 object obj = ResourceManager.GetObject("checkmark_dark_15px", resourceCulture);

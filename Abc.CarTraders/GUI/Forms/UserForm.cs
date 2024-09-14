@@ -452,7 +452,7 @@ namespace ABC.CarTraders.GUI.Forms
             user.Image = newUser.Image;
             user.Notes = newUser.Notes;
             user.LastModifiedDate = DateTime.Now;
-            user.LastModifiedUser = User;
+            user.LastModifiedUserId = User?.Id;
 
             WriteLog.Invoke(new Log()
             {

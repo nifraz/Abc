@@ -123,7 +123,7 @@
             this.pnlPhoneNo.Location = new System.Drawing.Point(0, 120);
             this.pnlPhoneNo.Name = "pnlPhoneNo";
             this.pnlPhoneNo.Size = new System.Drawing.Size(360, 25);
-            this.pnlPhoneNo.TabIndex = 6;
+            this.pnlPhoneNo.TabIndex = 4;
             // 
             // pnlPhoneNoHolder
             // 
@@ -151,7 +151,7 @@
             this.txtPhoneNo.MaxLength = 15;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(280, 16);
-            this.txtPhoneNo.TabIndex = 5;
+            this.txtPhoneNo.TabIndex = 0;
             this.txtPhoneNo.Text = "000000000000000";
             // 
             // label6
@@ -177,7 +177,7 @@
             this.pnlEMail.Location = new System.Drawing.Point(0, 0);
             this.pnlEMail.Name = "pnlEMail";
             this.pnlEMail.Size = new System.Drawing.Size(335, 25);
-            this.pnlEMail.TabIndex = 5;
+            this.pnlEMail.TabIndex = 0;
             // 
             // pnlEMailHolder
             // 
@@ -204,7 +204,7 @@
             this.txtEMail.Location = new System.Drawing.Point(5, 5);
             this.txtEMail.MaxLength = 100;
             this.txtEMail.Name = "txtEMail";
-            this.txtEMail.Size = new System.Drawing.Size(296, 16);
+            this.txtEMail.Size = new System.Drawing.Size(257, 16);
             this.txtEMail.TabIndex = 0;
             this.txtEMail.Text = "dumble123@email.com";
             // 
@@ -261,7 +261,7 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtNotes.Size = new System.Drawing.Size(280, 41);
-            this.txtNotes.TabIndex = 9;
+            this.txtNotes.TabIndex = 0;
             this.txtNotes.Text = "Line 1\r\nLine 2\r\nLine 3";
             // 
             // label3
@@ -287,7 +287,7 @@
             this.pnlName.Location = new System.Drawing.Point(0, 30);
             this.pnlName.Name = "pnlName";
             this.pnlName.Size = new System.Drawing.Size(360, 25);
-            this.pnlName.TabIndex = 3;
+            this.pnlName.TabIndex = 1;
             // 
             // pnlNameHolder
             // 
@@ -315,7 +315,7 @@
             this.txtFullName.MaxLength = 255;
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(280, 16);
-            this.txtFullName.TabIndex = 1;
+            this.txtFullName.TabIndex = 0;
             this.txtFullName.Text = "A. B. C. Dumbledore";
             // 
             // label2
@@ -369,7 +369,7 @@
             this.btnSave.Location = new System.Drawing.Point(295, 383);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(65, 25);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 9;
             this.btnSave.Text = "REGISTER";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnSave, "Save (Ctrl+S)");
@@ -415,7 +415,7 @@
             this.cboRole.Location = new System.Drawing.Point(-1, -1);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(284, 23);
-            this.cboRole.TabIndex = 4;
+            this.cboRole.TabIndex = 0;
             // 
             // label9
             // 
@@ -440,7 +440,7 @@
             this.pnlSex.Location = new System.Drawing.Point(0, 60);
             this.pnlSex.Name = "pnlSex";
             this.pnlSex.Size = new System.Drawing.Size(360, 25);
-            this.pnlSex.TabIndex = 4;
+            this.pnlSex.TabIndex = 2;
             // 
             // pnlSexHolder
             // 
@@ -466,7 +466,7 @@
             this.rdoMale.Location = new System.Drawing.Point(5, 3);
             this.rdoMale.Name = "rdoMale";
             this.rdoMale.Size = new System.Drawing.Size(50, 19);
-            this.rdoMale.TabIndex = 2;
+            this.rdoMale.TabIndex = 0;
             this.rdoMale.TabStop = true;
             this.rdoMale.Tag = "";
             this.rdoMale.Text = "Male";
@@ -480,7 +480,7 @@
             this.rdoFemale.Location = new System.Drawing.Point(61, 3);
             this.rdoFemale.Name = "rdoFemale";
             this.rdoFemale.Size = new System.Drawing.Size(62, 19);
-            this.rdoFemale.TabIndex = 3;
+            this.rdoFemale.TabIndex = 1;
             this.rdoFemale.Tag = "";
             this.rdoFemale.Text = "Female";
             this.rdoFemale.UseVisualStyleBackColor = true;
@@ -508,7 +508,7 @@
             this.pnlRole.Location = new System.Drawing.Point(0, 90);
             this.pnlRole.Name = "pnlRole";
             this.pnlRole.Size = new System.Drawing.Size(360, 25);
-            this.pnlRole.TabIndex = 7;
+            this.pnlRole.TabIndex = 3;
             // 
             // pnlLoadingCircle
             // 
@@ -564,7 +564,7 @@
             this.pnlRangeStart.Location = new System.Drawing.Point(0, 205);
             this.pnlRangeStart.Name = "pnlRangeStart";
             this.pnlRangeStart.Size = new System.Drawing.Size(360, 25);
-            this.pnlRangeStart.TabIndex = 33;
+            this.pnlRangeStart.TabIndex = 6;
             // 
             // pnlRangeStartHolder
             // 
@@ -605,7 +605,7 @@
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.ShowUpDown = true;
             this.dtpDateOfBirth.Size = new System.Drawing.Size(279, 23);
-            this.dtpDateOfBirth.TabIndex = 7;
+            this.dtpDateOfBirth.TabIndex = 0;
             this.dtpDateOfBirth.Value = new System.DateTime(2022, 3, 22, 0, 0, 0, 0);
             // 
             // label13
@@ -672,7 +672,7 @@
             this.cboPaymentMethod.Location = new System.Drawing.Point(-1, -1);
             this.cboPaymentMethod.Name = "cboPaymentMethod";
             this.cboPaymentMethod.Size = new System.Drawing.Size(198, 23);
-            this.cboPaymentMethod.TabIndex = 8;
+            this.cboPaymentMethod.TabIndex = 0;
             // 
             // label7
             // 
@@ -697,7 +697,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 150);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(360, 50);
-            this.panel3.TabIndex = 8;
+            this.panel3.TabIndex = 5;
             // 
             // panel4
             // 
@@ -727,7 +727,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtAddress.Size = new System.Drawing.Size(280, 41);
-            this.txtAddress.TabIndex = 6;
+            this.txtAddress.TabIndex = 0;
             this.txtAddress.Text = "Line 1\r\nLine 2\r\nLine 3";
             // 
             // label4

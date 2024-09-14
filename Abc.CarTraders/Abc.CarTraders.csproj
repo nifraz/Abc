@@ -130,6 +130,7 @@
     <Compile Include="Entities\CarPart.cs" />
     <Compile Include="Entities\Log.cs" />
     <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Record.cs" />
     <Compile Include="Entities\User.cs" />
@@ -192,6 +193,10 @@
     <Compile Include="Migrations\202409140849377_Initial.cs" />
     <Compile Include="Migrations\202409140849377_Initial.Designer.cs">
       <DependentUpon>202409140849377_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202409141920293_AddTables.cs" />
+    <Compile Include="Migrations\202409141920293_AddTables.Designer.cs">
+      <DependentUpon>202409141920293_AddTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AppDbContext.cs" />
@@ -264,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202409140849377_Initial.resx">
       <DependentUpon>202409140849377_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409141920293_AddTables.resx">
+      <DependentUpon>202409141920293_AddTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -381,6 +389,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\icons8_tire_iron_100px.png" />
     <None Include="Resources\icons8_user_100px.png" />
     <None Include="Resources\icons8_people_in_car_side_view_100px.png" />
     <None Include="Resources\icons8_available_updates_20px_1.png" />
