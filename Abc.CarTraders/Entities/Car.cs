@@ -11,9 +11,10 @@ namespace ABC.CarTraders.Entities
         public CarType Type { get; set; }
         public string EngineDetails { get; set; }
         public string Color { get; set; }
+        public byte[] CarPicture { get; set; }
 
         // Navigation Properties
-        public List<CarPart> CarParts { get; set; } = new List<CarPart>(); // Relationship: One Car can have multiple parts
-        public List<Order> Orders { get; set; } = new List<Order>(); // Relationship: One Car can be part of multiple Orders
+        //public List<CarPart> CarParts { get; set; } = new List<CarPart>(); // Relationship: One Car can have multiple parts
+        //public List<Order> Orders { get; set; } = new List<Order>(); // Relationship: One Car can be part of multiple Orders
     }
 }

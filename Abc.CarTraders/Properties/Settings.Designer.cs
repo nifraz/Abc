@@ -25,7 +25,7 @@ namespace ABC.CarTraders.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.10.150")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string ServerIp {
             get {
                 return ((string)(this["ServerIp"]));
@@ -37,7 +37,7 @@ namespace ABC.CarTraders.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("nifraz")]
+        [global::System.Configuration.DefaultSettingValueAttribute("nifraz@live.com")]
         public string LastUsername {
             get {
                 return ((string)(this["LastUsername"]));

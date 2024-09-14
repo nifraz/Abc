@@ -124,7 +124,6 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.StatisticsSection.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.LoginSection.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.UserSection.resources
-C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.Migrations.Initial.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.Properties.Resources.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\Abc.CarTraders.csproj.GenerateResource.cache
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\Abc.CarTraders.csproj.CoreCompileInputs.cache
@@ -133,3 +132,5 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.pdb
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.CarSection.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Forms.CarForm.resources
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.Migrations.Initial.resources
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Forms.UserForm2.resources

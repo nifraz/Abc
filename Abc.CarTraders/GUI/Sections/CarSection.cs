@@ -300,7 +300,7 @@ namespace ABC.CarTraders.GUI.Sections
             var recordCount = records.Count();
             var recordIds = string.Join(",", records.Select(x => x.Id));
             //var calvingRecordCount = records.SelectMany(x => x.CalvingRecords).Count();
-            DbContext.Cars.RemoveRange(records);
+            //DbContext.Cars.RemoveRange(records);
             
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -378,9 +378,9 @@ namespace ABC.CarTraders.GUI.Sections
                 try
                 {
                     StartProgress("Refreshing...");
-                    PagedList = await DbContext.Cars
-                        .Where(GetExpression())
-                        .ToPagedListAsync(PageNumber, PageSize);
+                    //PagedList = await DbContext.Cars
+                    //    .Where(GetExpression())
+                    //    .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 
                     dataGridView1.DataSource = new BindingList<Car>(PagedList.ToList());

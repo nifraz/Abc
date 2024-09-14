@@ -13,7 +13,7 @@ namespace ABC.CarTraders.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202111130754511_Initial"; }
+            get { return "202409140849377_Initial"; }
         }
         
         string IMigrationMetadata.Source

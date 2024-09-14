@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="ServerIp" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.10.150</Value>
+      <Value Profile="(Default)">127.0.0.1</Value>
     </Setting>
     <Setting Name="LastUsername" Type="System.String" Scope="User">
-      <Value Profile="(Default)">nifraz</Value>
+      <Value Profile="(Default)">nifraz@live.com</Value>
     </Setting>
     <Setting Name="DbUserId" Type="System.String" Scope="User">
       <Value Profile="(Default)">sa</Value>

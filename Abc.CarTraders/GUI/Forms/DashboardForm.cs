@@ -120,8 +120,8 @@ namespace ABC.CarTraders.GUI.Forms
             btnInstitute.BackColor = scheme.Color7;
             btnSemen.BackColor = scheme.Color7;
             btnTechnician.BackColor = scheme.Color7;
-            btnCalvingSheet.BackColor = scheme.Color7;
-            btnCalvingRecord.BackColor = scheme.Color7;
+            btnCar.BackColor = scheme.Color7;
+            btnCarPart.BackColor = scheme.Color7;
             btnLogout.BackColor = scheme.Color7;
 
             btnToDatabase.BackColor = scheme.Color9;
@@ -262,11 +262,17 @@ namespace ABC.CarTraders.GUI.Forms
 
             RefreshAsyncDelegate = async () =>
             {
+                SetButtonPermission();
                 await statisticsSection1.RefreshAsync();
                 await userSection1.RefreshAsync();
                 await carSection1.RefreshAsync();
                 await logSection1.RefreshAsync();
             };
+        }
+
+        private void SetButtonPermission()
+        {
+            btnUser.Enabled = User != null && User.Role >= Enums.UserRole.Admin;
         }
 
         private void tagRegionMetaData()
@@ -303,7 +309,7 @@ namespace ABC.CarTraders.GUI.Forms
             //    Description = "Manage Calving Record Data",
             //    RegionControl = calvingRecordSection1
             //};
-            btnCalvingSheet.Tag = new ButtonTag()
+            btnCar.Tag = new ButtonTag()
             {
                 ButtonImageDark = Properties.Resources.spreadsheet_file_dark_25px,
                 ButtonImageLight = Properties.Resources.spreadsheet_file_light_25px,
@@ -395,8 +401,8 @@ namespace ABC.CarTraders.GUI.Forms
             btnStatistics.Image = global::ABC.CarTraders.Properties.Resources.plot_light_25px;
             btnUser.Image = global::ABC.CarTraders.Properties.Resources.user_light_25px;
             btnVsRange.Image = global::ABC.CarTraders.Properties.Resources.map_marker_light_25px;
-            btnCalvingRecord.Image = global::ABC.CarTraders.Properties.Resources.list_view_light_25px;
-            btnCalvingSheet.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_25px;
+            btnCarPart.Image = global::ABC.CarTraders.Properties.Resources.list_view_light_25px;
+            btnCar.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_25px;
             btnTechnician.Image = global::ABC.CarTraders.Properties.Resources.worker_light_25px;
             btnInstitute.Image = global::ABC.CarTraders.Properties.Resources.company_light_25px;
             btnSemen.Image = global::ABC.CarTraders.Properties.Resources.bull_light_25px;
@@ -406,8 +412,8 @@ namespace ABC.CarTraders.GUI.Forms
             btnStatistics.BackColor = ColorScheme.Color7;
             btnUser.BackColor = ColorScheme.Color7;
             btnVsRange.BackColor = ColorScheme.Color7;
-            btnCalvingRecord.BackColor = ColorScheme.Color7;
-            btnCalvingSheet.BackColor = ColorScheme.Color7;
+            btnCarPart.BackColor = ColorScheme.Color7;
+            btnCar.BackColor = ColorScheme.Color7;
             btnTechnician.BackColor = ColorScheme.Color7;
             btnInstitute.BackColor = ColorScheme.Color7;
             btnSemen.BackColor = ColorScheme.Color7;
@@ -643,11 +649,11 @@ namespace ABC.CarTraders.GUI.Forms
                         e.SuppressKeyPress = true;
                         break;
                     case Keys.D7:
-                        btnCalvingSheet.PerformClick();
+                        btnCar.PerformClick();
                         e.SuppressKeyPress = true;
                         break;
                     case Keys.D8:
-                        btnCalvingRecord.PerformClick();
+                        btnCarPart.PerformClick();
                         e.SuppressKeyPress = true;
                         break;
                     case Keys.L:

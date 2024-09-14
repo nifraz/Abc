@@ -111,10 +111,10 @@ namespace ABC.CarTraders.GUI.Sections
         {
             get
             {
-                var str = txtUsername.Text.Trim();
+                var str = txtEmail.Text.Trim();
                 return str == string.Empty ? null : str;
             }
-            set { txtUsername.Text = value; }
+            set { txtEmail.Text = value; }
         }
 
         private string Password
@@ -353,7 +353,7 @@ namespace ABC.CarTraders.GUI.Sections
             if (LastUsername == null)
             {
                 StatusText = "Username Required";
-                txtUsername.Focus();
+                txtEmail.Focus();
                 return false;
             }
             if (Password == null)
@@ -410,5 +410,21 @@ namespace ABC.CarTraders.GUI.Sections
             //btnLogin.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", elapsed.Hours, elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds / 10);
         }
         #endregion
+
+        private async void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!await PingServer()) return;
+
+            if (!await InitializeAsync()) return;
+
+            using (var form = new UserForm())
+            {
+                form.LoadInitialData();
+                form.Register();
+                form.ShowDialog();
+            }
+
+            StopProgress();
+        }
     }
 }

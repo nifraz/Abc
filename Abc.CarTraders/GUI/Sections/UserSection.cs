@@ -34,11 +34,23 @@ namespace ABC.CarTraders.GUI.Sections
             dataGridView1.AutoGenerateColumns = false;
 
             cboRangeField.DataSource = new List<string>() { "Created On", "Modified On" };
-            cboRole.DataSource = new List<string>() { "All", "Admin", "Director", "Doctor", "Staff", "Trainee" };
-            cboSex.DataSource = new List<string>() { "Both", "Male", "Female" };
-            cboFindField.DataSource = new List<string>() { "Username", "Name", "E-Mail", "Phone No" };
-            cboSortField.DataSource = new List<string>() { "Username", "Name", "E-Mail", "Phone No" };
-            cboSortDirection.DataSource = new List<string>() { "Ascending", "Descending" };
+            cboRole.DataSource = new List<string>() 
+            { 
+                "All",
+                Enums.UserRole.Guest.ToString(),
+                Enums.UserRole.Customer.ToString(),
+                Enums.UserRole.Staff.ToString(),
+                Enums.UserRole.Admin.ToString(),
+            };
+            cboSex.DataSource = new List<string>() 
+            { 
+                "Both",
+                Enums.Sex.Male.ToString(),
+                Enums.Sex.Female.ToString(),
+            };
+            cboFindField.DataSource = new List<string>() { "Email", "FullName", "PhoneNo", "Address" };
+            cboSortField.DataSource = new List<string>() { "Email", "FullName" };
+            cboSortDirection.DataSource = Enum.GetNames(typeof(SortDirection)).ToList();
 
             RangeStart = DateTime.Today;
             RangeEnd = DateTime.Today.AddDays(1).AddSeconds(-1);
@@ -46,8 +58,8 @@ namespace ABC.CarTraders.GUI.Sections
             RangeStart = null;
             RangeEnd = null;
 
-            SortField = "Username";
-            SortDirection = "Ascending";
+            SortField = "Id";
+            SortDirection = Enums.SortDirection.Ascending.ToString();
 
             nudPageNumber.MouseWheel += nudPageNumber_MouseWheel;
             ColorSchemeChanged += UserSection_ColorSchemeChanged;
@@ -127,9 +139,52 @@ namespace ABC.CarTraders.GUI.Sections
 
         private Expression<Func<User, bool>> GetExpression()
         {
-            Expression<Func<User, bool>> expression = x => false;
+            // Parameter Expression - represents the "User" entity in the expression
+            var parameter = Expression.Parameter(typeof(User), "user");
 
-            return expression;
+            // Initialize an empty expression to combine conditions later
+            Expression combinedExpression = Expression.Constant(true);
+
+            //// Condition 1: Email equals
+            //if (!string.IsNullOrEmpty(email))
+            //{
+            //    var emailProperty = Expression.Property(parameter, "EMail");
+            //    var emailValue = Expression.Constant(email);
+            //    var emailEquals = Expression.Equal(emailProperty, emailValue);
+
+            //    combinedExpression = Expression.AndAlso(combinedExpression, emailEquals);
+            //}
+
+            // Condition 2: Role equals
+            if (Role != null)
+            {
+                var property = Expression.Property(parameter, "Role");
+                var value = Expression.Constant(Role);
+                var expression = Expression.Equal(property, value);
+
+                combinedExpression = Expression.AndAlso(combinedExpression, expression);
+            }
+
+            if (Sex != null)
+            {
+                var property = Expression.Property(parameter, "Sex");
+                var value = Expression.Constant(Sex);
+                var expression = Expression.Equal(property, value);
+
+                combinedExpression = Expression.AndAlso(combinedExpression, expression);
+            }
+
+            if (!string.IsNullOrWhiteSpace(FindText))
+            {
+                var constant = Expression.Constant(FindText, typeof(string));
+                var property = Expression.Property(parameter, FindField);
+                var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+                var containsExpression = Expression.Call(property, containsMethod, constant);
+                combinedExpression = Expression.AndAlso(combinedExpression, containsExpression);
+            }
+
+            // Final lambda expression: user => combined conditions
+            return Expression.Lambda<Func<User, bool>>(combinedExpression, parameter);
         }
         #endregion
 
@@ -344,8 +399,11 @@ namespace ABC.CarTraders.GUI.Sections
                 try
                 {
                     StartProgress("Refreshing...");
-                    PagedList = await DbContext.Users
-                        .Where(GetExpression())
+                    var queryable = DbContext.Users
+                        .Where(GetExpression());
+                    queryable = Helper.ApplyOrderBy(queryable, SortField, SortDirection);
+
+                    PagedList = await queryable
                         .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 
@@ -498,7 +556,7 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Filter
-        private UserRole? UserRole
+        private UserRole? Role
         {
             get
             {
@@ -540,9 +598,9 @@ namespace ABC.CarTraders.GUI.Sections
 
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (UserRole == null && Sex == null) return;
+            if (Role == null && Sex == null) return;
 
-            UserRole = null;
+            Role = null;
             Sex = null;
 
             await RefreshAsync();

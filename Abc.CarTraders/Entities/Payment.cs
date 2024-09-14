@@ -14,7 +14,7 @@ namespace ABC.CarTraders.Entities
         public bool IsSuccessful { get; set; }
 
         // Foreign Key to Order
-        public int OrderId { get; set; }
+        public long OrderId { get; set; }
         public Order Order { get; set; }  // Each Payment is associated with one Order
     }
 

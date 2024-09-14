@@ -128,17 +128,18 @@
   <ItemGroup>
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarPart.cs" />
-    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Log.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Record.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Enums\CarType.cs" />
-    <Compile Include="Enums\OrderStatus.cs" />
-    <Compile Include="Enums\Sex.cs" />
+    <Compile Include="Enums\SortDirection.cs" />
     <Compile Include="Enums\UserRole.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
+    <Compile Include="Enums\PaymentMethod.cs" />
+    <Compile Include="Enums\Sex.cs" />
+    <Compile Include="Enums\CarType.cs" />
     <Compile Include="GUI\Forms\LogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +157,12 @@
     </Compile>
     <Compile Include="GUI\Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Forms\UserForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\UserForm2.Designer.cs">
+      <DependentUpon>UserForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Sections\LogSection.cs">
       <SubType>UserControl</SubType>
@@ -187,9 +194,10 @@
     <Compile Include="GUI\Sections\UserSection.Designer.cs">
       <DependentUpon>UserSection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202111130754511_Initial.cs" />
-    <Compile Include="Migrations\202111130754511_Initial.designer.cs">
-      <DependentUpon>202111130754511_Initial.cs</DependentUpon>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Migrations\202409140849377_Initial.cs" />
+    <Compile Include="Migrations\202409140849377_Initial.Designer.cs">
+      <DependentUpon>202409140849377_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AppDbContext.cs" />
@@ -233,6 +241,9 @@
     <EmbeddedResource Include="GUI\Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Forms\UserForm2.resx">
+      <DependentUpon>UserForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Sections\LogSection.resx">
       <DependentUpon>LogSection.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,8 +271,8 @@
     <EmbeddedResource Include="GUI\Sections\UserSection.resx">
       <DependentUpon>UserSection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111130754511_Initial.resx">
-      <DependentUpon>202111130754511_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202409140849377_Initial.resx">
+      <DependentUpon>202409140849377_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -334,7 +345,9 @@
     <None Include="Resources\unlock-light.png" />
     <None Include="Resources\unlock-dark.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clock-light.png" />
   </ItemGroup>

@@ -1,8 +1,12 @@
 ﻿namespace ABC.CarTraders.Enums
 {
-    public enum UserRole : byte
+    public enum CarType : byte
     {
-        Admin,
-        Customer
+        Sedan,
+        SUV,
+        Truck,
+        Coupe,
+        Convertible,
+        Hatchback
     }
 }

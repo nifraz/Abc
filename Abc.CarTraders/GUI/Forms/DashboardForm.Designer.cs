@@ -36,9 +36,6 @@ namespace ABC.CarTraders.GUI.Forms
             System.Diagnostics.Stopwatch stopwatch3 = new System.Diagnostics.Stopwatch();
             System.Diagnostics.Stopwatch stopwatch4 = new System.Diagnostics.Stopwatch();
             System.Diagnostics.Stopwatch stopwatch5 = new System.Diagnostics.Stopwatch();
-            System.Diagnostics.Stopwatch stopwatch6 = new System.Diagnostics.Stopwatch();
-            System.Diagnostics.Stopwatch stopwatch7 = new System.Diagnostics.Stopwatch();
-            System.Diagnostics.Stopwatch stopwatch8 = new System.Diagnostics.Stopwatch();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -47,8 +44,8 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnSemen = new System.Windows.Forms.Button();
             this.btnInstitute = new System.Windows.Forms.Button();
             this.btnTechnician = new System.Windows.Forms.Button();
-            this.btnCalvingRecord = new System.Windows.Forms.Button();
-            this.btnCalvingSheet = new System.Windows.Forms.Button();
+            this.btnCarPart = new System.Windows.Forms.Button();
+            this.btnCar = new System.Windows.Forms.Button();
             this.btnVsRange = new System.Windows.Forms.Button();
             this.pnlControlsHolder = new System.Windows.Forms.Panel();
             this.loginSection1 = new ABC.CarTraders.GUI.Sections.LoginSection();
@@ -89,8 +86,8 @@ namespace ABC.CarTraders.GUI.Forms
             this.pnlSideBar.Controls.Add(this.btnSemen);
             this.pnlSideBar.Controls.Add(this.btnInstitute);
             this.pnlSideBar.Controls.Add(this.btnTechnician);
-            this.pnlSideBar.Controls.Add(this.btnCalvingRecord);
-            this.pnlSideBar.Controls.Add(this.btnCalvingSheet);
+            this.pnlSideBar.Controls.Add(this.btnCarPart);
+            this.pnlSideBar.Controls.Add(this.btnCar);
             this.pnlSideBar.Controls.Add(this.btnVsRange);
             this.pnlSideBar.Location = new System.Drawing.Point(0, 40);
             this.pnlSideBar.Name = "pnlSideBar";
@@ -200,39 +197,39 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnTechnician.UseVisualStyleBackColor = false;
             this.btnTechnician.Click += new System.EventHandler(this.btnSection_Click);
             // 
-            // btnCalvingRecord
+            // btnCarPart
             // 
-            this.btnCalvingRecord.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnCalvingRecord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalvingRecord.FlatAppearance.BorderSize = 0;
-            this.btnCalvingRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalvingRecord.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalvingRecord.ForeColor = System.Drawing.Color.White;
-            this.btnCalvingRecord.Image = global::ABC.CarTraders.Properties.Resources.list_view_light_25px;
-            this.btnCalvingRecord.Location = new System.Drawing.Point(0, 287);
-            this.btnCalvingRecord.Name = "btnCalvingRecord";
-            this.btnCalvingRecord.Size = new System.Drawing.Size(40, 40);
-            this.btnCalvingRecord.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnCalvingRecord, "Calving Record (Ctrl+8)");
-            this.btnCalvingRecord.UseVisualStyleBackColor = false;
-            this.btnCalvingRecord.Click += new System.EventHandler(this.btnSection_Click);
+            this.btnCarPart.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnCarPart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCarPart.FlatAppearance.BorderSize = 0;
+            this.btnCarPart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarPart.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarPart.ForeColor = System.Drawing.Color.White;
+            this.btnCarPart.Image = global::ABC.CarTraders.Properties.Resources.list_view_light_25px;
+            this.btnCarPart.Location = new System.Drawing.Point(0, 287);
+            this.btnCarPart.Name = "btnCarPart";
+            this.btnCarPart.Size = new System.Drawing.Size(40, 40);
+            this.btnCarPart.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnCarPart, "Car Part (Ctrl+8)");
+            this.btnCarPart.UseVisualStyleBackColor = false;
+            this.btnCarPart.Click += new System.EventHandler(this.btnSection_Click);
             // 
-            // btnCalvingSheet
+            // btnCar
             // 
-            this.btnCalvingSheet.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnCalvingSheet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalvingSheet.FlatAppearance.BorderSize = 0;
-            this.btnCalvingSheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalvingSheet.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalvingSheet.ForeColor = System.Drawing.Color.White;
-            this.btnCalvingSheet.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_25px;
-            this.btnCalvingSheet.Location = new System.Drawing.Point(0, 246);
-            this.btnCalvingSheet.Name = "btnCalvingSheet";
-            this.btnCalvingSheet.Size = new System.Drawing.Size(40, 40);
-            this.btnCalvingSheet.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.btnCalvingSheet, "Calving Sheet (Ctrl+7)");
-            this.btnCalvingSheet.UseVisualStyleBackColor = false;
-            this.btnCalvingSheet.Click += new System.EventHandler(this.btnSection_Click);
+            this.btnCar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnCar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCar.FlatAppearance.BorderSize = 0;
+            this.btnCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCar.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCar.ForeColor = System.Drawing.Color.White;
+            this.btnCar.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_25px;
+            this.btnCar.Location = new System.Drawing.Point(0, 246);
+            this.btnCar.Name = "btnCar";
+            this.btnCar.Size = new System.Drawing.Size(40, 40);
+            this.btnCar.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btnCar, "Car (Ctrl+7)");
+            this.btnCar.UseVisualStyleBackColor = false;
+            this.btnCar.Click += new System.EventHandler(this.btnSection_Click);
             // 
             // btnVsRange
             // 
@@ -273,6 +270,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.loginSection1.BackColor = System.Drawing.SystemColors.Control;
             this.loginSection1.ColorScheme = null;
             this.loginSection1.ConnectionTimeout = 10;
+            this.loginSection1.DbContext = null;
             this.loginSection1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loginSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginSection1.Location = new System.Drawing.Point(0, 0);
@@ -284,7 +282,6 @@ namespace ABC.CarTraders.GUI.Forms
             this.loginSection1.Size = new System.Drawing.Size(834, 485);
             this.loginSection1.Stopwatch = stopwatch1;
             this.loginSection1.TabIndex = 1;
-            this.loginSection1.DbContext = null;
             this.loginSection1.User = null;
             // 
             // statisticsSection1
@@ -313,17 +310,17 @@ namespace ABC.CarTraders.GUI.Forms
             this.userSection1.TabIndex = 1;
             this.userSection1.Visible = false;
             // 
-            // calvingSheetSection1
+            // carSection1
             // 
             this.carSection1.ColorScheme = null;
             this.carSection1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.carSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.carSection1.Location = new System.Drawing.Point(0, 0);
             this.carSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.carSection1.Name = "calvingSheetSection1";
+            this.carSection1.Name = "carSection1";
             this.carSection1.ProgressText = null;
             this.carSection1.Size = new System.Drawing.Size(834, 485);
-            this.carSection1.Stopwatch = stopwatch6;
+            this.carSection1.Stopwatch = stopwatch4;
             this.carSection1.TabIndex = 1;
             this.carSection1.Visible = false;
             // 
@@ -336,7 +333,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.logSection1.Name = "logSection1";
             this.logSection1.ProgressText = null;
             this.logSection1.Size = new System.Drawing.Size(834, 485);
-            this.logSection1.Stopwatch = stopwatch8;
+            this.logSection1.Stopwatch = stopwatch5;
             this.logSection1.TabIndex = 4;
             this.logSection1.Visible = false;
             // 
@@ -589,7 +586,7 @@ namespace ABC.CarTraders.GUI.Forms
         private System.Windows.Forms.Panel pnlSideBar;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnTechnician;
-        private System.Windows.Forms.Button btnCalvingSheet;
+        private System.Windows.Forms.Button btnCar;
         private System.Windows.Forms.Button btnVsRange;
         private System.Windows.Forms.Panel pnlControlsHolder;
         private System.Windows.Forms.Button btnFullscreen;
@@ -616,7 +613,7 @@ namespace ABC.CarTraders.GUI.Forms
         private System.Windows.Forms.Button btnUser;
         private UserSection userSection1;
         private LogSection logSection1;
-        private System.Windows.Forms.Button btnCalvingRecord;
+        private System.Windows.Forms.Button btnCarPart;
         private System.Windows.Forms.Button btnRefreshAll;
     }
 }

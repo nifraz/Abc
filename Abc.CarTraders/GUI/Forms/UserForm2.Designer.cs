@@ -1,6 +1,6 @@
 ﻿namespace ABC.CarTraders.GUI.Forms
 {
-    partial class UserForm
+    partial class UserForm2
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm2));
             this.pnlPhoneNo = new System.Windows.Forms.Panel();
             this.pnlPhoneNoHolder = new System.Windows.Forms.Panel();
             this.txtPhoneNo = new System.Windows.Forms.TextBox();
@@ -44,12 +44,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlName = new System.Windows.Forms.Panel();
             this.pnlNameHolder = new System.Windows.Forms.Panel();
-            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnPassword = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnToDatabase = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.pnlUsername = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlUsernameHolder = new System.Windows.Forms.Panel();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.pnlRoleHolder = new System.Windows.Forms.Panel();
             this.pnlCboHolder = new System.Windows.Forms.Panel();
             this.cboRole = new System.Windows.Forms.ComboBox();
@@ -63,29 +69,6 @@
             this.pnlLoadingCircle = new System.Windows.Forms.Panel();
             this.lblProgress = new System.Windows.Forms.Label();
             this.pnlDataHolder = new System.Windows.Forms.Panel();
-            this.pnlRangeStart = new System.Windows.Forms.Panel();
-            this.pnlRangeStartHolder = new System.Windows.Forms.Panel();
-            this.pnlDtpRangeStartHolder = new System.Windows.Forms.Panel();
-            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.cboPaymentMethod = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.txtImagePath = new System.Windows.Forms.TextBox();
-            this.btnBrowseImage = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.picImage = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnlPhoneNo.SuspendLayout();
             this.pnlPhoneNoHolder.SuspendLayout();
             this.pnlEMail.SuspendLayout();
@@ -94,25 +77,14 @@
             this.pnlNotesHolder.SuspendLayout();
             this.pnlName.SuspendLayout();
             this.pnlNameHolder.SuspendLayout();
+            this.pnlUsername.SuspendLayout();
+            this.pnlUsernameHolder.SuspendLayout();
             this.pnlRoleHolder.SuspendLayout();
             this.pnlCboHolder.SuspendLayout();
             this.pnlSex.SuspendLayout();
             this.pnlSexHolder.SuspendLayout();
             this.pnlRole.SuspendLayout();
             this.pnlDataHolder.SuspendLayout();
-            this.pnlRangeStart.SuspendLayout();
-            this.pnlRangeStartHolder.SuspendLayout();
-            this.pnlDtpRangeStartHolder.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPhoneNo
@@ -151,7 +123,7 @@
             this.txtPhoneNo.MaxLength = 15;
             this.txtPhoneNo.Name = "txtPhoneNo";
             this.txtPhoneNo.Size = new System.Drawing.Size(280, 16);
-            this.txtPhoneNo.TabIndex = 5;
+            this.txtPhoneNo.TabIndex = 0;
             this.txtPhoneNo.Text = "000000000000000";
             // 
             // label6
@@ -174,9 +146,9 @@
             this.pnlEMail.BackColor = System.Drawing.Color.DarkGray;
             this.pnlEMail.Controls.Add(this.pnlEMailHolder);
             this.pnlEMail.Controls.Add(this.label5);
-            this.pnlEMail.Location = new System.Drawing.Point(0, 0);
+            this.pnlEMail.Location = new System.Drawing.Point(0, 90);
             this.pnlEMail.Name = "pnlEMail";
-            this.pnlEMail.Size = new System.Drawing.Size(335, 25);
+            this.pnlEMail.Size = new System.Drawing.Size(360, 25);
             this.pnlEMail.TabIndex = 5;
             // 
             // pnlEMailHolder
@@ -190,7 +162,7 @@
             this.pnlEMailHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlEMailHolder.Location = new System.Drawing.Point(73, 0);
             this.pnlEMailHolder.Name = "pnlEMailHolder";
-            this.pnlEMailHolder.Size = new System.Drawing.Size(262, 24);
+            this.pnlEMailHolder.Size = new System.Drawing.Size(287, 24);
             this.pnlEMailHolder.TabIndex = 0;
             // 
             // txtEMail
@@ -202,9 +174,9 @@
             this.txtEMail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEMail.ForeColor = System.Drawing.Color.Black;
             this.txtEMail.Location = new System.Drawing.Point(5, 5);
-            this.txtEMail.MaxLength = 100;
+            this.txtEMail.MaxLength = 12;
             this.txtEMail.Name = "txtEMail";
-            this.txtEMail.Size = new System.Drawing.Size(296, 16);
+            this.txtEMail.Size = new System.Drawing.Size(280, 16);
             this.txtEMail.TabIndex = 0;
             this.txtEMail.Text = "dumble123@email.com";
             // 
@@ -218,9 +190,9 @@
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label5.Location = new System.Drawing.Point(3, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.Size = new System.Drawing.Size(41, 15);
             this.label5.TabIndex = 3;
-            this.label5.Text = "E-Mail*";
+            this.label5.Text = "E-Mail";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlNotes
@@ -228,7 +200,7 @@
             this.pnlNotes.BackColor = System.Drawing.Color.DarkGray;
             this.pnlNotes.Controls.Add(this.pnlNotesHolder);
             this.pnlNotes.Controls.Add(this.label3);
-            this.pnlNotes.Location = new System.Drawing.Point(0, 266);
+            this.pnlNotes.Location = new System.Drawing.Point(0, 180);
             this.pnlNotes.Name = "pnlNotes";
             this.pnlNotes.Size = new System.Drawing.Size(360, 50);
             this.pnlNotes.TabIndex = 8;
@@ -261,7 +233,7 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtNotes.Size = new System.Drawing.Size(280, 41);
-            this.txtNotes.TabIndex = 9;
+            this.txtNotes.TabIndex = 0;
             this.txtNotes.Text = "Line 1\r\nLine 2\r\nLine 3";
             // 
             // label3
@@ -295,7 +267,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlNameHolder.BackColor = System.Drawing.Color.White;
-            this.pnlNameHolder.Controls.Add(this.txtFullName);
+            this.pnlNameHolder.Controls.Add(this.txtName);
             this.pnlNameHolder.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlNameHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlNameHolder.Location = new System.Drawing.Point(73, 0);
@@ -303,20 +275,20 @@
             this.pnlNameHolder.Size = new System.Drawing.Size(287, 24);
             this.pnlNameHolder.TabIndex = 0;
             // 
-            // txtFullName
+            // txtName
             // 
-            this.txtFullName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtFullName.ForeColor = System.Drawing.Color.Black;
-            this.txtFullName.Location = new System.Drawing.Point(5, 5);
-            this.txtFullName.MaxLength = 255;
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(280, 16);
-            this.txtFullName.TabIndex = 1;
-            this.txtFullName.Text = "A. B. C. Dumbledore";
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtName.ForeColor = System.Drawing.Color.Black;
+            this.txtName.Location = new System.Drawing.Point(5, 5);
+            this.txtName.MaxLength = 255;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(280, 16);
+            this.txtName.TabIndex = 0;
+            this.txtName.Text = "A. B. C. Dumbledore";
             // 
             // label2
             // 
@@ -328,9 +300,9 @@
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label2.Location = new System.Drawing.Point(3, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Full Name*";
+            this.label2.Text = "Name*";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // timer1
@@ -358,23 +330,118 @@
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Image = global::ABC.CarTraders.Properties.Resources.save_dark_15px;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(295, 383);
+            this.btnSave.Location = new System.Drawing.Point(300, 235);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 25);
-            this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "REGISTER";
+            this.btnSave.Size = new System.Drawing.Size(60, 25);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "SAVE";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnSave, "Save (Ctrl+S)");
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnToDatabase
+            // 
+            this.btnToDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnToDatabase.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnToDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnToDatabase.FlatAppearance.BorderSize = 0;
+            this.btnToDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToDatabase.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnToDatabase.ForeColor = System.Drawing.Color.Black;
+            this.btnToDatabase.Image = global::ABC.CarTraders.Properties.Resources.database_restore_dark_15px;
+            this.btnToDatabase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnToDatabase.Location = new System.Drawing.Point(240, 235);
+            this.btnToDatabase.Name = "btnToDatabase";
+            this.btnToDatabase.Size = new System.Drawing.Size(25, 25);
+            this.btnToDatabase.TabIndex = 9;
+            this.btnToDatabase.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnToDatabase, "Upload to Database (Ctrl+Shift+S)");
+            this.btnToDatabase.UseVisualStyleBackColor = false;
+            this.btnToDatabase.Click += new System.EventHandler(this.btnToDatabase_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNew.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNew.FlatAppearance.BorderSize = 0;
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
+            this.btnNew.Image = global::ABC.CarTraders.Properties.Resources.add_dark_15px;
+            this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNew.Location = new System.Drawing.Point(270, 235);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(25, 25);
+            this.btnNew.TabIndex = 10;
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnNew, "New  (Ctrl+N)");
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // pnlUsername
+            // 
+            this.pnlUsername.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlUsername.Controls.Add(this.label1);
+            this.pnlUsername.Controls.Add(this.pnlUsernameHolder);
+            this.pnlUsername.Location = new System.Drawing.Point(0, 0);
+            this.pnlUsername.Name = "pnlUsername";
+            this.pnlUsername.Size = new System.Drawing.Size(335, 25);
+            this.pnlUsername.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Username*";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlUsernameHolder
+            // 
+            this.pnlUsernameHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUsernameHolder.BackColor = System.Drawing.Color.White;
+            this.pnlUsernameHolder.Controls.Add(this.txtUsername);
+            this.pnlUsernameHolder.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlUsernameHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlUsernameHolder.Location = new System.Drawing.Point(73, 0);
+            this.pnlUsernameHolder.Name = "pnlUsernameHolder";
+            this.pnlUsernameHolder.Size = new System.Drawing.Size(262, 24);
+            this.pnlUsernameHolder.TabIndex = 0;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtUsername.ForeColor = System.Drawing.Color.Black;
+            this.txtUsername.Location = new System.Drawing.Point(5, 5);
+            this.txtUsername.MaxLength = 255;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(255, 16);
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.Text = "dumble";
             // 
             // pnlRoleHolder
             // 
@@ -415,7 +482,7 @@
             this.cboRole.Location = new System.Drawing.Point(-1, -1);
             this.cboRole.Name = "cboRole";
             this.cboRole.Size = new System.Drawing.Size(284, 23);
-            this.cboRole.TabIndex = 4;
+            this.cboRole.TabIndex = 0;
             // 
             // label9
             // 
@@ -427,9 +494,9 @@
             this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label9.Location = new System.Drawing.Point(3, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 15);
+            this.label9.Size = new System.Drawing.Size(35, 15);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Role";
+            this.label9.Text = "Role*";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSex
@@ -466,7 +533,7 @@
             this.rdoMale.Location = new System.Drawing.Point(5, 3);
             this.rdoMale.Name = "rdoMale";
             this.rdoMale.Size = new System.Drawing.Size(50, 19);
-            this.rdoMale.TabIndex = 2;
+            this.rdoMale.TabIndex = 1;
             this.rdoMale.TabStop = true;
             this.rdoMale.Tag = "";
             this.rdoMale.Text = "Male";
@@ -480,7 +547,7 @@
             this.rdoFemale.Location = new System.Drawing.Point(61, 3);
             this.rdoFemale.Name = "rdoFemale";
             this.rdoFemale.Size = new System.Drawing.Size(62, 19);
-            this.rdoFemale.TabIndex = 3;
+            this.rdoFemale.TabIndex = 2;
             this.rdoFemale.Tag = "";
             this.rdoFemale.Text = "Female";
             this.rdoFemale.UseVisualStyleBackColor = true;
@@ -495,9 +562,9 @@
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label8.Location = new System.Drawing.Point(3, 5);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 15);
+            this.label8.Size = new System.Drawing.Size(30, 15);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Sex";
+            this.label8.Text = "Sex*";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlRole
@@ -505,15 +572,14 @@
             this.pnlRole.BackColor = System.Drawing.Color.DarkGray;
             this.pnlRole.Controls.Add(this.pnlRoleHolder);
             this.pnlRole.Controls.Add(this.label9);
-            this.pnlRole.Location = new System.Drawing.Point(0, 90);
+            this.pnlRole.Location = new System.Drawing.Point(0, 150);
             this.pnlRole.Name = "pnlRole";
             this.pnlRole.Size = new System.Drawing.Size(360, 25);
             this.pnlRole.TabIndex = 7;
             // 
             // pnlLoadingCircle
             // 
-            this.pnlLoadingCircle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlLoadingCircle.Location = new System.Drawing.Point(2, 386);
+            this.pnlLoadingCircle.Location = new System.Drawing.Point(2, 238);
             this.pnlLoadingCircle.Name = "pnlLoadingCircle";
             this.pnlLoadingCircle.Size = new System.Drawing.Size(20, 20);
             this.pnlLoadingCircle.TabIndex = 31;
@@ -521,12 +587,11 @@
             // 
             // lblProgress
             // 
-            this.lblProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblProgress.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblProgress.ForeColor = System.Drawing.Color.Black;
             this.lblProgress.Image = global::ABC.CarTraders.Properties.Resources.ok_dark_15px;
             this.lblProgress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblProgress.Location = new System.Drawing.Point(3, 388);
+            this.lblProgress.Location = new System.Drawing.Point(3, 240);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(231, 15);
             this.lblProgress.TabIndex = 30;
@@ -536,10 +601,11 @@
             // pnlDataHolder
             // 
             this.pnlDataHolder.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDataHolder.Controls.Add(this.pnlRangeStart);
             this.pnlDataHolder.Controls.Add(this.btnSave);
+            this.pnlDataHolder.Controls.Add(this.btnToDatabase);
+            this.pnlDataHolder.Controls.Add(this.btnNew);
+            this.pnlDataHolder.Controls.Add(this.pnlUsername);
             this.pnlDataHolder.Controls.Add(this.pnlLoadingCircle);
-            this.pnlDataHolder.Controls.Add(this.panel5);
             this.pnlDataHolder.Controls.Add(this.pnlRole);
             this.pnlDataHolder.Controls.Add(this.lblProgress);
             this.pnlDataHolder.Controls.Add(this.pnlSex);
@@ -547,343 +613,18 @@
             this.pnlDataHolder.Controls.Add(this.pnlPhoneNo);
             this.pnlDataHolder.Controls.Add(this.pnlName);
             this.pnlDataHolder.Controls.Add(this.pnlEMail);
-            this.pnlDataHolder.Controls.Add(this.panel3);
             this.pnlDataHolder.Controls.Add(this.pnlNotes);
             this.pnlDataHolder.Location = new System.Drawing.Point(5, 5);
             this.pnlDataHolder.Name = "pnlDataHolder";
-            this.pnlDataHolder.Size = new System.Drawing.Size(360, 408);
+            this.pnlDataHolder.Size = new System.Drawing.Size(360, 260);
             this.pnlDataHolder.TabIndex = 32;
-            // 
-            // pnlRangeStart
-            // 
-            this.pnlRangeStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlRangeStart.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlRangeStart.Controls.Add(this.pnlRangeStartHolder);
-            this.pnlRangeStart.Controls.Add(this.label13);
-            this.pnlRangeStart.Location = new System.Drawing.Point(0, 205);
-            this.pnlRangeStart.Name = "pnlRangeStart";
-            this.pnlRangeStart.Size = new System.Drawing.Size(360, 25);
-            this.pnlRangeStart.TabIndex = 33;
-            // 
-            // pnlRangeStartHolder
-            // 
-            this.pnlRangeStartHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlRangeStartHolder.BackColor = System.Drawing.Color.White;
-            this.pnlRangeStartHolder.Controls.Add(this.pnlDtpRangeStartHolder);
-            this.pnlRangeStartHolder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlRangeStartHolder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlRangeStartHolder.Location = new System.Drawing.Point(82, 0);
-            this.pnlRangeStartHolder.Name = "pnlRangeStartHolder";
-            this.pnlRangeStartHolder.Size = new System.Drawing.Size(278, 24);
-            this.pnlRangeStartHolder.TabIndex = 0;
-            // 
-            // pnlDtpRangeStartHolder
-            // 
-            this.pnlDtpRangeStartHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDtpRangeStartHolder.BackColor = System.Drawing.Color.White;
-            this.pnlDtpRangeStartHolder.Controls.Add(this.dtpDateOfBirth);
-            this.pnlDtpRangeStartHolder.Location = new System.Drawing.Point(5, 2);
-            this.pnlDtpRangeStartHolder.Name = "pnlDtpRangeStartHolder";
-            this.pnlDtpRangeStartHolder.Size = new System.Drawing.Size(271, 20);
-            this.pnlDtpRangeStartHolder.TabIndex = 2;
-            // 
-            // dtpDateOfBirth
-            // 
-            this.dtpDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpDateOfBirth.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.dtpDateOfBirth.CustomFormat = " yyyy/MM/dd";
-            this.dtpDateOfBirth.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(-4, -1);
-            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
-            this.dtpDateOfBirth.ShowUpDown = true;
-            this.dtpDateOfBirth.Size = new System.Drawing.Size(279, 23);
-            this.dtpDateOfBirth.TabIndex = 7;
-            this.dtpDateOfBirth.Value = new System.DateTime(2022, 3, 22, 0, 0, 0, 0);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label13.Location = new System.Drawing.Point(3, 5);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(73, 15);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Date of Birth";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.DarkGray;
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(0, 235);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(360, 25);
-            this.panel5.TabIndex = 7;
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(159, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(201, 24);
-            this.panel6.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.cboPaymentMethod);
-            this.panel7.Location = new System.Drawing.Point(3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(196, 21);
-            this.panel7.TabIndex = 1;
-            // 
-            // cboPaymentMethod
-            // 
-            this.cboPaymentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPaymentMethod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboPaymentMethod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPaymentMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboPaymentMethod.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboPaymentMethod.FormattingEnabled = true;
-            this.cboPaymentMethod.Location = new System.Drawing.Point(-1, -1);
-            this.cboPaymentMethod.Name = "cboPaymentMethod";
-            this.cboPaymentMethod.Size = new System.Drawing.Size(198, 23);
-            this.cboPaymentMethod.TabIndex = 8;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(3, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 15);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Preferred Payment Method";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkGray;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(0, 150);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 50);
-            this.panel3.TabIndex = 8;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.txtAddress);
-            this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(73, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(287, 49);
-            this.panel4.TabIndex = 0;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAddress.ForeColor = System.Drawing.Color.Black;
-            this.txtAddress.Location = new System.Drawing.Point(5, 5);
-            this.txtAddress.MaxLength = 1023;
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAddress.Size = new System.Drawing.Size(280, 41);
-            this.txtAddress.TabIndex = 6;
-            this.txtAddress.Text = "Line 1\r\nLine 2\r\nLine 3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Address";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Controls.Add(this.panel11);
-            this.panel9.Controls.Add(this.btnBrowseImage);
-            this.panel9.Controls.Add(this.btnClear);
-            this.panel9.Controls.Add(this.panel8);
-            this.panel9.Location = new System.Drawing.Point(370, 5);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(400, 408);
-            this.panel9.TabIndex = 33;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.BackColor = System.Drawing.Color.White;
-            this.panel11.Controls.Add(this.txtImagePath);
-            this.panel11.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(1, 383);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(275, 24);
-            this.panel11.TabIndex = 0;
-            // 
-            // txtImagePath
-            // 
-            this.txtImagePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtImagePath.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtImagePath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtImagePath.ForeColor = System.Drawing.Color.Black;
-            this.txtImagePath.Location = new System.Drawing.Point(5, 5);
-            this.txtImagePath.MaxLength = 255;
-            this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(268, 16);
-            this.txtImagePath.TabIndex = 0;
-            // 
-            // btnBrowseImage
-            // 
-            this.btnBrowseImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseImage.BackColor = System.Drawing.Color.NavajoWhite;
-            this.btnBrowseImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowseImage.FlatAppearance.BorderSize = 0;
-            this.btnBrowseImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowseImage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnBrowseImage.ForeColor = System.Drawing.Color.Black;
-            this.btnBrowseImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowseImage.Location = new System.Drawing.Point(282, 383);
-            this.btnBrowseImage.Name = "btnBrowseImage";
-            this.btnBrowseImage.Size = new System.Drawing.Size(62, 25);
-            this.btnBrowseImage.TabIndex = 10;
-            this.btnBrowseImage.Text = "BROWSE";
-            this.btnBrowseImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBrowseImage.UseVisualStyleBackColor = false;
-            this.btnBrowseImage.Click += new System.EventHandler(this.btnBrowseImage_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.BackColor = System.Drawing.Color.DarkGray;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClear.ForeColor = System.Drawing.Color.Black;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(349, 383);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(51, 25);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.BackColor = System.Drawing.Color.DarkGray;
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.label10);
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(400, 377);
-            this.panel8.TabIndex = 8;
-            // 
-            // panel10
-            // 
-            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Controls.Add(this.picImage);
-            this.panel10.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel10.Location = new System.Drawing.Point(0, 25);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(400, 352);
-            this.panel10.TabIndex = 0;
-            // 
-            // picImage
-            // 
-            this.picImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picImage.BackColor = System.Drawing.Color.White;
-            this.picImage.Location = new System.Drawing.Point(5, 5);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(395, 347);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picImage.TabIndex = 16;
-            this.picImage.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label10.Location = new System.Drawing.Point(3, 5);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 15);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Image";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(774, 419);
-            this.Controls.Add(this.panel9);
+            this.ClientSize = new System.Drawing.Size(370, 270);
             this.Controls.Add(this.pnlDataHolder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -892,7 +633,7 @@
             this.MinimizeBox = false;
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add New Customer";
+            this.Text = "Add New User";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserForm_KeyDown);
             this.pnlPhoneNo.ResumeLayout(false);
@@ -911,6 +652,10 @@
             this.pnlName.PerformLayout();
             this.pnlNameHolder.ResumeLayout(false);
             this.pnlNameHolder.PerformLayout();
+            this.pnlUsername.ResumeLayout(false);
+            this.pnlUsername.PerformLayout();
+            this.pnlUsernameHolder.ResumeLayout(false);
+            this.pnlUsernameHolder.PerformLayout();
             this.pnlRoleHolder.ResumeLayout(false);
             this.pnlCboHolder.ResumeLayout(false);
             this.pnlSex.ResumeLayout(false);
@@ -920,25 +665,6 @@
             this.pnlRole.ResumeLayout(false);
             this.pnlRole.PerformLayout();
             this.pnlDataHolder.ResumeLayout(false);
-            this.pnlRangeStart.ResumeLayout(false);
-            this.pnlRangeStart.PerformLayout();
-            this.pnlRangeStartHolder.ResumeLayout(false);
-            this.pnlDtpRangeStartHolder.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -959,9 +685,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnlName;
         private System.Windows.Forms.Panel pnlNameHolder;
-        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel pnlUsername;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlUsernameHolder;
         private System.Windows.Forms.Panel pnlRoleHolder;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pnlSex;
@@ -972,33 +701,13 @@
         private System.Windows.Forms.Panel pnlRole;
         private System.Windows.Forms.Panel pnlCboHolder;
         private System.Windows.Forms.ComboBox cboRole;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Button btnPassword;
         private System.Windows.Forms.Panel pnlLoadingCircle;
         private System.Windows.Forms.Label lblProgress;
         private System.Windows.Forms.Panel pnlDataHolder;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Panel pnlRangeStart;
-        private System.Windows.Forms.Panel pnlRangeStartHolder;
-        private System.Windows.Forms.Panel pnlDtpRangeStartHolder;
-        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox cboPaymentMethod;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.PictureBox picImage;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnBrowseImage;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.Button btnToDatabase;
+        private System.Windows.Forms.Button btnNew;
     }
 }

@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pnlMainHolder = new System.Windows.Forms.Panel();
+            this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.pnlLoadingCircle = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblProgress = new System.Windows.Forms.Label();
             this.pnlPassword = new System.Windows.Forms.Panel();
             this.pnlPasswordHolder = new System.Windows.Forms.Panel();
@@ -41,11 +43,11 @@
             this.pnlUsernameHolder = new System.Windows.Forms.Panel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnDatabaseSettings = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnDatabaseSettings = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMainHolder.SuspendLayout();
             this.pnlPassword.SuspendLayout();
@@ -55,22 +57,22 @@
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtUsername
+            // txtEmail
             // 
-            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtUsername.ForeColor = System.Drawing.Color.Black;
-            this.txtUsername.Location = new System.Drawing.Point(6, 5);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(211, 16);
-            this.txtUsername.TabIndex = 0;
-            this.txtUsername.Text = "user";
-            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginControl_KeyDown);
+            this.txtEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmail.ForeColor = System.Drawing.Color.Black;
+            this.txtEmail.Location = new System.Drawing.Point(6, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(211, 16);
+            this.txtEmail.TabIndex = 0;
+            this.txtEmail.Text = "user@email.com";
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginControl_KeyDown);
             // 
             // txtPassword
             // 
@@ -84,6 +86,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(211, 16);
             this.txtPassword.TabIndex = 0;
+            this.txtPassword.Text = "1234";
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginControl_KeyDown);
             // 
@@ -92,15 +95,30 @@
             this.pnlMainHolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMainHolder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlMainHolder.Controls.Add(this.linkRegister);
             this.pnlMainHolder.Controls.Add(this.pnlLoadingCircle);
+            this.pnlMainHolder.Controls.Add(this.label2);
             this.pnlMainHolder.Controls.Add(this.lblProgress);
             this.pnlMainHolder.Controls.Add(this.pnlPassword);
             this.pnlMainHolder.Controls.Add(this.pnlUsername);
             this.pnlMainHolder.Controls.Add(this.btnLogin);
             this.pnlMainHolder.Location = new System.Drawing.Point(0, 25);
             this.pnlMainHolder.Name = "pnlMainHolder";
-            this.pnlMainHolder.Size = new System.Drawing.Size(300, 95);
+            this.pnlMainHolder.Size = new System.Drawing.Size(300, 115);
             this.pnlMainHolder.TabIndex = 0;
+            // 
+            // linkRegister
+            // 
+            this.linkRegister.AutoSize = true;
+            this.linkRegister.LinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkRegister.Location = new System.Drawing.Point(219, 93);
+            this.linkRegister.Name = "linkRegister";
+            this.linkRegister.Size = new System.Drawing.Size(76, 13);
+            this.linkRegister.TabIndex = 7;
+            this.linkRegister.TabStop = true;
+            this.linkRegister.Text = "Register Here";
+            this.toolTip1.SetToolTip(this.linkRegister, "Send e-mail");
+            this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
             // 
             // pnlLoadingCircle
             // 
@@ -109,6 +127,18 @@
             this.pnlLoadingCircle.Size = new System.Drawing.Size(20, 20);
             this.pnlLoadingCircle.TabIndex = 6;
             this.pnlLoadingCircle.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(127, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "New Customer?";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblProgress
             // 
@@ -182,7 +212,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlUsernameHolder.BackColor = System.Drawing.Color.White;
-            this.pnlUsernameHolder.Controls.Add(this.txtUsername);
+            this.pnlUsernameHolder.Controls.Add(this.txtEmail);
             this.pnlUsernameHolder.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlUsernameHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlUsernameHolder.Location = new System.Drawing.Point(73, 0);
@@ -200,9 +230,9 @@
             this.lblUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblUsername.Location = new System.Drawing.Point(3, 5);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(60, 15);
+            this.lblUsername.Size = new System.Drawing.Size(36, 15);
             this.lblUsername.TabIndex = 3;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Email";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnLogin
@@ -226,26 +256,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btnDatabaseSettings
-            // 
-            this.btnDatabaseSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDatabaseSettings.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDatabaseSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDatabaseSettings.FlatAppearance.BorderSize = 0;
-            this.btnDatabaseSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatabaseSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDatabaseSettings.ForeColor = System.Drawing.Color.Black;
-            this.btnDatabaseSettings.Image = global::ABC.CarTraders.Properties.Resources.database_light_15px;
-            this.btnDatabaseSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDatabaseSettings.Location = new System.Drawing.Point(250, 0);
-            this.btnDatabaseSettings.Name = "btnDatabaseSettings";
-            this.btnDatabaseSettings.Size = new System.Drawing.Size(25, 25);
-            this.btnDatabaseSettings.TabIndex = 1;
-            this.btnDatabaseSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnDatabaseSettings, "Database");
-            this.btnDatabaseSettings.UseVisualStyleBackColor = false;
-            this.btnDatabaseSettings.Click += new System.EventHandler(this.btnDatabaseSettings_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -260,7 +270,7 @@
             this.pnlMain.Controls.Add(this.pnlMainHolder);
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(300, 120);
+            this.pnlMain.Size = new System.Drawing.Size(300, 140);
             this.pnlMain.TabIndex = 0;
             // 
             // label1
@@ -296,6 +306,26 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnDatabaseSettings
+            // 
+            this.btnDatabaseSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDatabaseSettings.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDatabaseSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDatabaseSettings.FlatAppearance.BorderSize = 0;
+            this.btnDatabaseSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDatabaseSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDatabaseSettings.ForeColor = System.Drawing.Color.Black;
+            this.btnDatabaseSettings.Image = global::ABC.CarTraders.Properties.Resources.database_light_15px;
+            this.btnDatabaseSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDatabaseSettings.Location = new System.Drawing.Point(250, 0);
+            this.btnDatabaseSettings.Name = "btnDatabaseSettings";
+            this.btnDatabaseSettings.Size = new System.Drawing.Size(25, 25);
+            this.btnDatabaseSettings.TabIndex = 1;
+            this.btnDatabaseSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnDatabaseSettings, "Database");
+            this.btnDatabaseSettings.UseVisualStyleBackColor = false;
+            this.btnDatabaseSettings.Click += new System.EventHandler(this.btnDatabaseSettings_Click);
+            // 
             // LoginSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,8 +334,9 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "LoginSection";
-            this.Size = new System.Drawing.Size(300, 120);
+            this.Size = new System.Drawing.Size(300, 140);
             this.pnlMainHolder.ResumeLayout(false);
+            this.pnlMainHolder.PerformLayout();
             this.pnlPassword.ResumeLayout(false);
             this.pnlPassword.PerformLayout();
             this.pnlPasswordHolder.ResumeLayout(false);
@@ -323,7 +354,7 @@
         #endregion
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel pnlMainHolder;
@@ -339,5 +370,7 @@
         private System.Windows.Forms.Panel pnlPassword;
         private System.Windows.Forms.Label lblProgress;
         private System.Windows.Forms.Panel pnlLoadingCircle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkRegister;
     }
 }

@@ -8,8 +8,8 @@ namespace ABC.CarTraders.Entities
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
 
-        public long CustomerId { get; set; }
-        public Customer Customer { get; set; }  // Relationship: Each Order is placed by one Customer
+        public long UserId { get; set; }
+        public User User { get; set; }  // Relationship: Each Order is placed by one Customer
         public long PaymentId { get; set; }
 
         // Navigation Properties

@@ -124,10 +124,10 @@
             this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifiedOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreatedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastModifiedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudPageNumber)).BeginInit();
             this.pnlMain.SuspendLayout();
@@ -705,10 +705,10 @@
             this.colFullName,
             this.colPhoneNo,
             this.colRole,
-            this.colCreatedOn,
-            this.colCreatedBy,
-            this.colModifiedOn,
-            this.colModifiedBy,
+            this.colCreatedDate,
+            this.colCreatedUser,
+            this.colLastModifiedDate,
+            this.colLastModifiedUser,
             this.colNotes});
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -1531,11 +1531,13 @@
             this.colId.HeaderText = "ID";
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
+            this.colId.Visible = false;
             // 
             // colEMail
             // 
             this.colEMail.DataPropertyName = "EMail";
             this.colEMail.DividerWidth = 1;
+            this.colEMail.Frozen = true;
             this.colEMail.HeaderText = "E-Mail";
             this.colEMail.Name = "colEMail";
             this.colEMail.ReadOnly = true;
@@ -1568,45 +1570,45 @@
             this.colRole.ReadOnly = true;
             this.colRole.Width = 60;
             // 
-            // colCreatedOn
+            // colCreatedDate
             // 
-            this.colCreatedOn.DataPropertyName = "CreatedOn";
+            this.colCreatedDate.DataPropertyName = "CreatedDate";
             dataGridViewCellStyle2.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colCreatedOn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCreatedOn.DividerWidth = 1;
-            this.colCreatedOn.HeaderText = "Created On";
-            this.colCreatedOn.Name = "colCreatedOn";
-            this.colCreatedOn.ReadOnly = true;
-            this.colCreatedOn.Width = 130;
+            this.colCreatedDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colCreatedDate.DividerWidth = 1;
+            this.colCreatedDate.HeaderText = "Created Date";
+            this.colCreatedDate.Name = "colCreatedDate";
+            this.colCreatedDate.ReadOnly = true;
+            this.colCreatedDate.Width = 130;
             // 
-            // colCreatedBy
+            // colCreatedUser
             // 
-            this.colCreatedBy.DataPropertyName = "CreatedBy";
-            this.colCreatedBy.DividerWidth = 1;
-            this.colCreatedBy.HeaderText = "Created By";
-            this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.ReadOnly = true;
-            this.colCreatedBy.Width = 120;
+            this.colCreatedUser.DataPropertyName = "CreatedUser";
+            this.colCreatedUser.DividerWidth = 1;
+            this.colCreatedUser.HeaderText = "Created User";
+            this.colCreatedUser.Name = "colCreatedUser";
+            this.colCreatedUser.ReadOnly = true;
+            this.colCreatedUser.Width = 120;
             // 
-            // colModifiedOn
+            // colLastModifiedDate
             // 
-            this.colModifiedOn.DataPropertyName = "ModifiedOn";
+            this.colLastModifiedDate.DataPropertyName = "LastModifiedDate";
             dataGridViewCellStyle3.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colModifiedOn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colModifiedOn.DividerWidth = 1;
-            this.colModifiedOn.HeaderText = "Modified On";
-            this.colModifiedOn.Name = "colModifiedOn";
-            this.colModifiedOn.ReadOnly = true;
-            this.colModifiedOn.Width = 130;
+            this.colLastModifiedDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colLastModifiedDate.DividerWidth = 1;
+            this.colLastModifiedDate.HeaderText = "Last Modified Date";
+            this.colLastModifiedDate.Name = "colLastModifiedDate";
+            this.colLastModifiedDate.ReadOnly = true;
+            this.colLastModifiedDate.Width = 130;
             // 
-            // colModifiedBy
+            // colLastModifiedUser
             // 
-            this.colModifiedBy.DataPropertyName = "ModifiedBy";
-            this.colModifiedBy.DividerWidth = 1;
-            this.colModifiedBy.HeaderText = "Modified By";
-            this.colModifiedBy.Name = "colModifiedBy";
-            this.colModifiedBy.ReadOnly = true;
-            this.colModifiedBy.Width = 120;
+            this.colLastModifiedUser.DataPropertyName = "LastModifiedUser";
+            this.colLastModifiedUser.DividerWidth = 1;
+            this.colLastModifiedUser.HeaderText = "Last Modified User";
+            this.colLastModifiedUser.Name = "colLastModifiedUser";
+            this.colLastModifiedUser.ReadOnly = true;
+            this.colLastModifiedUser.Width = 120;
             // 
             // colNotes
             // 
@@ -1785,10 +1787,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedOn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedOn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colModifiedBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastModifiedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastModifiedUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,16 +31,29 @@ namespace ABC.CarTraders.GUI.Forms
 
             cboRole.DataSource = new List<UserRole>()
             {
-                UserRole.Admin,
+                UserRole.Guest,
                 UserRole.Customer,
+                UserRole.Staff,
+                UserRole.Admin,
+            };
+
+            cboPaymentMethod.DataSource = new List<PaymentMethod>()
+            {
+                Enums.PaymentMethod.Cash,
+                Enums.PaymentMethod.CreditCard,
+                Enums.PaymentMethod.BankTransfer,
             };
 
             Email = null;
-            UserPassword = null;
-            UserName = null;
-            UserEmail = null;
-            UserPhoneNo = null;
-            UserNotes = null;
+            Password = null;
+            FullName = null;
+            Sex = Sex.Male;
+            PhoneNo = null;
+            Role = UserRole.Guest;
+            Address = null;
+            DateOfBirth = null;
+            PaymentMethod = null;
+            Notes = null;
         }
 
         public void LoadInitialData()
@@ -51,42 +65,79 @@ namespace ABC.CarTraders.GUI.Forms
         {
             Overwrite = false;
 
-            OldUser = null;
-            Text = "New User";
+            OldRecord = null;
+            Text = $"New {nameof(User)}";
             StatusText = "Ready";
 
             Email = null;
-            UserPassword = null;
-            UserName = null;
-            UserEmail = null;
-            UserPhoneNo = null;
-            UserNotes = null;
+            Password = null;
+            FullName = null;
+            Sex = Sex.Male;
+            PhoneNo = null;
+            Role = UserRole.Guest;
+            Address = null;
+            DateOfBirth = null;
+            PaymentMethod = null;
+            Image = null;
+            Notes = null;
 
-            pnlUsername.Enabled = true;
+            pnlEMail.Enabled = true;
+            pnlRole.Enabled = true;
             btnPassword.Enabled = ValidateInsertPersmission();
             btnSave.Enabled = ValidateInsertPersmission();
-            txtUsername.Focus();
+            txtEMail.Focus();
         }
 
-        public User OldUser { get; set; }
-        public void ViewRecord(User user)
+        public void Register()
+        {
+            Overwrite = false;
+
+            OldRecord = null;
+            Text = $"New {nameof(User)}";
+            StatusText = "Ready";
+
+            Email = null;
+            Password = null;
+            FullName = null;
+            Sex = Sex.Male;
+            PhoneNo = null;
+            Role = UserRole.Customer;
+            Address = null;
+            DateOfBirth = null;
+            PaymentMethod = Enums.PaymentMethod.Cash;
+            Image = null;
+            Notes = null;
+
+            pnlEMail.Enabled = true;
+            pnlRole.Enabled = false;
+            btnPassword.Enabled = true;
+            btnSave.Text = "REGISTER";
+            btnSave.Enabled = true;
+            txtEMail.Focus();
+        }
+
+        public User OldRecord { get; set; }
+        public void ViewRecord(User record)
         {
             Overwrite = true;
 
-            OldUser = user;
-            Text = $"View User #{OldUser.Email}";
+            OldRecord = record;
+            Text = $"View {nameof(User)} ({OldRecord.Email})";
             StatusText = "Ready";
 
-            //UserUsername = OldUser.Username;
-            //UserPassword = OldUser.Password;
-            //UserName = OldUser.Name;
-            //UserSex = OldUser.Sex;
-            UserEmail = OldUser.Email;
-            UserPhoneNo = OldUser.PhoneNo;
-            UserRole = OldUser.Role;
-            UserNotes = OldUser.Notes;
+            Email = OldRecord.Email;
+            Password = OldRecord.Password;
+            FullName = OldRecord.FullName;
+            Sex = OldRecord.Sex;
+            PhoneNo = OldRecord.PhoneNo;
+            Role = OldRecord.Role;
+            Address = OldRecord.Address;
+            DateOfBirth = OldRecord.DateOfBirth;
+            PaymentMethod = OldRecord.PaymentMethod;
+            Image = OldRecord.Image;
+            Notes = OldRecord.Notes;
 
-            pnlUsername.Enabled = false;
+            pnlEMail.Enabled = false;
             pnlRole.Enabled = User.Role <= UserRole.Admin;
             btnPassword.Enabled = ValidateUpdatePersmission();
             btnSave.Enabled = ValidateUpdatePersmission();
@@ -103,13 +154,13 @@ namespace ABC.CarTraders.GUI.Forms
         {
             get
             {
-                var str = txtUsername.Text.Trim();
+                var str = txtEMail.Text.Trim();
                 return str == string.Empty ? null : str;
             }
-            set { txtUsername.Text = value; }
+            set { txtEMail.Text = value; }
         }
 
-        public string UserPassword { get; set; }
+        public string Password { get; set; }
 
         private void btnPassword_Click(object sender, EventArgs e)
         {
@@ -120,22 +171,22 @@ namespace ABC.CarTraders.GUI.Forms
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    UserPassword = User.GetHashSha1(form.Password2);
+                    Password = User.GetHashSha1(form.Password2);
                 }
             }
         }
 
-        public string UserName
+        public string FullName
         {
             get
             {
-                var str = txtName.Text.Trim();
+                var str = txtFullName.Text.Trim();
                 return str == string.Empty ? null : str;
             }
-            set { txtName.Text = value; }
+            set { txtFullName.Text = value; }
         }
 
-        public Sex UserSex
+        public Sex Sex
         {
             get
             {
@@ -149,17 +200,7 @@ namespace ABC.CarTraders.GUI.Forms
             }
         }
 
-        public string UserEmail
-        {
-            get
-            {
-                var str = txtEMail.Text.Trim();
-                return str == string.Empty ? null : str;
-            }
-            set { txtEMail.Text = value; }
-        }
-
-        public string UserPhoneNo
+        public string PhoneNo
         {
             get
             {
@@ -169,7 +210,7 @@ namespace ABC.CarTraders.GUI.Forms
             set { txtPhoneNo.Text = value; }
         }
 
-        public UserRole UserRole
+        public UserRole Role
         {
             get
             {
@@ -181,7 +222,76 @@ namespace ABC.CarTraders.GUI.Forms
             }
         }
 
-        public string UserNotes
+        public string Address
+        {
+            get
+            {
+                var str = txtAddress.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { txtAddress.Text = value; }
+        }
+
+        public DateTime? DateOfBirth
+        {
+            get
+            {
+                return dtpDateOfBirth.Value;
+            }
+            set { dtpDateOfBirth.Value = value ?? DateTime.Now; }
+        }
+
+        public PaymentMethod? PaymentMethod
+        {
+            get
+            {
+                return (PaymentMethod)cboPaymentMethod.SelectedItem;
+            }
+            set
+            {
+                cboPaymentMethod.SelectedItem = value;
+            }
+        }
+
+        public byte[] Image
+        {
+            get
+            {
+                if (picImage.Image != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        // Save the image from the PictureBox into the MemoryStream
+                        picImage.Image.Save(ms, picImage.Image.RawFormat);
+
+                        // Convert the MemoryStream to a byte array
+                        return ms.ToArray();
+                    }
+                }
+                var filePath = txtImagePath.Text;
+                if (string.IsNullOrWhiteSpace(filePath))
+                {
+                    return null;
+                }
+                return File.ReadAllBytes(filePath);
+            }
+            set
+            {
+                if (value != null)
+                {
+                    using (var ms = new MemoryStream(value))
+                    {
+                        picImage.Image = System.Drawing.Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    picImage.Image = null; // No image available
+                }
+            }
+        }
+
+        public string Notes
         {
             get
             {
@@ -209,29 +319,32 @@ namespace ABC.CarTraders.GUI.Forms
 
             var newUser = new User()
             {
-                //Username = UserUsername,
-                //Password = UserPassword,
-                //Name = UserName,
-                //Sex = UserSex,
-                //EMail = UserEmail,
-                //PhoneNo = UserPhoneNo,
-                //Role = UserRole,
-                //Notes = UserNotes,
-                //CreatedOn = DateTime.Now,
-                //CreatedBy = User
+                Email = Email,
+                Password = Password,
+                FullName = FullName,
+                Sex = Sex,
+                PhoneNo = PhoneNo,
+                Role = UserRole.Guest,
+                Address = Address,
+                DateOfBirth = DateOfBirth,
+                PaymentMethod = PaymentMethod,
+                Image = Image,
+                Notes = Notes,
+                CreatedDate = DateTime.Now,
             };
 
             if (Overwrite)
             {
                 if (!ValidateUpdatePersmission()) return;
-                UpdateRecord(OldUser, newUser);
+                UpdateRecord(OldRecord, newUser);
             }
             else
             {
                 if (!ValidateInsertPersmission()) return;
                 if (await ValidateKeyAsync())
                 {
-                    AddRecord(newUser);
+                    StartProgress("Registering...");
+                    await AddRecordAsync(newUser);
                 }
             }
             StopProgress();
@@ -239,34 +352,36 @@ namespace ABC.CarTraders.GUI.Forms
 
         private bool ValidateInsertPersmission()
         {
-            return (User.Role <= UserRole.Admin);
+            return (User == null || User.Role <= UserRole.Admin);
         }
 
         private bool ValidateUpdatePersmission()
         {
-            return (User.Role <= UserRole.Admin) ||
-                (User == OldUser);
+            //return (User.Role <= UserRole.Admin) ||
+            //(User == OldRecord);
+            return true;
         }
 
         private bool ValidateInput()
         {
-            if (Email == null)
+            if (Email == null || !Helper.IsValidEmail(Email))
             {
-                txtUsername.Focus();
+                txtEMail.Focus();
                 return false;
             }
 
-            if (UserName == null)
+            if (FullName == null)
             {
-                txtName.Focus();
+                txtFullName.Focus();
                 return false;
             }
 
-            if (UserPassword == null)
+            if (Password == null)
             {
                 btnPassword.PerformClick();
-                if(UserPassword == null) return false;
+                if(Password == null) return false;
             }
+
             return true;
         }
 
@@ -277,22 +392,14 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 try
                 {
-                    StartProgress("Checking Key...");
+                    StartProgress("Checking Email...");
                     var tmp = await DbContext.Users.FirstOrDefaultAsync(x => x.Email == Email);
                     StopProgress();
                     if (tmp != null)
                     {
-                        StatusText = "Key Exists";
-                        var option = MessageBox.Show($"Email {Email} already exists. Do you want to view that record?", "DUPLICATE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (option == DialogResult.Yes)
-                        {
-                            ViewRecord(tmp);
-                            StatusText = "Ready";
-                        }
-                        else
-                        {
-                            txtUsername.Focus();
-                        }
+                        StatusText = "Email Exists";
+                        MessageBox.Show($"Email {Email} already exists. Please try again with a different Email.", "DUPLICATE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtEMail.Focus();
                         return false;
                     }
                     return true;
@@ -309,7 +416,7 @@ namespace ABC.CarTraders.GUI.Forms
         }
 
         public bool Overwrite { get; set; }
-        private void AddRecord(User newUser)
+        private async Task AddRecordAsync(User newUser)
         {
             DbContext.Users.Add(newUser);
             WriteLog.Invoke(new Log()
@@ -318,13 +425,24 @@ namespace ABC.CarTraders.GUI.Forms
                 CreatedUser = User,
                 Title = "User",
                 Action = LogAction.Insert,
-                Text = $"Added a user (#{newUser.Email})"
+                Text = $"Registered a user (#{newUser.Email})"
             });
-            StatusText = "Record Saved";
+            try
+            {
+                await DbContext.SaveChangesAsync();
+                StatusText = "Record Saved";
 
-            var result = MessageBox.Show("User saved successfully.\nDo you want to add another user?", "SAVE", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes) btnNew.PerformClick();
-            else ViewRecord(newUser);
+                MessageBox.Show("Registration was saved successfully. Please login.", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                StopProgress();
+                StatusText = "Error Occurred";
+                MessageBox.Show($"An error occurred while retrieving data from the Database.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            }
+            //if (result == DialogResult.Yes) btnNew.PerformClick();
+            //else ViewRecord(newUser);
         }
 
         private void UpdateRecord(User user, User newUser)
@@ -407,21 +525,53 @@ namespace ABC.CarTraders.GUI.Forms
 
         private void UserForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control)
+            //if (e.Control)
+            //{
+            //    switch (e.KeyCode)
+            //    {
+            //        case Keys.S:
+            //            if (e.Shift) btnToDatabase.PerformClick();
+            //            else btnSave.PerformClick();
+            //            e.SuppressKeyPress = true;
+            //            break;
+            //        case Keys.N:
+            //            btnNew.PerformClick();
+            //            e.SuppressKeyPress = true;
+            //            break;
+            //    }
+            //}
+        }
+
+        private void btnBrowseImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                switch (e.KeyCode)
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    case Keys.S:
-                        if (e.Shift) btnToDatabase.PerformClick();
-                        else btnSave.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.N:
-                        btnNew.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
+                    // Get the file path
+                    txtImagePath.Text = openFileDialog.FileName;
+
+                    // Display the image in the PictureBox
+                    picImage.Image = System.Drawing.Image.FromFile(txtImagePath.Text);
+
+                    //// Convert the image to byte array and store in the CarPicture property
+                    //byte[] imageBytes = File.ReadAllBytes(filePath);
+
+                    //// Assuming you have a Car object called car
+                    //car.CarPicture = imageBytes;
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtImagePath.Text = null;
+            picImage.Image = null;
         }
     }
 }
