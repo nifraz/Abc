@@ -284,7 +284,7 @@ namespace ABC.CarTraders.GUI.Sections
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
-                CreatedUser = User,
+                CreatedUserId = User?.Id,
                 Title = "Log",
                 Action = Entities.LogAction.Delete,
                 Text = $"Deleted {logCount} log(s) (#{logIds})"

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,15 +15,11 @@
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\abc.cartraders\\gui\\forms\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\usersection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -210,7 +210,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "UserSection.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
               "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
@@ -242,8 +242,7 @@
               "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
               "ViewState": "AQIAALIBAAAAAAAAAAAAAMUBAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T10:19:09.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T10:19:09.737Z"
             },
             {
               "$type": "Document",
@@ -411,8 +410,7 @@
               "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
               "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T10:09:25.71Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-09-08T10:09:25.71Z"
             },
             {
               "$type": "Document",
@@ -657,7 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Resources.resx",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Properties\\Resources.resx",
               "RelativeDocumentMoniker": "Abc.CarTraders\\Properties\\Resources.resx",
@@ -669,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Helper.cs",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Helper.cs",
               "RelativeDocumentMoniker": "Abc.CarTraders\\Helper.cs",
@@ -690,8 +688,7 @@
               "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
               "ViewState": "AQIAAJkAAAAAAAAAAAAqwK0AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T10:28:45.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T10:28:45.12Z"
             },
             {
               "$type": "Document",
@@ -703,8 +700,7 @@
               "RelativeToolTip": "Abc.CarTraders\\Entities\\User.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAACUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T09:36:33.509Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-08T09:36:33.509Z"
             },
             {
               "$type": "Document",

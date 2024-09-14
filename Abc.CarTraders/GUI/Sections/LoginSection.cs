@@ -23,7 +23,7 @@ namespace ABC.CarTraders.GUI.Sections
         }
         
         //private Func<Log, Task> WriteLogAsync { get { return DashboardForm.WriteLogAsync; } }
-        private Action Login { get { return DashboardForm.Login; } }
+        private Func<Task> LoginAsync { get { return DashboardForm.LoginAsync; } }
         private Action Exit { get { return DashboardForm.Exit; } }
         private Func<Task> RefreshAsync { get { return DashboardForm.RefreshAsync; } }
         public User User
@@ -185,7 +185,7 @@ namespace ABC.CarTraders.GUI.Sections
             StopProgress();
 
             LastUsername = Email;
-            Login?.Invoke();
+            await LoginAsync?.Invoke();
             ResetFields();
         }
 

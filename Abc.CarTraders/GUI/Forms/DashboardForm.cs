@@ -59,7 +59,7 @@ namespace ABC.CarTraders.GUI.Forms
 
             CurrentButton = btnLogout;
 
-            btnLogout.Click += (o, args) => Logout();
+            btnLogout.Click += (o, args) => LogoutAsync();
             btnLog.Click += (o, args) =>
             {
                 //CurrentButton.BackColor = ColorScheme.Color9;
@@ -76,7 +76,7 @@ namespace ABC.CarTraders.GUI.Forms
             rtbOutput.Clear();
             rtbOutput.AppendText($"[{DateTime.Now.ToLongDateString()}]");
 
-            Logout();
+            LogoutAsync();
             //btnCalendar.PerformClick();
         }
 
@@ -186,15 +186,15 @@ namespace ABC.CarTraders.GUI.Forms
         {
             await SaveToDatabaseDelegate?.Invoke();
         }
-        private static Action LoginDelegate;
-        public static void Login()
+        private static Func<Task> LoginDelegate;
+        public async static Task LoginAsync()
         {
-            LoginDelegate?.Invoke();
+            await LoginDelegate?.Invoke();
         }
-        private static Action LogoutDelegate;
-        public static void Logout()
+        private static Func<Task> LogoutDelegate;
+        public async static Task LogoutAsync()
         {
-            LogoutDelegate?.Invoke();
+            await LogoutDelegate?.Invoke();
         }
         private static Action ExitDelegate;
         public static void Exit()
@@ -225,10 +225,10 @@ namespace ABC.CarTraders.GUI.Forms
             };
             SaveToDatabaseDelegate = async () =>
             {
-                await CompleteAsync();
+                //await CompleteAsync();
             };
 
-            LoginDelegate = () =>
+            LoginDelegate = async () =>
             {
                 LoadInitial();
                 EnableButtons();
@@ -236,25 +236,30 @@ namespace ABC.CarTraders.GUI.Forms
                 WriteLog(new Log()
                 {
                     CreatedDate = DateTime.Now,
-                    CreatedUser = User,
+                    CreatedUserId = User?.Id,
                     Title = "Login",
                     Action = LogAction.Auth,
                     Text = $"Logged in"
                 });
+                await DbContext.SaveChangesAsync();
                 btnStatistics.PerformClick();
             };
 
-            LogoutDelegate = () =>
+            LogoutDelegate = async () =>
             {
                 DisableButtons();
-                WriteLog(new Log()
+                if (DbContext != null)
                 {
-                    CreatedDate = DateTime.Now,
-                    CreatedUser = User,
-                    Title = "Login",
-                    Action = LogAction.Auth,
-                    Text = $"Logged out"
-                });
+                    WriteLog(new Log()
+                    {
+                        CreatedDate = DateTime.Now,
+                        CreatedUserId = User?.Id,
+                        Title = "Login",
+                        Action = LogAction.Auth,
+                        Text = $"Logged out"
+                    });
+                    await DbContext.SaveChangesAsync();
+                }
                 loginSection1.Focus();
             };
             ExitDelegate = Close;
@@ -467,84 +472,84 @@ namespace ABC.CarTraders.GUI.Forms
         private async void btnUploadToDatabase_Click(object sender, EventArgs e)
         {
             if (DbContext == null) return;
-            await CompleteAsync();
+            //await CompleteAsync();
         }
 
-        private async Task CompleteAsync()
-        {
-            var result = DialogResult.Retry;
-            while (result == DialogResult.Retry)
-            {
-                try
-                {
-                    StartProgress("Saving...");
-                    var n = await DbContext.SaveChangesAsync();
-                    if (n > 0)
-                    {
-                        WriteLog(new Log()
-                        {
-                            CreatedDate = DateTime.Now,
-                            CreatedUser = User,
-                            Title = "Database",
-                            Action = LogAction.Save,
-                            Text = $"Saved changes to database ({n} record(s) affected)"
-                        });
-                        await DbContext.SaveChangesAsync();
-                    }
-                    StopProgress();
-                    MessageBox.Show("Changes successfully uploaded to the Database.", "UPLOAD", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    var sb = new StringBuilder(string.Empty);
+        //private async Task CompleteAsync()
+        //{
+        //    var result = DialogResult.Retry;
+        //    while (result == DialogResult.Retry)
+        //    {
+        //        try
+        //        {
+        //            StartProgress("Saving...");
+        //            var n = await DbContext.SaveChangesAsync();
+        //            if (n > 0)
+        //            {
+        //                WriteLog(new Log()
+        //                {
+        //                    CreatedDate = DateTime.Now,
+        //                    CreatedUserId = User?.Id,
+        //                    Title = "Database",
+        //                    Action = LogAction.Save,
+        //                    Text = $"Saved changes to database ({n} record(s) affected)"
+        //                });
+        //                await DbContext.SaveChangesAsync();
+        //            }
+        //            StopProgress();
+        //            MessageBox.Show("Changes successfully uploaded to the Database.", "UPLOAD", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            break;
+        //        }
+        //        catch (DbEntityValidationException ex)
+        //        {
+        //            var sb = new StringBuilder(string.Empty);
                     
-                    foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
-                    {
-                        var entry = item.Entry;
-                        var entityTypeName = entry.Entity.GetType().Name;
+        //            foreach (DbEntityValidationResult item in ex.EntityValidationErrors)
+        //            {
+        //                var entry = item.Entry;
+        //                var entityTypeName = entry.Entity.GetType().Name;
 
-                        sb.Append($"Error(s) in {entityTypeName} :\n");
+        //                sb.Append($"Error(s) in {entityTypeName} :\n");
 
-                        foreach (var subItem in item.ValidationErrors)
-                        {
-                            sb.Append($"\t\"{subItem.ErrorMessage}\" occured at {subItem.PropertyName}.\n");
-                        }
-                    }
-                    StopProgress();
-                    result = MessageBox.Show($"Below data caused errors while uploading to the Database.\n{sb.ToString()}\nAbort : Cancel the operation\nRetry : Try again\nIgnore : Rollback the changes", "ERROR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
-                    if (result == DialogResult.Ignore)
-                    {
-                        var option = MessageBox.Show("Do you want to revert the changes that caused the error(s)?\nChanges will be lost.", "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                        if (option == DialogResult.Yes)
-                        {
-                            var entries = ex.EntityValidationErrors.Select(r => r.Entry);
-                            foreach (var entry in entries)
-                            {
-                                switch (entry.State)
-                                {
-                                    case EntityState.Added:
-                                        entry.State = EntityState.Detached;
-                                        break;
-                                    case EntityState.Modified:
-                                        entry.CurrentValues.SetValues(entry.OriginalValues);
-                                        entry.State = EntityState.Unchanged;
-                                        break;
-                                    case EntityState.Deleted:
-                                        entry.State = EntityState.Unchanged;
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    StopProgress();
-                    result = MessageBox.Show($"An error occurred while uploading data to the Database.\n{ex.Message}\n{ex.InnerException?.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-            }
-        }
+        //                foreach (var subItem in item.ValidationErrors)
+        //                {
+        //                    sb.Append($"\t\"{subItem.ErrorMessage}\" occured at {subItem.PropertyName}.\n");
+        //                }
+        //            }
+        //            StopProgress();
+        //            result = MessageBox.Show($"Below data caused errors while uploading to the Database.\n{sb.ToString()}\nAbort : Cancel the operation\nRetry : Try again\nIgnore : Rollback the changes", "ERROR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+        //            if (result == DialogResult.Ignore)
+        //            {
+        //                var option = MessageBox.Show("Do you want to revert the changes that caused the error(s)?\nChanges will be lost.", "CONFIRM", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+        //                if (option == DialogResult.Yes)
+        //                {
+        //                    var entries = ex.EntityValidationErrors.Select(r => r.Entry);
+        //                    foreach (var entry in entries)
+        //                    {
+        //                        switch (entry.State)
+        //                        {
+        //                            case EntityState.Added:
+        //                                entry.State = EntityState.Detached;
+        //                                break;
+        //                            case EntityState.Modified:
+        //                                entry.CurrentValues.SetValues(entry.OriginalValues);
+        //                                entry.State = EntityState.Unchanged;
+        //                                break;
+        //                            case EntityState.Deleted:
+        //                                entry.State = EntityState.Unchanged;
+        //                                break;
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            StopProgress();
+        //            result = MessageBox.Show($"An error occurred while uploading data to the Database.\n{ex.Message}\n{ex.InnerException?.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
 
 
         #region Progress

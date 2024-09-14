@@ -310,7 +310,7 @@ namespace ABC.CarTraders.GUI.Sections
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
-                CreatedUser = User,
+                CreatedUserId = User?.Id,
                 Title = "Calving Sheet",
                 Action = LogAction.Delete,
                 Text = $"Deleted {recordCount} {nameof(Car)}(s) (#{recordIds})",

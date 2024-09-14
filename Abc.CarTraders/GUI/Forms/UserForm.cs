@@ -415,13 +415,14 @@ namespace ABC.CarTraders.GUI.Forms
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
-                CreatedUser = User,
+                CreatedUserId = User?.Id,
                 Title = "User",
                 Action = LogAction.Insert,
                 Text = $"Registered a user ({newUser.Email})"
             });
             try
             {
+                var entries = DbContext.ChangeTracker.Entries(); //remove
                 await DbContext.SaveChangesAsync();
                 StatusText = "Record Saved";
 
@@ -456,7 +457,7 @@ namespace ABC.CarTraders.GUI.Forms
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
-                CreatedUser = User,
+                CreatedUserId = User?.Id,
                 Title = "User",
                 Action = LogAction.Update,
                 Text = $"Updated a user (#{newUser.Email})"

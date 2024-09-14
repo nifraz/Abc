@@ -133,4 +133,3 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.CarSection.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Forms.CarForm.resources
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.Migrations.Initial.resources
-C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Forms.UserForm2.resources
