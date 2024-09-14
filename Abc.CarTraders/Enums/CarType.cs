@@ -2,11 +2,11 @@
 {
     public enum CarType : byte
     {
-        Sedan,
-        SUV,
-        Truck,
-        Coupe,
-        Convertible,
-        Hatchback
+        Sedan = 1,
+        SUV = 2,
+        Truck = 3,
+        Coupe = 4,
+        Convertible = 5,
+        Hatchback = 6,
     }
 }

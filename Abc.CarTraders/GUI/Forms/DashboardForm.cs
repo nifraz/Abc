@@ -1,4 +1,5 @@
 ﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.GUI.Sections;
 using Material.Styles;
 using MRG.Controls.UI;
 using System;
@@ -110,16 +111,13 @@ namespace ABC.CarTraders.GUI.Forms
             statisticsSection1.ColorScheme = scheme;
             userSection1.ColorScheme = scheme;
             carSection1.ColorScheme = scheme;
+            carPartSection1.ColorScheme = scheme;
             loginSection1.ColorScheme = scheme;
             logSection1.ColorScheme = scheme;
 
             // buttons
             btnStatistics.BackColor = scheme.Color7;
             btnUser.BackColor = scheme.Color7;
-            btnVsRange.BackColor = scheme.Color7;
-            btnInstitute.BackColor = scheme.Color7;
-            btnSemen.BackColor = scheme.Color7;
-            btnTechnician.BackColor = scheme.Color7;
             btnCar.BackColor = scheme.Color7;
             btnCarPart.BackColor = scheme.Color7;
             btnLogout.BackColor = scheme.Color7;
@@ -138,11 +136,12 @@ namespace ABC.CarTraders.GUI.Forms
             Refresh();
         }
 
-        public void LoadInitial()
+        public async Task LoadInitialAsync()
         {
             statisticsSection1.LoadInitialData();
             userSection1.LoadInitialData();
             carSection1.LoadInitialData();
+            carPartSection1.LoadInitialData();
             logSection1.LoadInitialData();
         }
 
@@ -230,7 +229,7 @@ namespace ABC.CarTraders.GUI.Forms
 
             LoginDelegate = async () =>
             {
-                LoadInitial();
+                LoadInitialAsync();
                 EnableButtons();
                 btnToDatabase.Enabled = true;
                 WriteLog(new Log()
@@ -270,6 +269,7 @@ namespace ABC.CarTraders.GUI.Forms
                 await statisticsSection1.RefreshAsync();
                 await userSection1.RefreshAsync();
                 await carSection1.RefreshAsync();
+                await carPartSection1.RefreshAsync();
                 await logSection1.RefreshAsync();
             };
         }
@@ -297,38 +297,22 @@ namespace ABC.CarTraders.GUI.Forms
                 Description = "Manage User Data",
                 RegionControl = userSection1,
             };
-            //btnVsRange.Tag = new ButtonTag()
-            //{
-            //    ButtonImageDark = Properties.Resources.map_marker_dark_25px,
-            //    ButtonImageLight = Properties.Resources.map_marker_light_25px,
-            //    Title = "VS Range",
-            //    Description = "Manage VS Ranges",
-            //    RegionControl = orderSection1,
-            //};
-            //btnCalvingRecord.Tag = new ButtonTag()
-            //{
-            //    ButtonImageDark = Properties.Resources.list_view_dark_25px,
-            //    ButtonImageLight = Properties.Resources.list_view_light_25px,
-            //    Title = "Calving Record",
-            //    Description = "Manage Calving Record Data",
-            //    RegionControl = calvingRecordSection1
-            //};
             btnCar.Tag = new ButtonTag()
             {
-                ButtonImageDark = Properties.Resources.spreadsheet_file_dark_25px,
-                ButtonImageLight = Properties.Resources.spreadsheet_file_light_25px,
-                Title = "Calving Sheet",
-                Description = "Manage Calving Sheet Data",
+                ButtonImageDark = Properties.Resources.car_dark_25px,
+                ButtonImageLight = Properties.Resources.car_light_25px,
+                Title = "Car",
+                Description = "Manage Cars",
                 RegionControl = carSection1
             };
-            //btnTechnician.Tag = new ButtonTag()
-            //{
-            //    ButtonImageDark = Properties.Resources.worker_dark_25px,
-            //    ButtonImageLight = Properties.Resources.worker_light_25px,
-            //    Title = "Technician",
-            //    Description = "Manage Technician Data",
-            //    RegionControl = technicianSection1
-            //};
+            btnCarPart.Tag = new ButtonTag()
+            {
+                ButtonImageDark = Properties.Resources.carpart_dark_25px,
+                ButtonImageLight = Properties.Resources.carpart_light_25px,
+                Title = "Car Part",
+                Description = "Manage Car Parts",
+                RegionControl = carPartSection1
+            };
             btnLogout.Tag = new ButtonTag()
             {
                 ButtonImageDark = Properties.Resources.logout_rounded_left_dark_25px,
@@ -381,6 +365,7 @@ namespace ABC.CarTraders.GUI.Forms
             statisticsSection1.Visible = false;
             userSection1.Visible = false;
             carSection1.Visible = false;
+            carPartSection1.Visible = false;
             loginSection1.Visible = false;
             logSection1.Visible = false;
         }
@@ -402,23 +387,15 @@ namespace ABC.CarTraders.GUI.Forms
         {
             btnStatistics.Image = global::ABC.CarTraders.Properties.Resources.plot_light_25px;
             btnUser.Image = global::ABC.CarTraders.Properties.Resources.user_light_25px;
-            btnVsRange.Image = global::ABC.CarTraders.Properties.Resources.map_marker_light_25px;
-            btnCarPart.Image = global::ABC.CarTraders.Properties.Resources.list_view_light_25px;
-            btnCar.Image = global::ABC.CarTraders.Properties.Resources.spreadsheet_file_light_25px;
-            btnTechnician.Image = global::ABC.CarTraders.Properties.Resources.worker_light_25px;
-            btnInstitute.Image = global::ABC.CarTraders.Properties.Resources.company_light_25px;
-            btnSemen.Image = global::ABC.CarTraders.Properties.Resources.bull_light_25px;
+            btnCar.Image = global::ABC.CarTraders.Properties.Resources.car_light_25px;
+            btnCarPart.Image = global::ABC.CarTraders.Properties.Resources.carpart_light_25px;
             btnLogout.Image = global::ABC.CarTraders.Properties.Resources.logout_rounded_left_light_25px;
             btnLog.Image = global::ABC.CarTraders.Properties.Resources.todo_list_light_20px;
 
             btnStatistics.BackColor = ColorScheme.Color7;
             btnUser.BackColor = ColorScheme.Color7;
-            btnVsRange.BackColor = ColorScheme.Color7;
-            btnCarPart.BackColor = ColorScheme.Color7;
             btnCar.BackColor = ColorScheme.Color7;
-            btnTechnician.BackColor = ColorScheme.Color7;
-            btnInstitute.BackColor = ColorScheme.Color7;
-            btnSemen.BackColor = ColorScheme.Color7;
+            btnCarPart.BackColor = ColorScheme.Color7;
             btnLogout.BackColor = ColorScheme.Color7;
             btnLog.BackColor = ColorScheme.Color9;
 
@@ -634,26 +611,10 @@ namespace ABC.CarTraders.GUI.Forms
                         e.SuppressKeyPress = true;
                         break;
                     case Keys.D3:
-                        btnVsRange.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.D4:
-                        btnInstitute.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.D5:
-                        btnSemen.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.D6:
-                        btnTechnician.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.D7:
                         btnCar.PerformClick();
                         e.SuppressKeyPress = true;
                         break;
-                    case Keys.D8:
+                    case Keys.D4:
                         btnCarPart.PerformClick();
                         e.SuppressKeyPress = true;
                         break;

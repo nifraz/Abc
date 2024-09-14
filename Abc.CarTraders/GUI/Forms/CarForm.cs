@@ -2,10 +2,9 @@
 using ABC.CarTraders.Enums;
 using MRG.Controls.UI;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,84 +23,81 @@ namespace ABC.CarTraders.GUI.Forms
         public CarForm()
         {
             InitializeComponent();
-            pnlLoadingCircle.Controls.Add(LoadingCircle);
 
-            //rdoGovernment.Tag = TechnicianType.Government;
-            //rdoPrivate.Tag = TechnicianType.Private;
-            //rdoActive.Tag = TechnicianStatus.Active;
-            //rdoRetired.Tag = TechnicianStatus.Retired;
-            //rdoCancelled.Tag = TechnicianStatus.Cancelled;
+            cboType.DataSource = new List<CarType>()
+            {
+                CarType.Sedan,
+                CarType.SUV,
+                CarType.Truck,
+                CarType.Coupe,
+                CarType.Convertible,
+                CarType.Hatchback,
+            };
 
-            //TechnicianCode = 1;
-            //TechnicianName = null;
-            //TechnicianNicNo = null;
-            //TechnicianPhoneNo = null;
-
-            //TechnicianVsRange = null;
-            //TechnicianInstitute = null;
-
-            //TechnicianIssuedDate = DateTime.Today;
-            //TechnicianType = TechnicianType.Government;
-            //TechnicianStatus = TechnicianStatus.Active;
-            //TechnicianNotes = null;
-
-            //btnNew.Focus();
+            ModelName = null;
+            Price = 0.00M;
+            Year = 2024;
+            Type = CarType.Sedan;
+            EngineDetails = null;
+            Color = "Black";
+            Stock = 1;
+            Image = null;
+            Notes = null;
         }
 
         public void LoadInitialData()
         {
             //cboVsRange.DataSource = UnitOfWork.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).ToList();
-            ////cboVsRange.DisplayMember = "Name";
-            //cboInstitute.DataSource = UnitOfWork.Institutes.GetAllCached().OrderBy(i => i.Name).ToList();
-            //cboInstitute.DisplayMember = "Name";
         }
 
         public void NewRecord()
         {
             Overwrite = false;
 
-            OldCar = null;
-            Text = "New Car";
+            btnSave.Text = "SAVE";
+            OldRecord = null;
+            Text = $"New {nameof(Car)}";
             StatusText = "Ready";
 
             ModelName = null;
-            //TechnicianNicNo = null;
-            //TechnicianPhoneNo = null;
+            Price = 0.00M;
+            Year = 2024;
+            Type = CarType.Sedan;
+            EngineDetails = null;
+            Color = "Black";
+            Stock = 1;
+            Image = null;
             Notes = null;
 
-            pnlCode.Enabled = true;
-            btnLastCode.Enabled = true;
+            pnlRole.Enabled = true;
             btnSave.Enabled = ValidateInsertPersmission();
-            nudCode.Focus();
-        }
-
-        public Car OldCar { get; set; }
-        public void ViewRecord(Car car)
-        {
-            Overwrite = true;
-
-            OldCar = car;
-            Text = $"View Car #{OldCar.Id}";
-            StatusText = "Ready";
-
-            //TechnicianCode = OldCustomer.Code;
-            //TechnicianName = OldCustomer.Name;
-            //TechnicianNicNo = OldCustomer.NicNo;
-            //TechnicianPhoneNo = OldCustomer.PhoneNo;
-            //TechnicianVsRange = OldCustomer.VsRange;
-            //TechnicianInstitute = OldCustomer.Institute;
-            //TechnicianIssuedDate = OldCustomer.IssuedDate;
-            //TechnicianType = OldCustomer.Type;
-            //TechnicianStatus = OldCustomer.Status;
-            //TechnicianNotes = OldCustomer.Notes;
-
-            //pnlCode.Enabled = false;
-            //btnLastCode.Enabled = false;
-            btnSave.Enabled = ValidateUpdatePersmission();
             txtModelName.Focus();
         }
 
-        private void CarForm_FormClosing(object sender, FormClosingEventArgs e)
+        public Car OldRecord { get; set; }
+        public void ViewRecord(Car record)
+        {
+            Overwrite = true;
+
+            btnSave.Text = "UPDATE";
+            OldRecord = record;
+            Text = $"View {nameof(Car)} ({OldRecord.ModelName})";
+            StatusText = "Ready";
+
+            ModelName = OldRecord.ModelName;
+            Price = OldRecord.Price;
+            Year = OldRecord.Year;
+            Type = OldRecord.Type;
+            EngineDetails = OldRecord.EngineDetails;
+            Color = OldRecord.Color;
+            Stock = OldRecord.Stock;
+            Image = OldRecord.Image;
+            Notes = OldRecord.Notes;
+
+            btnSave.Enabled = ValidateUpdatePersmission();
+        }
+
+        private void UserForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }
@@ -120,26 +116,97 @@ namespace ABC.CarTraders.GUI.Forms
 
         public decimal Price
         {
-            get { return nudPrice.Value; }
+            get
+            {
+                return nudPrice.Value;
+            }
             set { nudPrice.Value = value; }
         }
 
         public int Year
         {
-            get { return (int)nudYear.Value; }
+            get
+            {
+                return (int)nudYear.Value;
+            }
             set { nudYear.Value = value; }
         }
 
-        private void btnThisYear_Click(object sender, EventArgs e)
+        public CarType Type
         {
-            nudYear.Value = DateTime.Today.Year;
+            get
+            {
+                return (CarType)cboType.SelectedItem;
+            }
+            set
+            {
+                cboType.SelectedItem = value;
+            }
         }
+
+        public string EngineDetails
+        {
+            get
+            {
+                var str = txtEngineDetails.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { txtEngineDetails.Text = value; }
+        }
+
+        public string Color
+        {
+            get
+            {
+                var str = cboColor.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { cboColor.Text = value; }
+        }
+
+        public int Stock
+        {
+            get
+            {
+                return (int)nudStock.Value;
+            }
+            set { nudStock.Value = value; }
+        }
+
+        public byte[] Image
+        {
+            get
+            {
+                if (picImage.Image != null)
+                {
+                    return Helper.GetImageBytesFromPictureBox(picImage);
+                }
+                var filePath = txtImagePath.Text;
+                if (string.IsNullOrWhiteSpace(filePath))
+                {
+                    return null;
+                }
+                return File.ReadAllBytes(filePath);
+            }
+            set
+            {
+                if (value != null)
+                {
+                    picImage.Image = Helper.LoadImageFromDatabase(value);
+                }
+                else
+                {
+                    picImage.Image = null; // No image available
+                }
+            }
+        }
+
         public string Notes
         {
             get
             {
-                var notes = txtNotes.Text.Trim();
-                return notes == string.Empty ? null : notes;
+                var str = txtNotes.Text.Trim();
+                return str == string.Empty ? null : str;
             }
             set { txtNotes.Text = value; }
         }
@@ -156,58 +223,46 @@ namespace ABC.CarTraders.GUI.Forms
             if (!ValidateInput())
             {
                 StatusText = "Data Required";
-                MessageBox.Show("Data validation failed and the technician cannot be saved.\nPlease check for invalid / empty data.", "VALIDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Data validation failed and the record cannot be saved.\nPlease check for invalid / empty data.", "VALIDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            var newTechnician = new User()
+            var newRecord = new Car()
             {
-                //Code = TechnicianCode,
-                //Name = TechnicianName,
-                //NicNo = TechnicianNicNo,
-                //PhoneNo = TechnicianPhoneNo,
-                //VsRange = TechnicianVsRange,
-                //Institute = TechnicianInstitute,
-                //IssuedDate = TechnicianIssuedDate,
-                //Type = TechnicianType,
-                //Status = TechnicianStatus,
-                //Notes = TechnicianNotes,
-                //CreatedOn = DateTime.Now,
-                //CreatedBy = User
+                ModelName = ModelName,
+                Price = Price,
+                Year = Year,
+                Type = Type,
+                EngineDetails = EngineDetails,
+                Color = Color,
+                Stock = Stock,
+                Image = Image,
+                Notes = Notes,
+                CreatedDate = DateTime.Now,
             };
 
-            //if (Overwrite)
-            //{
-            //    if (!ValidateUpdatePersmission()) return;
-            //    if (OldCustomer.Code != TechnicianCode)
-            //    {
-            //        MessageBox.Show("You cannot change the Tech. Code of an existing Car!\nThis operation is disabled to protect data integrity.", "CAUTION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //        return;
-            //    }
-            //    UpdateRecord(OldCustomer, newTechnician);
-            //}
-            //else
-            //{
-            //    if (!ValidateInsertPersmission()) return;
-            //    if (await ValidateKeyAsync())
-            //    {
-            //        AddRecord(newTechnician);
-            //    }
-            //}
-            //StopProgress();
+            if (Overwrite)
+            {
+                if (!ValidateUpdatePersmission()) return;
+                await UpdateRecordAsync(OldRecord, newRecord);
+            }
+            else
+            {
+                if (!ValidateInsertPersmission()) return;
+                StartProgress("Saving...");
+                await AddRecordAsync(newRecord);
+            }
+            StopProgress();
         }
 
         private bool ValidateInsertPersmission()
         {
-            //return (User.Role <= UserRole.Trainee);
-            return true;
+            return (User == null || User.Role >= UserRole.Staff);
         }
 
         private bool ValidateUpdatePersmission()
         {
-            //return (User.Role <= UserRole.Staff) ||
-            //    (User == OldCustomer?.User.CreatedBy);
-            return true;
+            return (User == null || User.Role >= UserRole.Staff);
         }
 
         private bool ValidateInput()
@@ -217,93 +272,67 @@ namespace ABC.CarTraders.GUI.Forms
                 txtModelName.Focus();
                 return false;
             }
+
             return true;
         }
 
-        //private async Task<bool> ValidateKeyAsync()
-        //{
-        //    var result = DialogResult.Retry;
-        //    while (result == DialogResult.Retry)
-        //    {
-        //        try
-        //        {
-        //            StartProgress("Checking Key...");
-        //            var tmp = await UnitOfWork.Technicians.GetAsync(TechnicianCode);
-        //            StopProgress();
-        //            if (tmp != null)
-        //            {
-        //                StatusText = "Key Exists";
-        //                var option = MessageBox.Show($"Car Code {TechnicianCode} already exists. Do you want to view that record?", "DUPLICATE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-        //                if (option == DialogResult.Yes)
-        //                {
-        //                    ViewRecord(tmp);
-        //                    StatusText = "Ready";
-        //                }
-        //                else
-        //                {
-        //                    nudCode.Focus();
-        //                }
-        //                return false;
-        //            }
-        //            return true;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            StopProgress();
-        //            StatusText = "Error Occurred";
-        //            result = MessageBox.Show($"An error occurred while retrieving data from the Database.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-        //        }
-        //    }
-        //    StatusText = "Ready";
-        //    return false;
-        //}
-
         public bool Overwrite { get; set; }
-        //private void AddRecord(Customer newTechnician)
-        //{
-        //    UnitOfWork.Technicians.Add(newTechnician);
-        //    WriteLog.Invoke(new Log()
-        //    {
-        //        Time = DateTime.Now,
-        //        User = User,
-        //        Title = "Car",
-        //        Action = LogAction.Insert,
-        //        Text = $"Added a technician (#{newTechnician.Code})"
-        //    });
-        //    StatusText = "Record Saved";
+        private async Task AddRecordAsync(Car newRecord)
+        {
+            DbContext.Cars.Add(newRecord);
+            WriteLog.Invoke(new Log()
+            {
+                CreatedDate = DateTime.Now,
+                CreatedUserId = User?.Id,
+                Title = "Car",
+                Action = LogAction.Insert,
+                Text = $"Saved a car ({newRecord.ModelName})"
+            });
+            try
+            {
+                await DbContext.SaveChangesAsync();
+                StatusText = "Record Saved";
 
-        //    var result = MessageBox.Show("Car saved successfully.\nDo you want to add another technician?", "SAVE", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-        //    if (result == DialogResult.Yes) btnNew.PerformClick();
-        //    else ViewRecord(newTechnician);
-        //}
+                MessageBox.Show("Car saved successfully..", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ViewRecord(newRecord);
+            }
+            catch (Exception ex)
+            {
+                StopProgress();
+                StatusText = "Error Occurred";
+                MessageBox.Show($"An error occurred while saving the record.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            }
+            //if (result == DialogResult.Yes) btnNew.PerformClick();
+            //else ViewRecord(newUser);
+        }
 
-        //private void UpdateRecord(Car technician, Car newTechnician)
-        //{
-        //    technician.VsRange = newTechnician.VsRange;
-        //    technician.Institute = newTechnician.Institute;
-        //    technician.Name = newTechnician.Name;
-        //    technician.NicNo = newTechnician.NicNo;
-        //    technician.PhoneNo = newTechnician.PhoneNo;
-        //    technician.IssuedDate = newTechnician.IssuedDate;
-        //    technician.Type = newTechnician.Type;
-        //    technician.Status = newTechnician.Status;
-        //    technician.Notes = newTechnician.Notes;
-        //    technician.ModifiedOn = DateTime.Now;
-        //    technician.ModifiedBy = User;
+        private async Task UpdateRecordAsync(Car record, Car newRecord)
+        {
+            record.ModelName = newRecord.ModelName;
+            record.Price = newRecord.Price;
+            record.Year = newRecord.Year;
+            record.Type = newRecord.Type;
+            record.EngineDetails = newRecord.EngineDetails;
+            record.Color = newRecord.Color;
+            record.Stock = newRecord.Stock;
+            record.Image = newRecord.Image;
+            record.Notes = newRecord.Notes;
+            record.LastModifiedDate = DateTime.Now;
+            record.LastModifiedUserId = User?.Id;
 
-        //    WriteLog.Invoke(new Log()
-        //    {
-        //        Time = DateTime.Now,
-        //        User = User,
-        //        Title = "Car",
-        //        Action = LogAction.Update,
-        //        Text =$"Updated a technician (#{newTechnician.Code})"
-        //    });
-        //    StatusText = "Record Updated";
-
-        //    MessageBox.Show("Car updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    ViewRecord(technician);
-        //}
+            WriteLog.Invoke(new Log()
+            {
+                CreatedDate = DateTime.Now,
+                CreatedUserId = User?.Id,
+                Title = "Car",
+                Action = LogAction.Update,
+                Text = $"Updated a car ({newRecord.ModelName})"
+            });
+            StatusText = "Record Updated";
+            await DbContext.SaveChangesAsync();
+            MessageBox.Show("Car updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ViewRecord(record);
+        }
         #endregion
 
         #region Progress
@@ -312,7 +341,7 @@ namespace ABC.CarTraders.GUI.Forms
         public string ProgressText { get; set; }
         public LoadingCircle LoadingCircle { get; set; } = new LoadingCircle()
         {
-            Color = Color.Black,
+            Color = System.Drawing.Color.Black,
             NumberSpoke = 36,
             SpokeThickness = 1,
             InnerCircleRadius = 5,
@@ -357,23 +386,55 @@ namespace ABC.CarTraders.GUI.Forms
             StatusText = "Ready";
         }
 
-        private void TechnicianForm_KeyDown(object sender, KeyEventArgs e)
+        private void UserForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control)
+            //if (e.Control)
+            //{
+            //    switch (e.KeyCode)
+            //    {
+            //        case Keys.S:
+            //            if (e.Shift) btnToDatabase.PerformClick();
+            //            else btnSave.PerformClick();
+            //            e.SuppressKeyPress = true;
+            //            break;
+            //        case Keys.N:
+            //            btnNew.PerformClick();
+            //            e.SuppressKeyPress = true;
+            //            break;
+            //    }
+            //}
+        }
+
+        private void btnBrowseImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                switch (e.KeyCode)
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    case Keys.S:
-                        if (e.Shift) btnToDatabase.PerformClick();
-                        else btnSave.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
-                    case Keys.N:
-                        btnNew.PerformClick();
-                        e.SuppressKeyPress = true;
-                        break;
+                    // Get the file path
+                    txtImagePath.Text = openFileDialog.FileName;
+
+                    // Display the image in the PictureBox
+                    picImage.Image = System.Drawing.Image.FromFile(txtImagePath.Text);
+
+                    //// Convert the image to byte array and store in the CarPicture property
+                    //byte[] imageBytes = File.ReadAllBytes(filePath);
+
+                    //// Assuming you have a Car object called car
+                    //car.CarPicture = imageBytes;
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtImagePath.Text = null;
+            picImage.Image = null;
         }
     }
 }

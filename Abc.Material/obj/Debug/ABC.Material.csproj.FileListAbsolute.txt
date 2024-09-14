@@ -10,3 +10,9 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Deb
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\ABC.Material.csproj.CoreCompileInputs.cache
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\Material.dll
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\DaphWinforms\ABC.Material\obj\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\bin\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\bin\Debug\Material.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\obj\Debug\Abc.Material.csproj.AssemblyReference.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\obj\Debug\Abc.Material.csproj.CoreCompileInputs.cache
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\obj\Debug\Material.dll
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.Material\obj\Debug\Material.pdb

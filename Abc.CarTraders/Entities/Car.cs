@@ -40,5 +40,15 @@ namespace ABC.CarTraders.Entities
                 }
             }
         }
+
+        //ModelName = OldRecord.ModelName;
+        //Price = OldRecord.Price;
+        //Year = OldRecord.Year;
+        //Type = OldRecord.Type;
+        //EngineDetails = OldRecord.EngineDetails;
+        //Color = OldRecord.Color;
+        //Stock = OldRecord.Stock;
+        //Image = OldRecord.Image;
+        //Notes = OldRecord.Notes;
     }
 }

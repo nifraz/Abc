@@ -306,7 +306,7 @@ namespace ABC.CarTraders.GUI.Forms
             if (!ValidateInput())
             {
                 StatusText = "Data Required";
-                MessageBox.Show("Data validation failed and the user cannot be saved.\nPlease check for invalid / empty data.", "VALIDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Data validation failed and the record cannot be saved.\nPlease check for invalid / empty data.", "VALIDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -329,7 +329,7 @@ namespace ABC.CarTraders.GUI.Forms
             if (Overwrite)
             {
                 if (!ValidateUpdatePersmission()) return;
-                UpdateRecordAsync(OldRecord, newUser);
+                await UpdateRecordAsync(OldRecord, newUser);
             }
             else
             {
@@ -345,7 +345,7 @@ namespace ABC.CarTraders.GUI.Forms
 
         private bool ValidateInsertPersmission()
         {
-            return (User == null || User.Role <= UserRole.Admin);
+            return (User == null || User.Role >= UserRole.Staff);
         }
 
         private bool ValidateUpdatePersmission()
@@ -433,7 +433,7 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 StopProgress();
                 StatusText = "Error Occurred";
-                MessageBox.Show($"An error occurred while retrieving data from the Database.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred while saving the record.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
             }
             //if (result == DialogResult.Yes) btnNew.PerformClick();
             //else ViewRecord(newUser);

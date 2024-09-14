@@ -9,14 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ABC.CarTraders.GUI.Sections
 {
@@ -35,13 +33,24 @@ namespace ABC.CarTraders.GUI.Sections
             pnlLoadingCircle.Controls.Add(LoadingCircle);
             dataGridView1.AutoGenerateColumns = false;
 
-            cboRangeField.DataSource = new List<string>() { "Year / Month", "Created On", "Modified On" };
-            cboType.DataSource = new List<string>() { "All"};
-            //cboDistrict.DataSource = new List<string>() { "All"};
-            //cboVsRange.DataSource = new List<string>() { "All" };
-            //cboInstitute.DataSource = new List<string>() { "All" };
-            cboSortField.DataSource = new List<string>() { "ID", "VS Range", "Year / Month", "Tech. Code"};
-            cboSortDirection.DataSource = new List<string>() { "Ascending", "Descending" };
+            cboRangeField.DataSource = new List<string>() { "Created On", "Modified On" };
+            cboRole.DataSource = new List<string>() 
+            { 
+                "All",
+                Enums.UserRole.Guest.ToString(),
+                Enums.UserRole.Customer.ToString(),
+                Enums.UserRole.Staff.ToString(),
+                Enums.UserRole.Admin.ToString(),
+            };
+            cboSex.DataSource = new List<string>() 
+            { 
+                "Both",
+                Enums.Sex.Male.ToString(),
+                Enums.Sex.Female.ToString(),
+            };
+            cboFindField.DataSource = new List<string>() { "Email", "FullName", "PhoneNo", "Address" };
+            cboSortField.DataSource = new List<string>() { "Email", "FullName" };
+            cboSortDirection.DataSource = Enum.GetNames(typeof(SortDirection)).ToList();
 
             RangeStart = DateTime.Today;
             RangeEnd = DateTime.Today.AddDays(1).AddSeconds(-1);
@@ -49,17 +58,14 @@ namespace ABC.CarTraders.GUI.Sections
             RangeStart = null;
             RangeEnd = null;
 
-            CalvingSheetTechnicianCode = null;
-
-            SortField = "ID";
-            SortDirection = "Descending";
+            SortField = "Id";
+            SortDirection = Enums.SortDirection.Ascending.ToString();
 
             nudPageNumber.MouseWheel += nudPageNumber_MouseWheel;
-            ColorSchemeChanged += CalvingSection_ColorSchemeChanged;
+            ColorSchemeChanged += UserSection_ColorSchemeChanged;
         }
 
         private ColorScheme _colorScheme;
-
         public ColorScheme ColorScheme
         {
             get { return _colorScheme; }
@@ -71,8 +77,7 @@ namespace ABC.CarTraders.GUI.Sections
         }
 
         public event EventHandler<ColorScheme> ColorSchemeChanged;
-
-        private void CalvingSection_ColorSchemeChanged(object sender, ColorScheme e)
+        private void UserSection_ColorSchemeChanged(object sender, ColorScheme e)
         {
             if (e == null) return;
 
@@ -113,10 +118,13 @@ namespace ABC.CarTraders.GUI.Sections
             btnFilterClear.BackColor = e.Color9;
             pnlFilterHolder.BackColor = e.Color0;
             pnlFilter1.BackColor = e.Color3;
-            //pnlFilter2.BackColor = e.Color3;
-            //pnlFilter3.BackColor = e.Color3;
-            //pnlFilter4.BackColor = e.Color3;
-            pnlFilter5.BackColor = e.Color3;
+            pnlFilter2.BackColor = e.Color3;
+
+            pnlFind.BackColor = e.Color9;
+            btnFindClear.BackColor = e.Color9;
+            pnlFindHolder.BackColor = e.Color0;
+            pnlFindField.BackColor = e.Color3;
+            pnlFindText.BackColor = e.Color3;
 
             pnlSort.BackColor = e.Color9;
             pnlSortHolder.BackColor = e.Color0;
@@ -126,40 +134,58 @@ namespace ABC.CarTraders.GUI.Sections
 
         public void LoadInitialData()
         {
-            //cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-            //cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
-            //cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
-            //cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
 
-            ////var provinces = new List<string>() { "All" };
-            ////provinces.AddRange(UnitOfWork.Provinces.GetAllCached().OrderBy(p => p.Name).Select(p => p.Name));
-            ////cboProvince.DataSource = provinces;
-
-            ////var districts = new List<string>() { "All" };
-            ////districts.AddRange(UnitOfWork.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
-            ////cboDistrict.DataSource = districts;
-
-            ////var vsRanges = new List<string>() { "All" };
-            ////vsRanges.AddRange(UnitOfWork.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            ////cboVsRange.DataSource = vsRanges;
-
-            ////var institutes = new List<string>() { "All" };
-            ////institutes.AddRange(UnitOfWork.Institutes.GetAllCached().OrderBy(i => i.Name).Select(i => i.Name));
-            ////cboInstitute.DataSource = institutes;
-
-            //cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
-            //cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
-            //cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
-            //cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
         }
 
-        private Expression<Func<Car, bool>> GetExpression()
+        private Expression<Func<User, bool>> GetExpression()
         {
-            Expression<Func<Car, bool>> expression = x => false;
+            // Parameter Expression - represents the "User" entity in the expression
+            var parameter = Expression.Parameter(typeof(User), "user");
 
-            return expression;
+            // Initialize an empty expression to combine conditions later
+            Expression combinedExpression = Expression.Constant(true);
+
+            //// Condition 1: Email equals
+            //if (!string.IsNullOrEmpty(email))
+            //{
+            //    var emailProperty = Expression.Property(parameter, "EMail");
+            //    var emailValue = Expression.Constant(email);
+            //    var emailEquals = Expression.Equal(emailProperty, emailValue);
+
+            //    combinedExpression = Expression.AndAlso(combinedExpression, emailEquals);
+            //}
+
+            // Condition 2: Role equals
+            if (Role != null)
+            {
+                var property = Expression.Property(parameter, "Role");
+                var value = Expression.Constant(Role);
+                var expression = Expression.Equal(property, value);
+
+                combinedExpression = Expression.AndAlso(combinedExpression, expression);
+            }
+
+            if (Sex != null)
+            {
+                var property = Expression.Property(parameter, "Sex");
+                var value = Expression.Constant(Sex);
+                var expression = Expression.Equal(property, value);
+
+                combinedExpression = Expression.AndAlso(combinedExpression, expression);
+            }
+
+            if (!string.IsNullOrWhiteSpace(FindText))
+            {
+                var constant = Expression.Constant(FindText, typeof(string));
+                var property = Expression.Property(parameter, FindField);
+                var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
+                var containsExpression = Expression.Call(property, containsMethod, constant);
+                combinedExpression = Expression.AndAlso(combinedExpression, containsExpression);
+            }
+
+            // Final lambda expression: user => combined conditions
+            return Expression.Lambda<Func<User, bool>>(combinedExpression, parameter);
         }
-
         #endregion
 
         #region Data & Actions
@@ -183,11 +209,10 @@ namespace ABC.CarTraders.GUI.Sections
             //    try
             //    {
             //        StartProgress("Exporting to Excel...");
-            //        var path = await DbContext.Cars
-            //            .Where(GetExpression()).ExportToExcelAsync(RangeField, RangeStart, RangeEnd, CalvingSheetProvince, CalvingSheetDistrict, CalvingSheetVsRange, CalvingSheetInstitute, CalvingSheetTechnicianCode, SortField, SortDirection);
+            //        var path = await DbContext.Users.ExportToExcelAsync(RangeField, RangeStart, RangeEnd, UserRole, Sex, FindField, FindText, SortField, SortDirection);
             //        StopProgress();
             //        StatusText = "Data Exported";
-            //        var option = MessageBox.Show($"Calving data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //        var option = MessageBox.Show($"User data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             //        if (option == DialogResult.Yes)
             //        {
             //            MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -210,19 +235,19 @@ namespace ABC.CarTraders.GUI.Sections
             dataGridView1_SelectionChanged(null, null);
         }
 
-        private IList<Car> SelectedRecords
+        private IList<User> SelectedRecords
         {
             get
             {
-                return dataGridView1.SelectedRows.Cast<DataGridViewRow>().Select(dgvr => dgvr.DataBoundItem as Car).ToList();
+                return dataGridView1.SelectedRows.Cast<DataGridViewRow>().Select(dgvr => dgvr.DataBoundItem as User).ToList();
             }
         }
 
-        private Car SelectedRecord
+        private User SelectedRecord
         {
             get
             {
-                return dataGridView1.CurrentRow.DataBoundItem as Car;
+                return dataGridView1.CurrentRow.DataBoundItem as User;
             }
         }
 
@@ -230,7 +255,7 @@ namespace ABC.CarTraders.GUI.Sections
         {
             btnEdit.Enabled = dataGridView1.SelectedRows.Count == 1;
             btnDelete.Enabled = dataGridView1.SelectedRows.Count > 0 && ValidateDeletePermission();
-            lblProgress.Text = $"      {dataGridView1.SelectedRows.Count} record(s) selected";
+            StatusText = $"{dataGridView1.SelectedRows.Count} record(s) selected";
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
@@ -254,7 +279,7 @@ namespace ABC.CarTraders.GUI.Sections
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new CarForm())
+            using (var form = new UserForm())
             {
                 form.LoadInitialData();
                 form.NewRecord();
@@ -262,16 +287,14 @@ namespace ABC.CarTraders.GUI.Sections
             }
         }
 
-        private async void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 1) return;
 
-            using (var form = new CarForm())
+            using (var form = new UserForm())
             {
                 form.LoadInitialData();
-                StartProgress("Loading...");
                 form.ViewRecord(SelectedRecord);
-                StopProgress();
                 form.ShowDialog();
             }
         }
@@ -280,28 +303,26 @@ namespace ABC.CarTraders.GUI.Sections
         {
             if (dataGridView1.SelectedRows.Count == 0) return;
             if (!ValidateDeletePermission()) return;
-            var option = MessageBox.Show($"Do you want to delete the selected {dataGridView1.SelectedRows.Count} Calving sheet record(s)? All the Calving records from the selected sheet(s) will also get deleted.", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var option = MessageBox.Show($"Do you want to delete the selected {dataGridView1.SelectedRows.Count} User record(s)?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (option == DialogResult.Yes)
             {
                 DeleteRecords();
             }
         }
-
         private bool ValidateDeletePermission()
         {
-            return (User.Role <= UserRole.Admin);
+            return (User.Role == Enums.UserRole.Admin) && false;
         }
 
         private void DeleteRecords()
         {
             if (DbContext == null) return;
 
-            var records = SelectedRecords.OrderBy(x => x.Id);
-            var recordCount = records.Count();
-            var recordIds = string.Join(",", records.Select(x => x.Id));
-            //var calvingRecordCount = records.SelectMany(x => x.CalvingRecords).Count();
-            //DbContext.Cars.RemoveRange(records);
-            
+            var users = SelectedRecords.OrderBy(u => u.Email);
+            var userCount = users.Count();
+            var userNames = string.Join(",", users.Select(u => u.Email));
+            DbContext.Users.RemoveRange(users);
+
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 dataGridView1.Rows.Remove(row);
@@ -311,9 +332,9 @@ namespace ABC.CarTraders.GUI.Sections
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "Calving Sheet",
+                Title = "User",
                 Action = LogAction.Delete,
-                Text = $"Deleted {recordCount} {nameof(Car)}(s) (#{recordIds})",
+                Text = $"Deleted {userCount} user(s) (#{userNames})"
             });
         }
 
@@ -367,7 +388,7 @@ namespace ABC.CarTraders.GUI.Sections
             await RefreshAsync();
         }
 
-        private IPagedList<Car> PagedList { get; set; }
+        private IPagedList<User> PagedList { get; set; }
 
         public async Task RefreshAsync()
         {
@@ -378,19 +399,22 @@ namespace ABC.CarTraders.GUI.Sections
                 try
                 {
                     StartProgress("Refreshing...");
-                    //PagedList = await DbContext.Cars
-                    //    .Where(GetExpression())
-                    //    .ToPagedListAsync(PageNumber, PageSize);
+                    var queryable = DbContext.Users
+                        .Where(GetExpression());
+                    queryable = Helper.ApplyOrderBy(queryable, SortField, SortDirection);
+
+                    PagedList = await queryable
+                        .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 
-                    dataGridView1.DataSource = new BindingList<Car>(PagedList.ToList());
+                    dataGridView1.DataSource = new BindingList<User>(PagedList.ToList());
                     btnFirstPage.Enabled = PagedList.PageNumber > 1;
                     btnPreviousPage.Enabled = PagedList.HasPreviousPage;
                     btnNextPage.Enabled = PagedList.HasNextPage;
                     btnLastPage.Enabled = PagedList.PageNumber < PagedList.PageCount;
                     nudPageNumber.Maximum = PagedList.PageCount < 1 ? 1 : PagedList.PageCount;
                     lblPages.Text = $"/ {PagedList.PageCount}";
-                    MainTitleText = $"Calving Sheets [{PagedList.FirstItemOnPage} - {PagedList.LastItemOnPage} / {PagedList.TotalItemCount}]";
+                    MainTitleText = $"Users [{PagedList.FirstItemOnPage} - {PagedList.LastItemOnPage} / {PagedList.TotalItemCount}]";
 
                     OldPageNumber = PageNumber;
                     break;
@@ -532,11 +556,33 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Filter
-        private CarType? Type
+        private UserRole? Role
         {
             get
             {
-                if (cboType.Text != "All" && Enum.TryParse(cboType.Text, out CarType v))
+                if (cboRole.Text != "All")
+                {
+                    UserRole v;
+                    if (Enum.TryParse(cboRole.Text, out v))
+                    {
+                        return v;
+                    }
+                }
+                return null;
+            }
+            set
+            {
+                cboRole.SelectedValueChanged -= cboRole_SelectedValueChanged;
+                cboRole.SelectedItem = value == null ? "All" : value.ToString();
+                cboRole.SelectedValueChanged += cboRole_SelectedValueChanged;
+            }
+        }
+
+        private Sex? Sex
+        {
+            get
+            {
+                if (cboSex.Text != "Both" && Enum.TryParse(cboSex.Text, out Sex v))
                 {
                     return v;
                 }
@@ -544,79 +590,76 @@ namespace ABC.CarTraders.GUI.Sections
             }
             set
             {
-                cboType.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-                cboType.SelectedItem = value == null ? "All" : value.ToString();
-                cboType.SelectedValueChanged += cboProvince_SelectedValueChanged;
-            }
-        }
-
-        private int? CalvingSheetTechnicianCode
-        {
-            get
-            {
-                return rdoTechnicianAll.Checked ? null : (int?)nudTechnicianCode.Value;
-            }
-            set
-            {
-                //nudTechnicianCode.ValueChanged -= nudTechnicianCode_ValueChanged;
-                nudTechnicianCode.Value = value ?? 0;
-                //nudTechnicianCode.ValueChanged += nudTechnicianCode_ValueChanged;
-
-                rdoTechnicianAll.CheckedChanged -= rdoTechnicianAll_CheckedChanged;
-                rdoTechnicianCode.CheckedChanged -= rdoTechnicianCode_CheckedChanged;
-                rdoTechnicianAll.Checked = value == null;
-                rdoTechnicianCode.Checked = value != null;
-                pnlNudTechnicianCodeHolder.Enabled = value != null;
-                rdoTechnicianAll.CheckedChanged += rdoTechnicianAll_CheckedChanged;
-                rdoTechnicianCode.CheckedChanged += rdoTechnicianCode_CheckedChanged;
+                cboSex.SelectedValueChanged -= cboSex_SelectedValueChanged;
+                cboSex.SelectedItem = value == null ? "Both" : value.ToString();
+                cboSex.SelectedValueChanged += cboSex_SelectedValueChanged;
             }
         }
 
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (Type == null && CalvingSheetTechnicianCode == null) return;
+            if (Role == null && Sex == null) return;
 
-            Type = null;
-            //CalvingSheetDistrict = null;
-            //CalvingSheetVsRange = null;
-            //CalvingSheetInstitute = null;
-            CalvingSheetTechnicianCode = null;
+            Role = null;
+            Sex = null;
 
             await RefreshAsync();
             btnFilterClear.Focus();
         }
 
-        private async void cboProvince_SelectedValueChanged(object sender, EventArgs e)
+        private async void cboRole_SelectedValueChanged(object sender, EventArgs e)
         {
             await RefreshAsync();
-            cboType.Focus();
+            cboRole.Focus();
         }
 
-        private async void rdoTechnicianAll_CheckedChanged(object sender, EventArgs e)
+        private async void cboSex_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (CalvingSheetTechnicianCode != null) return;
-            pnlNudTechnicianCodeHolder.Enabled = false;
             await RefreshAsync();
-            rdoTechnicianAll.Focus();
+            cboSex.Focus();
         }
+        #endregion
 
-        private async void rdoTechnicianCode_CheckedChanged(object sender, EventArgs e)
+        #region Find
+        private string FindField
         {
-            if (CalvingSheetTechnicianCode == null) return;
-            pnlNudTechnicianCodeHolder.Enabled = true;
+            get { return cboFindField.SelectedItem as string; }
+            set { cboFindField.SelectedItem = value; }
+        }
+        private string FindText
+        {
+            get
+            {
+                var str = txtFindText.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { txtFindText.Text = value; }
+        }
+        private async void btnFindClear_Click(object sender, EventArgs e)
+        {
+            if (FindText == null) return;
+
+            FindText = null;
+
             await RefreshAsync();
-            nudTechnicianCode.Focus();
+            btnFindClear.Focus();
         }
 
-        private async void nudTechnicianCode_KeyDown(object sender, KeyEventArgs e)
+        private async void cboFindField_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (FindText == null) return;
+
+            await RefreshAsync();
+            cboFindField.Focus();
+        }
+
+        private async void txtFindText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
                 await RefreshAsync();
             }
-            nudTechnicianCode.Focus();
+            txtFindText.Focus();
         }
         #endregion
 
