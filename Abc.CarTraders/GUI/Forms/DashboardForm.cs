@@ -247,7 +247,6 @@ namespace ABC.CarTraders.GUI.Forms
             LogoutDelegate = () =>
             {
                 DisableButtons();
-                btnToDatabase.Enabled = false;
                 WriteLog(new Log()
                 {
                     CreatedDate = DateTime.Now,
@@ -382,7 +381,6 @@ namespace ABC.CarTraders.GUI.Forms
         }
         private void EnableButtons()
         {
-            btnToDatabase.Enabled = true;
             btnRefreshAll.Enabled = true;
             pnlSideBar.Enabled = true;
             btnLog.Enabled = true;
@@ -390,7 +388,6 @@ namespace ABC.CarTraders.GUI.Forms
         }
         private void DisableButtons()
         {
-            btnToDatabase.Enabled = false;
             btnRefreshAll.Enabled = false;
             pnlSideBar.Enabled = false;
             btnLog.Enabled = false;
@@ -453,10 +450,10 @@ namespace ABC.CarTraders.GUI.Forms
         {
             if (DbContext == null) return;
 
-            if (MessageBox.Show("Do you want to upload your work to the database?\nClicking \'No\' will discard any changes since last upload.", "EXIT", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-            {
-                await SaveToDatabaseAsync();
-            }
+            //if (MessageBox.Show("Do you want to upload your work to the database?\nClicking \'No\' will discard any changes since last upload.", "EXIT", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            //{
+            //    await SaveToDatabaseAsync();
+            //}
 
             DbContext.Dispose();
         }
@@ -471,7 +468,6 @@ namespace ABC.CarTraders.GUI.Forms
         {
             if (DbContext == null) return;
             await CompleteAsync();
-            btnToDatabase.Focus();
         }
 
         private async Task CompleteAsync()
@@ -481,7 +477,7 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 try
                 {
-                    StartProgress("Uploading...");
+                    StartProgress("Saving...");
                     var n = await DbContext.SaveChangesAsync();
                     if (n > 0)
                     {

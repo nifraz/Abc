@@ -121,6 +121,7 @@
             this.pnlSide = new System.Windows.Forms.Panel();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -702,6 +703,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colEMail,
+            this.colImage,
             this.colFullName,
             this.colPhoneNo,
             this.colRole,
@@ -717,7 +719,7 @@
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.DividerHeight = 1;
-            this.dataGridView1.RowTemplate.Height = 20;
+            this.dataGridView1.RowTemplate.Height = 100;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(585, 374);
             this.dataGridView1.StandardTab = true;
@@ -1543,6 +1545,14 @@
             this.colEMail.ReadOnly = true;
             this.colEMail.Width = 120;
             // 
+            // colImage
+            // 
+            this.colImage.DataPropertyName = "Thumbnail";
+            this.colImage.DividerWidth = 1;
+            this.colImage.HeaderText = "Image";
+            this.colImage.Name = "colImage";
+            this.colImage.ReadOnly = true;
+            // 
             // colFullName
             // 
             this.colFullName.DataPropertyName = "FullName";
@@ -1784,6 +1794,7 @@
         private System.Windows.Forms.Panel pnlSide;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
+        private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;

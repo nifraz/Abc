@@ -53,6 +53,7 @@ namespace ABC.CarTraders.GUI.Forms
             Address = null;
             DateOfBirth = null;
             PaymentMethod = null;
+            Image = null;
             Notes = null;
         }
 
@@ -65,6 +66,7 @@ namespace ABC.CarTraders.GUI.Forms
         {
             Overwrite = false;
 
+            btnSave.Text = "SAVE";
             OldRecord = null;
             Text = $"New {nameof(User)}";
             StatusText = "Ready";
@@ -92,6 +94,7 @@ namespace ABC.CarTraders.GUI.Forms
         {
             Overwrite = false;
 
+            btnSave.Text = "REGISTER";
             OldRecord = null;
             Text = $"New {nameof(User)}";
             StatusText = "Ready";
@@ -111,7 +114,6 @@ namespace ABC.CarTraders.GUI.Forms
             pnlEMail.Enabled = true;
             pnlRole.Enabled = false;
             btnPassword.Enabled = true;
-            btnSave.Text = "REGISTER";
             btnSave.Enabled = true;
             txtEMail.Focus();
         }
@@ -121,6 +123,7 @@ namespace ABC.CarTraders.GUI.Forms
         {
             Overwrite = true;
 
+            btnSave.Text = "UPDATE";
             OldRecord = record;
             Text = $"View {nameof(User)} ({OldRecord.Email})";
             StatusText = "Ready";
@@ -259,14 +262,7 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 if (picImage.Image != null)
                 {
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        // Save the image from the PictureBox into the MemoryStream
-                        picImage.Image.Save(ms, picImage.Image.RawFormat);
-
-                        // Convert the MemoryStream to a byte array
-                        return ms.ToArray();
-                    }
+                    return Helper.GetImageBytesFromPictureBox(picImage);
                 }
                 var filePath = txtImagePath.Text;
                 if (string.IsNullOrWhiteSpace(filePath))
@@ -279,10 +275,7 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 if (value != null)
                 {
-                    using (var ms = new MemoryStream(value))
-                    {
-                        picImage.Image = System.Drawing.Image.FromStream(ms);
-                    }
+                    picImage.Image = Helper.LoadImageFromDatabase(value);
                 }
                 else
                 {
@@ -336,7 +329,7 @@ namespace ABC.CarTraders.GUI.Forms
             if (Overwrite)
             {
                 if (!ValidateUpdatePersmission()) return;
-                UpdateRecord(OldRecord, newUser);
+                UpdateRecordAsync(OldRecord, newUser);
             }
             else
             {
@@ -425,7 +418,7 @@ namespace ABC.CarTraders.GUI.Forms
                 CreatedUser = User,
                 Title = "User",
                 Action = LogAction.Insert,
-                Text = $"Registered a user (#{newUser.Email})"
+                Text = $"Registered a user ({newUser.Email})"
             });
             try
             {
@@ -445,14 +438,17 @@ namespace ABC.CarTraders.GUI.Forms
             //else ViewRecord(newUser);
         }
 
-        private void UpdateRecord(User user, User newUser)
+        private async Task UpdateRecordAsync(User user, User newUser)
         {
             user.Password = newUser.Password;
-            //user.Name = newUser.Name;
-            //user.Sex = newUser.Sex;
-            user.Email = newUser.Email;
+            user.FullName = newUser.FullName;
+            user.Sex = newUser.Sex;
             user.PhoneNo = newUser.PhoneNo;
             user.Role = newUser.Role;
+            user.Address = newUser.Address;
+            user.DateOfBirth = newUser.DateOfBirth;
+            user.PaymentMethod = newUser.PaymentMethod;
+            user.Image = newUser.Image;
             user.Notes = newUser.Notes;
             user.LastModifiedDate = DateTime.Now;
             user.LastModifiedUser = User;
@@ -466,7 +462,7 @@ namespace ABC.CarTraders.GUI.Forms
                 Text = $"Updated a user (#{newUser.Email})"
             });
             StatusText = "Record Updated";
-
+            await DbContext.SaveChangesAsync();
             MessageBox.Show("User updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ViewRecord(user);
         }

@@ -313,6 +313,16 @@ namespace ABC.CarTraders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap car_100px {
+            get {
+                object obj = ResourceManager.GetObject("car_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checkmark_dark_15px {
             get {
                 object obj = ResourceManager.GetObject("checkmark_dark_15px", resourceCulture);
@@ -2356,6 +2366,16 @@ namespace ABC.CarTraders.Properties {
         internal static System.Drawing.Bitmap up_down_arrow_light_15px {
             get {
                 object obj = ResourceManager.GetObject("up_down_arrow_light_15px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_100px {
+            get {
+                object obj = ResourceManager.GetObject("user_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

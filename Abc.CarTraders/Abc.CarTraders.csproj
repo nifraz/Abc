@@ -345,9 +345,7 @@
     <None Include="Resources\unlock-light.png" />
     <None Include="Resources\unlock-dark.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\clock-light.png" />
   </ItemGroup>
@@ -392,6 +390,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\icons8_user_100px.png" />
+    <None Include="Resources\icons8_people_in_car_side_view_100px.png" />
     <None Include="Resources\icons8_available_updates_20px_1.png" />
     <None Include="Resources\icons8_available_updates_20px.png" />
     <None Include="Resources\icons8_verified_account_15px_1.png" />
