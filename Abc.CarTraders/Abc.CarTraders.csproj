@@ -183,6 +183,12 @@
     <Compile Include="GUI\Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Sections\OrderSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Sections\OrderSection.Designer.cs">
+      <DependentUpon>OrderSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Sections\LogSection.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Sections\OrderSection.resx">
+      <DependentUpon>OrderSection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Sections\LogSection.resx">
       <DependentUpon>LogSection.cs</DependentUpon>

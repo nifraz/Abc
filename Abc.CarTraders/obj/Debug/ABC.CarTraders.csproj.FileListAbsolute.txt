@@ -139,3 +139,4 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\Abc.
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\Abc.CarT.9AF9EE64.Up2Date
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.exe
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.pdb
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Sections.OrderSection.resources

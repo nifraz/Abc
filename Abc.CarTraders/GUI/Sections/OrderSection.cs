@@ -1,6 +1,7 @@
 ﻿using ABC.CarTraders.Entities;
 using ABC.CarTraders.Enums;
 using ABC.CarTraders.GUI.Forms;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Material.Styles;
 using MRG.Controls.UI;
 using PagedList;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -18,7 +20,7 @@ using System.Windows.Forms;
 
 namespace ABC.CarTraders.GUI.Sections
 {
-    public partial class UserSection : UserControl, IColoredControl
+    public partial class OrderSection : UserControl, IColoredControl
     {
         #region Common
         private AppDbContext DbContext { get { return DashboardForm.DbContext; } }
@@ -27,30 +29,17 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Control
-        public UserSection()
+        public OrderSection()
         {
             InitializeComponent();
             pnlLoadingCircle.Controls.Add(LoadingCircle);
             dataGridView1.AutoGenerateColumns = false;
 
-            cboRangeField.DataSource = new List<string>() { "Created On", "Modified On" };
-            cboRole.DataSource = new List<string>() 
-            { 
-                "All",
-                Enums.UserRole.Guest.ToString(),
-                Enums.UserRole.Customer.ToString(),
-                Enums.UserRole.Staff.ToString(),
-                Enums.UserRole.Admin.ToString(),
-            };
-            cboSex.DataSource = new List<string>() 
-            { 
-                "Both",
-                Enums.Sex.Male.ToString(),
-                Enums.Sex.Female.ToString(),
-            };
-            cboFindField.DataSource = new List<string>() { "Email", "FullName", "PhoneNo", "Address" };
-            cboSortField.DataSource = new List<string>() { "Email", "FullName" };
-            cboSortDirection.DataSource = Enum.GetNames(typeof(SortDirection)).ToList();
+            cboRangeField.DataSource = new List<string>() { "Time" };
+            cboUser.DataSource = new List<string>() { "All" };
+            cboFindField.DataSource = new List<string>() { "Username", "Title", "Text" };
+            cboSortField.DataSource = new List<string>() { "ID", "Username", "Time", "Title" };
+            cboSortDirection.DataSource = new List<string>() { "Ascending", "Descending" };
 
             RangeStart = DateTime.Today;
             RangeEnd = DateTime.Today.AddDays(1).AddSeconds(-1);
@@ -58,11 +47,11 @@ namespace ABC.CarTraders.GUI.Sections
             RangeStart = null;
             RangeEnd = null;
 
-            SortField = "Id";
-            SortDirection = Enums.SortDirection.Ascending.ToString();
+            SortField = "ID";
+            SortDirection = "Descending";
 
             nudPageNumber.MouseWheel += nudPageNumber_MouseWheel;
-            ColorSchemeChanged += UserSection_ColorSchemeChanged;
+            ColorSchemeChanged += LogSection_ColorSchemeChanged;
         }
 
         public void SetButtonPermission()
@@ -84,7 +73,8 @@ namespace ABC.CarTraders.GUI.Sections
         }
 
         public event EventHandler<ColorScheme> ColorSchemeChanged;
-        private void UserSection_ColorSchemeChanged(object sender, ColorScheme e)
+
+        private void LogSection_ColorSchemeChanged(object sender, ColorScheme e)
         {
             if (e == null) return;
 
@@ -99,7 +89,7 @@ namespace ABC.CarTraders.GUI.Sections
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = e.Color3;
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = e.Color3;
             dataGridView1.DefaultCellStyle.SelectionBackColor = e.Color1;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
 
             btnAdd.BackColor = e.Color2;
             btnEdit.BackColor = e.Color2;
@@ -124,7 +114,6 @@ namespace ABC.CarTraders.GUI.Sections
             pnlFilter.BackColor = e.Color9;
             btnFilterClear.BackColor = e.Color9;
             pnlFilterHolder.BackColor = e.Color0;
-            pnlFilter1.BackColor = e.Color3;
             pnlFilter2.BackColor = e.Color3;
 
             pnlFind.BackColor = e.Color9;
@@ -139,59 +128,25 @@ namespace ABC.CarTraders.GUI.Sections
             pnlSortDirection.BackColor = e.Color3;
         }
 
-        public void LoadInitialData()
+        public async Task LoadInitialDataAsync()
         {
+            cboUser.SelectedValueChanged -= cboUser_SelectedValueChanged;
 
+            var users = new List<User>() { new User { Id = 0, Email = "All" } };
+            //users.AddRange(await DbContext.Users
+            //    .OrderBy(x => x.Email)
+            //    .ToListAsync());
+
+            cboUser.DataSource = users;
+
+            cboUser.SelectedValueChanged += cboUser_SelectedValueChanged;
         }
 
-        private Expression<Func<User, bool>> GetExpression()
+        private Expression<Func<Order, bool>> GetExpression()
         {
-            // Parameter Expression - represents the "User" entity in the expression
-            var parameter = Expression.Parameter(typeof(User), "user");
+            Expression<Func<Order, bool>> expression = x => false;
 
-            // Initialize an empty expression to combine conditions later
-            Expression combinedExpression = Expression.Constant(true);
-
-            //// Condition 1: Email equals
-            //if (!string.IsNullOrEmpty(email))
-            //{
-            //    var emailProperty = Expression.Property(parameter, "EMail");
-            //    var emailValue = Expression.Constant(email);
-            //    var emailEquals = Expression.Equal(emailProperty, emailValue);
-
-            //    combinedExpression = Expression.AndAlso(combinedExpression, emailEquals);
-            //}
-
-            // Condition 2: Role equals
-            if (Role != null)
-            {
-                var property = Expression.Property(parameter, "Role");
-                var value = Expression.Constant(Role);
-                var expression = Expression.Equal(property, value);
-
-                combinedExpression = Expression.AndAlso(combinedExpression, expression);
-            }
-
-            if (Sex != null)
-            {
-                var property = Expression.Property(parameter, "Sex");
-                var value = Expression.Constant(Sex);
-                var expression = Expression.Equal(property, value);
-
-                combinedExpression = Expression.AndAlso(combinedExpression, expression);
-            }
-
-            if (!string.IsNullOrWhiteSpace(FindText))
-            {
-                var constant = Expression.Constant(FindText, typeof(string));
-                var property = Expression.Property(parameter, FindField);
-                var containsMethod = typeof(string).GetMethod("Contains", new[] { typeof(string) });
-                var containsExpression = Expression.Call(property, containsMethod, constant);
-                combinedExpression = Expression.AndAlso(combinedExpression, containsExpression);
-            }
-
-            // Final lambda expression: user => combined conditions
-            return Expression.Lambda<Func<User, bool>>(combinedExpression, parameter);
+            return expression;
         }
         #endregion
 
@@ -216,10 +171,10 @@ namespace ABC.CarTraders.GUI.Sections
             //    try
             //    {
             //        StartProgress("Exporting to Excel...");
-            //        var path = await DbContext.Users.ExportToExcelAsync(RangeField, RangeStart, RangeEnd, UserRole, Sex, FindField, FindText, SortField, SortDirection);
+            //        var path = await DbContext.Logs.ExportToExcelAsync(RangeField, RangeStart, RangeEnd, LogAction, LogUser, FindField, FindText, SortField, SortDirection);
             //        StopProgress();
             //        StatusText = "Data Exported";
-            //        var option = MessageBox.Show($"User data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            //        var option = MessageBox.Show($"Log data successfully exported to \"{path}\".\nDo you want to open the exported file now?", "EXPORT", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             //        if (option == DialogResult.Yes)
             //        {
             //            MessageBox.Show("Please close any opened Excel files before proceeding.\nClick OK to continue opening the file.", "EXCEL", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,19 +197,19 @@ namespace ABC.CarTraders.GUI.Sections
             dataGridView1_SelectionChanged(null, null);
         }
 
-        private IList<User> SelectedRecords
+        private IList<Order> SelectedRecords
         {
             get
             {
-                return dataGridView1.SelectedRows.Cast<DataGridViewRow>().Select(dgvr => dgvr.DataBoundItem as User).ToList();
+                return dataGridView1.SelectedRows.Cast<DataGridViewRow>().Select(dgvr => dgvr.DataBoundItem as Order).ToList();
             }
         }
 
-        private User SelectedRecord
+        private Order SelectedRecord
         {
             get
             {
-                return dataGridView1.CurrentRow.DataBoundItem as User;
+                return dataGridView1.CurrentRow.DataBoundItem as Order;
             }
         }
 
@@ -281,54 +236,57 @@ namespace ABC.CarTraders.GUI.Sections
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (btnEdit.Enabled) btnEdit.PerformClick();
+            btnEdit.PerformClick();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
-            using (var form = new UserForm())
+            using (var form = new ShoppingCartForm())
             {
                 form.LoadInitialData();
                 form.NewRecord();
                 form.ShowDialog();
             }
+            await RefreshAsync();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private async void btnEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 1) return;
 
-            using (var form = new UserForm())
+            using (var form = new ShoppingCartForm())
             {
                 form.LoadInitialData();
                 form.ViewRecord(SelectedRecord);
                 form.ShowDialog();
             }
+            await RefreshAsync();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0) return;
             if (!ValidateDeletePermission()) return;
-            var option = MessageBox.Show($"Do you want to delete the selected {dataGridView1.SelectedRows.Count} User record(s)?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var option = MessageBox.Show($"Do you want to delete the selected {dataGridView1.SelectedRows.Count} VS Range record(s)?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (option == DialogResult.Yes)
             {
                 DeleteRecords();
             }
         }
+
         private bool ValidateDeletePermission()
         {
-            return (User.Role == Enums.UserRole.Admin) && false;
+            return (User.Role == UserRole.Admin) && false;
         }
 
         private void DeleteRecords()
         {
             if (DbContext == null) return;
 
-            var users = SelectedRecords.OrderBy(u => u.Email);
-            var userCount = users.Count();
-            var userNames = string.Join(",", users.Select(u => u.Email));
-            DbContext.Users.RemoveRange(users);
+            var records = SelectedRecords.OrderBy(l => l.Id);
+            var recordCount = records.Count();
+            var recordIds = string.Join(",", records.Select(l => l.Id));
+            DbContext.Orders.RemoveRange(records);
 
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
@@ -339,9 +297,9 @@ namespace ABC.CarTraders.GUI.Sections
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "User",
-                Action = LogAction.Delete,
-                Text = $"Deleted {userCount} user(s) (#{userNames})"
+                Title = "Order",
+                Action = Entities.LogAction.Delete,
+                Text = $"Deleted {recordCount} Order(s) ({recordIds})"
             });
         }
 
@@ -395,7 +353,7 @@ namespace ABC.CarTraders.GUI.Sections
             await RefreshAsync();
         }
 
-        private IPagedList<User> PagedList { get; set; }
+        private IPagedList<Order> PagedList { get; set; }
 
         public async Task RefreshAsync()
         {
@@ -406,22 +364,21 @@ namespace ABC.CarTraders.GUI.Sections
                 try
                 {
                     StartProgress("Refreshing...");
-                    var queryable = DbContext.Users
-                        .Where(GetExpression());
-                    queryable = Helper.ApplyOrderBy(queryable, SortField, SortDirection);
-
-                    PagedList = await queryable
+                    PagedList = await DbContext.Orders
+                        .Include(x => x.OrderItems)
+                        //.Where(GetExpression())
+                        .OrderByDescending(x => x.Id)
                         .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 
-                    dataGridView1.DataSource = new BindingList<User>(PagedList.ToList());
+                    dataGridView1.DataSource = new BindingList<Order>(PagedList.ToList());
                     btnFirstPage.Enabled = PagedList.PageNumber > 1;
                     btnPreviousPage.Enabled = PagedList.HasPreviousPage;
                     btnNextPage.Enabled = PagedList.HasNextPage;
                     btnLastPage.Enabled = PagedList.PageNumber < PagedList.PageCount;
                     nudPageNumber.Maximum = PagedList.PageCount < 1 ? 1 : PagedList.PageCount;
                     lblPages.Text = $"/ {PagedList.PageCount}";
-                    MainTitleText = $"Users [{PagedList.FirstItemOnPage} - {PagedList.LastItemOnPage} / {PagedList.TotalItemCount}]";
+                    MainTitleText = $"Orders [{PagedList.FirstItemOnPage} - {PagedList.LastItemOnPage} / {PagedList.TotalItemCount}]";
 
                     OldPageNumber = PageNumber;
                     break;
@@ -563,67 +520,38 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Filter
-        private UserRole? Role
+        private User LogUser
         {
             get
             {
-                if (cboRole.Text != "All")
+                if (cboUser.Text != "All")
                 {
-                    UserRole v;
-                    if (Enum.TryParse(cboRole.Text, out v))
-                    {
-                        return v;
-                    }
+                    return DbContext.Users.SingleOrDefault(u => u.Email == cboUser.Text);
                 }
                 return null;
             }
             set
             {
-                cboRole.SelectedValueChanged -= cboRole_SelectedValueChanged;
-                cboRole.SelectedItem = value == null ? "All" : value.ToString();
-                cboRole.SelectedValueChanged += cboRole_SelectedValueChanged;
-            }
-        }
-
-        private Sex? Sex
-        {
-            get
-            {
-                if (cboSex.Text != "Both" && Enum.TryParse(cboSex.Text, out Sex v))
-                {
-                    return v;
-                }
-                return null;
-            }
-            set
-            {
-                cboSex.SelectedValueChanged -= cboSex_SelectedValueChanged;
-                cboSex.SelectedItem = value == null ? "Both" : value.ToString();
-                cboSex.SelectedValueChanged += cboSex_SelectedValueChanged;
+                cboUser.SelectedValueChanged -= cboUser_SelectedValueChanged;
+                cboUser.SelectedItem = value == null ? "All" : value.ToString();
+                cboUser.SelectedValueChanged += cboUser_SelectedValueChanged;
             }
         }
 
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (Role == null && Sex == null) return;
+            if (LogUser == null) return;
 
-            Role = null;
-            Sex = null;
+            LogUser = null;
 
             await RefreshAsync();
             btnFilterClear.Focus();
         }
 
-        private async void cboRole_SelectedValueChanged(object sender, EventArgs e)
+        private async void cboUser_SelectedValueChanged(object sender, EventArgs e)
         {
             await RefreshAsync();
-            cboRole.Focus();
-        }
-
-        private async void cboSex_SelectedValueChanged(object sender, EventArgs e)
-        {
-            await RefreshAsync();
-            cboSex.Focus();
+            cboUser.Focus();
         }
         #endregion
 
@@ -702,7 +630,7 @@ namespace ABC.CarTraders.GUI.Sections
         public string ProgressText { get; set; }
         public LoadingCircle LoadingCircle { get; set; } = new LoadingCircle()
         {
-            Color = Color.Black,
+            Color = System.Drawing.Color.Black,
             NumberSpoke = 36,
             SpokeThickness = 1,
             InnerCircleRadius = 5,

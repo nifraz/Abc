@@ -48,6 +48,11 @@ namespace ABC.CarTraders.GUI.Sections
             ColorSchemeChanged += HomeSection_ColorSchemeChanged;
         }
 
+        public void SetButtonPermission()
+        {
+
+        }
+
         private ColorScheme _colorScheme;
         public ColorScheme ColorScheme
         {

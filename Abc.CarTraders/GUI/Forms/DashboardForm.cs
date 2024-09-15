@@ -112,6 +112,7 @@ namespace ABC.CarTraders.GUI.Forms
             userSection1.ColorScheme = scheme;
             carSection1.ColorScheme = scheme;
             carPartSection1.ColorScheme = scheme;
+            orderSection1.ColorScheme = scheme;
             loginSection1.ColorScheme = scheme;
             logSection1.ColorScheme = scheme;
 
@@ -120,6 +121,7 @@ namespace ABC.CarTraders.GUI.Forms
             btnUser.BackColor = scheme.Color7;
             btnCar.BackColor = scheme.Color7;
             btnCarPart.BackColor = scheme.Color7;
+            btnOrder.BackColor = scheme.Color7;
             btnLogout.BackColor = scheme.Color7;
 
             btnCart.BackColor = scheme.Color9;
@@ -142,6 +144,7 @@ namespace ABC.CarTraders.GUI.Forms
             userSection1.LoadInitialData();
             carSection1.LoadInitialData();
             await carPartSection1.LoadInitialDataAsync();
+            await orderSection1.LoadInitialDataAsync();
             await logSection1.LoadInitialDataAsync();
         }
 
@@ -374,6 +377,7 @@ namespace ABC.CarTraders.GUI.Forms
                 await userSection1.RefreshAsync();
                 await carSection1.RefreshAsync();
                 await carPartSection1.RefreshAsync();
+await orderSection1.RefreshAsync();
                 await logSection1.RefreshAsync();
                 CurrentCart.CreatedUser = User;
             };
@@ -383,11 +387,14 @@ namespace ABC.CarTraders.GUI.Forms
         {
             btnUser.Enabled = User != null && User.Role >= Enums.UserRole.Admin;
             btnCart.Visible = User != null && User.Role >= Enums.UserRole.Customer;
-            //statisticsSection1.SetButtonPermission();
-            //userSection1.SetButtonPermission();
-            //carSection1.SetButtonPermission();
-            //carPartSection1.SetButtonPermission();
-            //logSection1.SetButtonPermission();
+            btnOrder.Enabled = User != null && User.Role >= Enums.UserRole.Admin;
+
+            statisticsSection1.SetButtonPermission();
+            userSection1.SetButtonPermission();
+            carSection1.SetButtonPermission();
+            carPartSection1.SetButtonPermission();
+            orderSection1.SetButtonPermission();
+            logSection1.SetButtonPermission();
         }
 
         private void tagRegionMetaData()
@@ -424,6 +431,14 @@ namespace ABC.CarTraders.GUI.Forms
                 Description = "Manage Car Parts",
                 RegionControl = carPartSection1
             };
+btnOrder.Tag = new ButtonTag()
+            {
+                ButtonImageDark = Properties.Resources.spreadsheet_file_dark_25px,
+                ButtonImageLight = Properties.Resources.spreadsheet_file_light_25px,
+                Title = "Order",
+                Description = "Manage Orders",
+                RegionControl = orderSection1
+};
             btnLogout.Tag = new ButtonTag()
             {
                 ButtonImageDark = Properties.Resources.logout_rounded_left_dark_25px,
@@ -477,6 +492,7 @@ namespace ABC.CarTraders.GUI.Forms
             userSection1.Visible = false;
             carSection1.Visible = false;
             carPartSection1.Visible = false;
+            orderSection1.Visible = false;
             loginSection1.Visible = false;
             logSection1.Visible = false;
         }

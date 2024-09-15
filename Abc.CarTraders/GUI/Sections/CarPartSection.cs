@@ -57,6 +57,13 @@ namespace ABC.CarTraders.GUI.Sections
             ColorSchemeChanged += UserSection_ColorSchemeChanged;
         }
 
+        public void SetButtonPermission()
+        {
+            btnAdd.Enabled = User != null && User.Role >= UserRole.Staff;
+            btnEdit.Enabled = User != null && User.Role >= UserRole.Staff;
+            btnDelete.Enabled = User != null && User.Role >= UserRole.Admin;
+        }
+
         private ColorScheme _colorScheme;
         public ColorScheme ColorScheme
         {
