@@ -1,6 +1,7 @@
 ﻿using ABC.CarTraders.Entities;
 using ABC.CarTraders.Enums;
 using ABC.CarTraders.GUI.Forms;
+using DocumentFormat.OpenXml.InkML;
 using Material.Styles;
 using MRG.Controls.UI;
 using PagedList;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace ABC.CarTraders.GUI.Sections
 {
@@ -22,6 +24,7 @@ namespace ABC.CarTraders.GUI.Sections
         #region Common
         private AppDbContext DbContext { get { return DashboardForm.DbContext; } }
         private Action<Log> WriteLog { get { return DashboardForm.WriteLog; } }
+        private Action<Car, int> AddCarsToCart { get { return DashboardForm.AddCarsToCart; } }
         private User User { get { return DashboardForm.User; } }
         #endregion
 
@@ -740,5 +743,40 @@ namespace ABC.CarTraders.GUI.Sections
             StatusText = $"{ProgressText} ({elapsed.Minutes:00}:{elapsed.Seconds:00})";
         }
         #endregion
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked cell is in the "Add to Cart" column
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "colAddToCart")
+            {
+                // Retrieve car information from the selected row
+                var item = dataGridView1.Rows[e.RowIndex].DataBoundItem as Car;
+
+                if (item == null) { return; }
+
+                // Prompt the user to enter the quantity
+                var quantity = 0;
+
+                using (var form = new QuantityForm())
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        quantity = form.Quantity;
+                    }
+                }
+
+                if (quantity == 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity.");
+                    return;
+                }
+
+                AddCarsToCart.Invoke(item, quantity);
+
+                // Show confirmation
+                MessageBox.Show($"{quantity} {item.ModelName}(s) added to the cart.");
+            }
+        }
     }
 }

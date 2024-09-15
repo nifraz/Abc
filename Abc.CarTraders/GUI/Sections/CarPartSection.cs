@@ -24,6 +24,7 @@ namespace ABC.CarTraders.GUI.Sections
         #region Common
         private AppDbContext DbContext { get { return DashboardForm.DbContext; } }
         private Action<Log> WriteLog { get { return DashboardForm.WriteLog; } }
+        private Action<CarPart, int> AddCarPartsToCart { get { return DashboardForm.AddCarPartsToCart; } }
         private User User { get { return DashboardForm.User; } }
         #endregion
 
@@ -130,8 +131,6 @@ namespace ABC.CarTraders.GUI.Sections
                 .ToListAsync());
 
             cboCar.DataSource = cars;
-            cboCar.DisplayMember = "ModelName";
-            cboCar.ValueMember = "Id";
         }
 
         private Expression<Func<CarPart, bool>> GetExpression()
@@ -696,5 +695,40 @@ namespace ABC.CarTraders.GUI.Sections
             StatusText = $"{ProgressText} ({elapsed.Minutes:00}:{elapsed.Seconds:00})";
         }
         #endregion
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked cell is in the "Add to Cart" column
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "colAddToCart")
+            {
+                // Retrieve car information from the selected row
+                var item = dataGridView1.Rows[e.RowIndex].DataBoundItem as CarPart;
+
+                if (item == null) { return; }
+
+                // Prompt the user to enter the quantity
+                var quantity = 0;
+
+                using (var form = new QuantityForm())
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        quantity = form.Quantity;
+                    }
+                }
+
+                if (quantity == 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity.");
+                    return;
+                }
+
+                AddCarPartsToCart.Invoke(item, quantity);
+
+                // Show confirmation
+                MessageBox.Show($"{quantity} {item.PartName}(s) added to the cart.");
+            }
+        }
     }
 }

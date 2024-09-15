@@ -1,6 +1,7 @@
 ﻿using ABC.CarTraders.Entities;
 using ABC.CarTraders.Enums;
 using ABC.CarTraders.GUI.Forms;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Material.Styles;
 using MRG.Controls.UI;
 using PagedList;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -81,7 +83,7 @@ namespace ABC.CarTraders.GUI.Sections
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = e.Color3;
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = e.Color3;
             dataGridView1.DefaultCellStyle.SelectionBackColor = e.Color1;
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
 
             btnAdd.BackColor = e.Color2;
             btnEdit.BackColor = e.Color2;
@@ -121,12 +123,15 @@ namespace ABC.CarTraders.GUI.Sections
             pnlSortDirection.BackColor = e.Color3;
         }
 
-        public void LoadInitialData()
+        public async Task LoadInitialDataAsync()
         {
             cboUser.SelectedValueChanged -= cboUser_SelectedValueChanged;
 
-            var users = new List<string>() { "All" };
-            //users.AddRange(DbContext.Users.GetAllCached().OrderBy(u => u.Username).Select(u => u.Username));
+            var users = new List<User>() { new User { Id = 0, Email = "All" } };
+            users.AddRange(await DbContext.Users
+                .OrderBy(x => x.Email)
+                .ToListAsync());
+
             cboUser.DataSource = users;
 
             cboUser.SelectedValueChanged += cboUser_SelectedValueChanged;
@@ -645,7 +650,7 @@ namespace ABC.CarTraders.GUI.Sections
         public string ProgressText { get; set; }
         public LoadingCircle LoadingCircle { get; set; } = new LoadingCircle()
         {
-            Color = Color.Black,
+            Color = System.Drawing.Color.Black,
             NumberSpoke = 36,
             SpokeThickness = 1,
             InnerCircleRadius = 5,

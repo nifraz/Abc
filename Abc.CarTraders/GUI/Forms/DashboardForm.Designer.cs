@@ -44,12 +44,6 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnCarPart = new System.Windows.Forms.Button();
             this.btnCar = new System.Windows.Forms.Button();
             this.pnlControlsHolder = new System.Windows.Forms.Panel();
-            this.loginSection1 = new ABC.CarTraders.GUI.Sections.LoginSection();
-            this.statisticsSection1 = new ABC.CarTraders.GUI.Sections.StatisticsSection();
-            this.userSection1 = new ABC.CarTraders.GUI.Sections.UserSection();
-            this.carSection1 = new ABC.CarTraders.GUI.Sections.CarSection();
-            this.logSection1 = new ABC.CarTraders.GUI.Sections.LogSection();
-            this.carPartSection1 = new ABC.CarTraders.GUI.Sections.CarPartSection();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnFullscreen = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
@@ -66,6 +60,12 @@ namespace ABC.CarTraders.GUI.Forms
             this.pnlLoadingCircle = new System.Windows.Forms.Panel();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.loginSection1 = new ABC.CarTraders.GUI.Sections.LoginSection();
+            this.statisticsSection1 = new ABC.CarTraders.GUI.Sections.StatisticsSection();
+            this.userSection1 = new ABC.CarTraders.GUI.Sections.UserSection();
+            this.carSection1 = new ABC.CarTraders.GUI.Sections.CarSection();
+            this.logSection1 = new ABC.CarTraders.GUI.Sections.LogSection();
+            this.carPartSection1 = new ABC.CarTraders.GUI.Sections.CarPartSection();
             this.pnlSideBar.SuspendLayout();
             this.pnlControlsHolder.SuspendLayout();
             this.pnlFooter.SuspendLayout();
@@ -190,92 +190,6 @@ namespace ABC.CarTraders.GUI.Forms
             this.pnlControlsHolder.Name = "pnlControlsHolder";
             this.pnlControlsHolder.Size = new System.Drawing.Size(834, 485);
             this.pnlControlsHolder.TabIndex = 0;
-            // 
-            // loginSection1
-            // 
-            this.loginSection1.BackColor = System.Drawing.SystemColors.Control;
-            this.loginSection1.ColorScheme = null;
-            this.loginSection1.ConnectionTimeout = 10;
-            this.loginSection1.DbContext = null;
-            this.loginSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loginSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginSection1.Location = new System.Drawing.Point(0, 0);
-            this.loginSection1.LoginAttempts = 0;
-            this.loginSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.loginSection1.Name = "loginSection1";
-            this.loginSection1.Port = 1433;
-            this.loginSection1.ProgressText = null;
-            this.loginSection1.Size = new System.Drawing.Size(834, 485);
-            this.loginSection1.Stopwatch = stopwatch1;
-            this.loginSection1.TabIndex = 1;
-            this.loginSection1.User = null;
-            // 
-            // statisticsSection1
-            // 
-            this.statisticsSection1.BackColor = System.Drawing.SystemColors.Control;
-            this.statisticsSection1.ColorScheme = null;
-            this.statisticsSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticsSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statisticsSection1.Location = new System.Drawing.Point(0, 0);
-            this.statisticsSection1.Name = "statisticsSection1";
-            this.statisticsSection1.ProgressText = null;
-            this.statisticsSection1.Size = new System.Drawing.Size(834, 485);
-            this.statisticsSection1.Stopwatch = stopwatch2;
-            this.statisticsSection1.TabIndex = 1;
-            // 
-            // userSection1
-            // 
-            this.userSection1.ColorScheme = null;
-            this.userSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userSection1.Location = new System.Drawing.Point(0, 0);
-            this.userSection1.Name = "userSection1";
-            this.userSection1.ProgressText = null;
-            this.userSection1.Size = new System.Drawing.Size(834, 485);
-            this.userSection1.Stopwatch = stopwatch3;
-            this.userSection1.TabIndex = 1;
-            this.userSection1.Visible = false;
-            // 
-            // carSection1
-            // 
-            this.carSection1.ColorScheme = null;
-            this.carSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.carSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carSection1.Location = new System.Drawing.Point(0, 0);
-            this.carSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.carSection1.Name = "carSection1";
-            this.carSection1.ProgressText = null;
-            this.carSection1.Size = new System.Drawing.Size(834, 485);
-            this.carSection1.Stopwatch = stopwatch4;
-            this.carSection1.TabIndex = 1;
-            this.carSection1.Visible = false;
-            // 
-            // logSection1
-            // 
-            this.logSection1.ColorScheme = null;
-            this.logSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.logSection1.Location = new System.Drawing.Point(0, 0);
-            this.logSection1.Name = "logSection1";
-            this.logSection1.ProgressText = null;
-            this.logSection1.Size = new System.Drawing.Size(834, 485);
-            this.logSection1.Stopwatch = stopwatch5;
-            this.logSection1.TabIndex = 4;
-            this.logSection1.Visible = false;
-            // 
-            // carPartSection1
-            // 
-            this.carPartSection1.ColorScheme = null;
-            this.carPartSection1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.carPartSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carPartSection1.Location = new System.Drawing.Point(0, 0);
-            this.carPartSection1.Margin = new System.Windows.Forms.Padding(0);
-            this.carPartSection1.Name = "carPartSection1";
-            this.carPartSection1.ProgressText = null;
-            this.carPartSection1.Size = new System.Drawing.Size(834, 485);
-            this.carPartSection1.Stopwatch = stopwatch4;
-            this.carPartSection1.TabIndex = 1;
-            this.carPartSection1.Visible = false;
             // 
             // btnAbout
             // 
@@ -412,7 +326,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnCart.TabIndex = 1;
             this.btnCart.Text = "          Cars: 0 | Car Parts: 0";
             this.btnCart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.btnCart, "Upload to Database (Ctrl+Shift+S)");
+            this.toolTip1.SetToolTip(this.btnCart, "Shopping Cart");
             this.btnCart.UseVisualStyleBackColor = false;
             this.btnCart.Visible = false;
             this.btnCart.Click += new System.EventHandler(this.btnShoppingCart_Click);
@@ -496,6 +410,92 @@ namespace ABC.CarTraders.GUI.Forms
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // loginSection1
+            // 
+            this.loginSection1.BackColor = System.Drawing.SystemColors.Control;
+            this.loginSection1.ColorScheme = null;
+            this.loginSection1.ConnectionTimeout = 10;
+            this.loginSection1.DbContext = null;
+            this.loginSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginSection1.Location = new System.Drawing.Point(0, 0);
+            this.loginSection1.LoginAttempts = 0;
+            this.loginSection1.Margin = new System.Windows.Forms.Padding(0);
+            this.loginSection1.Name = "loginSection1";
+            this.loginSection1.Port = 1433;
+            this.loginSection1.ProgressText = null;
+            this.loginSection1.Size = new System.Drawing.Size(834, 485);
+            this.loginSection1.Stopwatch = stopwatch1;
+            this.loginSection1.TabIndex = 1;
+            this.loginSection1.User = null;
+            // 
+            // statisticsSection1
+            // 
+            this.statisticsSection1.BackColor = System.Drawing.SystemColors.Control;
+            this.statisticsSection1.ColorScheme = null;
+            this.statisticsSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statisticsSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statisticsSection1.Location = new System.Drawing.Point(0, 0);
+            this.statisticsSection1.Name = "statisticsSection1";
+            this.statisticsSection1.ProgressText = null;
+            this.statisticsSection1.Size = new System.Drawing.Size(834, 485);
+            this.statisticsSection1.Stopwatch = stopwatch2;
+            this.statisticsSection1.TabIndex = 1;
+            // 
+            // userSection1
+            // 
+            this.userSection1.ColorScheme = null;
+            this.userSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSection1.Location = new System.Drawing.Point(0, 0);
+            this.userSection1.Name = "userSection1";
+            this.userSection1.ProgressText = null;
+            this.userSection1.Size = new System.Drawing.Size(834, 485);
+            this.userSection1.Stopwatch = stopwatch3;
+            this.userSection1.TabIndex = 1;
+            this.userSection1.Visible = false;
+            // 
+            // carSection1
+            // 
+            this.carSection1.ColorScheme = null;
+            this.carSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.carSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carSection1.Location = new System.Drawing.Point(0, 0);
+            this.carSection1.Margin = new System.Windows.Forms.Padding(0);
+            this.carSection1.Name = "carSection1";
+            this.carSection1.ProgressText = null;
+            this.carSection1.Size = new System.Drawing.Size(834, 485);
+            this.carSection1.Stopwatch = stopwatch4;
+            this.carSection1.TabIndex = 1;
+            this.carSection1.Visible = false;
+            // 
+            // logSection1
+            // 
+            this.logSection1.ColorScheme = null;
+            this.logSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.logSection1.Location = new System.Drawing.Point(0, 0);
+            this.logSection1.Name = "logSection1";
+            this.logSection1.ProgressText = null;
+            this.logSection1.Size = new System.Drawing.Size(834, 485);
+            this.logSection1.Stopwatch = stopwatch5;
+            this.logSection1.TabIndex = 4;
+            this.logSection1.Visible = false;
+            // 
+            // carPartSection1
+            // 
+            this.carPartSection1.ColorScheme = null;
+            this.carPartSection1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.carPartSection1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carPartSection1.Location = new System.Drawing.Point(0, 0);
+            this.carPartSection1.Margin = new System.Windows.Forms.Padding(0);
+            this.carPartSection1.Name = "carPartSection1";
+            this.carPartSection1.ProgressText = null;
+            this.carPartSection1.Size = new System.Drawing.Size(834, 485);
+            this.carPartSection1.Stopwatch = stopwatch4;
+            this.carPartSection1.TabIndex = 1;
+            this.carPartSection1.Visible = false;
             // 
             // DashboardForm
             // 

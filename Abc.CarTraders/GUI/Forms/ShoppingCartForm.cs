@@ -1,10 +1,15 @@
 ﻿using ABC.CarTraders.Entities;
 using ABC.CarTraders.Enums;
+using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.ExtendedProperties;
+using DocumentFormat.OpenXml.InkML;
 using MRG.Controls.UI;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,26 +28,10 @@ namespace ABC.CarTraders.GUI.Forms
         public ShoppingCartForm()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
 
-            cboType.DataSource = new List<CarType>()
-            {
-                CarType.Sedan,
-                CarType.SUV,
-                CarType.Truck,
-                CarType.Coupe,
-                CarType.Convertible,
-                CarType.Hatchback,
-            };
-
-            ModelName = null;
-            Price = 0.00M;
-            Year = 2024;
-            Type = CarType.Sedan;
-            EngineDetails = null;
-            Color = "Black";
-            Stock = 1;
-            Image = null;
-            Notes = null;
         }
 
         public void LoadInitialData()
@@ -56,43 +45,41 @@ namespace ABC.CarTraders.GUI.Forms
 
             btnSave.Text = "SAVE";
             OldRecord = null;
-            Text = $"New {nameof(Car)}";
+            Text = $"New {nameof(Order)}";
             StatusText = "Ready";
-
-            ModelName = null;
-            Price = 0.00M;
-            Year = 2024;
-            Type = CarType.Sedan;
-            EngineDetails = null;
-            Color = "Black";
-            Stock = 1;
-            Image = null;
-            Notes = null;
-
-            pnlRole.Enabled = true;
-            btnSave.Enabled = ValidateInsertPersmission();
-            txtModelName.Focus();
         }
 
-        public Car OldRecord { get; set; }
-        public void ViewRecord(Car record)
+        public void NewRecord(Order record)
+        {
+            Overwrite = false;
+
+            lblCustomerName.Text = record.CreatedUser?.FullName;
+            dataGridView1.DataSource = new BindingList<OrderItem>(record.OrderItems);
+            lblGrandTotal.Text = record.OrderItems
+                .Sum(x => x.TotalPrice)
+                .ToString("N");
+
+            btnSave.Text = "PLACE";
+            OldRecord = record;
+            Text = $"New {nameof(Order)}";
+            StatusText = "Ready";
+        }
+
+        public Order OldRecord { get; set; }
+        public void ViewRecord(Order record)
         {
             Overwrite = true;
 
+            lblCustomerName.Text = record.CreatedUser?.FullName;
+            dataGridView1.DataSource = new BindingList<OrderItem>(record.OrderItems);
+            lblGrandTotal.Text = record.OrderItems
+                .Sum(x => x.TotalPrice)
+                .ToString("N");
+
             btnSave.Text = "UPDATE";
             OldRecord = record;
-            Text = $"View {nameof(Car)} ({OldRecord.ModelName})";
+            Text = $"View {nameof(Order)}";
             StatusText = "Ready";
-
-            ModelName = OldRecord.ModelName;
-            Price = OldRecord.Price;
-            Year = OldRecord.Year;
-            Type = OldRecord.Type;
-            EngineDetails = OldRecord.EngineDetails;
-            Color = OldRecord.Color;
-            Stock = OldRecord.Stock;
-            Image = OldRecord.Image;
-            Notes = OldRecord.Notes;
 
             btnSave.Enabled = ValidateUpdatePersmission();
         }
@@ -104,119 +91,10 @@ namespace ABC.CarTraders.GUI.Forms
         #endregion
 
         #region Fields
-        public string ModelName
-        {
-            get
-            {
-                var str = txtModelName.Text.Trim();
-                return str == string.Empty ? null : str;
-            }
-            set { txtModelName.Text = value; }
-        }
-
-        public decimal Price
-        {
-            get
-            {
-                return nudPrice.Value;
-            }
-            set { nudPrice.Value = value; }
-        }
-
-        public int Year
-        {
-            get
-            {
-                return (int)nudYear.Value;
-            }
-            set { nudYear.Value = value; }
-        }
-
-        public CarType Type
-        {
-            get
-            {
-                return (CarType)cboType.SelectedItem;
-            }
-            set
-            {
-                cboType.SelectedItem = value;
-            }
-        }
-
-        public string EngineDetails
-        {
-            get
-            {
-                var str = txtEngineDetails.Text.Trim();
-                return str == string.Empty ? null : str;
-            }
-            set { txtEngineDetails.Text = value; }
-        }
-
-        public string Color
-        {
-            get
-            {
-                var str = cboColor.Text.Trim();
-                return str == string.Empty ? null : str;
-            }
-            set { cboColor.Text = value; }
-        }
-
-        public int Stock
-        {
-            get
-            {
-                return (int)nudStock.Value;
-            }
-            set { nudStock.Value = value; }
-        }
-
-        public byte[] Image
-        {
-            get
-            {
-                if (picImage.Image != null)
-                {
-                    return Helper.GetImageBytesFromPictureBox(picImage);
-                }
-                var filePath = txtImagePath.Text;
-                if (string.IsNullOrWhiteSpace(filePath))
-                {
-                    return null;
-                }
-                return File.ReadAllBytes(filePath);
-            }
-            set
-            {
-                if (value != null)
-                {
-                    picImage.Image = Helper.LoadImageFromDatabase(value);
-                }
-                else
-                {
-                    picImage.Image = null; // No image available
-                }
-            }
-        }
-
-        public string Notes
-        {
-            get
-            {
-                var str = txtNotes.Text.Trim();
-                return str == string.Empty ? null : str;
-            }
-            set { txtNotes.Text = value; }
-        }
+        
         #endregion
 
         #region Actions
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            NewRecord();
-        }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
@@ -227,19 +105,16 @@ namespace ABC.CarTraders.GUI.Forms
                 return;
             }
 
-            var newRecord = new Car()
+            var newRecord = OldRecord;
+            newRecord.CreatedUser = null;
+            newRecord.CreatedDate = DateTime.Now;
+            newRecord.CreatedUserId = User?.Id;
+            newRecord.OrderItems.ForEach(x =>
             {
-                ModelName = ModelName,
-                Price = Price,
-                Year = Year,
-                Type = Type,
-                EngineDetails = EngineDetails,
-                Color = Color,
-                Stock = Stock,
-                Image = Image,
-                Notes = Notes,
-                CreatedDate = DateTime.Now,
-            };
+                x.Car = null;
+                x.CarPart = null;
+                x.CreatedUser = null;
+            });
 
             if (Overwrite)
             {
@@ -257,43 +132,43 @@ namespace ABC.CarTraders.GUI.Forms
 
         private bool ValidateInsertPersmission()
         {
-            return (User == null || User.Role >= UserRole.Staff);
+            return (User == null || User.Role >= UserRole.Customer);
         }
 
         private bool ValidateUpdatePersmission()
         {
-            return (User == null || User.Role >= UserRole.Staff);
+            return (User == null || User.Role >= UserRole.Customer);
         }
 
         private bool ValidateInput()
         {
-            if (ModelName == null)
-            {
-                txtModelName.Focus();
-                return false;
-            }
+            //if (ModelName == null)
+            //{
+            //    txtModelName.Focus();
+            //    return false;
+            //}
 
             return true;
         }
 
         public bool Overwrite { get; set; }
-        private async Task AddRecordAsync(Car newRecord)
+        private async Task AddRecordAsync(Order newRecord)
         {
-            DbContext.Cars.Add(newRecord);
+            DbContext.Orders.Add(newRecord);
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "Car",
+                Title = "Order",
                 Action = LogAction.Insert,
-                Text = $"Saved a car ({newRecord.ModelName})"
+                Text = $"Saved an order"
             });
             try
             {
                 await DbContext.SaveChangesAsync();
                 StatusText = "Record Saved";
 
-                MessageBox.Show("Car saved successfully..", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Order saved successfully..", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ViewRecord(newRecord);
             }
             catch (Exception ex)
@@ -306,17 +181,17 @@ namespace ABC.CarTraders.GUI.Forms
             //else ViewRecord(newUser);
         }
 
-        private async Task UpdateRecordAsync(Car record, Car newRecord)
+        private async Task UpdateRecordAsync(Order record, Order newRecord)
         {
-            record.ModelName = newRecord.ModelName;
-            record.Price = newRecord.Price;
-            record.Year = newRecord.Year;
-            record.Type = newRecord.Type;
-            record.EngineDetails = newRecord.EngineDetails;
-            record.Color = newRecord.Color;
-            record.Stock = newRecord.Stock;
-            record.Image = newRecord.Image;
-            record.Notes = newRecord.Notes;
+            //record.ModelName = newRecord.ModelName;
+            //record.Price = newRecord.Price;
+            //record.Year = newRecord.Year;
+            //record.Type = newRecord.Type;
+            //record.EngineDetails = newRecord.EngineDetails;
+            //record.Color = newRecord.Color;
+            //record.Stock = newRecord.Stock;
+            //record.Image = newRecord.Image;
+            //record.Notes = newRecord.Notes;
             record.LastModifiedDate = DateTime.Now;
             record.LastModifiedUserId = User?.Id;
 
@@ -324,13 +199,13 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "Car",
+                Title = "Order",
                 Action = LogAction.Update,
-                Text = $"Updated a car ({newRecord.ModelName})"
+                Text = $"Updated a order"
             });
             StatusText = "Record Updated";
             await DbContext.SaveChangesAsync();
-            MessageBox.Show("Car updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Order updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ViewRecord(record);
         }
         #endregion
@@ -378,13 +253,6 @@ namespace ABC.CarTraders.GUI.Forms
         }
         #endregion
 
-        private async void btnToDatabase_Click(object sender, EventArgs e)
-        {
-            StartProgress("Applying Changes to Database...");
-            await SaveToDatabase?.Invoke();
-            StopProgress();
-            StatusText = "Ready";
-        }
 
         private void UserForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -405,36 +273,5 @@ namespace ABC.CarTraders.GUI.Forms
             //}
         }
 
-        private void btnBrowseImage_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-                openFileDialog.FilterIndex = 1;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Get the file path
-                    txtImagePath.Text = openFileDialog.FileName;
-
-                    // Display the image in the PictureBox
-                    picImage.Image = System.Drawing.Image.FromFile(txtImagePath.Text);
-
-                    //// Convert the image to byte array and store in the CarPicture property
-                    //byte[] imageBytes = File.ReadAllBytes(filePath);
-
-                    //// Assuming you have a Car object called car
-                    //car.CarPicture = imageBytes;
-                }
-            }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtImagePath.Text = null;
-            picImage.Image = null;
-        }
     }
 }

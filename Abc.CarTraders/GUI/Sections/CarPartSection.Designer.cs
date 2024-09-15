@@ -117,8 +117,9 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddToCart = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -381,8 +382,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
-            this.colCar,
+            this.colAddToCart,
             this.colImage,
+            this.colCar,
             this.colPartName,
             this.colPrice,
             this.colStock,
@@ -403,6 +405,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(585, 374);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
@@ -1459,14 +1462,16 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             // 
-            // colCar
+            // colAddToCart
             // 
-            this.colCar.DataPropertyName = "Car";
-            this.colCar.DividerWidth = 1;
-            this.colCar.Frozen = true;
-            this.colCar.HeaderText = "Car";
-            this.colCar.Name = "colCar";
-            this.colCar.ReadOnly = true;
+            this.colAddToCart.DividerWidth = 1;
+            this.colAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colAddToCart.Frozen = true;
+            this.colAddToCart.HeaderText = "Add To Cart";
+            this.colAddToCart.Name = "colAddToCart";
+            this.colAddToCart.ReadOnly = true;
+            this.colAddToCart.Text = "Add";
+            this.colAddToCart.UseColumnTextForButtonValue = true;
             // 
             // colImage
             // 
@@ -1476,6 +1481,15 @@
             this.colImage.HeaderText = "Image";
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
+            // 
+            // colCar
+            // 
+            this.colCar.DataPropertyName = "Car";
+            this.colCar.DividerWidth = 1;
+            this.colCar.Frozen = true;
+            this.colCar.HeaderText = "Car";
+            this.colCar.Name = "colCar";
+            this.colCar.ReadOnly = true;
             // 
             // colPartName
             // 
@@ -1713,8 +1727,9 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
+        private System.Windows.Forms.DataGridViewButtonColumn colAddToCart;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;

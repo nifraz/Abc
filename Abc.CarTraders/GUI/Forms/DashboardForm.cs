@@ -142,7 +142,7 @@ namespace ABC.CarTraders.GUI.Forms
             userSection1.LoadInitialData();
             carSection1.LoadInitialData();
             await carPartSection1.LoadInitialDataAsync();
-            logSection1.LoadInitialData();
+            await logSection1.LoadInitialDataAsync();
         }
 
         private void btnSection_Click(object sender, EventArgs e)
@@ -174,6 +174,12 @@ namespace ABC.CarTraders.GUI.Forms
             }
             ((Control)_currentControl).Show();
         }
+
+        public Order CurrentCart { get; set; } = new Order
+        {
+            CreatedUser = User,
+            OrderItems = new List<OrderItem>(),
+        };
 
         private static Action<Car, int> AddCarsToCartDelegate;
         public static void AddCarsToCart(Car item, int quantity)
@@ -230,8 +236,78 @@ namespace ABC.CarTraders.GUI.Forms
             await RefreshAsyncDelegate?.Invoke();
         }
 
+        private void SetCartLabel()
+        {
+            var carCount = CurrentCart.OrderItems
+                .Where(x => x.Car != null)
+                .Sum(x => x.Quantity);
+            var carPartCount = CurrentCart.OrderItems
+                .Where(x => x.CarPart != null)
+                .Sum(x => x.Quantity);
+            btnCart.Text = $"          Cars: {carCount} | Car Parts: {carPartCount}";
+        }
         private void AssignActions()
         {
+            AddCarsToCartDelegate = (e, q) =>
+            {
+                var orderItem = CurrentCart.OrderItems
+                    .FirstOrDefault(x => x.CarId == e.Id);
+
+                if (orderItem != null)
+                {
+                    orderItem.Quantity += q;
+                    orderItem.TotalPrice = e.Price * orderItem.Quantity;
+                    orderItem.CreatedDate = DateTime.Now;
+                }
+                else
+                {
+                    CurrentCart.OrderItems.Add(new OrderItem
+                    {
+                        Car = e,
+                        CarId = e.Id,
+                        Quantity = q,
+                        UnitPrice = e.Price,
+                        TotalPrice = e.Price * q,
+                        CreatedDate = DateTime.Now,
+                        CreatedUserId = User?.Id,
+                    });
+                }
+                SetCartLabel();
+            };
+
+            AddCarPartsToCartDelegate = (e, q) =>
+            {
+                var orderItem = CurrentCart.OrderItems
+                    .FirstOrDefault(x => x.CarPartId == e.Id);
+
+                if (orderItem != null)
+                {
+                    orderItem.Quantity += q;
+                    orderItem.TotalPrice = e.Price * orderItem.Quantity;
+                    orderItem.CreatedDate = DateTime.Now;
+                }
+                else
+                {
+                    CurrentCart.OrderItems.Add(new OrderItem
+                    {
+                        CarPart = e,
+                        CarPartId = e.Id,
+                        Quantity = q,
+                        UnitPrice = e.Price,
+                        TotalPrice = e.Price * q,
+                        CreatedDate = DateTime.Now,
+                        CreatedUserId = User?.Id,
+                    });
+                }
+                SetCartLabel();
+            };
+
+            ClearCartDelegate = () =>
+            {
+                CurrentCart.OrderItems = new List<OrderItem>();
+                SetCartLabel();
+            };
+
             WriteLogDelegate = (l) =>
             {
                 if (l == null) return;
@@ -283,6 +359,9 @@ namespace ABC.CarTraders.GUI.Forms
                     });
                     await DbContext.SaveChangesAsync();
                 }
+                CurrentCart.CreatedUser = null;
+                CurrentCart.OrderItems = new List<OrderItem>();
+                SetCartLabel();
                 loginSection1.Focus();
             };
             ExitDelegate = Close;
@@ -296,13 +375,14 @@ namespace ABC.CarTraders.GUI.Forms
                 await carSection1.RefreshAsync();
                 await carPartSection1.RefreshAsync();
                 await logSection1.RefreshAsync();
+                CurrentCart.CreatedUser = User;
             };
         }
 
         private void SetButtonPermission()
         {
             btnUser.Enabled = User != null && User.Role >= Enums.UserRole.Admin;
-            btnCart.Visible = User != null && User.Role == Enums.UserRole.Customer;
+            btnCart.Visible = User != null && User.Role >= Enums.UserRole.Customer;
             //statisticsSection1.SetButtonPermission();
             //userSection1.SetButtonPermission();
             //carSection1.SetButtonPermission();
@@ -484,7 +564,7 @@ namespace ABC.CarTraders.GUI.Forms
             using (var form = new ShoppingCartForm())
             {
                 //await form.LoadInitialDataAsync();
-                form.NewRecord();
+                form.NewRecord(CurrentCart);
                 form.ShowDialog();
             }
         }

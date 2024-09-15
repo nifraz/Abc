@@ -122,6 +122,7 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddToCart = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colModelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1118,6 +1119,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
+            this.colAddToCart,
             this.colImage,
             this.colModelName,
             this.colPrice,
@@ -1143,6 +1145,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(585, 374);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 22;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
@@ -1540,6 +1543,17 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             // 
+            // colAddToCart
+            // 
+            this.colAddToCart.DividerWidth = 1;
+            this.colAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colAddToCart.Frozen = true;
+            this.colAddToCart.HeaderText = "Add To Cart";
+            this.colAddToCart.Name = "colAddToCart";
+            this.colAddToCart.ReadOnly = true;
+            this.colAddToCart.Text = "Add";
+            this.colAddToCart.UseColumnTextForButtonValue = true;
+            // 
             // colImage
             // 
             this.colImage.DataPropertyName = "Thumbnail";
@@ -1828,6 +1842,7 @@
         private System.Windows.Forms.Panel pnlSide;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewButtonColumn colAddToCart;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colModelName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;

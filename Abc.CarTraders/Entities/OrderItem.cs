@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,14 @@ namespace ABC.CarTraders.Entities
         public void CalculateTotal()
         {
             TotalPrice = Quantity * UnitPrice;
+        }
+
+        [NotMapped]
+        public string ItemName { 
+            get
+            {
+                return Car?.ModelName ?? CarPart?.PartName;
+            }  
         }
     }
 }

@@ -94,6 +94,15 @@ namespace ABC.CarTraders.GUI.Forms
         #endregion
 
         #region Fields
+        public Car Car
+        {
+            get
+            {
+                return cboCar.SelectedItem as Car;
+            }
+            set { cboCar.SelectedItem = value; }
+        }
+
         public string PartName
         {
             get
@@ -178,6 +187,7 @@ namespace ABC.CarTraders.GUI.Forms
 
             var newRecord = new CarPart()
             {
+                CarId = Car.Id,
                 PartName = PartName,
                 Price = Price,
                 Stock = Stock,
