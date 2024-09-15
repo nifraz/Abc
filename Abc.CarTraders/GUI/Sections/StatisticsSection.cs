@@ -7,6 +7,7 @@ using MRG.Controls.UI;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -32,16 +33,10 @@ namespace ABC.CarTraders.GUI.Sections
             DrawPerformanceChart();
             DrawTotalsChart();
 
-            cboProvince.DataSource = new List<string>() { "All" };
-            cboDistrict.DataSource = new List<string>() { "All" };
-            cboVsRange.DataSource = new List<string>() { "All" };
-            cboInstitute.DataSource = new List<string>() { "All" };
+            cboUser.DataSource = new List<string>() { "All" };
 
             RangeStart = new DateTime(2015, 1, 1, 0, 0, 0);
             RangeEnd = new DateTime(DateTime.Today.Year, 12, 31, 23, 59, 59);
-
-            CalvingRecordTechnicianCode = null;
-            CalvingRecordSemenCode = null;
 
             var paperSizes = (new PrinterSettings()).PaperSizes.Cast<PaperSize>();
             var sizeA4 = paperSizes.First(size => size.Kind == PaperKind.A4);
@@ -102,11 +97,7 @@ namespace ABC.CarTraders.GUI.Sections
             btnFilterClear.BackColor = e.Color9;
             pnlFilterHolder.BackColor = e.Color0;
             pnlFilter1.BackColor = e.Color3;
-            pnlFilter2.BackColor = e.Color3;
-            pnlFilter3.BackColor = e.Color3;
-            pnlFilter4.BackColor = e.Color3;
-            pnlFilter5.BackColor = e.Color3;
-            pnlFilter6.BackColor = e.Color3;
+            pnlSex.BackColor = e.Color3;
 
             var maleFill = new System.Windows.Media.SolidColorBrush()
             {
@@ -130,41 +121,26 @@ namespace ABC.CarTraders.GUI.Sections
                 }
             };
 
-            (cartesianChart1.Series.ElementAt(0) as StackedColumnSeries).Fill = maleFill;
-            (cartesianChart1.Series.ElementAt(1) as StackedColumnSeries).Fill = femaleFill;
+            (cartesianChart1.Series.ElementAt(0) as LineSeries).Fill = maleFill;
+            (cartesianChart1.Series.ElementAt(1) as LineSeries).Fill = femaleFill;
 
             (pieChart1.Series.ElementAt(0) as PieSeries).Fill = maleFill;
             (pieChart1.Series.ElementAt(1) as PieSeries).Fill = femaleFill;
 
         }
 
-        public void LoadInitialData()
+        public async Task LoadInitialDataAsync()
         {
-            //cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-            //cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
-            //cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
-            //cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
+            //cboUser.SelectedValueChanged -= cboUser_SelectedValueChanged;
 
-            //var provinces = new List<string>() { "All" };
-            //provinces.AddRange(DbContext.Provinces.GetAllCached().OrderBy(p => p.Name).Select(p => p.Name));
-            //cboProvince.DataSource = provinces;
+            //var users = new List<User>() { new User { Id = 0, Email = "All" } };
+            //users.AddRange(await DbContext.Users
+            //    .OrderBy(x => x.Email)
+            //    .ToListAsync());
 
-            //var districts = new List<string>() { "All" };
-            //districts.AddRange(DbContext.Districts.GetAllCached().OrderBy(d => d.Name).Select(d => d.Name));
-            //cboDistrict.DataSource = districts;
+            //cboUser.DataSource = users;
 
-            //var vsRanges = new List<string>() { "All" };
-            //vsRanges.AddRange(DbContext.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            //cboVsRange.DataSource = vsRanges;
-
-            //var institutes = new List<string>() { "All" };
-            //institutes.AddRange(DbContext.Institutes.GetAllCached().OrderBy(i => i.Name).Select(i => i.Name));
-            //cboInstitute.DataSource = institutes;
-
-            //cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
-            //cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
-            //cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
-            //cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
+            //cboUser.SelectedValueChanged += cboUser_SelectedValueChanged;
         }
         #endregion
 
@@ -185,51 +161,26 @@ namespace ABC.CarTraders.GUI.Sections
                 AnimationsSpeed = TimeSpan.FromMilliseconds(100),
                 Series = new SeriesCollection
                 {
-                    new StackedColumnSeries
+                    new LineSeries
                     {
-                        Title = "Male",
-                        StackMode = StackMode.Values,
+                        Title = "Black",
+                        Foreground = System.Windows.Media.Brushes.Black,
+                        Stroke = new System.Windows.Media.SolidColorBrush()
+                        {
+                            Color = System.Windows.Media.Colors.DarkGray
+                        },
+                        StrokeThickness = 2,
                         Fill = new System.Windows.Media.SolidColorBrush()
                         {
-                            Color = new System.Windows.Media.Color()
-                            {
-                                A = ColorScheme.Blue.Color3.A,
-                                R = ColorScheme.Blue.Color3.R,
-                                G = ColorScheme.Blue.Color3.G,
-                                B = ColorScheme.Blue.Color3.B,
-                            }
+                            Color = System.Windows.Media.Colors.Gray,
+                            Opacity = 0.20
                         },
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        FontSize = 9,
-                        //Stroke = System.Windows.Media.Brushes.DarkGray,
-                        StrokeThickness = 0,
-                        DataLabels = true,
-                        Values = new ChartValues<int>()
-                    },
-                    new StackedColumnSeries
-                    {
-                        Title = "Female",
-                        StackMode = StackMode.Values,
-                        Fill = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = new System.Windows.Media.Color()
-                            {
-                                A = ColorScheme.Green.Color3.A,
-                                R = ColorScheme.Green.Color3.R,
-                                G = ColorScheme.Green.Color3.G,
-                                B = ColorScheme.Green.Color3.B,
-                            }
-                        },
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        FontSize = 9,
-                        //Stroke = System.Windows.Media.Brushes.DarkGray,
-                        StrokeThickness = 0,
                         DataLabels = true,
                         Values = new ChartValues<int>()
                     },
                     new LineSeries
                     {
-                        Title = "(Total)",
+                        Title = "White",
                         Foreground = System.Windows.Media.Brushes.Black,
                         Stroke = new System.Windows.Media.SolidColorBrush()
                         {
@@ -263,7 +214,7 @@ namespace ABC.CarTraders.GUI.Sections
             });
             cartesianChart1.AxisY.Add(new Axis
             {
-                Title = "No. of Calvings",
+                Title = "Total Sales",
                 MinValue = 0,
                 Unit = 1,
                 FontSize = 12,
@@ -293,11 +244,12 @@ namespace ABC.CarTraders.GUI.Sections
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0),
                 //BackColorTransparent = true,
                 AnimationsSpeed = TimeSpan.FromMilliseconds(100),
+
                 Series = new SeriesCollection
                 {
                     new PieSeries
                     {
-                        Title = "Male",
+                        Title = "Black",
                         DataLabels = true,
                         Fill = new System.Windows.Media.SolidColorBrush()
                         {
@@ -318,7 +270,7 @@ namespace ABC.CarTraders.GUI.Sections
                     },
                     new PieSeries
                     {
-                        Title = "Female",
+                        Title = "White",
                         DataLabels = true,
                         Fill = new System.Windows.Media.SolidColorBrush()
                         {
@@ -548,66 +500,16 @@ namespace ABC.CarTraders.GUI.Sections
         //    }
         //}
 
-        private int? CalvingRecordTechnicianCode
-        {
-            get
-            {
-                return rdoTechnicianAll.Checked ? null : (int?)nudTechnicianCode.Value;
-            }
-            set
-            {
-                //nudTechnicianCode.ValueChanged -= nudTechnicianCode_ValueChanged;
-                nudTechnicianCode.Value = value ?? 0;
-                //nudTechnicianCode.ValueChanged += nudTechnicianCode_ValueChanged;
-
-                rdoTechnicianAll.CheckedChanged -= rdoTechnicianAll_CheckedChanged;
-                rdoTechnicianCode.CheckedChanged -= rdoTechnicianCode_CheckedChanged;
-                rdoTechnicianAll.Checked = value == null;
-                rdoTechnicianCode.Checked = value != null;
-                pnlNudTechnicianCodeHolder.Enabled = value != null;
-                rdoTechnicianAll.CheckedChanged += rdoTechnicianAll_CheckedChanged;
-                rdoTechnicianCode.CheckedChanged += rdoTechnicianCode_CheckedChanged;
-            }
-        }
-
-        private int? CalvingRecordSemenCode
-        {
-            get
-            {
-                return rdoSemenAll.Checked ? null : (int?)nudSemenCode.Value;
-            }
-            set
-            {
-                //nudSemenCode.ValueChanged -= nudSemenCode_ValueChanged;
-                nudSemenCode.Value = value ?? 0;
-                //nudSemenCode.ValueChanged += nudSemenCode_ValueChanged;
-
-                rdoSemenAll.CheckedChanged -= rdoSemenAll_CheckedChanged;
-                rdoSemenCode.CheckedChanged -= rdoSemenCode_CheckedChanged;
-                rdoSemenAll.Checked = value == null;
-                rdoSemenCode.Checked = value != null;
-                pnlNudSemenCodeHolder.Enabled = value != null;
-                rdoSemenAll.CheckedChanged += rdoSemenAll_CheckedChanged;
-                rdoSemenCode.CheckedChanged += rdoSemenCode_CheckedChanged;
-            }
-        }
-
+        
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
-            if (CalvingRecordTechnicianCode == null && CalvingRecordSemenCode == null) return;
-
-            //CalvingRecordProvince = null;
-            //CalvingRecordDistrict = null;
-            //CalvingRecordVsRange = null;
-            //CalvingRecordInstitute = null;
-            CalvingRecordTechnicianCode = null;
-            CalvingRecordSemenCode = null;
+            if (cboUser.SelectedIndex == 0) return;
 
             await RefreshAsync();
             btnFilterClear.Focus();
         }
 
-        private void cboProvince_SelectedValueChanged(object sender, EventArgs e)
+        private void cboUser_SelectedValueChanged(object sender, EventArgs e)
         {
             //if (DbContext == null) return;
             //var districts = new List<string>() { "All" };
@@ -646,72 +548,11 @@ namespace ABC.CarTraders.GUI.Sections
             //cboVsRange.DataSource = vsRanges;
         }
 
-        private async void cboVsRange_SelectedValueChanged(object sender, EventArgs e)
+        private async void rdoCategory_CheckedChanged(object sender, EventArgs e)
         {
             await RefreshAsync();
-            cboVsRange.Focus();
         }
 
-        private async void cboInstitute_SelectedValueChanged(object sender, EventArgs e)
-        {
-            await RefreshAsync();
-            cboInstitute.Focus();
-        }
-
-
-        private async void rdoTechnicianAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CalvingRecordTechnicianCode != null) return;
-            pnlNudTechnicianCodeHolder.Enabled = false;
-            await RefreshAsync();
-            rdoTechnicianAll.Focus();
-        }
-
-        private async void rdoTechnicianCode_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CalvingRecordTechnicianCode == null) return;
-            pnlNudTechnicianCodeHolder.Enabled = true;
-            await RefreshAsync();
-            nudTechnicianCode.Focus();
-        }
-
-        private async void nudTechnicianCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                await RefreshAsync();
-            }
-            nudTechnicianCode.Focus();
-        }
-
-        private async void rdoSemenAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CalvingRecordSemenCode != null) return;
-            pnlNudSemenCodeHolder.Enabled = false;
-            await RefreshAsync();
-            rdoSemenAll.Focus();
-        }
-
-        private async void rdoSemenCode_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CalvingRecordSemenCode == null) return;
-            pnlNudSemenCodeHolder.Enabled = true;
-            await RefreshAsync();
-            nudSemenCode.Focus();
-        }
-
-        private async void nudSemenCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-                await RefreshAsync();
-            }
-            nudSemenCode.Focus();
-        }
         #endregion
 
         #region Pie Chart
@@ -785,31 +626,28 @@ namespace ABC.CarTraders.GUI.Sections
 
                     //if (rdoYearly.Checked)
                     //{
-                    //    valuesList = await DbContext.CalvingRecords.GetYearlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
-                    //    cartesianChart1.AxisX.ElementAt(0).Title = "Year";
+
                     //}
                     //else
                     //{
-                    //    valuesList = await DbContext.CalvingRecords.GetMonthlyPerformanceAsync(rangeStart, rangeEnd, CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode);
-                    //    cartesianChart1.AxisX.ElementAt(0).Title = "Year/Month";
+
                     //}
 
                     var labels = new ChartValues<string>();
-                    var maleValues = new ChartValues<int>();
-                    var femaleValues = new ChartValues<int>();
+                    var blackValues = new ChartValues<int>();
+                    var whiteValues = new ChartValues<int>();
                     var totalValues = new ChartValues<int>();
 
                     foreach (var values in valuesList)
                     {
                         labels.Add(values.Item1.ToString());
-                        maleValues.Add(values.Item2);
-                        femaleValues.Add(values.Item3);
+                        blackValues.Add(values.Item2);
+                        whiteValues.Add(values.Item3);
                         totalValues.Add(values.Item4);
                     }
 
-                    cartesianChart1.Series[0].Values = maleValues;
-                    cartesianChart1.Series[1].Values = femaleValues;
-                    cartesianChart1.Series[2].Values = totalValues;
+                    cartesianChart1.Series[0].Values = blackValues;
+                    cartesianChart1.Series[1].Values = whiteValues;
                     cartesianChart1.AxisX[0].Labels = labels;
 
                     StopProgress();

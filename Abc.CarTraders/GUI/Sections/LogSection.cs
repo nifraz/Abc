@@ -358,7 +358,8 @@ namespace ABC.CarTraders.GUI.Sections
                 {
                     StartProgress("Refreshing...");
                     PagedList = await DbContext.Logs
-                        .Where(GetExpression())
+                        //.Where(GetExpression())
+                        .OrderByDescending(x => x.Id)
                         .ToPagedListAsync(PageNumber, PageSize);
                     StopProgress();
 

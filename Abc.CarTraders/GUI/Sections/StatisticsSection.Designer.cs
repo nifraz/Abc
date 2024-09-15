@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsSection));
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.nudSemenCode = new System.Windows.Forms.NumericUpDown();
-            this.nudTechnicianCode = new System.Windows.Forms.NumericUpDown();
             this.btnFilterClear = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnPrintPreview = new System.Windows.Forms.Button();
@@ -61,37 +59,15 @@
             this.pnlPerformanceChartHolder = new System.Windows.Forms.Panel();
             this.pnlFilter = new System.Windows.Forms.Panel();
             this.pnlFilterHolder = new System.Windows.Forms.Panel();
-            this.pnlFilter6 = new System.Windows.Forms.Panel();
-            this.pnlFilter6Holder = new System.Windows.Forms.Panel();
-            this.pnlNudSemenCodeHolder = new System.Windows.Forms.Panel();
-            this.rdoSemenAll = new System.Windows.Forms.RadioButton();
-            this.rdoSemenCode = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pnlFilter5 = new System.Windows.Forms.Panel();
-            this.pnlFilter5Holder = new System.Windows.Forms.Panel();
-            this.pnlNudTechnicianCodeHolder = new System.Windows.Forms.Panel();
-            this.rdoTechnicianAll = new System.Windows.Forms.RadioButton();
-            this.rdoTechnicianCode = new System.Windows.Forms.RadioButton();
+            this.pnlSex = new System.Windows.Forms.Panel();
+            this.pnlSexHolder = new System.Windows.Forms.Panel();
+            this.rdoType = new System.Windows.Forms.RadioButton();
+            this.rdoColor = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
-            this.pnlFilter4 = new System.Windows.Forms.Panel();
-            this.pnlFilter4Holder = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.cboInstitute = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.pnlFilter3 = new System.Windows.Forms.Panel();
-            this.pnlFilter3Holder = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.cboVsRange = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pnlFilter2 = new System.Windows.Forms.Panel();
-            this.pnlFilter2Holder = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.cboDistrict = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnlFilter1 = new System.Windows.Forms.Panel();
             this.pnlFilter1Holder = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cboProvince = new System.Windows.Forms.ComboBox();
+            this.cboUser = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -112,8 +88,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSide = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSemenCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTechnicianCode)).BeginInit();
             this.pnlTotals.SuspendLayout();
             this.pnlTotalsHolder.SuspendLayout();
             this.pnlPerformance.SuspendLayout();
@@ -122,21 +96,8 @@
             this.panel2.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             this.pnlFilterHolder.SuspendLayout();
-            this.pnlFilter6.SuspendLayout();
-            this.pnlFilter6Holder.SuspendLayout();
-            this.pnlNudSemenCodeHolder.SuspendLayout();
-            this.pnlFilter5.SuspendLayout();
-            this.pnlFilter5Holder.SuspendLayout();
-            this.pnlNudTechnicianCodeHolder.SuspendLayout();
-            this.pnlFilter4.SuspendLayout();
-            this.pnlFilter4Holder.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.pnlFilter3.SuspendLayout();
-            this.pnlFilter3Holder.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.pnlFilter2.SuspendLayout();
-            this.pnlFilter2Holder.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnlSex.SuspendLayout();
+            this.pnlSexHolder.SuspendLayout();
             this.pnlFilter1.SuspendLayout();
             this.pnlFilter1Holder.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -150,54 +111,6 @@
             this.pnlDtpRangeStartHolder.SuspendLayout();
             this.pnlSide.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // nudSemenCode
-            // 
-            this.nudSemenCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudSemenCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudSemenCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nudSemenCode.Location = new System.Drawing.Point(0, 0);
-            this.nudSemenCode.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudSemenCode.Name = "nudSemenCode";
-            this.nudSemenCode.Size = new System.Drawing.Size(77, 19);
-            this.nudSemenCode.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.nudSemenCode, "(Press Enter)");
-            this.nudSemenCode.Value = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudSemenCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nudSemenCode_KeyDown);
-            // 
-            // nudTechnicianCode
-            // 
-            this.nudTechnicianCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudTechnicianCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudTechnicianCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.nudTechnicianCode.Location = new System.Drawing.Point(0, 0);
-            this.nudTechnicianCode.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudTechnicianCode.Name = "nudTechnicianCode";
-            this.nudTechnicianCode.Size = new System.Drawing.Size(77, 19);
-            this.nudTechnicianCode.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.nudTechnicianCode, "(Press Enter)");
-            this.nudTechnicianCode.Value = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudTechnicianCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nudTechnicianCode_KeyDown);
             // 
             // btnFilterClear
             // 
@@ -478,9 +391,9 @@
             this.lblMainTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMainTitle.Location = new System.Drawing.Point(3, 5);
             this.lblMainTitle.Name = "lblMainTitle";
-            this.lblMainTitle.Size = new System.Drawing.Size(93, 15);
+            this.lblMainTitle.Size = new System.Drawing.Size(71, 15);
             this.lblMainTitle.TabIndex = 1;
-            this.lblMainTitle.Text = "      Performance";
+            this.lblMainTitle.Text = "      Statistics";
             this.lblMainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlPerformanceHolder
@@ -624,11 +537,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFilterHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter6);
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter5);
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter4);
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter3);
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter2);
+            this.pnlFilterHolder.Controls.Add(this.pnlSex);
             this.pnlFilterHolder.Controls.Add(this.pnlFilter1);
             this.pnlFilterHolder.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlFilterHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -637,156 +546,60 @@
             this.pnlFilterHolder.Size = new System.Drawing.Size(220, 185);
             this.pnlFilterHolder.TabIndex = 0;
             // 
-            // pnlFilter6
+            // pnlSex
             // 
-            this.pnlFilter6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter6.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter6.Controls.Add(this.pnlFilter6Holder);
-            this.pnlFilter6.Controls.Add(this.label5);
-            this.pnlFilter6.Location = new System.Drawing.Point(5, 155);
-            this.pnlFilter6.Name = "pnlFilter6";
-            this.pnlFilter6.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter6.TabIndex = 6;
+            this.pnlSex.BackColor = System.Drawing.Color.DarkGray;
+            this.pnlSex.Controls.Add(this.pnlSexHolder);
+            this.pnlSex.Controls.Add(this.label8);
+            this.pnlSex.Location = new System.Drawing.Point(5, 34);
+            this.pnlSex.Name = "pnlSex";
+            this.pnlSex.Size = new System.Drawing.Size(210, 25);
+            this.pnlSex.TabIndex = 4;
             // 
-            // pnlFilter6Holder
+            // pnlSexHolder
             // 
-            this.pnlFilter6Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlSexHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter6Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter6Holder.Controls.Add(this.pnlNudSemenCodeHolder);
-            this.pnlFilter6Holder.Controls.Add(this.rdoSemenAll);
-            this.pnlFilter6Holder.Controls.Add(this.rdoSemenCode);
-            this.pnlFilter6Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter6Holder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlFilter6Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter6Holder.Name = "pnlFilter6Holder";
-            this.pnlFilter6Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter6Holder.TabIndex = 0;
+            this.pnlSexHolder.BackColor = System.Drawing.Color.White;
+            this.pnlSexHolder.Controls.Add(this.rdoType);
+            this.pnlSexHolder.Controls.Add(this.rdoColor);
+            this.pnlSexHolder.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlSexHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlSexHolder.Location = new System.Drawing.Point(73, 0);
+            this.pnlSexHolder.Name = "pnlSexHolder";
+            this.pnlSexHolder.Size = new System.Drawing.Size(137, 24);
+            this.pnlSexHolder.TabIndex = 0;
             // 
-            // pnlNudSemenCodeHolder
+            // rdoType
             // 
-            this.pnlNudSemenCodeHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlNudSemenCodeHolder.Controls.Add(this.nudSemenCode);
-            this.pnlNudSemenCodeHolder.Location = new System.Drawing.Point(68, 5);
-            this.pnlNudSemenCodeHolder.Name = "pnlNudSemenCodeHolder";
-            this.pnlNudSemenCodeHolder.Size = new System.Drawing.Size(75, 19);
-            this.pnlNudSemenCodeHolder.TabIndex = 3;
+            this.rdoType.AutoSize = true;
+            this.rdoType.Checked = true;
+            this.rdoType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdoType.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoType.Location = new System.Drawing.Point(5, 3);
+            this.rdoType.Name = "rdoType";
+            this.rdoType.Size = new System.Drawing.Size(48, 19);
+            this.rdoType.TabIndex = 0;
+            this.rdoType.TabStop = true;
+            this.rdoType.Tag = "";
+            this.rdoType.Text = "Type";
+            this.rdoType.UseVisualStyleBackColor = true;
+            this.rdoType.CheckedChanged += new System.EventHandler(this.rdoCategory_CheckedChanged);
             // 
-            // rdoSemenAll
+            // rdoColor
             // 
-            this.rdoSemenAll.AutoSize = true;
-            this.rdoSemenAll.Checked = true;
-            this.rdoSemenAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdoSemenAll.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rdoSemenAll.Location = new System.Drawing.Point(5, 3);
-            this.rdoSemenAll.Name = "rdoSemenAll";
-            this.rdoSemenAll.Size = new System.Drawing.Size(38, 19);
-            this.rdoSemenAll.TabIndex = 1;
-            this.rdoSemenAll.TabStop = true;
-            this.rdoSemenAll.Tag = "";
-            this.rdoSemenAll.Text = "All";
-            this.rdoSemenAll.UseVisualStyleBackColor = true;
-            this.rdoSemenAll.CheckedChanged += new System.EventHandler(this.rdoSemenAll_CheckedChanged);
-            // 
-            // rdoSemenCode
-            // 
-            this.rdoSemenCode.AutoSize = true;
-            this.rdoSemenCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdoSemenCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rdoSemenCode.Location = new System.Drawing.Point(49, 6);
-            this.rdoSemenCode.Name = "rdoSemenCode";
-            this.rdoSemenCode.Size = new System.Drawing.Size(13, 12);
-            this.rdoSemenCode.TabIndex = 2;
-            this.rdoSemenCode.Tag = "";
-            this.rdoSemenCode.UseVisualStyleBackColor = true;
-            this.rdoSemenCode.CheckedChanged += new System.EventHandler(this.rdoSemenCode_CheckedChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(3, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 15);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Semen";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFilter5
-            // 
-            this.pnlFilter5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter5.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter5.Controls.Add(this.pnlFilter5Holder);
-            this.pnlFilter5.Controls.Add(this.label8);
-            this.pnlFilter5.Location = new System.Drawing.Point(5, 125);
-            this.pnlFilter5.Name = "pnlFilter5";
-            this.pnlFilter5.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter5.TabIndex = 5;
-            // 
-            // pnlFilter5Holder
-            // 
-            this.pnlFilter5Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter5Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter5Holder.Controls.Add(this.pnlNudTechnicianCodeHolder);
-            this.pnlFilter5Holder.Controls.Add(this.rdoTechnicianAll);
-            this.pnlFilter5Holder.Controls.Add(this.rdoTechnicianCode);
-            this.pnlFilter5Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter5Holder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlFilter5Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter5Holder.Name = "pnlFilter5Holder";
-            this.pnlFilter5Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter5Holder.TabIndex = 0;
-            // 
-            // pnlNudTechnicianCodeHolder
-            // 
-            this.pnlNudTechnicianCodeHolder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlNudTechnicianCodeHolder.Controls.Add(this.nudTechnicianCode);
-            this.pnlNudTechnicianCodeHolder.Location = new System.Drawing.Point(68, 5);
-            this.pnlNudTechnicianCodeHolder.Name = "pnlNudTechnicianCodeHolder";
-            this.pnlNudTechnicianCodeHolder.Size = new System.Drawing.Size(75, 19);
-            this.pnlNudTechnicianCodeHolder.TabIndex = 3;
-            // 
-            // rdoTechnicianAll
-            // 
-            this.rdoTechnicianAll.AutoSize = true;
-            this.rdoTechnicianAll.Checked = true;
-            this.rdoTechnicianAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdoTechnicianAll.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rdoTechnicianAll.Location = new System.Drawing.Point(5, 3);
-            this.rdoTechnicianAll.Name = "rdoTechnicianAll";
-            this.rdoTechnicianAll.Size = new System.Drawing.Size(38, 19);
-            this.rdoTechnicianAll.TabIndex = 1;
-            this.rdoTechnicianAll.TabStop = true;
-            this.rdoTechnicianAll.Tag = "";
-            this.rdoTechnicianAll.Text = "All";
-            this.rdoTechnicianAll.UseVisualStyleBackColor = true;
-            this.rdoTechnicianAll.CheckedChanged += new System.EventHandler(this.rdoTechnicianAll_CheckedChanged);
-            // 
-            // rdoTechnicianCode
-            // 
-            this.rdoTechnicianCode.AutoSize = true;
-            this.rdoTechnicianCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rdoTechnicianCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.rdoTechnicianCode.Location = new System.Drawing.Point(49, 6);
-            this.rdoTechnicianCode.Name = "rdoTechnicianCode";
-            this.rdoTechnicianCode.Size = new System.Drawing.Size(13, 12);
-            this.rdoTechnicianCode.TabIndex = 2;
-            this.rdoTechnicianCode.Tag = "";
-            this.rdoTechnicianCode.UseVisualStyleBackColor = true;
-            this.rdoTechnicianCode.CheckedChanged += new System.EventHandler(this.rdoTechnicianCode_CheckedChanged);
+            this.rdoColor.AutoSize = true;
+            this.rdoColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdoColor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.rdoColor.Location = new System.Drawing.Point(61, 3);
+            this.rdoColor.Name = "rdoColor";
+            this.rdoColor.Size = new System.Drawing.Size(53, 19);
+            this.rdoColor.TabIndex = 1;
+            this.rdoColor.Tag = "";
+            this.rdoColor.Text = "Color";
+            this.rdoColor.UseVisualStyleBackColor = true;
+            this.rdoColor.CheckedChanged += new System.EventHandler(this.rdoCategory_CheckedChanged);
             // 
             // label8
             // 
@@ -798,217 +611,10 @@
             this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label8.Location = new System.Drawing.Point(3, 5);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 15);
+            this.label8.Size = new System.Drawing.Size(55, 15);
             this.label8.TabIndex = 3;
-            this.label8.Text = "Tech.";
+            this.label8.Text = "Category";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFilter4
-            // 
-            this.pnlFilter4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter4.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter4.Controls.Add(this.pnlFilter4Holder);
-            this.pnlFilter4.Controls.Add(this.label11);
-            this.pnlFilter4.Location = new System.Drawing.Point(5, 95);
-            this.pnlFilter4.Name = "pnlFilter4";
-            this.pnlFilter4.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter4.TabIndex = 4;
-            // 
-            // pnlFilter4Holder
-            // 
-            this.pnlFilter4Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter4Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter4Holder.Controls.Add(this.panel8);
-            this.pnlFilter4Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter4Holder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFilter4Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter4Holder.Name = "pnlFilter4Holder";
-            this.pnlFilter4Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter4Holder.TabIndex = 0;
-            // 
-            // panel8
-            // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.Controls.Add(this.cboInstitute);
-            this.panel8.Location = new System.Drawing.Point(3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(140, 21);
-            this.panel8.TabIndex = 0;
-            // 
-            // cboInstitute
-            // 
-            this.cboInstitute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboInstitute.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboInstitute.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboInstitute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboInstitute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboInstitute.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboInstitute.FormattingEnabled = true;
-            this.cboInstitute.Location = new System.Drawing.Point(-1, -1);
-            this.cboInstitute.Name = "cboInstitute";
-            this.cboInstitute.Size = new System.Drawing.Size(142, 23);
-            this.cboInstitute.TabIndex = 0;
-            this.cboInstitute.SelectedValueChanged += new System.EventHandler(this.cboInstitute_SelectedValueChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label11.Location = new System.Drawing.Point(3, 5);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 15);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Institute";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFilter3
-            // 
-            this.pnlFilter3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter3.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter3.Controls.Add(this.pnlFilter3Holder);
-            this.pnlFilter3.Controls.Add(this.label3);
-            this.pnlFilter3.Location = new System.Drawing.Point(5, 65);
-            this.pnlFilter3.Name = "pnlFilter3";
-            this.pnlFilter3.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter3.TabIndex = 3;
-            // 
-            // pnlFilter3Holder
-            // 
-            this.pnlFilter3Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter3Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter3Holder.Controls.Add(this.panel6);
-            this.pnlFilter3Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter3Holder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFilter3Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter3Holder.Name = "pnlFilter3Holder";
-            this.pnlFilter3Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter3Holder.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.cboVsRange);
-            this.panel6.Location = new System.Drawing.Point(3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(140, 21);
-            this.panel6.TabIndex = 0;
-            // 
-            // cboVsRange
-            // 
-            this.cboVsRange.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboVsRange.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboVsRange.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboVsRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboVsRange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboVsRange.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboVsRange.FormattingEnabled = true;
-            this.cboVsRange.Location = new System.Drawing.Point(-1, -1);
-            this.cboVsRange.Name = "cboVsRange";
-            this.cboVsRange.Size = new System.Drawing.Size(142, 23);
-            this.cboVsRange.TabIndex = 0;
-            this.cboVsRange.SelectedValueChanged += new System.EventHandler(this.cboVsRange_SelectedValueChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "VS Range";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFilter2
-            // 
-            this.pnlFilter2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter2.Controls.Add(this.pnlFilter2Holder);
-            this.pnlFilter2.Controls.Add(this.label4);
-            this.pnlFilter2.Location = new System.Drawing.Point(5, 35);
-            this.pnlFilter2.Name = "pnlFilter2";
-            this.pnlFilter2.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter2.TabIndex = 2;
-            // 
-            // pnlFilter2Holder
-            // 
-            this.pnlFilter2Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter2Holder.Controls.Add(this.panel7);
-            this.pnlFilter2Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter2Holder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFilter2Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter2Holder.Name = "pnlFilter2Holder";
-            this.pnlFilter2Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter2Holder.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.cboDistrict);
-            this.panel7.Location = new System.Drawing.Point(3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(140, 21);
-            this.panel7.TabIndex = 0;
-            // 
-            // cboDistrict
-            // 
-            this.cboDistrict.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboDistrict.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboDistrict.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDistrict.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboDistrict.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboDistrict.FormattingEnabled = true;
-            this.cboDistrict.Location = new System.Drawing.Point(-1, -1);
-            this.cboDistrict.Name = "cboDistrict";
-            this.cboDistrict.Size = new System.Drawing.Size(142, 23);
-            this.cboDistrict.TabIndex = 0;
-            this.cboDistrict.SelectedValueChanged += new System.EventHandler(this.cboDistrict_SelectedValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "District";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlFilter1
             // 
@@ -1041,28 +647,28 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.cboProvince);
+            this.panel4.Controls.Add(this.cboUser);
             this.panel4.Location = new System.Drawing.Point(3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(140, 21);
             this.panel4.TabIndex = 0;
             // 
-            // cboProvince
+            // cboUser
             // 
-            this.cboProvince.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboProvince.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboProvince.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProvince.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboProvince.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboProvince.FormattingEnabled = true;
-            this.cboProvince.Location = new System.Drawing.Point(-1, -1);
-            this.cboProvince.Name = "cboProvince";
-            this.cboProvince.Size = new System.Drawing.Size(142, 23);
-            this.cboProvince.TabIndex = 0;
-            this.cboProvince.SelectedValueChanged += new System.EventHandler(this.cboProvince_SelectedValueChanged);
+            this.cboUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboUser.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboUser.FormattingEnabled = true;
+            this.cboUser.Location = new System.Drawing.Point(-1, -1);
+            this.cboUser.Name = "cboUser";
+            this.cboUser.Size = new System.Drawing.Size(142, 23);
+            this.cboUser.TabIndex = 0;
+            this.cboUser.SelectedValueChanged += new System.EventHandler(this.cboUser_SelectedValueChanged);
             // 
             // label6
             // 
@@ -1074,9 +680,9 @@
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label6.Location = new System.Drawing.Point(3, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 15);
+            this.label6.Size = new System.Drawing.Size(59, 15);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Province";
+            this.label6.Text = "Customer";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTime
@@ -1295,9 +901,9 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 15);
+            this.label1.Size = new System.Drawing.Size(58, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "      Calving Range";
+            this.label1.Text = "      Range";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSide
@@ -1336,8 +942,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "StatisticsSection";
             this.Size = new System.Drawing.Size(820, 500);
-            ((System.ComponentModel.ISupportInitialize)(this.nudSemenCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTechnicianCode)).EndInit();
             this.pnlTotals.ResumeLayout(false);
             this.pnlTotals.PerformLayout();
             this.pnlTotalsHolder.ResumeLayout(false);
@@ -1351,28 +955,10 @@
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
             this.pnlFilterHolder.ResumeLayout(false);
-            this.pnlFilter6.ResumeLayout(false);
-            this.pnlFilter6.PerformLayout();
-            this.pnlFilter6Holder.ResumeLayout(false);
-            this.pnlFilter6Holder.PerformLayout();
-            this.pnlNudSemenCodeHolder.ResumeLayout(false);
-            this.pnlFilter5.ResumeLayout(false);
-            this.pnlFilter5.PerformLayout();
-            this.pnlFilter5Holder.ResumeLayout(false);
-            this.pnlFilter5Holder.PerformLayout();
-            this.pnlNudTechnicianCodeHolder.ResumeLayout(false);
-            this.pnlFilter4.ResumeLayout(false);
-            this.pnlFilter4.PerformLayout();
-            this.pnlFilter4Holder.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.pnlFilter3.ResumeLayout(false);
-            this.pnlFilter3.PerformLayout();
-            this.pnlFilter3Holder.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.pnlFilter2.ResumeLayout(false);
-            this.pnlFilter2.PerformLayout();
-            this.pnlFilter2Holder.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
+            this.pnlSex.ResumeLayout(false);
+            this.pnlSex.PerformLayout();
+            this.pnlSexHolder.ResumeLayout(false);
+            this.pnlSexHolder.PerformLayout();
             this.pnlFilter1.ResumeLayout(false);
             this.pnlFilter1.PerformLayout();
             this.pnlFilter1Holder.ResumeLayout(false);
@@ -1410,39 +996,10 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Panel pnlFilter;
         private System.Windows.Forms.Panel pnlFilterHolder;
-        private System.Windows.Forms.Panel pnlFilter6;
-        private System.Windows.Forms.Panel pnlFilter6Holder;
-        private System.Windows.Forms.Panel pnlNudSemenCodeHolder;
-        private System.Windows.Forms.NumericUpDown nudSemenCode;
-        private System.Windows.Forms.RadioButton rdoSemenAll;
-        private System.Windows.Forms.RadioButton rdoSemenCode;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel pnlFilter5;
-        private System.Windows.Forms.Panel pnlFilter5Holder;
-        private System.Windows.Forms.Panel pnlNudTechnicianCodeHolder;
-        private System.Windows.Forms.NumericUpDown nudTechnicianCode;
-        private System.Windows.Forms.RadioButton rdoTechnicianAll;
-        private System.Windows.Forms.RadioButton rdoTechnicianCode;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel pnlFilter4;
-        private System.Windows.Forms.Panel pnlFilter4Holder;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox cboInstitute;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel pnlFilter3;
-        private System.Windows.Forms.Panel pnlFilter3Holder;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox cboVsRange;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel pnlFilter2;
-        private System.Windows.Forms.Panel pnlFilter2Holder;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox cboDistrict;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnlFilter1;
         private System.Windows.Forms.Panel pnlFilter1Holder;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cboProvince;
+        private System.Windows.Forms.ComboBox cboUser;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnFilterClear;
@@ -1478,5 +1035,10 @@
         private System.Windows.Forms.Panel pnlShow;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Panel pnlSex;
+        private System.Windows.Forms.Panel pnlSexHolder;
+        private System.Windows.Forms.RadioButton rdoType;
+        private System.Windows.Forms.RadioButton rdoColor;
+        private System.Windows.Forms.Label label8;
     }
 }

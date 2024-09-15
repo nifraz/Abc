@@ -138,7 +138,7 @@ namespace ABC.CarTraders.GUI.Forms
 
         public async Task LoadInitialAsync()
         {
-            statisticsSection1.LoadInitialData();
+            statisticsSection1.LoadInitialDataAsync();
             userSection1.LoadInitialData();
             carSection1.LoadInitialData();
             await carPartSection1.LoadInitialDataAsync();

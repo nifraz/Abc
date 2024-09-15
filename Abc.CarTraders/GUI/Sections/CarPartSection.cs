@@ -126,9 +126,9 @@ namespace ABC.CarTraders.GUI.Sections
         public async Task LoadInitialDataAsync()
         {
             var cars = new List<Car>() { new Car() { Id = 0, ModelName = "All" } };
-            cars.AddRange (await DbContext.Cars
-                .OrderBy(x => x.ModelName)
-                .ToListAsync());
+            //cars.AddRange (await DbContext.Cars
+            //    .OrderBy(x => x.ModelName)
+            //    .ToListAsync());
 
             cboCar.DataSource = cars;
         }
