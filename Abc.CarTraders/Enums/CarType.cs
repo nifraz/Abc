@@ -7,6 +7,5 @@
         Truck = 3,
         Coupe = 4,
         Convertible = 5,
-        Hatchback = 6,
     }
 }

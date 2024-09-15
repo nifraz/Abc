@@ -44,7 +44,6 @@ namespace ABC.CarTraders.GUI.Sections
                 Enums.CarType.Truck.ToString(),
                 Enums.CarType.Coupe.ToString(),
                 Enums.CarType.Convertible.ToString(),
-                Enums.CarType.Hatchback.ToString(),
             };
             cboColor.DataSource = new List<string>() 
             { 

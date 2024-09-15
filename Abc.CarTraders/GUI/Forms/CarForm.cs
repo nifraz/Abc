@@ -31,7 +31,6 @@ namespace ABC.CarTraders.GUI.Forms
                 CarType.Truck,
                 CarType.Coupe,
                 CarType.Convertible,
-                CarType.Hatchback,
             };
 
             ModelName = null;

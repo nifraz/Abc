@@ -1,4 +1,5 @@
 ﻿using ABC.CarTraders.Entities;
+using ABC.CarTraders.Enums;
 using ABC.CarTraders.GUI.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
@@ -30,8 +31,8 @@ namespace ABC.CarTraders.GUI.Sections
             InitializeComponent();
             pnlLoadingCircle.Controls.Add(LoadingCircle);
 
-            DrawPerformanceChart();
-            DrawTotalsChart();
+            DrawPerformanceChartByColor();
+            DrawTotalsChartByColor();
 
             cboUser.DataSource = new List<string>() { "All" };
 
@@ -145,10 +146,27 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Drawing
-        //cartesian chart
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
-        private void DrawPerformanceChart()
+        private LiveCharts.WinForms.PieChart pieChart1;
+
+        // List of car colors
+        private List<string> carColors = new List<string>()
         {
+            "Black",
+            "White",
+            "Blue",
+            "Green",
+            "Yellow",
+            "Red"
+        };
+
+        // List of car types (you'll need to populate this according to your data)
+        private List<string> carTypes = Helper.GetEnumNamesToStringList<CarType>();
+        private void DrawPerformanceChartByColor()
+        {
+            // Clear the existing chart before drawing
+            pnlPerformanceChartHolder.Controls.Clear();
+
             cartesianChart1 = new LiveCharts.WinForms.CartesianChart()
             {
                 Name = "Cartesian Chart",
@@ -157,50 +175,30 @@ namespace ABC.CarTraders.GUI.Sections
                 Size = new Size(pnlPerformanceChartHolder.Width, pnlPerformanceChartHolder.Height - 1),
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                //BackColorTransparent = true,
                 AnimationsSpeed = TimeSpan.FromMilliseconds(100),
-                Series = new SeriesCollection
-                {
-                    new LineSeries
-                    {
-                        Title = "Black",
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        Stroke = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = System.Windows.Media.Colors.DarkGray
-                        },
-                        StrokeThickness = 2,
-                        Fill = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = System.Windows.Media.Colors.Gray,
-                            Opacity = 0.20
-                        },
-                        DataLabels = true,
-                        Values = new ChartValues<int>()
-                    },
-                    new LineSeries
-                    {
-                        Title = "White",
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        Stroke = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = System.Windows.Media.Colors.DarkGray
-                        },
-                        StrokeThickness = 2,
-                        Fill = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = System.Windows.Media.Colors.Gray,
-                            Opacity = 0.20
-                        },
-                        DataLabels = true,
-                        Values = new ChartValues<int>()
-                    },
-                }
+                Series = new SeriesCollection()
             };
+
+            // Add a line series for each car color
+            foreach (var color in carColors) // Skip "All"
+            {
+                var lineSeries = new LineSeries
+                {
+                    Title = color,
+                    Foreground = System.Windows.Media.Brushes.Black,
+                    Stroke = GetBrushForColor(color), // Custom method to get color brush
+                    StrokeThickness = 2,
+                    Fill = GetBrushForColor(color, 0.2), // Custom method to get transparent fill
+                    DataLabels = true,
+                    Values = new ChartValues<int>() // Add your data here
+                };
+
+                cartesianChart1.Series.Add(lineSeries);
+            }
 
             cartesianChart1.AxisX.Add(new Axis
             {
-                Title = "Year",
+                Title = rdoYearly.Checked ? "Year" : "Month", // Switch based on selected period
                 Foreground = System.Windows.Media.Brushes.Black,
                 FontSize = 12,
                 Separator = new Separator
@@ -226,13 +224,14 @@ namespace ABC.CarTraders.GUI.Sections
                 }
             });
 
-            pnlPerformanceChartHolder.Controls.Add(cartesianChart1);
+            pnlPerformanceChartHolder.Controls.Add(cartesianChart1); // Re-add the chart
         }
 
-        //pie chart
-        private LiveCharts.WinForms.PieChart pieChart1;
-        private void DrawTotalsChart()
+        private void DrawTotalsChartByColor()
         {
+            // Clear the existing chart before drawing
+            pnlTotalsChartHolder.Controls.Clear();
+
             pieChart1 = new LiveCharts.WinForms.PieChart()
             {
                 Name = "Pie Chart",
@@ -242,58 +241,83 @@ namespace ABC.CarTraders.GUI.Sections
                 Size = new Size(pnlTotalsChartHolder.Width, pnlTotalsChartHolder.Height - 1),
                 Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
                 Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                //BackColorTransparent = true,
                 AnimationsSpeed = TimeSpan.FromMilliseconds(100),
-
-                Series = new SeriesCollection
-                {
-                    new PieSeries
-                    {
-                        Title = "Black",
-                        DataLabels = true,
-                        Fill = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = new System.Windows.Media.Color()
-                            {
-                                A = ColorScheme.Blue.Color3.A,
-                                R = ColorScheme.Blue.Color3.R,
-                                G = ColorScheme.Blue.Color3.G,
-                                B = ColorScheme.Blue.Color3.B,
-                            },
-                            Opacity = 0.75
-                        },
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        FontSize = 9,
-                        //Stroke = System.Windows.Media.Brushes.DarkGray,
-                        StrokeThickness = 0,
-                        Values = new ChartValues<int>()
-                    },
-                    new PieSeries
-                    {
-                        Title = "White",
-                        DataLabels = true,
-                        Fill = new System.Windows.Media.SolidColorBrush()
-                        {
-                            Color = new System.Windows.Media.Color()
-                            {
-                                A = ColorScheme.Green.Color3.A,
-                                R = ColorScheme.Green.Color3.R,
-                                G = ColorScheme.Green.Color3.G,
-                                B = ColorScheme.Green.Color3.B,
-                            },
-                            Opacity = 0.75
-                        },
-                        Foreground = System.Windows.Media.Brushes.Black,
-                        FontSize = 9,
-                        //Stroke = System.Windows.Media.Brushes.DarkGray,
-                        StrokeThickness = 0,
-                        Values = new ChartValues<int>()
-                    }
-                }
+                Series = new SeriesCollection()
             };
 
-            pnlTotalsChartHolder.Controls.Add(pieChart1);
+            // Add a PieSeries for each car color
+            foreach (var color in carColors) // Skip "All"
+            {
+                var pieSeries = new PieSeries
+                {
+                    Title = color,
+                    DataLabels = true,
+                    Fill = GetBrushForColor(color), // Custom method to get color brush
+                    Foreground = System.Windows.Media.Brushes.Black,
+                    FontSize = 9,
+                    StrokeThickness = 0,
+                    Values = new ChartValues<int> { GetSalesForColor(color) } // Add your data here
+                };
+
+                pieChart1.Series.Add(pieSeries);
+            }
+
+            pnlTotalsChartHolder.Controls.Add(pieChart1); // Re-add the chart
         }
+
+
+        private void DrawPerformanceChartByType()
+        {
+            cartesianChart1.Series.Clear();
+
+            // Add a line series for each car type
+            foreach (var type in carTypes)
+            {
+                var lineSeries = new LineSeries
+                {
+                    Title = type,
+                    Foreground = System.Windows.Media.Brushes.Black,
+                    Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.DarkGray),
+                    StrokeThickness = 2,
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Gray)
+                    {
+                        Opacity = 0.2
+                    },
+                    DataLabels = true,
+                    Values = new ChartValues<int>() // Add your data here
+                };
+
+                cartesianChart1.Series.Add(lineSeries);
+            }
+
+            cartesianChart1.AxisX[0].Title = rdoYearly.Checked ? "Year" : "Month"; // Update axis based on period
+        }
+
+        private void DrawTotalsChartByType()
+        {
+            pieChart1.Series.Clear();
+
+            // Add a PieSeries for each car type
+            foreach (var type in carTypes)
+            {
+                var pieSeries = new PieSeries
+                {
+                    Title = type,
+                    DataLabels = true,
+                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Gray)
+                    {
+                        Opacity = 0.75
+                    },
+                    Foreground = System.Windows.Media.Brushes.Black,
+                    FontSize = 9,
+                    StrokeThickness = 0,
+                    Values = new ChartValues<int> { GetSalesForType(type) } // Add your data here
+                };
+
+                pieChart1.Series.Add(pieSeries);
+            }
+        }
+
         #endregion
 
         #region 
@@ -428,78 +452,7 @@ namespace ABC.CarTraders.GUI.Sections
         #endregion
 
         #region Filter
-        //private Province CalvingRecordProvince
-        //{
-        //    get
-        //    {
-        //        if (cboProvince.Text != "All")
-        //        {
-        //            return DbContext.Provinces.GetAllCached().SingleOrDefault(p => p.Name == cboProvince.Text);
-        //        }
-        //        return null;
-        //    }
-        //    set
-        //    {
-        //        cboProvince.SelectedValueChanged -= cboProvince_SelectedValueChanged;
-        //        cboProvince.SelectedItem = value == null ? "All" : value.ToString();
-        //        cboProvince.SelectedValueChanged += cboProvince_SelectedValueChanged;
-        //    }
-        //}
-
-        //private District CalvingRecordDistrict
-        //{
-        //    get
-        //    {
-        //        if (cboDistrict.Text != "All")
-        //        {
-        //            return DbContext.Districts.GetAllCached().SingleOrDefault(d => d.Name == cboDistrict.Text);
-        //        }
-        //        return null;
-        //    }
-        //    set
-        //    {
-        //        cboDistrict.SelectedValueChanged -= cboDistrict_SelectedValueChanged;
-        //        cboDistrict.SelectedItem = value == null ? "All" : value.ToString();
-        //        cboDistrict.SelectedValueChanged += cboDistrict_SelectedValueChanged;
-        //    }
-        //}
-
-        //private VsRange CalvingRecordVsRange
-        //{
-        //    get
-        //    {
-        //        if (cboVsRange.Text != "All")
-        //        {
-        //            return DbContext.VsRanges.GetAllCached().SingleOrDefault(d => d.Name == cboVsRange.Text);
-        //        }
-        //        return null;
-        //    }
-        //    set
-        //    {
-        //        cboVsRange.SelectedValueChanged -= cboVsRange_SelectedValueChanged;
-        //        cboVsRange.SelectedItem = value == null ? "All" : value.ToString();
-        //        cboVsRange.SelectedValueChanged += cboVsRange_SelectedValueChanged;
-        //    }
-        //}
-
-        //private Institute CalvingRecordInstitute
-        //{
-        //    get
-        //    {
-        //        if (cboInstitute.Text != "All")
-        //        {
-        //            return DbContext.Institutes.GetAllCached().SingleOrDefault(d => d.Name == cboInstitute.Text);
-        //        }
-        //        return null;
-        //    }
-        //    set
-        //    {
-        //        cboInstitute.SelectedValueChanged -= cboInstitute_SelectedValueChanged;
-        //        cboInstitute.SelectedItem = value == null ? "All" : value.ToString();
-        //        cboInstitute.SelectedValueChanged += cboInstitute_SelectedValueChanged;
-        //    }
-        //}
-
+       
         
         private async void btnFilterClear_Click(object sender, EventArgs e)
         {
@@ -523,34 +476,6 @@ namespace ABC.CarTraders.GUI.Sections
             //}
 
             //cboDistrict.DataSource = districts;
-        }
-
-        private void cboDistrict_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //if (DbContext == null) return;
-            //var vsRanges = new List<string>() { "All" };
-            //if (cboDistrict.Text.Equals("All"))
-            //{
-            //    if (cboProvince.Text.Equals("All"))
-            //    {
-            //        vsRanges.AddRange(DbContext.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            //    }
-            //    else
-            //    {
-            //        vsRanges.AddRange(DbContext.VsRanges.GetAllCached().Where(vsr => vsr.Province.Name.Equals(cboProvince.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            //    }
-            //}
-            //else
-            //{
-            //    vsRanges.AddRange(DbContext.VsRanges.GetAllCached().Where(vsr => vsr.District.Name.Equals(cboDistrict.Text)).OrderBy(vsr => vsr.Name).Select(vsr => vsr.Name));
-            //}
-
-            //cboVsRange.DataSource = vsRanges;
-        }
-
-        private async void rdoCategory_CheckedChanged(object sender, EventArgs e)
-        {
-            await RefreshAsync();
         }
 
         #endregion
@@ -602,98 +527,102 @@ namespace ABC.CarTraders.GUI.Sections
         {
             if (DbContext == null) return;
 
-            await RefreshPerformanceAsync();
-            await RefreshTotalsAsync();
-            //MainTitleText = $"Performance [{RangeStart == null?} - {PagedList.LastItemOnPage} / {PagedList.TotalItemCount}]";
+            // Check whether Color or Type is selected
+            if (rdoColor.Checked)
+            {
+                // Fetch data and update charts for car colors
+                await RefreshPerformanceAsyncByColor();
+                await RefreshTotalsAsyncByColor();
+            }
+            else if (rdoType.Checked)
+            {
+                // Fetch data and update charts for car types
+                await RefreshPerformanceAsyncByType();
+                await RefreshTotalsAsyncByType();
+            }
+
+            // Reapply the color scheme after refreshing the data
             HomeSection_ColorSchemeChanged(this, ColorScheme);
         }
 
-        private async Task RefreshPerformanceAsync()
+        private async Task RefreshPerformanceAsyncByColor()
         {
-            if (DbContext == null) return;
+            // Example: Fetch color-based performance data from the database (dummy data for now)
+            var blackValues = new ChartValues<int> { 10, 20, 30 }; // Replace with actual data fetching
+            var whiteValues = new ChartValues<int> { 15, 25, 35 };
+            var blueValues = new ChartValues<int> { 5, 10, 15 };
+            var greenValues = new ChartValues<int> { 8, 12, 18 };
+            var yellowValues = new ChartValues<int> { 6, 14, 19 };
+            var redValues = new ChartValues<int> { 13, 17, 21 };
 
-            var result = DialogResult.Retry;
-            while (result == DialogResult.Retry)
-            {
-                try
-                {
-                    StartProgress("Refreshing Performance...");
-
-                    List<Tuple<string, int, int, int>> valuesList = new List<Tuple<string, int, int, int>>();
-
-                    var rangeStart = RangeStart != null ? RangeStart : new DateTime(2015, 1, 1);
-                    var rangeEnd = RangeEnd != null ? RangeEnd : DateTime.Today;
-
-                    //if (rdoYearly.Checked)
-                    //{
-
-                    //}
-                    //else
-                    //{
-
-                    //}
-
-                    var labels = new ChartValues<string>();
-                    var blackValues = new ChartValues<int>();
-                    var whiteValues = new ChartValues<int>();
-                    var totalValues = new ChartValues<int>();
-
-                    foreach (var values in valuesList)
-                    {
-                        labels.Add(values.Item1.ToString());
-                        blackValues.Add(values.Item2);
-                        whiteValues.Add(values.Item3);
-                        totalValues.Add(values.Item4);
-                    }
-
-                    cartesianChart1.Series[0].Values = blackValues;
-                    cartesianChart1.Series[1].Values = whiteValues;
-                    cartesianChart1.AxisX[0].Labels = labels;
-
-                    StopProgress();
-                    //StatusText = "Ready";
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    StopProgress();
-                    StatusText = "Error Occurred";
-                    result = MessageBox.Show($"An error occurred while retrieving data from the Database.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-            }
-            StatusText = "Ready";
+            // Update chart values for each color
+            cartesianChart1.Series[0].Values = blackValues;
+            cartesianChart1.Series[1].Values = whiteValues;
+            cartesianChart1.Series[2].Values = blueValues;
+            cartesianChart1.Series[3].Values = greenValues;
+            cartesianChart1.Series[4].Values = yellowValues;
+            cartesianChart1.Series[5].Values = redValues;
         }
 
-        private async Task RefreshTotalsAsync()
+        private async Task RefreshPerformanceAsyncByType()
         {
-            if (DbContext == null) return;
+            // Example: Fetch type-based performance data from the database (dummy data for now)
+            var suvValues = new ChartValues<int> { 10, 30, 40 }; // Replace with actual data fetching
+            var sedanValues = new ChartValues<int> { 20, 40, 60 };
+            var truckValues = new ChartValues<int> { 15, 25, 35 };
+            var convertibleValues = new ChartValues<int> { 18, 28, 38 };
+            var coupeValues = new ChartValues<int> { 12, 22, 32 };
 
-            var result = DialogResult.Retry;
-            while (result == DialogResult.Retry)
-            {
-                try
-                {
-                    StartProgress("Refreshing Totals...");
-
-                    //var values = await DbContext.CalvingRecords.GetTotalsAsync(CalvingRecordProvince, CalvingRecordDistrict, CalvingRecordVsRange, CalvingRecordInstitute, CalvingRecordTechnicianCode, CalvingRecordSemenCode, RangeStart, RangeEnd);
-
-                    //pieChart1.Series[0].Values = new ChartValues<int> { values.Item1 };
-                    //pieChart1.Series[1].Values = new ChartValues<int> { values.Item2 };
-                    //label7.Text = $"      Total [{values.Item3}]";
-
-                    StopProgress();
-                    //StatusText = "Ready";
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    StopProgress();
-                    StatusText = "Error Occurred";
-                    result = MessageBox.Show($"An error occurred while retrieving data from the Database.\n{ex.Message}\nPlease try again.", "ERROR", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                }
-            }
-            StatusText = "Ready";
+            // Update chart values for each type
+            cartesianChart1.Series[0].Values = suvValues;
+            cartesianChart1.Series[1].Values = sedanValues;
+            cartesianChart1.Series[2].Values = truckValues;
+            cartesianChart1.Series[3].Values = convertibleValues;
+            cartesianChart1.Series[4].Values = coupeValues;
         }
+
+        private async Task RefreshTotalsAsyncByColor()
+        {
+            // Simulate a delay to mimic data fetching
+            await Task.Delay(500);
+
+            // Dummy data for car colors' sales
+            var blackSales = 50;
+            var whiteSales = 70;
+            var blueSales = 30;
+            var greenSales = 40;
+            var yellowSales = 20;
+            var redSales = 60;
+
+            // Update PieChart with color-based sales
+            pieChart1.Series[0].Values = new ChartValues<int> { blackSales };  // Black
+            pieChart1.Series[1].Values = new ChartValues<int> { whiteSales };  // White
+            pieChart1.Series[2].Values = new ChartValues<int> { blueSales };   // Blue
+            pieChart1.Series[3].Values = new ChartValues<int> { greenSales };  // Green
+            pieChart1.Series[4].Values = new ChartValues<int> { yellowSales }; // Yellow
+            pieChart1.Series[5].Values = new ChartValues<int> { redSales };    // Red
+        }
+
+        private async Task RefreshTotalsAsyncByType()
+        {
+            // Simulate a delay to mimic data fetching
+            await Task.Delay(500);
+
+            // Dummy data for car types' sales
+            var suvSales = 100;
+            var sedanSales = 80;
+            var truckSales = 60;
+            var convertibleSales = 40;
+            var coupeSales = 90;
+
+            // Update PieChart with type-based sales
+            pieChart1.Series[0].Values = new ChartValues<int> { suvSales };        // SUV
+            pieChart1.Series[1].Values = new ChartValues<int> { sedanSales };      // Sedan
+            pieChart1.Series[2].Values = new ChartValues<int> { truckSales };      // Truck
+            pieChart1.Series[3].Values = new ChartValues<int> { convertibleSales };// Convertible
+            pieChart1.Series[4].Values = new ChartValues<int> { coupeSales };      // Coupe
+        }
+
         #endregion
 
         #region Progress
@@ -750,17 +679,108 @@ namespace ABC.CarTraders.GUI.Sections
             e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
             
         }
+        private async void rdoColor_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoColor.Checked)
+            {
+                DrawPerformanceChartByColor();
+                DrawTotalsChartByColor();
+                await RefreshAsync(); // Fetch and apply color-based statistics
+            }
+        }
+
+        private async void rdoType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoType.Checked)
+            {
+                DrawPerformanceChartByType();
+                DrawTotalsChartByType();
+                await RefreshAsync(); // Fetch and apply type-based statistics
+            }
+        }
 
         private async void rdoYearly_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdoMonthly.Checked) return;
-            await RefreshPerformanceAsync();
+            if (rdoYearly.Checked)
+            {
+                if (rdoColor.Checked)
+                {
+                    DrawPerformanceChartByColor();  // Re-draw based on yearly data
+                }
+                else if (rdoType.Checked)
+                {
+                    DrawPerformanceChartByType();  // Re-draw based on yearly data
+                }
+                await RefreshAsync(); // Fetch and apply yearly data
+            }
         }
 
         private async void rdoMonthly_CheckedChanged(object sender, EventArgs e)
         {
-            if (rdoYearly.Checked) return;
-            await RefreshPerformanceAsync();
+            if (rdoMonthly.Checked)
+            {
+                if (rdoColor.Checked)
+                {
+                    DrawPerformanceChartByColor();  // Re-draw based on monthly data
+                }
+                else if (rdoType.Checked)
+                {
+                    DrawPerformanceChartByType();  // Re-draw based on monthly data
+                }
+                await RefreshAsync(); // Fetch and apply monthly data
+            }
         }
+
+
+        private System.Windows.Media.Brush GetBrushForColor(string color, double opacity = 1.0)
+        {
+            switch (color)
+            {
+                case "Black":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Black) { Opacity = opacity };
+                case "White":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.White) { Opacity = opacity };
+                case "Blue":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Blue) { Opacity = opacity };
+                case "Green":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Green) { Opacity = opacity };
+                case "Yellow":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Yellow) { Opacity = opacity };
+                case "Red":
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red) { Opacity = opacity };
+                default:
+                    return new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Gray) { Opacity = opacity };
+            }
+        }
+
+        private void ClearCharts()
+        {
+            // Clear existing series from CartesianChart
+            if (cartesianChart1 != null)
+            {
+                cartesianChart1.Series.Clear();  // Clears all the series in the Cartesian chart
+            }
+
+            // Clear existing series from PieChart
+            if (pieChart1 != null)
+            {
+                pieChart1.Series.Clear();  // Clears all the series in the Pie chart
+            }
+        }
+
+
+        private int GetSalesForColor(string color)
+        {
+            // Implement logic to fetch sales data for the specific color
+            return new Random().Next(10, 100);  // Dummy data for now
+        }
+
+        private int GetSalesForType(string type)
+        {
+            // Implement logic to fetch sales data for the specific type
+            return new Random().Next(10, 100);  // Dummy data for now
+        }
+
+
     }
 }

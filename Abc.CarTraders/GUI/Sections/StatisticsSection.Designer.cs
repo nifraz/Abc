@@ -574,32 +574,32 @@
             // rdoType
             // 
             this.rdoType.AutoSize = true;
-            this.rdoType.Checked = true;
             this.rdoType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rdoType.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.rdoType.Location = new System.Drawing.Point(5, 3);
             this.rdoType.Name = "rdoType";
             this.rdoType.Size = new System.Drawing.Size(48, 19);
             this.rdoType.TabIndex = 0;
-            this.rdoType.TabStop = true;
             this.rdoType.Tag = "";
             this.rdoType.Text = "Type";
             this.rdoType.UseVisualStyleBackColor = true;
-            this.rdoType.CheckedChanged += new System.EventHandler(this.rdoCategory_CheckedChanged);
+            this.rdoType.CheckedChanged += new System.EventHandler(this.rdoType_CheckedChanged);
             // 
             // rdoColor
             // 
             this.rdoColor.AutoSize = true;
+            this.rdoColor.Checked = true;
             this.rdoColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rdoColor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.rdoColor.Location = new System.Drawing.Point(61, 3);
             this.rdoColor.Name = "rdoColor";
             this.rdoColor.Size = new System.Drawing.Size(53, 19);
             this.rdoColor.TabIndex = 1;
+            this.rdoColor.TabStop = true;
             this.rdoColor.Tag = "";
             this.rdoColor.Text = "Color";
             this.rdoColor.UseVisualStyleBackColor = true;
-            this.rdoColor.CheckedChanged += new System.EventHandler(this.rdoCategory_CheckedChanged);
+            this.rdoColor.CheckedChanged += new System.EventHandler(this.rdoColor_CheckedChanged);
             // 
             // label8
             // 

@@ -217,5 +217,10 @@ namespace ABC.CarTraders
             input = textBox.Text;
             return result;
         }
+
+        public static List<string> GetEnumNamesToStringList<T>() where T : Enum
+        {
+            return Enum.GetNames(typeof(T)).ToList();
+        }
     }
 }
