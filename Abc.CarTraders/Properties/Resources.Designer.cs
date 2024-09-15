@@ -323,9 +323,9 @@ namespace ABC.CarTraders.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car_dark__15px {
+        internal static System.Drawing.Bitmap car_dark_15px {
             get {
-                object obj = ResourceManager.GetObject("car_dark__15px", resourceCulture);
+                object obj = ResourceManager.GetObject("car_dark_15px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +336,16 @@ namespace ABC.CarTraders.Properties {
         internal static System.Drawing.Bitmap car_dark_25px {
             get {
                 object obj = ResourceManager.GetObject("car_dark_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap car_light_15px {
+            get {
+                object obj = ResourceManager.GetObject("car_light_15px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +366,16 @@ namespace ABC.CarTraders.Properties {
         internal static System.Drawing.Bitmap carpart_100px {
             get {
                 object obj = ResourceManager.GetObject("carpart_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap carpart_dark_15px {
+            get {
+                object obj = ResourceManager.GetObject("carpart_dark_15px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -2126,6 +2146,46 @@ namespace ABC.CarTraders.Properties {
         internal static System.Drawing.Bitmap settings_light {
             get {
                 object obj = ResourceManager.GetObject("settings_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_dark_15px {
+            get {
+                object obj = ResourceManager.GetObject("shopping_cart_dark_15px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_light_15px {
+            get {
+                object obj = ResourceManager.GetObject("shopping_cart_light_15px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_light_25px {
+            get {
+                object obj = ResourceManager.GetObject("shopping_cart_light_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_dark_cart_25px {
+            get {
+                object obj = ResourceManager.GetObject("shopping_dark_cart_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

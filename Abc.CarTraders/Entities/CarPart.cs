@@ -16,7 +16,7 @@ namespace ABC.CarTraders.Entities
         public int CarId { get; set; }
         public Car Car { get; set; }  // Relationship: Each CarPart belongs to one Car
 
-        public List<Order> Orders { get; set; } = new List<Order>(); // Relationship: One CarPart can be part of multiple Orders
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>(); // Relationship: One CarPart can be part of multiple Orders
 
         [NotMapped]
         public Image Thumbnail
@@ -36,6 +36,11 @@ namespace ABC.CarTraders.Entities
                     return Helper.ResizeImageToFitBox(originalImage, 100, 100);  // Resize to 100px width
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            return PartName;
         }
     }
 

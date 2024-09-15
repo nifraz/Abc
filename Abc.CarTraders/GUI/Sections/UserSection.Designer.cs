@@ -120,8 +120,8 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.pnlSide = new System.Windows.Forms.Panel();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -702,8 +702,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
-            this.colEMail,
             this.colImage,
+            this.colEMail,
             this.colFullName,
             this.colPhoneNo,
             this.colRole,
@@ -1535,23 +1535,23 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             // 
-            // colEMail
-            // 
-            this.colEMail.DataPropertyName = "EMail";
-            this.colEMail.DividerWidth = 1;
-            this.colEMail.Frozen = true;
-            this.colEMail.HeaderText = "E-Mail";
-            this.colEMail.Name = "colEMail";
-            this.colEMail.ReadOnly = true;
-            this.colEMail.Width = 120;
-            // 
             // colImage
             // 
             this.colImage.DataPropertyName = "Thumbnail";
             this.colImage.DividerWidth = 1;
+            this.colImage.Frozen = true;
             this.colImage.HeaderText = "Image";
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
+            // 
+            // colEMail
+            // 
+            this.colEMail.DataPropertyName = "EMail";
+            this.colEMail.DividerWidth = 1;
+            this.colEMail.HeaderText = "E-Mail";
+            this.colEMail.Name = "colEMail";
+            this.colEMail.ReadOnly = true;
+            this.colEMail.Width = 120;
             // 
             // colFullName
             // 
@@ -1793,8 +1793,8 @@
         private System.Windows.Forms.Label lblPages;
         private System.Windows.Forms.Panel pnlSide;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;

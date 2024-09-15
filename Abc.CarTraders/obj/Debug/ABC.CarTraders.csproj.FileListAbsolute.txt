@@ -136,3 +136,5 @@ C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\bin\Debug\Page
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\bin\Debug\PagedList.EntityFramework.pdb
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\bin\Debug\PagedList.EntityFramework.xml
 C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\Abc.CarT.9AF9EE64.Up2Date
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.Migrations.UpdateContext.resources
+C:\Users\Nifraz Navahz\OneDrive\Desktop\nifraz\Abc\Abc.CarTraders\obj\Debug\ABC.CarTraders.GUI.Forms.ShoppingCartForm.resources

@@ -19,7 +19,7 @@ namespace ABC.CarTraders.Entities
 
         //Navigation Properties
         public List<CarPart> CarParts { get; set; } = new List<CarPart>(); // Relationship: One Car can have multiple parts
-        public List<Order> Orders { get; set; } = new List<Order>(); // Relationship: One Car can be part of multiple Orders
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>(); // Relationship: One Car can be part of multiple Orders
 
         [NotMapped]
         public Image Thumbnail
@@ -41,14 +41,10 @@ namespace ABC.CarTraders.Entities
             }
         }
 
-        //ModelName = OldRecord.ModelName;
-        //Price = OldRecord.Price;
-        //Year = OldRecord.Year;
-        //Type = OldRecord.Type;
-        //EngineDetails = OldRecord.EngineDetails;
-        //Color = OldRecord.Color;
-        //Stock = OldRecord.Stock;
-        //Image = OldRecord.Image;
-        //Notes = OldRecord.Notes;
+        public override string ToString()
+        {
+            return ModelName;
+        }
+
     }
 }

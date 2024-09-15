@@ -38,10 +38,10 @@ namespace ABC.CarTraders
             return Expression.Lambda<Func<T, object>>(conversion, parameter);
         }
 
-        public static IQueryable<User> ApplyOrderBy(IQueryable<User> query, string orderByProperty, string sortDirection)
+        public static IQueryable<T> ApplyOrderBy<T>(IQueryable<T> query, string orderByProperty, string sortDirection)
         {
             // Build the expression dynamically
-            var orderByExpression = BuildOrderByExpression<User>(orderByProperty);
+            var orderByExpression = BuildOrderByExpression<T>(orderByProperty);
 
             // Apply OrderBy or OrderByDescending based on the ascending flag
             if (sortDirection == SortDirection.Descending.ToString())

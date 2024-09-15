@@ -324,6 +324,7 @@ namespace ABC.CarTraders.GUI.Forms
                 Image = Image,
                 Notes = Notes,
                 CreatedDate = DateTime.Now,
+                CreatedUserId = User?.Id,
             };
 
             if (Overwrite)

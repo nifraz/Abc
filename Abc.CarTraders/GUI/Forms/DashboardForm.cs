@@ -72,7 +72,7 @@ namespace ABC.CarTraders.GUI.Forms
             ColorScheme = ColorSchemes.ElementAt(ColorIndex);
 
             timerClock_Tick(null, null);
-            //rtbOutput.Text = "Department of Animal Production & Health\n";
+            //rtbOutput.Text = "ABC Car Traders\n";
             //rtbOutput.AppendText("========================================");
             rtbOutput.Clear();
             rtbOutput.AppendText($"[{DateTime.Now.ToLongDateString()}]");
@@ -122,7 +122,7 @@ namespace ABC.CarTraders.GUI.Forms
             btnCarPart.BackColor = scheme.Color7;
             btnLogout.BackColor = scheme.Color7;
 
-            btnToDatabase.BackColor = scheme.Color9;
+            btnCart.BackColor = scheme.Color9;
             btnColorScheme.BackColor = scheme.Color9;
             btnAbout.BackColor = scheme.Color9;
             btnFullscreen.BackColor = scheme.Color9;
@@ -141,7 +141,7 @@ namespace ABC.CarTraders.GUI.Forms
             statisticsSection1.LoadInitialData();
             userSection1.LoadInitialData();
             carSection1.LoadInitialData();
-            carPartSection1.LoadInitialData();
+            await carPartSection1.LoadInitialDataAsync();
             logSection1.LoadInitialData();
         }
 
@@ -173,6 +173,30 @@ namespace ABC.CarTraders.GUI.Forms
                 lblTime.ForeColor = System.Drawing.Color.Black;
             }
             ((Control)_currentControl).Show();
+        }
+
+        private static Action<Car, int> AddCarsToCartDelegate;
+        public static void AddCarsToCart(Car item, int quantity)
+        {
+            AddCarsToCartDelegate?.Invoke(item, quantity);
+        }
+
+        private static Action<CarPart, int> AddCarPartsToCartDelegate;
+        public static void AddCarPartsToCart(CarPart item, int quantity)
+        {
+            AddCarPartsToCartDelegate?.Invoke(item, quantity);
+        }
+
+        private static Action ClearCartDelegate;
+        public static void ClearCart()
+        {
+            ClearCartDelegate?.Invoke();
+        }
+
+        private static Action PlaceOrderDelegate;
+        public static void PlaceOrder()
+        {
+            PlaceOrderDelegate?.Invoke();
         }
 
         private static Action<Log> WriteLogDelegate;
@@ -229,9 +253,9 @@ namespace ABC.CarTraders.GUI.Forms
 
             LoginDelegate = async () =>
             {
-                LoadInitialAsync();
+                await LoadInitialAsync();
                 EnableButtons();
-                btnToDatabase.Enabled = true;
+                btnCart.Enabled = true;
                 WriteLog(new Log()
                 {
                     CreatedDate = DateTime.Now,
@@ -266,6 +290,7 @@ namespace ABC.CarTraders.GUI.Forms
             RefreshAsyncDelegate = async () =>
             {
                 SetButtonPermission();
+                await LoadInitialAsync();
                 await statisticsSection1.RefreshAsync();
                 await userSection1.RefreshAsync();
                 await carSection1.RefreshAsync();
@@ -277,6 +302,12 @@ namespace ABC.CarTraders.GUI.Forms
         private void SetButtonPermission()
         {
             btnUser.Enabled = User != null && User.Role >= Enums.UserRole.Admin;
+            btnCart.Visible = User != null && User.Role == Enums.UserRole.Customer;
+            //statisticsSection1.SetButtonPermission();
+            //userSection1.SetButtonPermission();
+            //carSection1.SetButtonPermission();
+            //carPartSection1.SetButtonPermission();
+            //logSection1.SetButtonPermission();
         }
 
         private void tagRegionMetaData()
@@ -446,10 +477,16 @@ namespace ABC.CarTraders.GUI.Forms
             ColorScheme = ColorSchemes.ElementAt(ColorIndex);
         }
 
-        private async void btnUploadToDatabase_Click(object sender, EventArgs e)
+        private async void btnShoppingCart_Click(object sender, EventArgs e)
         {
             if (DbContext == null) return;
-            //await CompleteAsync();
+
+            using (var form = new ShoppingCartForm())
+            {
+                //await form.LoadInitialDataAsync();
+                form.NewRecord();
+                form.ShowDialog();
+            }
         }
 
         //private async Task CompleteAsync()
@@ -564,7 +601,7 @@ namespace ABC.CarTraders.GUI.Forms
             timer1.Enabled = false;
             EnableButtons();
             pnlControlsHolder.Enabled = true;
-            lblTitle.Text = $"Department of Animal Production and Health";
+            lblTitle.Text = $"ABC Car Traders";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -594,7 +631,7 @@ namespace ABC.CarTraders.GUI.Forms
                     case Keys.S:
                         if (e.Shift)
                         {
-                            btnToDatabase.PerformClick();
+                            btnCart.PerformClick();
                             e.SuppressKeyPress = true;
                         } 
                         break;

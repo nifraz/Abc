@@ -2,16 +2,15 @@
 using ABC.CarTraders.Enums;
 using MRG.Controls.UI;
 using System;
-using System.Data.Entity;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ABC.CarTraders.GUI.Forms
 {
-    public partial class CarPartForm : Form
+    public partial class ShoppingCartForm : Form
     {
         #region Common
         public AppDbContext DbContext { get { return DashboardForm.DbContext; } }
@@ -21,31 +20,34 @@ namespace ABC.CarTraders.GUI.Forms
         #endregion
 
         #region Form
-        public CarPartForm()
+        public ShoppingCartForm()
         {
             InitializeComponent();
 
-            //cboType.DataSource = new List<CarType>()
-            //{
-            //    CarType.Sedan,
-            //    CarType.SUV,
-            //    CarType.Truck,
-            //    CarType.Coupe,
-            //    CarType.Convertible,
-            //    CarType.Hatchback,
-            //};
+            cboType.DataSource = new List<CarType>()
+            {
+                CarType.Sedan,
+                CarType.SUV,
+                CarType.Truck,
+                CarType.Coupe,
+                CarType.Convertible,
+                CarType.Hatchback,
+            };
 
-            PartName = null;
+            ModelName = null;
             Price = 0.00M;
+            Year = 2024;
+            Type = CarType.Sedan;
+            EngineDetails = null;
+            Color = "Black";
             Stock = 1;
             Image = null;
             Notes = null;
         }
 
-        public async Task LoadInitialDataAsync()
+        public void LoadInitialData()
         {
-            cboCar.DataSource = await DbContext.Cars
-                .ToListAsync();
+            //cboVsRange.DataSource = UnitOfWork.VsRanges.GetAllCached().OrderBy(vsr => vsr.Name).ToList();
         }
 
         public void NewRecord()
@@ -54,32 +56,40 @@ namespace ABC.CarTraders.GUI.Forms
 
             btnSave.Text = "SAVE";
             OldRecord = null;
-            Text = $"New {nameof(CarPart)}";
+            Text = $"New {nameof(Car)}";
             StatusText = "Ready";
 
-            PartName = null;
+            ModelName = null;
             Price = 0.00M;
+            Year = 2024;
+            Type = CarType.Sedan;
+            EngineDetails = null;
+            Color = "Black";
             Stock = 1;
             Image = null;
             Notes = null;
 
             pnlRole.Enabled = true;
             btnSave.Enabled = ValidateInsertPersmission();
-            txtPartName.Focus();
+            txtModelName.Focus();
         }
 
-        public CarPart OldRecord { get; set; }
-        public void ViewRecord(CarPart record)
+        public Car OldRecord { get; set; }
+        public void ViewRecord(Car record)
         {
             Overwrite = true;
 
             btnSave.Text = "UPDATE";
             OldRecord = record;
-            Text = $"View {nameof(CarPart)} ({OldRecord.PartName})";
+            Text = $"View {nameof(Car)} ({OldRecord.ModelName})";
             StatusText = "Ready";
 
-            PartName = OldRecord.PartName;
+            ModelName = OldRecord.ModelName;
             Price = OldRecord.Price;
+            Year = OldRecord.Year;
+            Type = OldRecord.Type;
+            EngineDetails = OldRecord.EngineDetails;
+            Color = OldRecord.Color;
             Stock = OldRecord.Stock;
             Image = OldRecord.Image;
             Notes = OldRecord.Notes;
@@ -94,14 +104,14 @@ namespace ABC.CarTraders.GUI.Forms
         #endregion
 
         #region Fields
-        public string PartName
+        public string ModelName
         {
             get
             {
-                var str = txtPartName.Text.Trim();
+                var str = txtModelName.Text.Trim();
                 return str == string.Empty ? null : str;
             }
-            set { txtPartName.Text = value; }
+            set { txtModelName.Text = value; }
         }
 
         public decimal Price
@@ -111,6 +121,47 @@ namespace ABC.CarTraders.GUI.Forms
                 return nudPrice.Value;
             }
             set { nudPrice.Value = value; }
+        }
+
+        public int Year
+        {
+            get
+            {
+                return (int)nudYear.Value;
+            }
+            set { nudYear.Value = value; }
+        }
+
+        public CarType Type
+        {
+            get
+            {
+                return (CarType)cboType.SelectedItem;
+            }
+            set
+            {
+                cboType.SelectedItem = value;
+            }
+        }
+
+        public string EngineDetails
+        {
+            get
+            {
+                var str = txtEngineDetails.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { txtEngineDetails.Text = value; }
+        }
+
+        public string Color
+        {
+            get
+            {
+                var str = cboColor.Text.Trim();
+                return str == string.Empty ? null : str;
+            }
+            set { cboColor.Text = value; }
         }
 
         public int Stock
@@ -176,15 +227,18 @@ namespace ABC.CarTraders.GUI.Forms
                 return;
             }
 
-            var newRecord = new CarPart()
+            var newRecord = new Car()
             {
-                PartName = PartName,
+                ModelName = ModelName,
                 Price = Price,
+                Year = Year,
+                Type = Type,
+                EngineDetails = EngineDetails,
+                Color = Color,
                 Stock = Stock,
                 Image = Image,
                 Notes = Notes,
                 CreatedDate = DateTime.Now,
-                CreatedUserId = User?.Id,
             };
 
             if (Overwrite)
@@ -213,9 +267,9 @@ namespace ABC.CarTraders.GUI.Forms
 
         private bool ValidateInput()
         {
-            if (PartName == null)
+            if (ModelName == null)
             {
-                txtPartName.Focus();
+                txtModelName.Focus();
                 return false;
             }
 
@@ -223,23 +277,23 @@ namespace ABC.CarTraders.GUI.Forms
         }
 
         public bool Overwrite { get; set; }
-        private async Task AddRecordAsync(CarPart newRecord)
+        private async Task AddRecordAsync(Car newRecord)
         {
-            DbContext.CarParts.Add(newRecord);
+            DbContext.Cars.Add(newRecord);
             WriteLog.Invoke(new Log()
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "CarPart",
+                Title = "Car",
                 Action = LogAction.Insert,
-                Text = $"Saved a car part ({newRecord.PartName})"
+                Text = $"Saved a car ({newRecord.ModelName})"
             });
             try
             {
                 await DbContext.SaveChangesAsync();
                 StatusText = "Record Saved";
 
-                MessageBox.Show("CarPart saved successfully..", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Car saved successfully..", "SAVE", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ViewRecord(newRecord);
             }
             catch (Exception ex)
@@ -252,10 +306,14 @@ namespace ABC.CarTraders.GUI.Forms
             //else ViewRecord(newUser);
         }
 
-        private async Task UpdateRecordAsync(CarPart record, CarPart newRecord)
+        private async Task UpdateRecordAsync(Car record, Car newRecord)
         {
-            record.PartName = newRecord.PartName;
+            record.ModelName = newRecord.ModelName;
             record.Price = newRecord.Price;
+            record.Year = newRecord.Year;
+            record.Type = newRecord.Type;
+            record.EngineDetails = newRecord.EngineDetails;
+            record.Color = newRecord.Color;
             record.Stock = newRecord.Stock;
             record.Image = newRecord.Image;
             record.Notes = newRecord.Notes;
@@ -266,13 +324,13 @@ namespace ABC.CarTraders.GUI.Forms
             {
                 CreatedDate = DateTime.Now,
                 CreatedUserId = User?.Id,
-                Title = "CarPart",
+                Title = "Car",
                 Action = LogAction.Update,
-                Text = $"Updated a car part ({newRecord.PartName})"
+                Text = $"Updated a car ({newRecord.ModelName})"
             });
             StatusText = "Record Updated";
             await DbContext.SaveChangesAsync();
-            MessageBox.Show("CarPart updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Car updated successfully.", "UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ViewRecord(record);
         }
         #endregion
@@ -283,7 +341,7 @@ namespace ABC.CarTraders.GUI.Forms
         public string ProgressText { get; set; }
         public LoadingCircle LoadingCircle { get; set; } = new LoadingCircle()
         {
-            Color = Color.Black,
+            Color = System.Drawing.Color.Black,
             NumberSpoke = 36,
             SpokeThickness = 1,
             InnerCircleRadius = 5,

@@ -58,7 +58,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnColorScheme = new System.Windows.Forms.Button();
             this.btnLog = new System.Windows.Forms.Button();
             this.btnRefreshAll = new System.Windows.Forms.Button();
-            this.btnToDatabase = new System.Windows.Forms.Button();
+            this.btnCart = new System.Windows.Forms.Button();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.pnlFooter = new System.Windows.Forms.Panel();
@@ -396,22 +396,26 @@ namespace ABC.CarTraders.GUI.Forms
             this.btnRefreshAll.UseVisualStyleBackColor = false;
             this.btnRefreshAll.Click += new System.EventHandler(this.btnRefreshAll_Click);
             // 
-            // btnToDatabase
+            // btnCart
             // 
-            this.btnToDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToDatabase.BackColor = System.Drawing.Color.Transparent;
-            this.btnToDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnToDatabase.FlatAppearance.BorderSize = 0;
-            this.btnToDatabase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToDatabase.ForeColor = System.Drawing.Color.White;
-            this.btnToDatabase.Image = global::ABC.CarTraders.Properties.Resources.database_restore_light_20px;
-            this.btnToDatabase.Location = new System.Drawing.Point(724, 0);
-            this.btnToDatabase.Name = "btnToDatabase";
-            this.btnToDatabase.Size = new System.Drawing.Size(40, 40);
-            this.btnToDatabase.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.btnToDatabase, "Upload to Database (Ctrl+Shift+S)");
-            this.btnToDatabase.UseVisualStyleBackColor = false;
-            this.btnToDatabase.Click += new System.EventHandler(this.btnUploadToDatabase_Click);
+            this.btnCart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCart.BackColor = System.Drawing.Color.Transparent;
+            this.btnCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCart.FlatAppearance.BorderSize = 0;
+            this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCart.ForeColor = System.Drawing.Color.White;
+            this.btnCart.Image = global::ABC.CarTraders.Properties.Resources.shopping_cart_light_25px;
+            this.btnCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCart.Location = new System.Drawing.Point(570, 0);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(154, 40);
+            this.btnCart.TabIndex = 1;
+            this.btnCart.Text = "          Cars: 0 | Car Parts: 0";
+            this.btnCart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.btnCart, "Upload to Database (Ctrl+Shift+S)");
+            this.btnCart.UseVisualStyleBackColor = false;
+            this.btnCart.Visible = false;
+            this.btnCart.Click += new System.EventHandler(this.btnShoppingCart_Click);
             // 
             // rtbOutput
             // 
@@ -478,7 +482,7 @@ namespace ABC.CarTraders.GUI.Forms
             this.pnlTop.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pnlTop.Controls.Add(this.pnlLoadingCircle);
             this.pnlTop.Controls.Add(this.lblTitle);
-            this.pnlTop.Controls.Add(this.btnToDatabase);
+            this.pnlTop.Controls.Add(this.btnCart);
             this.pnlTop.Controls.Add(this.btnFullscreen);
             this.pnlTop.Controls.Add(this.btnColorScheme);
             this.pnlTop.Controls.Add(this.btnAbout);
@@ -551,7 +555,7 @@ namespace ABC.CarTraders.GUI.Forms
         private LogSection logSection1;
         private CarPartSection carPartSection1;
         private System.Windows.Forms.Button btnRefreshAll;
-        private System.Windows.Forms.Button btnToDatabase;
+        private System.Windows.Forms.Button btnCart;
     }
 }
 

@@ -141,6 +141,12 @@
     <Compile Include="Enums\PaymentMethod.cs" />
     <Compile Include="Enums\Sex.cs" />
     <Compile Include="Enums\CarType.cs" />
+    <Compile Include="GUI\Forms\ShoppingCartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Forms\ShoppingCartForm.Designer.cs">
+      <DependentUpon>ShoppingCartForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Forms\CarPartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,10 @@
     <Compile Include="Migrations\202409141920293_AddTables.Designer.cs">
       <DependentUpon>202409141920293_AddTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202409142324294_UpdateContext.cs" />
+    <Compile Include="Migrations\202409142324294_UpdateContext.Designer.cs">
+      <DependentUpon>202409142324294_UpdateContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="AppDbContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -243,6 +253,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Forms\ShoppingCartForm.resx">
+      <DependentUpon>ShoppingCartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\CarPartForm.resx">
       <DependentUpon>CarPartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202409141920293_AddTables.resx">
       <DependentUpon>202409141920293_AddTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202409142324294_UpdateContext.resx">
+      <DependentUpon>202409142324294_UpdateContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -407,6 +423,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\icons8_shopping_cart_25px_1.png" />
+    <None Include="Resources\icons8_shopping_cart_25px.png" />
+    <None Include="Resources\icons8_shopping_cart_15px_1.png" />
+    <None Include="Resources\icons8_shopping_cart_15px.png" />
+    <None Include="Resources\icons8_Tools_15px_2.png" />
+    <None Include="Resources\icons8_Tools_15px_1.png" />
+    <None Include="Resources\icons8_fiat_500_15px_1.png" />
     <None Include="Resources\icons8_fiat_500_100px.png" />
     <None Include="Resources\icons8_fiat_500_25px_1.png" />
     <None Include="Resources\icons8_fiat_500_25px.png" />

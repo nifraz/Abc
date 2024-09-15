@@ -32,29 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnFirstPage = new System.Windows.Forms.Button();
-            this.btnPreviousPage = new System.Windows.Forms.Button();
-            this.btnNextPage = new System.Windows.Forms.Button();
-            this.btnLastPage = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
             this.chkRangeEnd = new System.Windows.Forms.CheckBox();
             this.chkRangeStart = new System.Windows.Forms.CheckBox();
-            this.btnLastYear = new System.Windows.Forms.Button();
-            this.btnThisYear = new System.Windows.Forms.Button();
-            this.btnRangeClear = new System.Windows.Forms.Button();
             this.txtFindText = new System.Windows.Forms.TextBox();
-            this.btnFindClear = new System.Windows.Forms.Button();
-            this.btnFilterClear = new System.Windows.Forms.Button();
             this.nudPageNumber = new System.Windows.Forms.NumericUpDown();
             this.lblPages = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.lblMainTitle = new System.Windows.Forms.Label();
             this.pnlMainHolder = new System.Windows.Forms.Panel();
             this.pnlPageIndicator = new System.Windows.Forms.Panel();
             this.pnlPageIndicatorHolder = new System.Windows.Forms.Panel();
@@ -62,7 +49,6 @@
             this.pnlDgv = new System.Windows.Forms.Panel();
             this.pnlLoadingCircle = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblProgress = new System.Windows.Forms.Label();
             this.pnlSort = new System.Windows.Forms.Panel();
             this.pnlSortHolder = new System.Windows.Forms.Panel();
             this.pnlSortDirection = new System.Windows.Forms.Panel();
@@ -75,7 +61,6 @@
             this.pnlCboVsRangeHolder = new System.Windows.Forms.Panel();
             this.cboSortField = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlRange = new System.Windows.Forms.Panel();
             this.pnlRangeHolder = new System.Windows.Forms.Panel();
             this.pnlRangeEnd = new System.Windows.Forms.Panel();
@@ -93,7 +78,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.cboRangeField = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.pnlFind = new System.Windows.Forms.Panel();
             this.pnlFindHolder = new System.Windows.Forms.Panel();
             this.pnlFindText = new System.Windows.Forms.Panel();
@@ -104,27 +88,40 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.cboFindField = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pnlFilter = new System.Windows.Forms.Panel();
+            this.pnlSide = new System.Windows.Forms.Panel();
             this.pnlFilterHolder = new System.Windows.Forms.Panel();
-            this.pnlFilter2 = new System.Windows.Forms.Panel();
-            this.pnlFilter2Holder = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.cboSex = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnlFilter1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlFilter1Holder = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cboRole = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cboCar = new System.Windows.Forms.ComboBox();
+            this.pnlFilter = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            this.pnlSide = new System.Windows.Forms.Panel();
+            this.btnFilterClear = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnLastYear = new System.Windows.Forms.Button();
+            this.btnThisYear = new System.Windows.Forms.Button();
+            this.btnRangeClear = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnFindClear = new System.Windows.Forms.Button();
+            this.lblMainTitle = new System.Windows.Forms.Label();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnFirstPage = new System.Windows.Forms.Button();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.btnLastPage = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreatedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastModifiedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -164,211 +161,13 @@
             this.pnlFindField.SuspendLayout();
             this.pnlFindFieldHolder.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.pnlFilter.SuspendLayout();
+            this.pnlSide.SuspendLayout();
             this.pnlFilterHolder.SuspendLayout();
-            this.pnlFilter2.SuspendLayout();
-            this.pnlFilter2Holder.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.pnlFilter1.SuspendLayout();
             this.pnlFilter1Holder.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.pnlSide.SuspendLayout();
+            this.pnlFilter.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Image = global::ABC.CarTraders.Properties.Resources.add_dark_15px;
-            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(300, 385);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(25, 25);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnAdd, "Add");
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.Enabled = false;
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Image = global::ABC.CarTraders.Properties.Resources.edit_dark_15px;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(325, 385);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(25, 25);
-            this.btnEdit.TabIndex = 3;
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Image = global::ABC.CarTraders.Properties.Resources.delete_dark_15px;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(350, 385);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(25, 25);
-            this.btnDelete.TabIndex = 19;
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnFirstPage
-            // 
-            this.btnFirstPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFirstPage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnFirstPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFirstPage.Enabled = false;
-            this.btnFirstPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFirstPage.FlatAppearance.BorderSize = 0;
-            this.btnFirstPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFirstPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFirstPage.ForeColor = System.Drawing.Color.Black;
-            this.btnFirstPage.Image = global::ABC.CarTraders.Properties.Resources.first_dark_15px;
-            this.btnFirstPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFirstPage.Location = new System.Drawing.Point(380, 385);
-            this.btnFirstPage.Name = "btnFirstPage";
-            this.btnFirstPage.Size = new System.Drawing.Size(25, 25);
-            this.btnFirstPage.TabIndex = 4;
-            this.btnFirstPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnFirstPage, "First Page");
-            this.btnFirstPage.UseVisualStyleBackColor = false;
-            this.btnFirstPage.Click += new System.EventHandler(this.btnFirstPage_Click);
-            // 
-            // btnPreviousPage
-            // 
-            this.btnPreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPreviousPage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPreviousPage.Enabled = false;
-            this.btnPreviousPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnPreviousPage.FlatAppearance.BorderSize = 0;
-            this.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreviousPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPreviousPage.ForeColor = System.Drawing.Color.Black;
-            this.btnPreviousPage.Image = global::ABC.CarTraders.Properties.Resources.previous_dark_15px;
-            this.btnPreviousPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreviousPage.Location = new System.Drawing.Point(405, 385);
-            this.btnPreviousPage.Name = "btnPreviousPage";
-            this.btnPreviousPage.Size = new System.Drawing.Size(25, 25);
-            this.btnPreviousPage.TabIndex = 5;
-            this.btnPreviousPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnPreviousPage, "Previous Page");
-            this.btnPreviousPage.UseVisualStyleBackColor = false;
-            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
-            // 
-            // btnNextPage
-            // 
-            this.btnNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNextPage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNextPage.Enabled = false;
-            this.btnNextPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNextPage.FlatAppearance.BorderSize = 0;
-            this.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNextPage.ForeColor = System.Drawing.Color.Black;
-            this.btnNextPage.Image = global::ABC.CarTraders.Properties.Resources.next_dark_15px;
-            this.btnNextPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNextPage.Location = new System.Drawing.Point(510, 385);
-            this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(25, 25);
-            this.btnNextPage.TabIndex = 7;
-            this.btnNextPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnNextPage, "Next Page");
-            this.btnNextPage.UseVisualStyleBackColor = false;
-            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
-            // 
-            // btnLastPage
-            // 
-            this.btnLastPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLastPage.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnLastPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLastPage.Enabled = false;
-            this.btnLastPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnLastPage.FlatAppearance.BorderSize = 0;
-            this.btnLastPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLastPage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLastPage.ForeColor = System.Drawing.Color.Black;
-            this.btnLastPage.Image = global::ABC.CarTraders.Properties.Resources.last_dark_15px;
-            this.btnLastPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLastPage.Location = new System.Drawing.Point(535, 385);
-            this.btnLastPage.Name = "btnLastPage";
-            this.btnLastPage.Size = new System.Drawing.Size(25, 25);
-            this.btnLastPage.TabIndex = 8;
-            this.btnLastPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnLastPage, "Last Page");
-            this.btnLastPage.UseVisualStyleBackColor = false;
-            this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.Image = global::ABC.CarTraders.Properties.Resources.refresh_dark_15px;
-            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(565, 385);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(25, 25);
-            this.btnRefresh.TabIndex = 9;
-            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnRefresh, "Refresh");
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnExport.ForeColor = System.Drawing.Color.Black;
-            this.btnExport.Image = global::ABC.CarTraders.Properties.Resources.grid_view_light_15px;
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(570, 0);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(25, 25);
-            this.btnExport.TabIndex = 1;
-            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnExport, "Export to Excel");
-            this.btnExport.UseVisualStyleBackColor = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // chkRangeEnd
             // 
@@ -402,69 +201,6 @@
             this.chkRangeStart.UseVisualStyleBackColor = true;
             this.chkRangeStart.CheckedChanged += new System.EventHandler(this.chkRangeStart_CheckedChanged);
             // 
-            // btnLastYear
-            // 
-            this.btnLastYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLastYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnLastYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLastYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnLastYear.FlatAppearance.BorderSize = 0;
-            this.btnLastYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLastYear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLastYear.ForeColor = System.Drawing.Color.Black;
-            this.btnLastYear.Image = global::ABC.CarTraders.Properties.Resources.minus_1_year_light_15px;
-            this.btnLastYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLastYear.Location = new System.Drawing.Point(145, 0);
-            this.btnLastYear.Name = "btnLastYear";
-            this.btnLastYear.Size = new System.Drawing.Size(25, 25);
-            this.btnLastYear.TabIndex = 1;
-            this.btnLastYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnLastYear, "Last year");
-            this.btnLastYear.UseVisualStyleBackColor = false;
-            this.btnLastYear.Click += new System.EventHandler(this.btnLastYear_Click);
-            // 
-            // btnThisYear
-            // 
-            this.btnThisYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThisYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnThisYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThisYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnThisYear.FlatAppearance.BorderSize = 0;
-            this.btnThisYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThisYear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnThisYear.ForeColor = System.Drawing.Color.Black;
-            this.btnThisYear.Image = global::ABC.CarTraders.Properties.Resources.plus_1_year_light_15px;
-            this.btnThisYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThisYear.Location = new System.Drawing.Point(170, 0);
-            this.btnThisYear.Name = "btnThisYear";
-            this.btnThisYear.Size = new System.Drawing.Size(25, 25);
-            this.btnThisYear.TabIndex = 2;
-            this.btnThisYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnThisYear, "This year");
-            this.btnThisYear.UseVisualStyleBackColor = false;
-            this.btnThisYear.Click += new System.EventHandler(this.btnThisYear_Click);
-            // 
-            // btnRangeClear
-            // 
-            this.btnRangeClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRangeClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRangeClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRangeClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRangeClear.FlatAppearance.BorderSize = 0;
-            this.btnRangeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRangeClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRangeClear.ForeColor = System.Drawing.Color.Black;
-            this.btnRangeClear.Image = global::ABC.CarTraders.Properties.Resources.cancel_light_15px;
-            this.btnRangeClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRangeClear.Location = new System.Drawing.Point(195, 0);
-            this.btnRangeClear.Name = "btnRangeClear";
-            this.btnRangeClear.Size = new System.Drawing.Size(25, 25);
-            this.btnRangeClear.TabIndex = 3;
-            this.btnRangeClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnRangeClear, "Clear range");
-            this.btnRangeClear.UseVisualStyleBackColor = false;
-            this.btnRangeClear.Click += new System.EventHandler(this.btnRangeClear_Click);
-            // 
             // txtFindText
             // 
             this.txtFindText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -481,48 +217,6 @@
             this.txtFindText.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtFindText, "(Press Enter)");
             this.txtFindText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindText_KeyDown);
-            // 
-            // btnFindClear
-            // 
-            this.btnFindClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFindClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFindClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFindClear.FlatAppearance.BorderSize = 0;
-            this.btnFindClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFindClear.ForeColor = System.Drawing.Color.Black;
-            this.btnFindClear.Image = global::ABC.CarTraders.Properties.Resources.clear_search_light_15px;
-            this.btnFindClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFindClear.Location = new System.Drawing.Point(195, 0);
-            this.btnFindClear.Name = "btnFindClear";
-            this.btnFindClear.Size = new System.Drawing.Size(25, 25);
-            this.btnFindClear.TabIndex = 1;
-            this.btnFindClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnFindClear, "Clear find");
-            this.btnFindClear.UseVisualStyleBackColor = false;
-            this.btnFindClear.Click += new System.EventHandler(this.btnFindClear_Click);
-            // 
-            // btnFilterClear
-            // 
-            this.btnFilterClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFilterClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnFilterClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnFilterClear.FlatAppearance.BorderSize = 0;
-            this.btnFilterClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilterClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnFilterClear.ForeColor = System.Drawing.Color.Black;
-            this.btnFilterClear.Image = global::ABC.CarTraders.Properties.Resources.clear_filters_light_15px;
-            this.btnFilterClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilterClear.Location = new System.Drawing.Point(195, 0);
-            this.btnFilterClear.Name = "btnFilterClear";
-            this.btnFilterClear.Size = new System.Drawing.Size(25, 25);
-            this.btnFilterClear.TabIndex = 1;
-            this.btnFilterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.btnFilterClear, "Clear filter");
-            this.btnFilterClear.UseVisualStyleBackColor = false;
-            this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
             // 
             // nudPageNumber
             // 
@@ -586,21 +280,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(595, 440);
             this.pnlMain.TabIndex = 1;
-            // 
-            // lblMainTitle
-            // 
-            this.lblMainTitle.AutoSize = true;
-            this.lblMainTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblMainTitle.ForeColor = System.Drawing.Color.White;
-            this.lblMainTitle.Image = global::ABC.CarTraders.Properties.Resources.user_light_15px;
-            this.lblMainTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMainTitle.Location = new System.Drawing.Point(3, 5);
-            this.lblMainTitle.Name = "lblMainTitle";
-            this.lblMainTitle.Size = new System.Drawing.Size(53, 15);
-            this.lblMainTitle.TabIndex = 1;
-            this.lblMainTitle.Text = "      Users";
-            this.lblMainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMainTitle.DoubleClick += new System.EventHandler(this.lblMainTitle_DoubleClick);
             // 
             // pnlMainHolder
             // 
@@ -702,11 +381,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
-            this.colEMail,
+            this.colCar,
             this.colImage,
-            this.colFullName,
-            this.colPhoneNo,
-            this.colRole,
+            this.colPartName,
+            this.colPrice,
+            this.colStock,
             this.colCreatedDate,
             this.colCreatedUser,
             this.colLastModifiedDate,
@@ -727,21 +406,6 @@
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // lblProgress
-            // 
-            this.lblProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblProgress.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblProgress.ForeColor = System.Drawing.Color.Black;
-            this.lblProgress.Image = global::ABC.CarTraders.Properties.Resources.ok_dark_15px;
-            this.lblProgress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblProgress.Location = new System.Drawing.Point(8, 390);
-            this.lblProgress.Name = "lblProgress";
-            this.lblProgress.Size = new System.Drawing.Size(286, 15);
-            this.lblProgress.TabIndex = 1;
-            this.lblProgress.Text = "      Ready";
-            this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlSort
             // 
@@ -907,20 +571,6 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Field";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Image = global::ABC.CarTraders.Properties.Resources.sort_light_15px;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(3, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "      Sort";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlRange
             // 
@@ -1164,20 +814,6 @@
             this.label12.Text = "Field";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Image = global::ABC.CarTraders.Properties.Resources.timesheet_light_15px;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(3, 5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 15);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "      Range";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pnlFind
             // 
             this.pnlFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1186,7 +822,7 @@
             this.pnlFind.Controls.Add(this.pnlFindHolder);
             this.pnlFind.Controls.Add(this.label8);
             this.pnlFind.Controls.Add(this.btnFindClear);
-            this.pnlFind.Location = new System.Drawing.Point(0, 315);
+            this.pnlFind.Location = new System.Drawing.Point(0, 285);
             this.pnlFind.Name = "pnlFind";
             this.pnlFind.Size = new System.Drawing.Size(220, 90);
             this.pnlFind.TabIndex = 4;
@@ -1316,32 +952,20 @@
             this.label6.Text = "Field";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label8
+            // pnlSide
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Image = global::ABC.CarTraders.Properties.Resources.search_light_15px;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Location = new System.Drawing.Point(3, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "      Find";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pnlFilter
-            // 
-            this.pnlFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlSide.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter.BackColor = System.Drawing.Color.DimGray;
-            this.pnlFilter.Controls.Add(this.pnlFilterHolder);
-            this.pnlFilter.Controls.Add(this.lblTime);
-            this.pnlFilter.Controls.Add(this.btnFilterClear);
-            this.pnlFilter.Location = new System.Drawing.Point(0, 220);
-            this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.Size = new System.Drawing.Size(220, 90);
-            this.pnlFilter.TabIndex = 3;
+            this.pnlSide.AutoScroll = true;
+            this.pnlSide.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSide.Controls.Add(this.pnlSort);
+            this.pnlSide.Controls.Add(this.pnlFilter);
+            this.pnlSide.Controls.Add(this.pnlRange);
+            this.pnlSide.Controls.Add(this.pnlFind);
+            this.pnlSide.Location = new System.Drawing.Point(600, 0);
+            this.pnlSide.Name = "pnlSide";
+            this.pnlSide.Size = new System.Drawing.Size(220, 440);
+            this.pnlSide.TabIndex = 2;
             // 
             // pnlFilterHolder
             // 
@@ -1349,83 +973,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFilterHolder.BackColor = System.Drawing.Color.White;
-            this.pnlFilterHolder.Controls.Add(this.pnlFilter2);
             this.pnlFilterHolder.Controls.Add(this.pnlFilter1);
             this.pnlFilterHolder.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlFilterHolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlFilterHolder.Location = new System.Drawing.Point(0, 25);
             this.pnlFilterHolder.Name = "pnlFilterHolder";
-            this.pnlFilterHolder.Size = new System.Drawing.Size(220, 65);
+            this.pnlFilterHolder.Size = new System.Drawing.Size(220, 35);
             this.pnlFilterHolder.TabIndex = 0;
-            // 
-            // pnlFilter2
-            // 
-            this.pnlFilter2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2.BackColor = System.Drawing.Color.DarkGray;
-            this.pnlFilter2.Controls.Add(this.pnlFilter2Holder);
-            this.pnlFilter2.Controls.Add(this.label4);
-            this.pnlFilter2.Location = new System.Drawing.Point(5, 35);
-            this.pnlFilter2.Name = "pnlFilter2";
-            this.pnlFilter2.Size = new System.Drawing.Size(210, 25);
-            this.pnlFilter2.TabIndex = 2;
-            // 
-            // pnlFilter2Holder
-            // 
-            this.pnlFilter2Holder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlFilter2Holder.BackColor = System.Drawing.Color.White;
-            this.pnlFilter2Holder.Controls.Add(this.panel7);
-            this.pnlFilter2Holder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlFilter2Holder.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.pnlFilter2Holder.Location = new System.Drawing.Point(65, 0);
-            this.pnlFilter2Holder.Name = "pnlFilter2Holder";
-            this.pnlFilter2Holder.Size = new System.Drawing.Size(145, 24);
-            this.pnlFilter2Holder.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel7.Controls.Add(this.cboSex);
-            this.panel7.Location = new System.Drawing.Point(3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(140, 21);
-            this.panel7.TabIndex = 0;
-            // 
-            // cboSex
-            // 
-            this.cboSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboSex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboSex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboSex.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboSex.FormattingEnabled = true;
-            this.cboSex.Location = new System.Drawing.Point(-1, -1);
-            this.cboSex.Name = "cboSex";
-            this.cboSex.Size = new System.Drawing.Size(142, 23);
-            this.cboSex.TabIndex = 0;
-            this.cboSex.SelectedValueChanged += new System.EventHandler(this.cboSex_SelectedValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Sex";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlFilter1
             // 
@@ -1438,6 +992,21 @@
             this.pnlFilter1.Name = "pnlFilter1";
             this.pnlFilter1.Size = new System.Drawing.Size(210, 25);
             this.pnlFilter1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Car";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlFilter1Holder
             // 
@@ -1458,43 +1027,55 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Controls.Add(this.cboRole);
+            this.panel4.Controls.Add(this.cboCar);
             this.panel4.Location = new System.Drawing.Point(3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(140, 21);
             this.panel4.TabIndex = 0;
             // 
-            // cboRole
+            // cboCar
             // 
-            this.cboRole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cboCar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboRole.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboRole.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboRole.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboRole.FormattingEnabled = true;
-            this.cboRole.Location = new System.Drawing.Point(-1, -1);
-            this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(142, 23);
-            this.cboRole.TabIndex = 0;
-            this.cboRole.SelectedValueChanged += new System.EventHandler(this.cboRole_SelectedValueChanged);
+            this.cboCar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboCar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cboCar.FormattingEnabled = true;
+            this.cboCar.Location = new System.Drawing.Point(-1, -1);
+            this.cboCar.Name = "cboCar";
+            this.cboCar.Size = new System.Drawing.Size(142, 23);
+            this.cboCar.TabIndex = 0;
+            this.cboCar.SelectedValueChanged += new System.EventHandler(this.cboRole_SelectedValueChanged);
             // 
-            // label3
+            // pnlFilter
             // 
-            this.label3.AutoSize = true;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Role";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnlFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlFilter.BackColor = System.Drawing.Color.DimGray;
+            this.pnlFilter.Controls.Add(this.pnlFilterHolder);
+            this.pnlFilter.Controls.Add(this.lblTime);
+            this.pnlFilter.Controls.Add(this.btnFilterClear);
+            this.pnlFilter.Location = new System.Drawing.Point(0, 220);
+            this.pnlFilter.Name = "pnlFilter";
+            this.pnlFilter.Size = new System.Drawing.Size(220, 60);
+            this.pnlFilter.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Image = global::ABC.CarTraders.Properties.Resources.sort_light_15px;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(3, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "      Sort";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTime
             // 
@@ -1510,20 +1091,363 @@
             this.lblTime.Text = "      Filter";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlSide
+            // btnFilterClear
             // 
-            this.pnlSide.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnFilterClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFilterClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFilterClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilterClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFilterClear.FlatAppearance.BorderSize = 0;
+            this.btnFilterClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFilterClear.ForeColor = System.Drawing.Color.Black;
+            this.btnFilterClear.Image = global::ABC.CarTraders.Properties.Resources.clear_filters_light_15px;
+            this.btnFilterClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFilterClear.Location = new System.Drawing.Point(195, 0);
+            this.btnFilterClear.Name = "btnFilterClear";
+            this.btnFilterClear.Size = new System.Drawing.Size(25, 25);
+            this.btnFilterClear.TabIndex = 1;
+            this.btnFilterClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnFilterClear, "Clear filter");
+            this.btnFilterClear.UseVisualStyleBackColor = false;
+            this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Image = global::ABC.CarTraders.Properties.Resources.timesheet_light_15px;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.Location = new System.Drawing.Point(3, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 15);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "      Range";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnLastYear
+            // 
+            this.btnLastYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLastYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnLastYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLastYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLastYear.FlatAppearance.BorderSize = 0;
+            this.btnLastYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLastYear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLastYear.ForeColor = System.Drawing.Color.Black;
+            this.btnLastYear.Image = global::ABC.CarTraders.Properties.Resources.minus_1_year_light_15px;
+            this.btnLastYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLastYear.Location = new System.Drawing.Point(145, 0);
+            this.btnLastYear.Name = "btnLastYear";
+            this.btnLastYear.Size = new System.Drawing.Size(25, 25);
+            this.btnLastYear.TabIndex = 1;
+            this.btnLastYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnLastYear, "Last year");
+            this.btnLastYear.UseVisualStyleBackColor = false;
+            this.btnLastYear.Click += new System.EventHandler(this.btnLastYear_Click);
+            // 
+            // btnThisYear
+            // 
+            this.btnThisYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThisYear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnThisYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThisYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnThisYear.FlatAppearance.BorderSize = 0;
+            this.btnThisYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThisYear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThisYear.ForeColor = System.Drawing.Color.Black;
+            this.btnThisYear.Image = global::ABC.CarTraders.Properties.Resources.plus_1_year_light_15px;
+            this.btnThisYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThisYear.Location = new System.Drawing.Point(170, 0);
+            this.btnThisYear.Name = "btnThisYear";
+            this.btnThisYear.Size = new System.Drawing.Size(25, 25);
+            this.btnThisYear.TabIndex = 2;
+            this.btnThisYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnThisYear, "This year");
+            this.btnThisYear.UseVisualStyleBackColor = false;
+            this.btnThisYear.Click += new System.EventHandler(this.btnThisYear_Click);
+            // 
+            // btnRangeClear
+            // 
+            this.btnRangeClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRangeClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRangeClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRangeClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRangeClear.FlatAppearance.BorderSize = 0;
+            this.btnRangeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRangeClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRangeClear.ForeColor = System.Drawing.Color.Black;
+            this.btnRangeClear.Image = global::ABC.CarTraders.Properties.Resources.cancel_light_15px;
+            this.btnRangeClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRangeClear.Location = new System.Drawing.Point(195, 0);
+            this.btnRangeClear.Name = "btnRangeClear";
+            this.btnRangeClear.Size = new System.Drawing.Size(25, 25);
+            this.btnRangeClear.TabIndex = 3;
+            this.btnRangeClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnRangeClear, "Clear range");
+            this.btnRangeClear.UseVisualStyleBackColor = false;
+            this.btnRangeClear.Click += new System.EventHandler(this.btnRangeClear_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Image = global::ABC.CarTraders.Properties.Resources.search_light_15px;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.Location = new System.Drawing.Point(3, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 15);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "      Find";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnFindClear
+            // 
+            this.btnFindClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFindClear.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFindClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFindClear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFindClear.FlatAppearance.BorderSize = 0;
+            this.btnFindClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFindClear.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFindClear.ForeColor = System.Drawing.Color.Black;
+            this.btnFindClear.Image = global::ABC.CarTraders.Properties.Resources.clear_search_light_15px;
+            this.btnFindClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFindClear.Location = new System.Drawing.Point(195, 0);
+            this.btnFindClear.Name = "btnFindClear";
+            this.btnFindClear.Size = new System.Drawing.Size(25, 25);
+            this.btnFindClear.TabIndex = 1;
+            this.btnFindClear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnFindClear, "Clear find");
+            this.btnFindClear.UseVisualStyleBackColor = false;
+            this.btnFindClear.Click += new System.EventHandler(this.btnFindClear_Click);
+            // 
+            // lblMainTitle
+            // 
+            this.lblMainTitle.AutoSize = true;
+            this.lblMainTitle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblMainTitle.ForeColor = System.Drawing.Color.White;
+            this.lblMainTitle.Image = global::ABC.CarTraders.Properties.Resources.carpart_light_15px;
+            this.lblMainTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMainTitle.Location = new System.Drawing.Point(3, 5);
+            this.lblMainTitle.Name = "lblMainTitle";
+            this.lblMainTitle.Size = new System.Drawing.Size(72, 15);
+            this.lblMainTitle.TabIndex = 1;
+            this.lblMainTitle.Text = "      Car Parts";
+            this.lblMainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMainTitle.DoubleClick += new System.EventHandler(this.lblMainTitle_DoubleClick);
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSide.AutoScroll = true;
-            this.pnlSide.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSide.Controls.Add(this.pnlSort);
-            this.pnlSide.Controls.Add(this.pnlFilter);
-            this.pnlSide.Controls.Add(this.pnlRange);
-            this.pnlSide.Controls.Add(this.pnlFind);
-            this.pnlSide.Location = new System.Drawing.Point(600, 0);
-            this.pnlSide.Name = "pnlSide";
-            this.pnlSide.Size = new System.Drawing.Size(220, 440);
-            this.pnlSide.TabIndex = 2;
+            this.lblProgress.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblProgress.ForeColor = System.Drawing.Color.Black;
+            this.lblProgress.Image = global::ABC.CarTraders.Properties.Resources.ok_dark_15px;
+            this.lblProgress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblProgress.Location = new System.Drawing.Point(8, 390);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(286, 15);
+            this.lblProgress.TabIndex = 1;
+            this.lblProgress.Text = "      Ready";
+            this.lblProgress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Image = global::ABC.CarTraders.Properties.Resources.add_dark_15px;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(300, 385);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(25, 25);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnAdd, "Add");
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.Image = global::ABC.CarTraders.Properties.Resources.edit_dark_15px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(325, 385);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(25, 25);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnEdit, "Edit");
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Image = global::ABC.CarTraders.Properties.Resources.delete_dark_15px;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(350, 385);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(25, 25);
+            this.btnDelete.TabIndex = 19;
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnDelete, "Delete");
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnFirstPage
+            // 
+            this.btnFirstPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFirstPage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnFirstPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFirstPage.Enabled = false;
+            this.btnFirstPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFirstPage.FlatAppearance.BorderSize = 0;
+            this.btnFirstPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFirstPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnFirstPage.ForeColor = System.Drawing.Color.Black;
+            this.btnFirstPage.Image = global::ABC.CarTraders.Properties.Resources.first_dark_15px;
+            this.btnFirstPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFirstPage.Location = new System.Drawing.Point(380, 385);
+            this.btnFirstPage.Name = "btnFirstPage";
+            this.btnFirstPage.Size = new System.Drawing.Size(25, 25);
+            this.btnFirstPage.TabIndex = 4;
+            this.btnFirstPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnFirstPage, "First Page");
+            this.btnFirstPage.UseVisualStyleBackColor = false;
+            this.btnFirstPage.Click += new System.EventHandler(this.btnFirstPage_Click);
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPreviousPage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreviousPage.Enabled = false;
+            this.btnPreviousPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPreviousPage.FlatAppearance.BorderSize = 0;
+            this.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviousPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPreviousPage.ForeColor = System.Drawing.Color.Black;
+            this.btnPreviousPage.Image = global::ABC.CarTraders.Properties.Resources.previous_dark_15px;
+            this.btnPreviousPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreviousPage.Location = new System.Drawing.Point(405, 385);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Size = new System.Drawing.Size(25, 25);
+            this.btnPreviousPage.TabIndex = 5;
+            this.btnPreviousPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnPreviousPage, "Previous Page");
+            this.btnPreviousPage.UseVisualStyleBackColor = false;
+            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextPage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNextPage.Enabled = false;
+            this.btnNextPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnNextPage.FlatAppearance.BorderSize = 0;
+            this.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNextPage.ForeColor = System.Drawing.Color.Black;
+            this.btnNextPage.Image = global::ABC.CarTraders.Properties.Resources.next_dark_15px;
+            this.btnNextPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNextPage.Location = new System.Drawing.Point(510, 385);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(25, 25);
+            this.btnNextPage.TabIndex = 7;
+            this.btnNextPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnNextPage, "Next Page");
+            this.btnNextPage.UseVisualStyleBackColor = false;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
+            // btnLastPage
+            // 
+            this.btnLastPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLastPage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnLastPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLastPage.Enabled = false;
+            this.btnLastPage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnLastPage.FlatAppearance.BorderSize = 0;
+            this.btnLastPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLastPage.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLastPage.ForeColor = System.Drawing.Color.Black;
+            this.btnLastPage.Image = global::ABC.CarTraders.Properties.Resources.last_dark_15px;
+            this.btnLastPage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLastPage.Location = new System.Drawing.Point(535, 385);
+            this.btnLastPage.Name = "btnLastPage";
+            this.btnLastPage.Size = new System.Drawing.Size(25, 25);
+            this.btnLastPage.TabIndex = 8;
+            this.btnLastPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnLastPage, "Last Page");
+            this.btnLastPage.UseVisualStyleBackColor = false;
+            this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.Image = global::ABC.CarTraders.Properties.Resources.refresh_dark_15px;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(565, 385);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(25, 25);
+            this.btnRefresh.TabIndex = 9;
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnRefresh, "Refresh");
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExport.ForeColor = System.Drawing.Color.Black;
+            this.btnExport.Image = global::ABC.CarTraders.Properties.Resources.grid_view_light_15px;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(570, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(25, 25);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.btnExport, "Export to Excel");
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // colId
             // 
@@ -1535,56 +1459,61 @@
             this.colId.ReadOnly = true;
             this.colId.Visible = false;
             // 
-            // colEMail
+            // colCar
             // 
-            this.colEMail.DataPropertyName = "EMail";
-            this.colEMail.DividerWidth = 1;
-            this.colEMail.Frozen = true;
-            this.colEMail.HeaderText = "E-Mail";
-            this.colEMail.Name = "colEMail";
-            this.colEMail.ReadOnly = true;
-            this.colEMail.Width = 120;
+            this.colCar.DataPropertyName = "Car";
+            this.colCar.DividerWidth = 1;
+            this.colCar.Frozen = true;
+            this.colCar.HeaderText = "Car";
+            this.colCar.Name = "colCar";
+            this.colCar.ReadOnly = true;
             // 
             // colImage
             // 
             this.colImage.DataPropertyName = "Thumbnail";
             this.colImage.DividerWidth = 1;
+            this.colImage.Frozen = true;
             this.colImage.HeaderText = "Image";
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
             // 
-            // colFullName
+            // colPartName
             // 
-            this.colFullName.DataPropertyName = "FullName";
-            this.colFullName.DividerWidth = 1;
-            this.colFullName.HeaderText = "Full Name";
-            this.colFullName.Name = "colFullName";
-            this.colFullName.ReadOnly = true;
-            this.colFullName.Width = 150;
+            this.colPartName.DataPropertyName = "PartName";
+            this.colPartName.DividerWidth = 1;
+            this.colPartName.HeaderText = "Part Name";
+            this.colPartName.Name = "colPartName";
+            this.colPartName.ReadOnly = true;
+            this.colPartName.Width = 120;
             // 
-            // colPhoneNo
+            // colPrice
             // 
-            this.colPhoneNo.DataPropertyName = "PhoneNo";
-            this.colPhoneNo.DividerWidth = 1;
-            this.colPhoneNo.HeaderText = "Phone No";
-            this.colPhoneNo.Name = "colPhoneNo";
-            this.colPhoneNo.ReadOnly = true;
-            this.colPhoneNo.Width = 85;
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPrice.DividerWidth = 1;
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 150;
             // 
-            // colRole
+            // colStock
             // 
-            this.colRole.DataPropertyName = "Role";
-            this.colRole.DividerWidth = 1;
-            this.colRole.HeaderText = "Role";
-            this.colRole.Name = "colRole";
-            this.colRole.ReadOnly = true;
-            this.colRole.Width = 60;
+            this.colStock.DataPropertyName = "Stock";
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.colStock.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colStock.DividerWidth = 1;
+            this.colStock.HeaderText = "Stock";
+            this.colStock.Name = "colStock";
+            this.colStock.ReadOnly = true;
             // 
             // colCreatedDate
             // 
             this.colCreatedDate.DataPropertyName = "CreatedDate";
-            dataGridViewCellStyle2.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colCreatedDate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd - hh:mm tt";
+            this.colCreatedDate.DefaultCellStyle = dataGridViewCellStyle4;
             this.colCreatedDate.DividerWidth = 1;
             this.colCreatedDate.HeaderText = "Created Date";
             this.colCreatedDate.Name = "colCreatedDate";
@@ -1603,8 +1532,8 @@
             // colLastModifiedDate
             // 
             this.colLastModifiedDate.DataPropertyName = "LastModifiedDate";
-            dataGridViewCellStyle3.Format = "yyyy/MM/dd - hh:mm tt";
-            this.colLastModifiedDate.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Format = "yyyy/MM/dd - hh:mm tt";
+            this.colLastModifiedDate.DefaultCellStyle = dataGridViewCellStyle5;
             this.colLastModifiedDate.DividerWidth = 1;
             this.colLastModifiedDate.HeaderText = "Last Modified Date";
             this.colLastModifiedDate.Name = "colLastModifiedDate";
@@ -1629,14 +1558,14 @@
             this.colNotes.ReadOnly = true;
             this.colNotes.Width = 500;
             // 
-            // UserSection
+            // CarPartSection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlSide);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UserSection";
+            this.Name = "CarPartSection";
             this.Size = new System.Drawing.Size(820, 440);
             ((System.ComponentModel.ISupportInitialize)(this.nudPageNumber)).EndInit();
             this.pnlMain.ResumeLayout(false);
@@ -1687,18 +1616,14 @@
             this.pnlFindField.PerformLayout();
             this.pnlFindFieldHolder.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            this.pnlFilter.ResumeLayout(false);
-            this.pnlFilter.PerformLayout();
+            this.pnlSide.ResumeLayout(false);
             this.pnlFilterHolder.ResumeLayout(false);
-            this.pnlFilter2.ResumeLayout(false);
-            this.pnlFilter2.PerformLayout();
-            this.pnlFilter2Holder.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.pnlFilter1.ResumeLayout(false);
             this.pnlFilter1.PerformLayout();
             this.pnlFilter1Holder.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.pnlSide.ResumeLayout(false);
+            this.pnlFilter.ResumeLayout(false);
+            this.pnlFilter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1772,32 +1697,27 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnFindClear;
-        private System.Windows.Forms.Panel pnlFilter;
-        private System.Windows.Forms.Panel pnlFilterHolder;
-        private System.Windows.Forms.Panel pnlFilter2;
-        private System.Windows.Forms.Panel pnlFilter2Holder;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox cboSex;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel pnlFilter1;
-        private System.Windows.Forms.Panel pnlFilter1Holder;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ComboBox cboRole;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblTime;
-        private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.Panel pnlPageIndicator;
         private System.Windows.Forms.Panel pnlPageIndicatorHolder;
         private System.Windows.Forms.Panel pnlNudHolder;
         private System.Windows.Forms.NumericUpDown nudPageNumber;
         private System.Windows.Forms.Label lblPages;
         private System.Windows.Forms.Panel pnlSide;
+        private System.Windows.Forms.Panel pnlFilter;
+        private System.Windows.Forms.Panel pnlFilterHolder;
+        private System.Windows.Forms.Panel pnlFilter1;
+        private System.Windows.Forms.Panel pnlFilter1Holder;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox cboCar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCar;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPartName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreatedUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLastModifiedDate;
