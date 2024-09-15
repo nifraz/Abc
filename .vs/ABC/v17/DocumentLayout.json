@@ -11,12 +11,44 @@
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\carsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\carform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\carform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\enums\\cartype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\enums\\cartype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\carpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\carpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\carform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\carform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\statisticssection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -35,10 +67,6 @@
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\carpartsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\logsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -47,20 +75,8 @@
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\abc.cartraders\\gui\\forms\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\forms\\shoppingcartform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\carpartsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -123,16 +139,8 @@
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\loginsection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\sections\\carpartsection.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\gui\\sections\\carpartsection.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\entities\\carpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|solutionrelative:abc.cartraders\\entities\\carpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6B21CB1-F699-4622-9E48-066E18609833}|Abc.CarTraders\\Abc.CarTraders.csproj|c:\\users\\nifraz navahz\\onedrive\\desktop\\nifraz\\abc\\abc.cartraders\\gui\\forms\\dashboardform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -146,21 +154,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 182,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CarForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAjwCEAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T01:27:54.324Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -169,101 +164,14 @@
               "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
               "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
               "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAArwC4AAAAOAAAA",
+              "ViewState": "AQIAAMUCAAAAAAAAAAAnwNACAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T22:28:03.868Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StatisticsSection.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs [Design]*",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T04:46:31.469Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CarPartSection.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAADgv4QAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T22:49:47.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Helper.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Helper.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Helper.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Helper.cs",
-              "RelativeToolTip": "Abc.CarTraders\\Helper.cs",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAAANwAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T22:44:33.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CarSection.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarSection.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:46:45.858Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ShoppingCartForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAEwH8AAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:36:54.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UserForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T01:30:03.152Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CarPartSection.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:49:52.662Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "ShoppingCartForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
               "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
@@ -272,240 +180,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T00:37:15.019Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CarPartForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "ViewState": "AQIAAKYAAAAAAAAAAAAAAL0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T01:29:33.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\User.cs",
-              "RelativeToolTip": "Abc.CarTraders\\Entities\\User.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAkwAoAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T23:02:55.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "DashboardForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:36:53.241Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CarPartForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T03:47:14.506Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "QuantityForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T02:04:07.985Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "CarForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T01:27:52.403Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "QuantityForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T02:04:22.463Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "UserForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
-              "ViewState": "AQIAAJgAAAAAAAAAAAAWwKsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T01:30:05.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "QuantityForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T02:04:17.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ShoppingCartForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T00:37:08.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Resources.resx",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Properties\\Resources.resx",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Properties\\Resources.resx",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Properties\\Resources.resx",
-              "RelativeToolTip": "Abc.CarTraders\\Properties\\Resources.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-09-15T00:08:07.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "UserSection.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\UserSection.cs [Design]",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T22:27:17.029Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "LoginSection.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
-              "ViewState": "AQIAAOsAAAAAAAAAAAAmwP0AAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:43:38.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "202409142324294_UpdateContext.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
-              "RelativeToolTip": "Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T23:24:33.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "CarPartSection.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
-              "ViewState": "AQIAAKwAAAAAAAAAAADgv6wAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T23:06:05.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "DashboardForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
-              "ViewState": "AQIAABcCAAAAAAAAAADgvysCAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:37:44.003Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 218,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StatisticsSection.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs*",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs*",
-              "ViewState": "AQIAAB0BAAAAAAAAAAAgwPgAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T04:46:56.509Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "DashboardForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
-              "ViewState": "AQIAACgCAAAAAAAAAAAnwDcCAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:37:00.92Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -522,20 +196,419 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShoppingCartForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAjwHYAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T00:36:54.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CarPartSection.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADgv4QAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:49:47.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StatisticsSection.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs [Design]*",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T04:46:31.469Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CarForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAjwCEAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T01:27:54.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Helper.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Helper.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Helper.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Helper.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Helper.cs",
+              "ViewState": "AQIAAL0AAAAAAAAAAAAAANwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:44:33.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "CarSection.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarSection.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarSection.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:46:45.858Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T01:30:03.152Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CarPartSection.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:49:52.662Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CarPartForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "ViewState": "AQIAAKYAAAAAAAAAAAAAAL0AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T01:29:33.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\User.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Entities\\User.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAkwAoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T23:02:55.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DashboardForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:36:53.241Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CarPartForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarPartForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T03:47:14.506Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "QuantityForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T02:04:07.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CarForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\CarForm.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\CarForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T01:27:52.403Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "QuantityForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T02:04:22.463Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UserForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\UserForm.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAWwKsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T01:30:05.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "QuantityForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\QuantityForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T02:04:17.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ShoppingCartForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\ShoppingCartForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T00:37:08.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Resources.resx",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Properties\\Resources.resx",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Properties\\Resources.resx",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Properties\\Resources.resx",
+              "RelativeToolTip": "Abc.CarTraders\\Properties\\Resources.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-09-15T00:08:07.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UserSection.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\UserSection.cs [Design]",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\UserSection.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:27:17.029Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "LoginSection.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\LoginSection.cs",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAmwP0AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:43:38.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "202409142324294_UpdateContext.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Migrations\\202409142324294_UpdateContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T23:24:33.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CarPartSection.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\CarPartSection.Designer.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAADgv6wAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T23:06:05.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DashboardForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.Designer.cs",
+              "ViewState": "AQIAABcCAAAAAAAAAADgvysCAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:37:44.003Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 218,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\Order.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Order.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Entities\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T06:18:57.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StatisticsSection.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs*",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\StatisticsSection.cs*",
+              "ViewState": "AQIAABoCAAAAAAAAAAAcwC0CAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T04:46:56.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\OrderItem.cs",
               "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\OrderItem.cs",
               "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\OrderItem.cs",
               "RelativeToolTip": "Abc.CarTraders\\Entities\\OrderItem.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAAACIAAAA7AAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T23:05:04.127Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Car.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\Car.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Car.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Entities\\Car.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAADAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:55:18.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LogSection.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAAIIAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T04:09:19.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\AppDbContext.cs",
+              "RelativeToolTip": "Abc.CarTraders\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T06:21:29.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CarPart.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\CarPart.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\CarPart.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\CarPart.cs",
+              "RelativeToolTip": "Abc.CarTraders\\Entities\\CarPart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:23:42.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DashboardForm.cs",
+              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "RelativeToolTip": "Abc.CarTraders\\GUI\\Forms\\DashboardForm.cs",
+              "ViewState": "AQIAACgCAAAAAAAAAAAnwDcCAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:37:00.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "LogSection.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
               "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
@@ -544,45 +617,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-15T04:21:38.238Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LogSection.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
-              "RelativeToolTip": "Abc.CarTraders\\GUI\\Sections\\LogSection.cs",
-              "ViewState": "AQIAAHQAAAAAAAAAAAAAAH8AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T04:09:19.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Car.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\Car.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\Car.cs",
-              "RelativeToolTip": "Abc.CarTraders\\Entities\\Car.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T21:55:18.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CarPart.cs",
-              "DocumentMoniker": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\CarPart.cs",
-              "RelativeDocumentMoniker": "Abc.CarTraders\\Entities\\CarPart.cs",
-              "ToolTip": "C:\\Users\\Nifraz Navahz\\OneDrive\\Desktop\\nifraz\\Abc\\Abc.CarTraders\\Entities\\CarPart.cs",
-              "RelativeToolTip": "Abc.CarTraders\\Entities\\CarPart.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T22:23:42.354Z",
-              "EditorCaption": ""
             }
           ]
         }

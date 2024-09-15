@@ -115,6 +115,8 @@ namespace ABC.CarTraders.GUI.Forms
                 x.CarPart = null;
                 x.CreatedUser = null;
             });
+            newRecord.TotalPrice = newRecord.OrderItems
+                .Sum(x => x.TotalPrice);
 
             if (Overwrite)
             {

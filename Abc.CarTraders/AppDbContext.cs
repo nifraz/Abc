@@ -10,6 +10,7 @@ namespace ABC.CarTraders
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarPart> CarParts { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
         public AppDbContext() : base("name=AppDbContext")

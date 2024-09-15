@@ -265,6 +265,14 @@ namespace ABC.CarTraders.GUI.Sections
             pnlTotalsChartHolder.Controls.Add(pieChart1); // Re-add the chart
         }
 
+        private Dictionary<string, System.Windows.Media.Color> carTypeColors = new Dictionary<string, System.Windows.Media.Color>
+        {
+            { "SUV", System.Windows.Media.Colors.Blue },
+            { "Sedan", System.Windows.Media.Colors.Green },
+            { "Truck", System.Windows.Media.Colors.Red },
+            { "Convertible", System.Windows.Media.Colors.Orange },
+            { "Coupe", System.Windows.Media.Colors.Purple }
+        };
 
         private void DrawPerformanceChartByType()
         {
@@ -273,15 +281,17 @@ namespace ABC.CarTraders.GUI.Sections
             // Add a line series for each car type
             foreach (var type in carTypes)
             {
+                if (!carTypeColors.ContainsKey(type)) continue; // Skip if the type doesn't have a defined color
+
                 var lineSeries = new LineSeries
                 {
                     Title = type,
                     Foreground = System.Windows.Media.Brushes.Black,
-                    Stroke = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.DarkGray),
+                    Stroke = new System.Windows.Media.SolidColorBrush(carTypeColors[type]),  // Use the color from the dictionary
                     StrokeThickness = 2,
-                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Gray)
+                    Fill = new System.Windows.Media.SolidColorBrush(carTypeColors[type])   // Fill with the same color (with transparency)
                     {
-                        Opacity = 0.2
+                        Opacity = 0.2  // Set the transparency for the fill color
                     },
                     DataLabels = true,
                     Values = new ChartValues<int>() // Add your data here
@@ -300,13 +310,15 @@ namespace ABC.CarTraders.GUI.Sections
             // Add a PieSeries for each car type
             foreach (var type in carTypes)
             {
+                if (!carTypeColors.ContainsKey(type)) continue; // Skip if the type doesn't have a defined color
+
                 var pieSeries = new PieSeries
                 {
                     Title = type,
                     DataLabels = true,
-                    Fill = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Gray)
+                    Fill = new System.Windows.Media.SolidColorBrush(carTypeColors[type]) // Use the color from the dictionary
                     {
-                        Opacity = 0.75
+                        Opacity = 0.75 // Set the opacity for the Pie chart fill
                     },
                     Foreground = System.Windows.Media.Brushes.Black,
                     FontSize = 9,
@@ -317,6 +329,7 @@ namespace ABC.CarTraders.GUI.Sections
                 pieChart1.Series.Add(pieSeries);
             }
         }
+
 
         #endregion
 
@@ -527,6 +540,7 @@ namespace ABC.CarTraders.GUI.Sections
         {
             if (DbContext == null) return;
 
+            StartProgress("Refreshing...");
             // Check whether Color or Type is selected
             if (rdoColor.Checked)
             {
@@ -540,20 +554,60 @@ namespace ABC.CarTraders.GUI.Sections
                 await RefreshPerformanceAsyncByType();
                 await RefreshTotalsAsyncByType();
             }
+            StopProgress();
+            StatusText = $"Ready";
 
             // Reapply the color scheme after refreshing the data
             HomeSection_ColorSchemeChanged(this, ColorScheme);
         }
 
+
         private async Task RefreshPerformanceAsyncByColor()
         {
-            // Example: Fetch color-based performance data from the database (dummy data for now)
-            var blackValues = new ChartValues<int> { 10, 20, 30 }; // Replace with actual data fetching
-            var whiteValues = new ChartValues<int> { 15, 25, 35 };
-            var blueValues = new ChartValues<int> { 5, 10, 15 };
-            var greenValues = new ChartValues<int> { 8, 12, 18 };
-            var yellowValues = new ChartValues<int> { 6, 14, 19 };
-            var redValues = new ChartValues<int> { 13, 17, 21 };
+            // Check if yearly or monthly data is selected
+            bool isYearly = rdoYearly.Checked;
+
+            var carColorData = await DbContext.OrderItems
+                .Include(oi => oi.Car)
+                .Where(oi => oi.Car != null)
+                .GroupBy(oi => isYearly
+                    ? oi.Order.CreatedDate.Year  // Group by year
+                    : oi.Order.CreatedDate.Month) // Group by month
+                .Select(group => new
+                {
+                    Key = group.Key,  // Either year or month
+                    ColorGroups = group
+                        .GroupBy(oi => oi.Car.Color)
+                        .Select(subGroup => new
+                        {
+                            Color = subGroup.Key,
+                            TotalSales = subGroup.Sum(oi => oi.Quantity)
+                        })
+                })
+                .ToListAsync();
+
+            // Populate data for each color
+            var blackValues = new ChartValues<int>();
+            var whiteValues = new ChartValues<int>();
+            var blueValues = new ChartValues<int>();
+            var greenValues = new ChartValues<int>();
+            var yellowValues = new ChartValues<int>();
+            var redValues = new ChartValues<int>();
+
+            // X-axis labels for either years or months
+            var labels = new List<string>();
+
+            foreach (var data in carColorData)
+            {
+                labels.Add(isYearly ? data.Key.ToString() : GetMonthName(data.Key));  // Year or Month Name
+
+                blackValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "Black")?.TotalSales ?? 0);
+                whiteValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "White")?.TotalSales ?? 0);
+                blueValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "Blue")?.TotalSales ?? 0);
+                greenValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "Green")?.TotalSales ?? 0);
+                yellowValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "Yellow")?.TotalSales ?? 0);
+                redValues.Add(data.ColorGroups.FirstOrDefault(c => c.Color == "Red")?.TotalSales ?? 0);
+            }
 
             // Update chart values for each color
             cartesianChart1.Series[0].Values = blackValues;
@@ -562,16 +616,55 @@ namespace ABC.CarTraders.GUI.Sections
             cartesianChart1.Series[3].Values = greenValues;
             cartesianChart1.Series[4].Values = yellowValues;
             cartesianChart1.Series[5].Values = redValues;
+
+            // Update X-axis labels (years or months)
+            cartesianChart1.AxisX[0].Labels = labels;
         }
 
         private async Task RefreshPerformanceAsyncByType()
         {
-            // Example: Fetch type-based performance data from the database (dummy data for now)
-            var suvValues = new ChartValues<int> { 10, 30, 40 }; // Replace with actual data fetching
-            var sedanValues = new ChartValues<int> { 20, 40, 60 };
-            var truckValues = new ChartValues<int> { 15, 25, 35 };
-            var convertibleValues = new ChartValues<int> { 18, 28, 38 };
-            var coupeValues = new ChartValues<int> { 12, 22, 32 };
+            // Check if yearly or monthly data is selected
+            bool isYearly = rdoYearly.Checked;
+
+            var carTypeData = await DbContext.OrderItems
+                .Include(oi => oi.Car)
+                .Where(oi => oi.Car != null)
+                .GroupBy(oi => isYearly
+                    ? oi.Order.CreatedDate.Year  // Group by year
+                    : oi.Order.CreatedDate.Month) // Group by month
+                .Select(group => new
+                {
+                    Key = group.Key,  // Either year or month
+                    TypeGroups = group
+                        .GroupBy(oi => oi.Car.Type)
+                        .Select(subGroup => new
+                        {
+                            Type = subGroup.Key,
+                            TotalSales = subGroup.Sum(oi => oi.Quantity)
+                        })
+                })
+                .ToListAsync();
+
+            // Populate data for each type
+            var suvValues = new ChartValues<int>();
+            var sedanValues = new ChartValues<int>();
+            var truckValues = new ChartValues<int>();
+            var convertibleValues = new ChartValues<int>();
+            var coupeValues = new ChartValues<int>();
+
+            // X-axis labels for either years or months
+            var labels = new List<string>();
+
+            foreach (var data in carTypeData)
+            {
+                labels.Add(isYearly ? data.Key.ToString() : GetMonthName(data.Key));  // Year or Month Name
+
+                suvValues.Add(data.TypeGroups.FirstOrDefault(c => c.Type == CarType.SUV)?.TotalSales ?? 0);
+                sedanValues.Add(data.TypeGroups.FirstOrDefault(c => c.Type == CarType.Sedan)?.TotalSales ?? 0);
+                truckValues.Add(data.TypeGroups.FirstOrDefault(c => c.Type == CarType.Truck)?.TotalSales ?? 0);
+                convertibleValues.Add(data.TypeGroups.FirstOrDefault(c => c.Type == CarType.Convertible)?.TotalSales ?? 0);
+                coupeValues.Add(data.TypeGroups.FirstOrDefault(c => c.Type == CarType.Coupe)?.TotalSales ?? 0);
+            }
 
             // Update chart values for each type
             cartesianChart1.Series[0].Values = suvValues;
@@ -579,49 +672,70 @@ namespace ABC.CarTraders.GUI.Sections
             cartesianChart1.Series[2].Values = truckValues;
             cartesianChart1.Series[3].Values = convertibleValues;
             cartesianChart1.Series[4].Values = coupeValues;
+
+            // Update X-axis labels (years or months)
+            cartesianChart1.AxisX[0].Labels = labels;
         }
+
 
         private async Task RefreshTotalsAsyncByColor()
         {
-            // Simulate a delay to mimic data fetching
-            await Task.Delay(500);
+            var carColorSalesData = await DbContext.OrderItems
+                .Include(oi => oi.Car)
+                .Where(oi => oi.Car != null)
+                .GroupBy(oi => oi.Car.Color)
+                .Select(group => new
+                {
+                    Color = group.Key,
+                    TotalSales = group.Sum(oi => oi.TotalPrice)
+                })
+                .ToListAsync();
 
-            // Dummy data for car colors' sales
-            var blackSales = 50;
-            var whiteSales = 70;
-            var blueSales = 30;
-            var greenSales = 40;
-            var yellowSales = 20;
-            var redSales = 60;
+            // Prepare the pie chart values
+            var blackSales = carColorSalesData.FirstOrDefault(c => c.Color == "Black")?.TotalSales ?? 0;
+            var whiteSales = carColorSalesData.FirstOrDefault(c => c.Color == "White")?.TotalSales ?? 0;
+            var blueSales = carColorSalesData.FirstOrDefault(c => c.Color == "Blue")?.TotalSales ?? 0;
+            var greenSales = carColorSalesData.FirstOrDefault(c => c.Color == "Green")?.TotalSales ?? 0;
+            var yellowSales = carColorSalesData.FirstOrDefault(c => c.Color == "Yellow")?.TotalSales ?? 0;
+            var redSales = carColorSalesData.FirstOrDefault(c => c.Color == "Red")?.TotalSales ?? 0;
 
             // Update PieChart with color-based sales
-            pieChart1.Series[0].Values = new ChartValues<int> { blackSales };  // Black
-            pieChart1.Series[1].Values = new ChartValues<int> { whiteSales };  // White
-            pieChart1.Series[2].Values = new ChartValues<int> { blueSales };   // Blue
-            pieChart1.Series[3].Values = new ChartValues<int> { greenSales };  // Green
-            pieChart1.Series[4].Values = new ChartValues<int> { yellowSales }; // Yellow
-            pieChart1.Series[5].Values = new ChartValues<int> { redSales };    // Red
+            pieChart1.Series[0].Values = new ChartValues<decimal> { blackSales };
+            pieChart1.Series[1].Values = new ChartValues<decimal> { whiteSales };
+            pieChart1.Series[2].Values = new ChartValues<decimal> { blueSales };
+            pieChart1.Series[3].Values = new ChartValues<decimal> { greenSales };
+            pieChart1.Series[4].Values = new ChartValues<decimal> { yellowSales };
+            pieChart1.Series[5].Values = new ChartValues<decimal> { redSales };
         }
 
         private async Task RefreshTotalsAsyncByType()
         {
-            // Simulate a delay to mimic data fetching
-            await Task.Delay(500);
+            var carTypeSalesData = await DbContext.OrderItems
+                .Include(oi => oi.Car)
+                .Where(oi => oi.Car != null)
+                .GroupBy(oi => oi.Car.Type)
+                .Select(group => new
+                {
+                    Type = group.Key,
+                    TotalSales = group.Sum(oi => oi.TotalPrice)
+                })
+                .ToListAsync();
 
-            // Dummy data for car types' sales
-            var suvSales = 100;
-            var sedanSales = 80;
-            var truckSales = 60;
-            var convertibleSales = 40;
-            var coupeSales = 90;
+            // Prepare the pie chart values
+            var suvSales = carTypeSalesData.FirstOrDefault(c => c.Type == CarType.SUV)?.TotalSales ?? 0;
+            var sedanSales = carTypeSalesData.FirstOrDefault(c => c.Type == CarType.Sedan)?.TotalSales ?? 0;
+            var truckSales = carTypeSalesData.FirstOrDefault(c => c.Type == CarType.Truck)?.TotalSales ?? 0;
+            var convertibleSales = carTypeSalesData.FirstOrDefault(c => c.Type == CarType.Convertible)?.TotalSales ?? 0;
+            var coupeSales = carTypeSalesData.FirstOrDefault(c => c.Type == CarType.Coupe)?.TotalSales ?? 0;
 
             // Update PieChart with type-based sales
-            pieChart1.Series[0].Values = new ChartValues<int> { suvSales };        // SUV
-            pieChart1.Series[1].Values = new ChartValues<int> { sedanSales };      // Sedan
-            pieChart1.Series[2].Values = new ChartValues<int> { truckSales };      // Truck
-            pieChart1.Series[3].Values = new ChartValues<int> { convertibleSales };// Convertible
-            pieChart1.Series[4].Values = new ChartValues<int> { coupeSales };      // Coupe
+            pieChart1.Series[0].Values = new ChartValues<decimal> { suvSales };
+            pieChart1.Series[1].Values = new ChartValues<decimal> { sedanSales };
+            pieChart1.Series[2].Values = new ChartValues<decimal> { truckSales };
+            pieChart1.Series[3].Values = new ChartValues<decimal> { convertibleSales };
+            pieChart1.Series[4].Values = new ChartValues<decimal> { coupeSales };
         }
+
 
         #endregion
 
@@ -698,20 +812,19 @@ namespace ABC.CarTraders.GUI.Sections
                 await RefreshAsync(); // Fetch and apply type-based statistics
             }
         }
-
         private async void rdoYearly_CheckedChanged(object sender, EventArgs e)
         {
             if (rdoYearly.Checked)
             {
+                SetupXAxis();
                 if (rdoColor.Checked)
                 {
-                    DrawPerformanceChartByColor();  // Re-draw based on yearly data
+                    await RefreshPerformanceAsyncByColor();
                 }
                 else if (rdoType.Checked)
                 {
-                    DrawPerformanceChartByType();  // Re-draw based on yearly data
+                    await RefreshPerformanceAsyncByType();
                 }
-                await RefreshAsync(); // Fetch and apply yearly data
             }
         }
 
@@ -719,16 +832,33 @@ namespace ABC.CarTraders.GUI.Sections
         {
             if (rdoMonthly.Checked)
             {
+                SetupXAxis();
                 if (rdoColor.Checked)
                 {
-                    DrawPerformanceChartByColor();  // Re-draw based on monthly data
+                    await RefreshPerformanceAsyncByColor();
                 }
                 else if (rdoType.Checked)
                 {
-                    DrawPerformanceChartByType();  // Re-draw based on monthly data
+                    await RefreshPerformanceAsyncByType();
                 }
-                await RefreshAsync(); // Fetch and apply monthly data
             }
+        }
+
+        private void SetupXAxis()
+        {
+            if (rdoYearly.Checked)
+            {
+                cartesianChart1.AxisX[0].Title = "Year";
+            }
+            else if (rdoMonthly.Checked)
+            {
+                cartesianChart1.AxisX[0].Title = "Month";
+            }
+        }
+
+        private string GetMonthName(int month)
+        {
+            return new DateTime(1, month, 1).ToString("MMM");
         }
 
 
